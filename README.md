@@ -1,5 +1,7 @@
 ###What is it?
+
 A Configuration files for Vim and Bash this configuration work on Mac Os X and Linux
+
 ### Dependencies
 
 * Vim
@@ -16,6 +18,16 @@ A Configuration files for Vim and Bash this configuration work on Mac Os X and L
 **Homebrew:** [http://brew.sh/](http://brew.sh/)
 
     $ brew install python vim tmux git
+
+### How to install
+
+    $ git clone https://github.com/kevinrobayna/config_workstation.git
+
+    $ cd config_workstation
+
+    $ chmod 700 setup.sh
+
+    $ ./setup.sh
 
 ###What plugins are included?
 
