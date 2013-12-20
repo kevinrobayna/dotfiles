@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/alu4453/datos/homes.rala/perfil-ubuntu12.04/.bash_scripts'
-let g:netrw_dirhist_2='/home/alu4453/datos/homes.rala/perfil-ubuntu12.04/.ipython'
-let g:netrw_dirhist_3='/home/alu4453/datos/homes.rala/perfil-ubuntu12.04/.ipython/profile_default'
-let g:netrw_dirhist_4='/home/alu4453/datos/homes.rala/perfil-ubuntu12.04/.vim'
-let g:netrw_dirhist_5='/home/alu4453/datos/homes.rala/perfil-ubuntu12.04/.vim/bundle'
-let g:netrw_dirhist_6='/home/alu4453/datos/homes.rala/perfil-ubuntu12.04/.vim/bundle/ctrlp'
-let g:netrw_dirhist_7='/home/alu4453/datos/homes.rala/perfil-ubuntu12.04/.vim/bundle/ctrlp/autoload'
