@@ -19,6 +19,14 @@ A Configuration files for Vim and Bash this configuration work on Mac Os X and L
 
     $ brew install python vim tmux git
 
+#### Override System Python:
+    
+    $ cd /System/Library/Frameworks/Python.framework/Versions
+
+    $ sudo mv Current Current.bak
+
+    $ sudo ln -s /usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7 Current
+
 ### How to install
 
     $ git clone https://github.com/kevinrobayna/config_workstation.git
