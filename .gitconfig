@@ -1,0 +1,17 @@
+# .gitconfig
+#  Original by Alan Christopher Thomas  - http://alanct.com/                             
+#  Modified by Kevin Robayna - http://kevinrobayna.eu 
+
+[user]
+    name = Kevin Robayna
+    email = k3vinaso@gmail.com
+[color]
+    ui = true
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[alias]
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph
+[core]
+    excludesfile = ~/.gitignore
