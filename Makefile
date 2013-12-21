@@ -22,6 +22,8 @@ endef
 
 # Initialize environment on Linux
 linux:
+	git submodule init
+	git submodule update
 	$(call backup)
 	ln -s `pwd`/.bash_scripts ~/.bash_scripts
 	mkdir -p ~/.config
@@ -39,9 +41,10 @@ linux:
 
 # Initialize environment on Mac
 mac:
+	git submodule init
+	git submodule update
 	$(call backup)
 	ln -s `pwd`/.bash_scripts ~/.bash_scripts
-	mkdir -p ~/.config
 	ln -s `pwd`/.ipython ~/.ipython
 	ln -s `pwd`/.vim ~/.vim
 	ln -s `pwd`/.bash_aliases ~/.bash_aliases
@@ -64,5 +67,4 @@ deps:
 # Remove backup files
 rm-backup:
 	find ~ -name '*.backup' -delete
-
 
