@@ -60,3 +60,9 @@ deps:
 	easy_install ipython
 	easy_install flake8
 	pip install virtualenvwrapper
+
+# Remove backup files
+rm-backup:
+	find ~ -name '*.backup' -delete
+
+

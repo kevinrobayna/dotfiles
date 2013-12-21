@@ -25,9 +25,13 @@ A Configuration files for Vim and Bash this configuration work on Mac Os X and L
 
     $ cd config_workstation
 
-    $ chmod 700 setup.sh
+    $ make deps #Optional
 
-    $ ./setup.sh
+    $ make mac or make linux
+
+### How to Remove Backup files
+    
+    $ make rm-backup
 
 ###What plugins are included?
 
