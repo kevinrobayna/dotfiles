@@ -1,47 +1,15 @@
-###What is it?
+Hi,
 
-A Configuration files for Vim and Bash this configuration work on Mac Os X and Linux
+This is my public dotfiles. They might not work for you, but feel free to take something.
 
-### Dependencies
+You should follow my [How to install](https://github.com/kevinrobayna/dotfiles/blob/master/HowToInstall) if you want copy my dotfiles but you should start your own dotfiles configuration 
 
-* Vim
-* Tmux
-* Git
-* Python
+This is what it looks like:
 
-### Ubuntu
+  [Terminal](http://kevinrobayna.eu/~kevinrobayna/myterm.png)
+  [Vim](http://kevinrobayna.eu/~kevinrobayna/myvim.png)
 
-    $ apt-get install vim-nox tmux git python python-dev python-setuptools
-
-### Mac OS X
-
-**Homebrew:** [http://brew.sh/](http://brew.sh/)
-
-    $ brew install python vim tmux git
-
-#### Override System Python:
-    
-    $ cd /System/Library/Frameworks/Python.framework/Versions
-
-    $ sudo mv Current Current.bak
-
-    $ sudo ln -s /usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7 Current
-
-### How to install
-
-    $ git clone https://github.com/kevinrobayna/dotfiles.git
-
-    $ cd dotfiles/
-
-    $ make deps #Optional
-
-    $ make mac or make linux
-
-### How to Remove Backup files
-    
-    $ make rm-backup
-
-###What plugins are included?
+####List of plugins that are included
 
 * [pathogen.vim](https://github.com/tpope/vim-pathogen): Manages the runtime path of the plugins
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim):
@@ -64,4 +32,3 @@ A Configuration files for Vim and Bash this configuration work on Mac Os X and L
 * [ctrlp.vim](https://github.com/kien/ctrlp.vim): Fuzzy file, buffer, mru and tag finder. In my config it's mapped to `<Ctrl+F>`, because `<Ctrl+P>` is used by YankRing
 * [vim-airline](https://github.com/bling/vim-airline): Lean & mean status/tabline for vim that's light as air (replacing powerline)
 * [vim-fugitive](https://github.com/tpope/vim-fugitive): A Git wrapper so awesome, it should be illegal
-

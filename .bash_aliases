@@ -1,6 +1,5 @@
 # .bash_aliases
-#  Original by Alan Christopher Thomas  - http://alanct.com/                             
-#  Modified by Kevin Robayna - http://kevinrobayna.eu 
+#  Original by Kevin Robayna - http://kevinrobayna.eu
 
 # ls aliases
 alias ls='ls -G'
