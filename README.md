@@ -29,9 +29,9 @@ A Configuration files for Vim and Bash this configuration work on Mac Os X and L
 
 ### How to install
 
-    $ git clone https://github.com/kevinrobayna/config_workstation.git
+    $ git clone https://github.com/kevinrobayna/dotfiles.git
 
-    $ cd config_workstation
+    $ cd dotfiles/
 
     $ make deps #Optional
 
