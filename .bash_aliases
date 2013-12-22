@@ -9,9 +9,9 @@ alias la='ls -A'
 
 # git aliases
 alias gs='git status'
-alias ga='git add'
+alias ga='git add -A'
 alias gb='git branch'
-alias gc='git commit'
+alias gc='git commit -m'
 alias gd='git diff --color'
 alias gt='git difftool'
 alias gco='git checkout'
@@ -32,7 +32,10 @@ alias ta='tmux -2 attach-session -t'
 alias tl='tmux list-sessions'
 
 # ssh aliases
-alias dv='ssh alan@dv.alanct.com'
+alias dv='ssh alu4453@exthost.etsii.ull.es'
+alias dv2='ssh alu4453@exthost2.etsii.ull.es'
+alias df='sftp alu4453@exthost.etsii.ull.es'
+alias df2='sftp alu4453@exthost2.etsii.ull.es'
 
 # python shorthand
 alias py='python'
