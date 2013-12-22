@@ -51,8 +51,12 @@ A Configuration files for Vim and Bash this configuration work on Mac Os X and L
 * [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils):
 * [vim-snippets](https://github.com/honza/vim-snippets): 
 * [python-mode](https://github.com/klen/python-mode): 
-* [handlebars](https://github.com/nono/vim-handlebars):
-* [jinja2](https://github.com/Glench/Vim-Jinja2-Syntax):
+* [handlebars](https://github.com/mustache/vim-mustache-handlebars):
+* [jinja2](https://github.com/mitsuhiko/jinja2):
+* [vim-css](https://github.com/JulesWang/css.vim):
+* [vim-ruby](https://github.com/vim-ruby/vim-ruby):
+* [vim-html](https://github.com/othree/html5.vim):
+* [vim-javascript](https://github.com/pangloss/vim-javascript):
 * [vim-less](https://github.com/groenewege/vim-less):
 * [vim-colorschemes](https://github.com/flazz/vim-colorschemes): 
 * [vim-golang](https://github.com/jnwhiteh/vim-golang):

@@ -13,6 +13,12 @@
     prompt = false
 [alias]
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph
+    st = status -sb
+    ci = commit -m
+    co = checkout
+    br = branch
+    unci = reset --hard HEAD~1
+    uncommit = reset --hard HEAD~1
 [core]
     excludesfile = ~/.gitignore
 [push]

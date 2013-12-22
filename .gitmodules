@@ -46,3 +46,15 @@
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-css"]
+	path = .vim/bundle/vim-css
+	url = https://github.com/JulesWang/css.vim.git
+[submodule ".vim/bundle/vim-html"]
+	path = .vim/bundle/vim-html
+	url = https://github.com/othree/html5.vim.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-ruby"]
+	path = .vim/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
