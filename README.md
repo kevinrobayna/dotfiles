@@ -1,13 +1,14 @@
-Hi,
+
+Hi, 
 
 This is my public dotfiles. They might not work for you, but feel free to take something.
 
-You should follow my [How to install](https://github.com/kevinrobayna/dotfiles/blob/master/HowToInstall) if you want copy my dotfiles but you should start your own dotfiles configuration 
+You should follow my [How to install](https://github.com/kevinrobayna/dotfiles/blob/master/HowToInstall.md) if you want copy my dotfiles but you should start your own dotfiles configuration 
 
 This is what it looks like:
 
-  [Terminal](http://kevinrobayna.eu/~kevinrobayna/myterm.png)
-  [Vim](http://kevinrobayna.eu/~kevinrobayna/myvim.png)
+* [Terminal](http://kevinrobayna.eu/~kevinrobayna/myterm.png)
+* [Vim](http://kevinrobayna.eu/~kevinrobayna/myvim.png)
 
 ####List of plugins that are included
 
