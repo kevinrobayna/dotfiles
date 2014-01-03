@@ -1,6 +1,5 @@
 " .vimrc 
-" Original by Alan Christopher Thomas  - http://alanct.com/                             
-" Modified by Kevin Robayna - http://kevinrobayna.eu http://alanct.com/
+" Original by Kevin Robayna - http://kevinrobayna.eu http://alanct.com/
 
 
 " """"""""""""""""""""""""""""""""""""""""""""""""
