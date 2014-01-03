@@ -20,5 +20,10 @@
     uncommit = reset --hard HEAD~1
 [core]
     excludesfile = ~/.gitignore
+
+[credential]
+    helper = cache
 [push]
-	default = simple
+    default = matching
+[branch]
+    autosetuprebase = always 

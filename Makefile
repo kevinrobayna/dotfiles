@@ -34,8 +34,8 @@ linux:
 	ln -s `pwd`/.bash_profile ~/.bash_profile
 	ln -s `pwd`/.bash_prompt ~/.bash_prompt
 	ln -s `pwd`/.bashrc ~/.bashrc
-	ln -s `pwd`/.gitconfig-global ~/.gitconfig
-	ln -s `pwd`/.gitignore-global ~/.gitignore
+	ln -s `pwd`/.gitconfig-dummy ~/.gitconfig
+	ln -s `pwd`/.gitignore-dummy ~/.gitignore
 	ln -s `pwd`/.tmux.conf ~/.tmux.conf
 	ln -s `pwd`/.vimrc ~/.vimrc
 

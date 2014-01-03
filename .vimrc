@@ -6,6 +6,11 @@
 " """"""""""""""""""""""""""""""""""""""""""""""""
 " =============== General Settings ===============
 
+" Title
+set title
+set titleold="Terminal"
+set titlestring=%F
+
 " Set Number
 set number
 
@@ -81,6 +86,15 @@ set pastetoggle=<Leader>p
 " Ctrl-P rebinding
 map <Leader>f :CtrlP<CR>
 
+" map :W to :w
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
+" Open NERDTree with Ctrl-s
+map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
+
 " """"""""""""""""""""""""""""""""""""""""""""""""
 " =============== Plugin Settings ================
 
@@ -112,6 +126,59 @@ let g:airline_right_sep=''
 
 " Set airline theme
 let g:airline_theme='powerlineish'
+
+" Ruby support
+" ------------
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+" CSS support
+" -----------
+autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType css setlocal commentstring=/*\ %s\ */
+autocmd FileType css noremap <buffer> <leader>r :call CSSBeautify()<cr>
+
+" Java support
+" ------------
+autocmd FileType java setlocal shiftwidth=2 tabstop=8 softtabstop=2 expandtab
+autocmd FileType java setlocal commentstring=//\ %s
+
+" C# support
+" -----------
+autocmd FileType cs setlocal tabstop=8 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cs setlocal commentstring=//\ %s
+
+" C/Object-C/C++ support
+" ----------------------
+autocmd FileType c setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cpp setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType objc setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType c setlocal commentstring=/*\ %s\ */
+autocmd FileType cpp,objc setlocal commentstring=//\ %s
+let c_no_curly_error=1
+let g:syntastic_cpp_include_dirs = ['include', '../include']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_c_include_dirs = ['include', '../include']
+let g:syntastic_c_compiler = 'clang'
+
+" JavaScript support
+" ------------------
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd BufNewFile,BufRead *.json setlocal ft=javascript
+autocmd FileType javascript setlocal commentstring=//\ %s
+autocmd FileType javascript noremap <buffer> <leader>r :call JsBeautify()<cr>
+autocmd FileType javascript let b:javascript_fold = 0
+let javascript_enable_domhtmlcss=1
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_jshint_args='--config ~/.vim/extern-cfg/jshint.json'
+
+" CMake support
+" -------------
+autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
+
+" YAML support
+" ------------
+autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+autocmd BufNewFile,BufRead *.sls setlocal ft=yaml
 
 " """"""""""""""""""""""""""""""""""""""""""""""""
 " ==================== Colors ====================
