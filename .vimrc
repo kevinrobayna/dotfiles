@@ -58,8 +58,9 @@ set wildignore+=*.pyc
 " """"""""""""""""""""""""""""""""""""""""""""""""
 " ============= Custom Key Bindings ==============
 
-" Use comma as leader
-let mapleader = ','
+" Sets leader to "," and localleader to "\"
+let mapleader=","
+let maplocalleader="\\"
 
 " Remap new tab
 nmap <Leader>t <Esc>:tabnew<CR>
@@ -100,31 +101,61 @@ map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
 " Use pathogen for plugins
 execute pathogen#infect()
 
-" Use syntastic for flake8
-let g:syntastic_check_on_open=1
-let g:syntastic_python_checkers=['flake8']
+" NerdTree support
+" ----------------
+let NERDTreeShowHidden=1
 
-" Prevent run code plugin loading
-let g:pymode_run = 0
+" open a NERDTree when vim starts up
+autocmd vimenter * NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Prevent pylint plugin loading
-let g:pymode_lint = 0
+" CTRLP support
+let g:ctrlp_map = '<Leader>o'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_match_window = 'bottom,order:top,min:1,max:20'
+nnoremap <leader><tab> :CtrlPMRU<CR>
 
-" Disable python folding
-let g:pymode_folding = 0
+" python support
+" --------------
+" don't highlight exceptions and builtins. I love to override them in local
+" scopes and it sucks ass if it's highlighted then. And for exceptions I
+" don't really want to have different colors for my own exceptions ;-)
 
-" Disable default pymode python options
-let g:pymode_options = 0
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
+            \ formatoptions=croqj softtabstop=4 textwidth=74 comments=:#\:,:#
+let python_highlight_all=1
+let python_highlight_exceptions=0
+let python_highlight_builtins=0
+let python_slow_sync=1
 
-" Show status line for single windows
-set laststatus=2
+let g:syntastic_python_checkers=['flake8', 'python']
 
-" Disable airline separators
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+" Don't warn on
+" E121 continuation line indentation is not a multiple of four
+" E128 continuation line under-indented for visual indent
+" E711 comparison to None should be 'if cond is not None:'
+" E301 expected 1 blank line, found 0
+" E261 at least two spaces before inline comment
+" E241 multiple spaces after ':'
+" E124 closing bracket does not match visual indentation
+" E126 continuation line over-indented for hanging indent
+" E721 do not compare types, use 'isinstance()'
 
-" Set airline theme
-let g:airline_theme='powerlineish'
+let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721
+            \ --max-line-length=84'
+" Airline
+if has("gui_running")
+    let g:airline_theme='tomorrow'
+    let g:airline_powerline_fonts=1
+else
+    let g:airline_powerline_fonts=0
+endif
+let g:airline#extensions#whitespace#checks = []
+let g:airline_section_y = airline#section#create_right(['%{printf("%s%s",&fenc,&ff!="unix"?":".&ff:"")}'])
+let g:airline_section_z = airline#section#create_right(['%3l:%2c'])
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#ctrlp#color_template = 'replace'
 
 " Ruby support
 " ------------
@@ -184,7 +215,10 @@ autocmd BufNewFile,BufRead *.sls setlocal ft=yaml
 
 " Use syntax highlighting and color scheme
 syntax enable
-colorscheme lodestone
+
+if has("gui_running")
+    colorscheme fruity
+endif
 
 " Use 256 colors in color schemes
 set t_Co=256
