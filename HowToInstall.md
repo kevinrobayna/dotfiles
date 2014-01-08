@@ -5,7 +5,7 @@
 * Git
 * Python
 
-### Ubuntu
+### Linux
 
     $ apt-get install vim-nox tmux git python python-dev python-setuptools
 
@@ -31,7 +31,9 @@
 
     $ make deps #Optional
 
-    $ make mac or make linux
+           [ mac #setup for mac enviroment
+    $ make | linux #setup for common linux enviroment
+           [ cc #setup for cc of ULL
 
 ### How to Remove Backup files
     
