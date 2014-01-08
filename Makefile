@@ -19,6 +19,42 @@ define backup
 	-mv -i ~/.vimrc ~/.vimrc.backup
 endef
 
+define cc_backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_scripts ~/datos/homes.rala/perfil-ubuntu12.04/.bash_scripts.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.ipython ~/datos/homes.rala/perfil-ubuntu12.04/.ipython.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.config/ipython ~/datos/homes.rala/perfil-ubuntu12.04/.config/ipython.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.vim ~/datos/homes.rala/perfil-ubuntu12.04/.vim.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_aliases ~/datos/homes.rala/perfil-ubuntu12.04/.bash_aliases.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_local ~/datos/homes.rala/perfil-ubuntu12.04/.bash_local.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_profile ~/datos/homes.rala/perfil-ubuntu12.04/.bash_profile.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_prompt ~/datos/homes.rala/perfil-ubuntu12.04/.bash_prompt.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bashrc ~/datos/homes.rala/perfil-ubuntu12.04/.bashrc.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.gitconfig ~/datos/homes.rala/perfil-ubuntu12.04/.gitconfig.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.gitignore ~/datos/homes.rala/perfil-ubuntu12.04/.gitignore.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.tmux.conf ~/datos/homes.rala/perfil-ubuntu12.04/.tmux.conf.backup
+	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.vimrc ~/datos/homes.rala/perfil-ubuntu12.04/.vimrc.backup
+endef
+
+#Initialize environment on CC-ETSII
+cc:
+	git submodule init
+	git submodule update
+	$(call cc_backup)
+	ln -s `pwd`/.bash_scripts ~/datos/homes.rala/perfil-ubuntu12.04/.bash_scripts
+	mkdir -p ~/datos/homes.rala/perfil-ubuntu12.04/.config
+	ln -s `pwd`/.ipython ~/datos/homes.rala/perfil-ubuntu12.04/.config/ipython
+	ln -s `pwd`/.vim ~/datos/homes.rala/perfil-ubuntu12.04/.vim
+	ln -s `pwd`/.bash_aliases ~/datos/homes.rala/perfil-ubuntu12.04/.bash_aliases
+	cp `pwd`/.bash_local-linux ~/datos/homes.rala/perfil-ubuntu12.04/.bash_local
+	ln -s `pwd`/.bash_profile ~/datos/homes.rala/perfil-ubuntu12.04/.bash_profile
+	ln -s `pwd`/.bash_prompt ~/datos/homes.rala/perfil-ubuntu12.04/.bash_prompt
+	ln -s `pwd`/.bashrc ~/datos/homes.rala/perfil-ubuntu12.04/.bashrc
+	ln -s `pwd`/.gitconfig-dummy ~/datos/homes.rala/perfil-ubuntu12.04/.gitconfig
+	ln -s `pwd`/.gitignore-dummy ~/datos/homes.rala/perfil-ubuntu12.04/.gitignore
+	ln -s `pwd`/.tmux.conf ~/datos/homes.rala/perfil-ubuntu12.04/.tmux.conf
+	ln -s `pwd`/.vimrc ~/datos/homes.rala/perfil-ubuntu12.04/.vimrc
+
+
 # Initialize environment on Linux
 linux:
 	git submodule init
