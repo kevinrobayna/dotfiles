@@ -9,7 +9,6 @@ define backup
 	-mv -i ~/.config/ipython ~/.config/ipython.backup
 	-mv -i ~/.vim ~/.vim.backup
 	-mv -i ~/.bash_aliases ~/.bash_aliases.backup
-	-mv -i ~/.bash_local ~/.bash_local.backup
 	-mv -i ~/.bash_profile ~/.bash_profile.backup
 	-mv -i ~/.bash_prompt ~/.bash_prompt.backup
 	-mv -i ~/.bashrc ~/.bashrc.backup
@@ -25,7 +24,6 @@ define cc_backup
 	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.config/ipython ~/datos/homes.rala/perfil-ubuntu12.04/.config/ipython.backup
 	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.vim ~/datos/homes.rala/perfil-ubuntu12.04/.vim.backup
 	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_aliases ~/datos/homes.rala/perfil-ubuntu12.04/.bash_aliases.backup
-	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_local ~/datos/homes.rala/perfil-ubuntu12.04/.bash_local.backup
 	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_profile ~/datos/homes.rala/perfil-ubuntu12.04/.bash_profile.backup
 	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bash_prompt ~/datos/homes.rala/perfil-ubuntu12.04/.bash_prompt.backup
 	-mv -i ~/datos/homes.rala/perfil-ubuntu12.04/.bashrc ~/datos/homes.rala/perfil-ubuntu12.04/.bashrc.backup
@@ -45,7 +43,6 @@ cc:
 	ln -s `pwd`/.ipython ~/datos/homes.rala/perfil-ubuntu12.04/.config/ipython
 	ln -s `pwd`/.vim ~/datos/homes.rala/perfil-ubuntu12.04/.vim
 	ln -s `pwd`/.bash_aliases ~/datos/homes.rala/perfil-ubuntu12.04/.bash_aliases
-	cp `pwd`/.bash_local-linux ~/datos/homes.rala/perfil-ubuntu12.04/.bash_local
 	ln -s `pwd`/.bash_profile ~/datos/homes.rala/perfil-ubuntu12.04/.bash_profile
 	ln -s `pwd`/.bash_prompt ~/datos/homes.rala/perfil-ubuntu12.04/.bash_prompt
 	ln -s `pwd`/.bashrc ~/datos/homes.rala/perfil-ubuntu12.04/.bashrc
@@ -65,7 +62,6 @@ linux:
 	ln -s `pwd`/.ipython ~/.config/ipython
 	ln -s `pwd`/.vim ~/.vim
 	ln -s `pwd`/.bash_aliases ~/.bash_aliases
-	cp `pwd`/.bash_local-linux ~/.bash_local
 	ln -s `pwd`/.bash_profile ~/.bash_profile
 	ln -s `pwd`/.bash_prompt ~/.bash_prompt
 	ln -s `pwd`/.bashrc ~/.bashrc
@@ -83,7 +79,6 @@ mac:
 	ln -s `pwd`/.ipython ~/.ipython
 	ln -s `pwd`/.vim ~/.vim
 	ln -s `pwd`/.bash_aliases ~/.bash_aliases
-	cp `pwd`/.bash_local-mac ~/.bash_local
 	ln -s `pwd`/.bash_profile ~/.bash_profile
 	ln -s `pwd`/.bash_prompt ~/.bash_prompt
 	ln -s `pwd`/.bashrc ~/.bashrc
@@ -91,6 +86,8 @@ mac:
 	ln -s `pwd`/.gitignore-dummy ~/.gitignore
 	ln -s `pwd`/.tmux.conf ~/.tmux.conf
 	ln -s `pwd`/.vimrc ~/.vimrc
+	mv ~/Library/Preferences/com.apple.Terminal.plist old-settings.bak
+	ln -s `pwd`/com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
 
 # Install python dependencies
 deps:
@@ -101,5 +98,5 @@ deps:
 
 # Remove backup files
 rm-backup:
-	find ~ -name '*.backup' -delete
+	rm -Rf ~/.*.backup
 
