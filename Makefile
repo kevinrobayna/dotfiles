@@ -97,6 +97,6 @@ deps:
 	pip install virtualenvwrapper
 
 # Remove backup files
-rm-backup:
+rm:
 	rm -Rf ~/.*.backup
 
