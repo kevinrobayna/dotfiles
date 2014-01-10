@@ -38,18 +38,18 @@ cc:
 	git submodule init
 	git submodule update
 	$(call cc_backup)
-	ln -s `pwd`/bash_scripts ~/datos/homes.rala/perfil-ubuntu12.04/.bash_scripts
+	ln -s `pwd`/.bash_scripts ~/datos/homes.rala/perfil-ubuntu12.04/.bash_scripts
 	mkdir -p ~/datos/homes.rala/perfil-ubuntu12.04/.config
-	ln -s `pwd`/ipython ~/datos/homes.rala/perfil-ubuntu12.04/.config/ipython
-	ln -s `pwd`/vim ~/datos/homes.rala/perfil-ubuntu12.04/.vim
-	ln -s `pwd`/bash_aliases ~/datos/homes.rala/perfil-ubuntu12.04/.bash_aliases
-	ln -s `pwd`/bash_profile ~/datos/homes.rala/perfil-ubuntu12.04/.bash_profile
-	ln -s `pwd`/bash_prompt ~/datos/homes.rala/perfil-ubuntu12.04/.bash_prompt
-	ln -s `pwd`/bashrc ~/datos/homes.rala/perfil-ubuntu12.04/.bashrc
-	ln -s `pwd`/gitconfig-dummy ~/datos/homes.rala/perfil-ubuntu12.04/.gitconfig
-	ln -s `pwd`/gitignore-dummy ~/datos/homes.rala/perfil-ubuntu12.04/.gitignore
-	ln -s `pwd`/tmux.conf ~/datos/homes.rala/perfil-ubuntu12.04/.tmux.conf
-	ln -s `pwd`/vimrc ~/datos/homes.rala/perfil-ubuntu12.04/.vimrc
+	ln -s `pwd`/.ipython ~/datos/homes.rala/perfil-ubuntu12.04/.config/ipython
+	ln -s `pwd`/.vim ~/datos/homes.rala/perfil-ubuntu12.04/.vim
+	ln -s `pwd`/.bash_aliases ~/datos/homes.rala/perfil-ubuntu12.04/.bash_aliases
+	ln -s `pwd`/.bash_profile ~/datos/homes.rala/perfil-ubuntu12.04/.bash_profile
+	ln -s `pwd`/.bash_prompt ~/datos/homes.rala/perfil-ubuntu12.04/.bash_prompt
+	ln -s `pwd`/.bashrc ~/datos/homes.rala/perfil-ubuntu12.04/.bashrc
+	ln -s `pwd`/.gitconfig-dummy ~/datos/homes.rala/perfil-ubuntu12.04/.gitconfig
+	ln -s `pwd`/.gitignore-dummy ~/datos/homes.rala/perfil-ubuntu12.04/.gitignore
+	ln -s `pwd`/.tmux.conf ~/datos/homes.rala/perfil-ubuntu12.04/.tmux.conf
+	ln -s `pwd`/.vimrc ~/datos/homes.rala/perfil-ubuntu12.04/.vimrc
 
 
 # Initialize environment on Linux
@@ -59,33 +59,33 @@ linux:
 	$(call backup)
 	ln -s `pwd`/bash_scripts ~/.bash_scripts
 	mkdir -p ~/.config
-	ln -s `pwd`/ipython ~/.config/ipython
-	ln -s `pwd`/vim ~/.vim
-	ln -s `pwd`/bash_aliases ~/.bash_aliases
-	ln -s `pwd`/bash_profile ~/.bash_profile
-	ln -s `pwd`/bash_prompt ~/.bash_prompt
-	ln -s `pwd`/bashrc ~/.bashrc
-	ln -s `pwd`/gitconfig-dummy ~/.gitconfig
-	ln -s `pwd`/gitignore-dummy ~/.gitignore
-	ln -s `pwd`/tmux.conf ~/.tmux.conf
-	ln -s `pwd`/vimrc ~/.vimrc
+	ln -s `pwd`/.ipython ~/.config/ipython
+	ln -s `pwd`/.vim ~/.vim
+	ln -s `pwd`/.bash_aliases ~/.bash_aliases
+	ln -s `pwd`/.bash_profile ~/.bash_profile
+	ln -s `pwd`/.bash_prompt ~/.bash_prompt
+	ln -s `pwd`/.bashrc ~/.bashrc
+	ln -s `pwd`/.gitconfig-dummy ~/.gitconfig
+	ln -s `pwd`/.gitignore-dummy ~/.gitignore
+	ln -s `pwd`/.tmux.conf ~/.tmux.conf
+	ln -s `pwd`/.vimrc ~/.vimrc
 
 # Initialize environment on Mac
 mac:
 	git submodule init
 	git submodule update
 	$(call backup)
-	ln -s `pwd`/bash_scripts ~/.bash_scripts
-	ln -s `pwd`/ipython ~/.ipython
-	ln -s `pwd`/vim ~/.vim
-	ln -s `pwd`/bash_aliases ~/.bash_aliases
-	ln -s `pwd`/bash_profile ~/.bash_profile
-	ln -s `pwd`/bash_prompt ~/.bash_prompt
-	ln -s `pwd`/bashrc ~/.bashrc
-	ln -s `pwd`/gitconfig-dummy ~/.gitconfig
-	ln -s `pwd`/gitignore-dummy ~/.gitignore
-	ln -s `pwd`/tmux.conf ~/.tmux.conf
-	ln -s `pwd`/vimrc ~/.vimrc
+	ln -s `pwd`/.bash_scripts ~/.bash_scripts
+	ln -s `pwd`/.ipython ~/.ipython
+	ln -s `pwd`/.vim ~/.vim
+	ln -s `pwd`/.bash_aliases ~/.bash_aliases
+	ln -s `pwd`/.bash_profile ~/.bash_profile
+	ln -s `pwd`/.bash_prompt ~/.bash_prompt
+	ln -s `pwd`/.bashrc ~/.bashrc
+	ln -s `pwd`/.gitconfig-dummy ~/.gitconfig
+	ln -s `pwd`/.gitignore-dummy ~/.gitignore
+	ln -s `pwd`/.tmux.conf ~/.tmux.conf
+	ln -s `pwd`/.vimrc ~/.vimrc
 	mv ~/Library/Preferences/com.apple.Terminal.plist old-settings.bak
 	ln -s `pwd`/com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
 
