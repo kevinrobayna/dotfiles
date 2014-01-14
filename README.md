@@ -26,6 +26,7 @@ This is what it looks like:
 * [vim-javascript](https://github.com/pangloss/vim-javascript):
 * [vim-less](https://github.com/groenewege/vim-less):
 * [vim-colorschemes](https://github.com/flazz/vim-colorschemes): 
+* [emmet-vim](https://github.com/mattn/emmet-vim): emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
 * [vim-golang](https://github.com/jnwhiteh/vim-golang):
 * [NERD Tree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for vim
 * [ctrlp.vim](https://github.com/kien/ctrlp.vim): Fuzzy file, buffer, mru and tag finder. In my config it's mapped to `<Ctrl+F>`, because `<Ctrl+P>` is used by YankRing
