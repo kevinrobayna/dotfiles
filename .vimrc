@@ -161,12 +161,6 @@ let g:airline#extensions#ctrlp#color_template = 'replace'
 " ------------
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
-" CSS support
-" -----------
-autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType css setlocal commentstring=/*\ %s\ */
-autocmd FileType css noremap <buffer> <leader>r :call CSSBeautify()<cr>
-
 " Java support
 " ------------
 autocmd FileType java setlocal shiftwidth=2 tabstop=8 softtabstop=2 expandtab
@@ -209,6 +203,11 @@ autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
 " ------------
 autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 autocmd BufNewFile,BufRead *.sls setlocal ft=yaml
+
+" EMMET support (html and css)
+" ----------------------------
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " """"""""""""""""""""""""""""""""""""""""""""""""
 " ==================== Colors ====================
