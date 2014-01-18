@@ -204,10 +204,6 @@ autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
 autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 autocmd BufNewFile,BufRead *.sls setlocal ft=yaml
 
-" EMMET support (html and css)
-" ----------------------------
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
 
 " """"""""""""""""""""""""""""""""""""""""""""""""
 " ==================== Colors ====================

@@ -4,6 +4,9 @@
 # Disallow duplicates in history
 HISTCONTROL=ignoredups:ignorespace
 
+#Locale
+export LC_CTYPE="en_US.UTF-8"
+
 # Keep 1000 lines in history
 export HISTSIZE=1000
 export HISTFILESIZE=1000
