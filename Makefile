@@ -90,6 +90,8 @@ mac:
 	ln -s `pwd`/com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
 	mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 	ln -s `pwd`/XCode/*.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+	mkdir -p ~/Library/Fonts
+	ln -s `pwd`/Fonts/* ~/Library/Fonts/
 
 # Install python dependencies
 deps:
