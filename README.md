@@ -11,6 +11,7 @@ This is what it looks like:
 * [Vim](http://kevinrobayna.eu/~kevinrobayna/myvim.png)
 
 * [XCode Themes](https://github.com/hdoria/xcode-themes)
+* [Font SourceCodePro](https://github.com/adobe/source-code-pro)
 
 ####List of plugins that are included
 
