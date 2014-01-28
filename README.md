@@ -10,7 +10,12 @@ This is what it looks like:
 * [Terminal](http://kevinrobayna.eu/~kevinrobayna/myterm.png)
 * [Vim](http://kevinrobayna.eu/~kevinrobayna/myvim.png)
 
+Setup files that i've for Xcode
+
 * [XCode Themes](https://github.com/hdoria/xcode-themes)
+
+Font for care my own eyes
+
 * [Font SourceCodePro](https://github.com/adobe/source-code-pro)
 
 ####List of plugins that are included
