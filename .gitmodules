@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/emmet-vim"]
 	path = .vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "XCode"]
+	path = XCode
+	url = https://github.com/hdoria/xcode-themes.git

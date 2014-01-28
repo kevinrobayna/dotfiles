@@ -88,6 +88,8 @@ mac:
 	ln -s `pwd`/.vimrc ~/.vimrc
 	mv ~/Library/Preferences/com.apple.Terminal.plist old-settings.bak
 	ln -s `pwd`/com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
+	mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+	ln -s `pwd`/XCode/*.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 
 # Install python dependencies
 deps:

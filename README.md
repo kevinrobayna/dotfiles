@@ -10,6 +10,8 @@ This is what it looks like:
 * [Terminal](http://kevinrobayna.eu/~kevinrobayna/myterm.png)
 * [Vim](http://kevinrobayna.eu/~kevinrobayna/myvim.png)
 
+* [XCode Themes](https://github.com/hdoria/xcode-themes)
+
 ####List of plugins that are included
 
 * [pathogen.vim](https://github.com/tpope/vim-pathogen): Manages the runtime path of the plugins
