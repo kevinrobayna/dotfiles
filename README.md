@@ -10,9 +10,11 @@ This is what it looks like:
 * [Terminal](http://kevinrobayna.eu/~kevinrobayna/myterm.png)
 * [Vim](http://kevinrobayna.eu/~kevinrobayna/myvim.png)
 
-Setup files that i've for Xcode
+Setup files that i've for Visual IDE
 
 * [XCode Themes](https://github.com/hdoria/xcode-themes)
+* [Eclipse Theme](https://github.com/guari/eclipse-ui-theme)
+* [Eclipse Color](http://eclipsecolorthemes.org/?view=theme&id=1)
 
 Font for care my own eyes
 
