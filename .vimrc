@@ -116,34 +116,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_match_window = 'bottom,order:top,min:1,max:20'
 nnoremap <leader><tab> :CtrlPMRU<CR>
 
-" python support
-" --------------
-" don't highlight exceptions and builtins. I love to override them in local
-" scopes and it sucks ass if it's highlighted then. And for exceptions I
-" don't really want to have different colors for my own exceptions ;-)
-
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
-            \ formatoptions=croqj softtabstop=4 textwidth=74 comments=:#\:,:#
-let python_highlight_all=1
-let python_highlight_exceptions=0
-let python_highlight_builtins=0
-let python_slow_sync=1
-
-let g:syntastic_python_checkers=['flake8', 'python']
-
-" Don't warn on
-" E121 continuation line indentation is not a multiple of four
-" E128 continuation line under-indented for visual indent
-" E711 comparison to None should be 'if cond is not None:'
-" E301 expected 1 blank line, found 0
-" E261 at least two spaces before inline comment
-" E241 multiple spaces after ':'
-" E124 closing bracket does not match visual indentation
-" E126 continuation line over-indented for hanging indent
-" E721 do not compare types, use 'isinstance()'
-
-let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721
-            \ --max-line-length=84'
 " Airline
 if has("gui_running")
     let g:airline_theme='tomorrow'

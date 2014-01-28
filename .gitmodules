@@ -19,9 +19,6 @@
 [submodule ".vim/bundle/vim-snippets"]
 	path = .vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule ".vim/bundle/python-mode"]
-	path = .vim/bundle/python-mode
-	url = https://github.com/klen/python-mode.git
 [submodule ".vim/bundle/jinja2"]
 	path = .vim/bundle/jinja2
 	url = https://github.com/mitsuhiko/jinja2.git

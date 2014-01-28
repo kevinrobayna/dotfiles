@@ -22,7 +22,6 @@ This is what it looks like:
 * [tlib_vim](https://github.com/tomtom/tlib_vim):
 * [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils):
 * [vim-snippets](https://github.com/honza/vim-snippets): 
-* [python-mode](https://github.com/klen/python-mode): 
 * [handlebars](https://github.com/mustache/vim-mustache-handlebars):
 * [jinja2](https://github.com/mitsuhiko/jinja2):
 * [vim-ruby](https://github.com/vim-ruby/vim-ruby):
