@@ -23,6 +23,8 @@ endif
 set list
 set listchars=tab:\ \ ,trail:.
 
+" Show Curse Line
+set cursorline
 
 " Automatically expand tabs into spaces
 set expandtab
@@ -92,6 +94,7 @@ nmap <C-m>l <C-w>L
 imap <C-E> <Esc>a<Enter><Esc>O
 
 " Toggle paste keybinding
+noremap <C-Tab> :<C-U>:tabnext<CR>
 set pastetoggle=<Leader>p
 
 " Ctrl-P rebinding
@@ -105,6 +108,12 @@ command Q q
 
 " Open NERDTree with Ctrl-s
 map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
+
+" CTRL-Tab is next tab
+map <silent> <C-Tab> :tabNext<CR>
+
+" CTRL-SHIFT-Tab is previous tab
+map <silent> <C-S-Tab> :tabPrevious<CR>
 
 " """"""""""""""""""""""""""""""""""""""""""""""""
 " =============== Plugin Settings ================

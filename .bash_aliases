@@ -6,6 +6,12 @@ alias ls='ls -G'
 alias ll='ls -al'
 alias la='ls -A'
 
+# Shortcuts
+alias d="cd ~/Documents/GoogleDrive"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias wt="cd ~/Workstation"
+
 # git aliases
 alias gs='git status'
 alias ga='git add -A'
