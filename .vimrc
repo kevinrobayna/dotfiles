@@ -114,7 +114,7 @@ let NERDTreeShowHidden=1
 " open a NERDTree when vim starts up
 autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&  b:NERDTreeType == "primary") | q | endif
 
 " CTRLP support
 let g:ctrlp_map = '<Leader>o'
@@ -191,7 +191,10 @@ syntax enable
 
 if has("gui_running")
     colorscheme fruity
+    set guifont=Source_Code_Pro:h11
 endif
+
+highlight ColorColumn ctermbg=Green
 
 " Use 256 colors in color schemes
 set t_Co=256

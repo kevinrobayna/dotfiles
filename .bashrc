@@ -80,4 +80,3 @@ if [ -f ~/.bash_local ]; then
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
