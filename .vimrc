@@ -19,6 +19,11 @@ else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
+" See whitespaces
+set list
+set listchars=tab:\ \ ,trail:.
+
+
 " Automatically expand tabs into spaces
 set expandtab
 
