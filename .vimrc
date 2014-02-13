@@ -109,12 +109,6 @@ command Q q
 " Open NERDTree with Ctrl-s
 map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
 
-" CTRL-Tab is next tab
-map <silent> <C-Tab> :tabNext<CR>
-
-" CTRL-SHIFT-Tab is previous tab
-map <silent> <C-S-Tab> :tabPrevious<CR>
-
 " """"""""""""""""""""""""""""""""""""""""""""""""
 " =============== Plugin Settings ================
 
