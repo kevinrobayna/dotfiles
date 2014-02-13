@@ -44,7 +44,8 @@ then
 fi
 
 # Import smartcd config
-[ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
+[ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || 
+            [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
 
 # Enable programmable completion
 if [ -f /etc/bash_completion ]; then
@@ -79,3 +80,4 @@ if [ -f ~/.bash_local ]; then
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+

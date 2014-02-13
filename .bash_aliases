@@ -13,7 +13,7 @@ alias gb='git branch'
 alias gc='git commit -m'
 alias gd='git diff --color'
 alias gt='git difftool'
-alias gco='git checkout'
+alias go='git checkout'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %C(cyan)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gp='git checkout $(git reflog | grep checkout: -m 2 | tail -n1 | cut -d " " -f 8-)'
 

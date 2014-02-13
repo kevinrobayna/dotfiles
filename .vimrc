@@ -10,8 +10,17 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
-" Set Number
+" Set Number & Print Line
 set number
+
+if exists('+colorcolumn')
+    set colorcolumn=80
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+" Print whitespace tabs, etc
+set list listchars=tab:>-,trail:.recedes:<,extends:>
 
 " Automatically expand tabs into spaces
 set expandtab
