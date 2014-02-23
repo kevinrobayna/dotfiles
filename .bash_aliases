@@ -37,10 +37,8 @@ alias ta='tmux -2 attach-session -t'
 alias tl='tmux list-sessions'
 
 # ssh aliases
-alias dv='ssh alu4453@exthost.etsii.ull.es'
-alias dv2='ssh alu4453@exthost2.etsii.ull.es'
-alias df='sftp alu4453@exthost.etsii.ull.es'
-alias df2='sftp alu4453@exthost2.etsii.ull.es'
+alias setsii='ssh alu4453@exthost.etsii.ull.es'
+alias fetsii='sftp alu4453@exthost.etsii.ull.es'
 
 # python shorthand
 alias py='python'
