@@ -18,6 +18,7 @@
     br = branch
     unci = reset --hard HEAD~1
     uncommit = reset --hard HEAD~1
+    cie = commit --allow-empty -m
 [core]
     excludesfile = ~/.gitignore
 
