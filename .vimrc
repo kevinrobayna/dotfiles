@@ -128,13 +128,21 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_match_window = 'bottom,order:top,min:1,max:20'
 nnoremap <leader><tab> :CtrlPMRU<CR>
 
+" Show status line for single windows
+set laststatus=2
+
 " Airline
-if has("gui_running")
-    let g:airline_theme='tomorrow'
-    let g:airline_powerline_fonts=1
-else
-    let g:airline_powerline_fonts=0
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts=0
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
 endif
+
+let g:airline_symbols.space = "\ua0"
+
+let g:airline_enable_branch=1
+
 let g:airline#extensions#whitespace#checks = []
 let g:airline_section_y = airline#section#create_right(['%{printf("%s%s",&fenc,&ff!="unix"?":".&ff:"")}'])
 let g:airline_section_z = airline#section#create_right(['%3l:%2c'])
@@ -144,6 +152,10 @@ let g:airline#extensions#ctrlp#color_template = 'replace'
 " Ruby support
 " ------------
 autocmd FileType ruby setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " Java support
 " ------------
@@ -195,10 +207,8 @@ autocmd BufNewFile,BufRead *.sls setlocal ft=yaml
 " Use syntax highlighting and color scheme
 syntax enable
 
-if has("gui_running")
-    colorscheme fruity
-    set guifont=Source_Code_Pro:h11
-endif
+colorscheme fruity
+set guifont=Source_Code_Pro:h11
 
 highlight ColorColumn ctermbg=Green
 
