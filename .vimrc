@@ -1,8 +1,6 @@
 " .vimrc 
 " Original by Kevin Robayna - http://kevinrobayna.eu http://alanct.com/
 
-
-" """"""""""""""""""""""""""""""""""""""""""""""""
 " =============== General Settings ===============
 
 " Title
@@ -145,16 +143,16 @@ let g:airline#extensions#ctrlp#color_template = 'replace'
 
 " Ruby support
 " ------------
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType ruby setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 " Java support
 " ------------
-autocmd FileType java setlocal shiftwidth=2 tabstop=8 softtabstop=2 expandtab
+autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 autocmd FileType java setlocal commentstring=//\ %s
 
 " C# support
 " -----------
-autocmd FileType cs setlocal tabstop=8 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cs setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType cs setlocal commentstring=//\ %s
 
 " C/Object-C/C++ support
@@ -172,7 +170,7 @@ let g:syntastic_c_compiler = 'clang'
 
 " JavaScript support
 " ------------------
-autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 autocmd FileType javascript setlocal commentstring=//\ %s
 autocmd FileType javascript noremap <buffer> <leader>r :call JsBeautify()<cr>
@@ -187,7 +185,7 @@ autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
 
 " YAML support
 " ------------
-autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+autocmd FileType yaml setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd BufNewFile,BufRead *.sls setlocal ft=yaml
 
 
