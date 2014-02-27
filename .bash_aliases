@@ -7,6 +7,9 @@ alias ll='ls -al'
 alias la='ls -A'
 
 # Shortcuts
+alias h='cd'
+alias ..='cd ..'
+alias ...='..'
 alias d="cd ~/GoogleDrive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
