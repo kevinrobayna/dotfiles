@@ -3,6 +3,9 @@
 
 " =============== General Settings ===============
 
+" NoCompatible
+set nocompatible
+
 " Title
 set title
 set titleold="Terminal"
@@ -206,6 +209,7 @@ autocmd BufNewFile,BufRead *.sls setlocal ft=yaml
 
 " Use syntax highlighting and color scheme
 syntax enable
+syntax on
 
 colorscheme fruity
 set guifont=Source_Code_Pro:h11
