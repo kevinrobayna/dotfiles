@@ -38,3 +38,10 @@ alias unhitch='hitch -u'
 
 # Disable auto-correct
 unsetopt correct_all
+
+# Always work in a tmux session if tmux is installed
+if which tmux 2>&1 >/dev/null; then
+  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+    tmux attach -t Freedom || tmux new -s Freedom; exit
+  fi
+fi
