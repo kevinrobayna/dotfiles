@@ -75,19 +75,13 @@ mac:
 	git submodule init
 	git submodule update
 	$(call backup)
-	ln -s `pwd`/.bash_scripts ~/.bash_scripts
-	ln -s `pwd`/.ipython ~/.ipython
+	ln -s `pwd`/oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+	chsh -s /bin/zsh
 	ln -s `pwd`/.vim ~/.vim
-	ln -s `pwd`/.bash_aliases ~/.bash_aliases
-	ln -s `pwd`/.bash_profile ~/.bash_profile
-	ln -s `pwd`/.bash_prompt ~/.bash_prompt
-	ln -s `pwd`/.bashrc ~/.bashrc
 	ln -s `pwd`/.gitconfig-dummy ~/.gitconfig
 	ln -s `pwd`/.gitignore-dummy ~/.gitignore
 	ln -s `pwd`/.tmux.conf ~/.tmux.conf
 	ln -s `pwd`/.vimrc ~/.vimrc
-	mv ~/Library/Preferences/com.apple.Terminal.plist old-settings.bak
-	ln -s `pwd`/com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
 	mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 	ln -s `pwd`/XCode/*.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 	mkdir -p ~/Library/Fonts
