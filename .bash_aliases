@@ -1,6 +1,11 @@
 # .bash_aliases
 #  Original by Kevin Robayna - http://kevinrobayna.eu
 
+
+# what is my ip?
+alias myipis='curl http://remote-ip.herokuapp.com'
+
+
 # ls aliases
 alias ls='ls -G'
 alias ll='ls -al'
@@ -9,7 +14,6 @@ alias la='ls -A'
 # Shortcuts
 alias h='cd'
 alias ..='cd ..'
-alias ...='..'
 alias d="cd ~/GoogleDrive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
