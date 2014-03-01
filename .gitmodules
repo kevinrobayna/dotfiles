@@ -106,3 +106,6 @@
 [submodule "XCode-Themes"]
 	path = XCode-Themes
 	url = https://github.com/hdoria/xcode-themes.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
