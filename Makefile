@@ -5,8 +5,6 @@ SHELL := /bin/bash
 
 define backup
 	-mv -i ~/.bash_scripts ~/.bash_scripts.backup
-	-mv -i ~/.ipython ~/.ipython.backup
-	-mv -i ~/.config/ipython ~/.config/ipython.backup
 	-mv -i ~/.vim ~/.vim.backup
 	-mv -i ~/.bash_aliases ~/.bash_aliases.backup
 	-mv -i ~/.bash_profile ~/.bash_profile.backup
@@ -72,8 +70,6 @@ linux:
 
 # Initialize environment on Mac
 mac:
-	git submodule init
-	git submodule update
 	$(call backup)
 	ln -s `pwd`/oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 	chsh -s /bin/zsh
