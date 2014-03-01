@@ -7,9 +7,47 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="chris"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Alias
+# what is my ip?
+alias myipis='curl http://remote-ip.herokuapp.com'
+
+# ls aliases
+alias ls='ls -G'
+alias ll='ls -al'
+alias la='ls -A'
+
+# Shortcuts
+alias h='cd'
+alias ..='cd ..'
+alias ...=..
+alias d="cd ~/GoogleDrive"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias wt="cd ~/Workstation"
+
+# git aliases
+alias gs='git status'
+alias ga='git add -A'
+alias gb='git branch'
+alias gc='git commit -m'
+alias gd='git diff --color'
+alias gt='git difftool'
+alias go='git checkout'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %C(cyan)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias gp='git checkout $(git reflog | grep checkout: -m 2 | tail -n1 | cut -d " " -f 8-)'
+alias gce='git commit --allow-empty -m'
+
+# tmux aliases
+alias tn='tmux new-session -s'
+alias ta='tmux -2 attach-session -t'
+alias tl='tmux list-sessions'
+
+# ssh aliases
+alias setsii='ssh alu4453@exthost.etsii.ull.es'
+alias fetsii='sftp alu4453@exthost.etsii.ull.es'
+
+# tree colorization
+alias tree='tree -C'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -42,8 +80,6 @@ alias unhitch='hitch -u'
 
 # Disable auto-correct
 unsetopt correct_all
-
-source /opt/boxen/env.sh # Load up the GitHubs
 
 # Always work in a tmux session if tmux is installed
 if which tmux 2>&1 >/dev/null; then
