@@ -7,8 +7,8 @@ call pathogen#helptags()
 syntax on                         " show syntax highlighting
 filetype plugin indent on
 set autoindent                    " set auto indent
-set ts=2                          " set indent to 2 spaces
-set shiftwidth=2
+set ts=4                          " set indent to 4 spaces
+set shiftwidth=4
 set expandtab                     " use spaces, not tab characters
 set nocompatible                  " don't need to be compatible with old vim
 set relativenumber                " show relative line numbers
@@ -33,11 +33,36 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 " put useful info in status bar
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
-" set dark background and color scheme
+" Remap movement between windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Remap window rearrangement
+nmap <C-m>h <C-w>H
+nmap <C-m>j <C-w>J
+nmap <C-m>k <C-w>K
+
+" map :W to :w
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
+" NerdTree support
+" ----------------
+let NERDTreeShowHidden=1
+
+" Open NERDTree with Ctrl-s
+map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
+
+" Font
+set guifont=Source_Code_Pro:h11
+
 set background=dark
 colorscheme base16-railscasts
 
-" set up some custom colors
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=237
@@ -107,13 +132,13 @@ map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
 noremap <C-l> :nohlsearch<CR>
 
 " toggle spell check with <F5>
-map <F5> :setlocal spell! spelllang=en_us<cr>
-imap <F5> <ESC>:setlocal spell! spelllang=en_us<cr>
+map <F5> :setlocal spell! spelllang=en_gb<cr>
+imap <F5> <ESC>:setlocal spell! spelllang=en_gb<cr>
 
 " add :Plain command for converting text to plaintext
 command! Plain execute "%s/’/'/ge | %s/[“”]/\"/ge | %s/—/-/ge"
 
-" hint to keep lines short
+
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
@@ -132,7 +157,7 @@ function! ExecuteFile(filename)
   elseif match(a:filename, '\.sh$') != -1
     exec ":!bash " . a:filename
   else
-    exec ":!echo \"Don't know how to execute: \"" . a:filename
+  exec ":!echo \"Don't know how to execute: \"" . a:filename
   end
 endfunction
 
