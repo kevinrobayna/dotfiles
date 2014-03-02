@@ -4,14 +4,18 @@
 call pathogen#infect()
 call pathogen#helptags()
 
+" Tabs are four spaces
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+ 
+
 syntax on                         " show syntax highlighting
 filetype plugin indent on
 set autoindent                    " set auto indent
-set ts=4                          " set indent to 4 spaces
-set shiftwidth=4
 set expandtab                     " use spaces, not tab characters
 set nocompatible                  " don't need to be compatible with old vim
-set relativenumber                " show relative line numbers
+set number                        " show line numbers
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
 set hlsearch                      " highlight all search matches
@@ -22,7 +26,7 @@ set mouse=a                       " enable mouse support
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
 set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
-set scrolloff=2                   " minimum lines above/below cursor
+set scrolloff=4                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
@@ -50,12 +54,9 @@ command Wq wq
 command W w
 command Q q
 
-" NerdTree support
-" ----------------
-let NERDTreeShowHidden=1
-
-" Open NERDTree with Ctrl-s
-map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
+" See whitespaces
+set list
+set listchars=tab:\ \ ,trail:.
 
 " Font
 set guifont=Source_Code_Pro:h11
@@ -77,6 +78,17 @@ highlight Visual       ctermbg=3   ctermfg=0
 highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=0   ctermfg=3
 highlight SpellBad     ctermbg=0   ctermfg=1
+
+" Ruby support
+" ------------
+autocmd FileType ruby setlocal expandtab shiftwidth=4 tabstop=4
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " highlight the status bar when in insert mode
 if version >= 700
@@ -141,6 +153,7 @@ command! Plain execute "%s/’/'/ge | %s/[“”]/\"/ge | %s/—/-/ge"
 
 if exists('+colorcolumn')
   set colorcolumn=80
+  highlight ColorColumn ctermbg=white
 endif
 
 " execute current file
