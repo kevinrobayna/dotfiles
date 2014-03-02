@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="chris"
+ZSH_THEME="kevinrobayna"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -40,8 +40,10 @@ alias unhitch='hitch -u'
 unsetopt correct_all
 
 # Always work in a tmux session if tmux is installed
-if which tmux 2>&1 >/dev/null; then
-  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-    tmux attach -t Freedom || tmux new -s Freedom; exit
-  fi
-fi
+#if which tmux 2>&1 >/dev/null; then
+#  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+#    tmux attach -t Freedom || tmux new -s Freedom; exit
+#  fi
+#fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
