@@ -108,20 +108,8 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 
-" NerdTree support
-" ----------------
-let NERDTreeShowHidden=1
-
-" Open NERDTree with Ctrl-s
-map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
-
-
 " use silver searcher for ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-" unmap F1 help
-nmap <F1> :echo<CR>
-imap <F1> <C-o>:echo<CR>
 
 " map . in visual mode
 vnoremap . :norm.<cr>
