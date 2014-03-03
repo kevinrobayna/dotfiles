@@ -37,29 +37,16 @@ runtime macros/matchit.vim        " use % to jump between start/end of methods
 " put useful info in status bar
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
-" Remap movement between windows
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-
-" Remap window rearrangement
-nmap <C-m>h <C-w>H
-nmap <C-m>j <C-w>J
-nmap <C-m>k <C-w>K
-
 " map :W to :w
 command WQ wq
 command Wq wq
 command W w
 command Q q
+command Q! q!
 
 " See whitespaces
 set list
 set listchars=tab:\ \ ,trail:.
-
-" Font
-set guifont=Source_Code_Pro:h11
 
 set background=dark
 colorscheme base16-railscasts
@@ -95,15 +82,7 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
 endif
 
-" set leader key to comma
-let mapleader = ","
-
-" Remap new tab
-nmap <Leader>t <Esc>:tabnew<CR>
-nmap <Leader>c <Esc>:tabclose<CR>
-
 " ctrlp config
-let g:ctrlp_map = '<leader>f'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
@@ -114,18 +93,8 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " map . in visual mode
 vnoremap . :norm.<cr>
 
-" map git commands
-map <leader>l :!clear && git log -p %<cr>
-map <leader>d :!clear && git diff %<cr>
-
 " open gist after it's been created
 let g:gist_open_browser_after_post = 1
-
-" map Silver Searcher
-map <leader>a :Ag!<space>
-
-" search for word under cursor with Silver Searcher
-map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
 
 " clear the command line and search highlighting
 noremap <C-l> :nohlsearch<CR>
@@ -137,9 +106,6 @@ if exists('+colorcolumn')
   set colorcolumn=80
   highlight ColorColumn ctermbg=white
 endif
-
-" execute current file
-map <leader>e :call ExecuteFile(expand("%"))<cr>
 
 " execute file if we know how
 function! ExecuteFile(filename)
@@ -184,7 +150,36 @@ function! RenameFile()
     redraw!
   endif
 endfunction
+
+
+" Keyboard shortcuts <leader> "
+
+" set leader key to comma
+let mapleader = ","
+
+" call funtion renamefile
 map <leader>n :call RenameFile()<cr>
 
 " run test runner
 map <leader>T :!rake spec<cr>
+
+" Remap new tab
+nmap <Leader>t <Esc>:tabnew<CR>
+nmap <Leader>c <Esc>:tabclose<CR>
+
+" ctrlp config
+let g:ctrlp_map = '<leader>f'
+
+" map git commands
+map <leader>l :!clear && git log -p %<cr>
+map <leader>d :!clear && git diff %<cr>
+
+" map Silver Searcher
+map <leader>a :Ag!<space>
+
+" search for word under cursor with Silver Searcher
+map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
+
+" execute current file
+map <leader>e :call ExecuteFile(expand("%"))<cr>
+
