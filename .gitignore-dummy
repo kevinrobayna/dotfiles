@@ -1,5 +1,6 @@
 # .gitignore
 #  Original by Kevin Robayna - http://kevinrobayna.eu
 
+*.swp
 .DS_Store
 .ropeproject
