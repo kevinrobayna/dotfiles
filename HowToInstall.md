@@ -1,14 +1,13 @@
 ### Dependencies
 
 * Vim
-* Tmux
 * Git
 
 ### Mac OS X
 
 **Homebrew:** [http://brew.sh/](http://brew.sh/)
 
-    $ brew install vim tmux git
+    $ brew install vim git
 
 ### How to install
 
