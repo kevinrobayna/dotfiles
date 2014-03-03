@@ -98,11 +98,23 @@ endif
 " set leader key to comma
 let mapleader = ","
 
+" Remap new tab
+nmap <Leader>t <Esc>:tabnew<CR>
+nmap <Leader>c <Esc>:tabclose<CR>
+
 " ctrlp config
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
+
+" NerdTree support
+" ----------------
+let NERDTreeShowHidden=1
+
+" Open NERDTree with Ctrl-s
+map <silent> <C-s> :NERDTree<CR><C-w>l:NERDTreeFind<CR>
+
 
 " use silver searcher for ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -114,21 +126,9 @@ imap <F1> <C-o>:echo<CR>
 " map . in visual mode
 vnoremap . :norm.<cr>
 
-" die hash rockets, die!
-vnoremap <leader>h :s/:\(\w*\) *=>/\1:/g<cr>
-
-" map markdown preview
-map <leader>m :!open -a Marked %<cr><cr>
-
 " map git commands
-map <leader>b :Gblame<cr>
 map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
-
-" check code complexity and duplication for current file
-map <leader>x :!clear &&
- \ echo '----- Complexity -----' && flog % &&
- \ echo '\n----- Duplication -----' && flay %<cr>
 
 " open gist after it's been created
 let g:gist_open_browser_after_post = 1
@@ -142,13 +142,8 @@ map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
 " clear the command line and search highlighting
 noremap <C-l> :nohlsearch<CR>
 
-" toggle spell check with <F5>
-map <F5> :setlocal spell! spelllang=en_gb<cr>
-imap <F5> <ESC>:setlocal spell! spelllang=en_gb<cr>
-
 " add :Plain command for converting text to plaintext
 command! Plain execute "%s/’/'/ge | %s/[“”]/\"/ge | %s/—/-/ge"
-
 
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -203,51 +198,5 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-" run specs with ',t' via Gary Bernhardt
-function! RunTests(filename)
-  " Write the file and run tests for the given filename
-  :w
-  :silent !clear
-  if match(a:filename, '\.feature$') != -1
-    exec ":!bundle exec cucumber " . a:filename
-  elseif match(a:filename, '_test\.rb$') != -1
-    exec ":!ruby -Itest " . a:filename
-  else
-    if filereadable("Gemfile")
-      exec ":!bundle exec rspec --color " . a:filename
-    else
-      exec ":!rspec --color " . a:filename
-    end
-  end
-endfunction
-
-function! SetTestFile()
-  " set the spec file that tests will be run for.
-  let t:grb_test_file=@%
-endfunction
-
-function! RunTestFile(...)
-  if a:0
-    let command_suffix = a:1
-  else
-    let command_suffix = ""
-  endif
-
-  " run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-  elseif !exists("t:grb_test_file")
-    return
-  end
-  call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
 " run test runner
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
+map <leader>T :!rake spec<cr>
