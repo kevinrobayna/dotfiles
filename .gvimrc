@@ -1,7 +1,7 @@
 " .gvimrc
 
 " set default font
-set guifont="Source Code Pro":h36
+set guifont=Source Code Pro:h14
 
 " remove toolbar and scrollbars from macvim
 set guioptions-=T
