@@ -11,6 +11,11 @@ mac:
 	ln -s `pwd`/.zshrc ~/.zshrc
 	chsh -s /bin/zsh
 	ln -s `pwd`/.vim ~/.vim
+	ln -s `pwd`/.githelpers ~/.githelpers
+	ln -s `pwd`/.gvimrc ~/.gvimrc
+	ln -s `pwd`/.irbrc ~/.irbrc
+	ln -s `pwd`/.profile ~/.profile
+	ln -s `pwd`/.pryrc ~/.pryrc
 	ln -s `pwd`/.gitconfig-dummy ~/.gitconfig
 	ln -s `pwd`/.gitignore-dummy ~/.gitignore
 	ln -s `pwd`/.tmux.conf ~/.tmux.conf
