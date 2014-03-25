@@ -16,13 +16,6 @@ mac:
 	ln -s `pwd`/.tmux.conf ~/.tmux.conf
 	ln -s `pwd`/.vimrc ~/.vimrc
 
-# Install python dependencies
-deps:
-	easy_install pip
-	easy_install ipython
-	easy_install flake8
-	pip install virtualenvwrapper
-
 # Remove backup files
 rm:
 	rm -Rf ~/.*.backup
