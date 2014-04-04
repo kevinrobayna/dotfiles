@@ -1,6 +1,7 @@
 # .gitignore
 #  Original by Kevin Robayna - http://kevinrobayna.eu
 
+/doc
 
 *.swp
 *.swo
