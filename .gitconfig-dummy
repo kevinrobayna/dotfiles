@@ -43,6 +43,7 @@
     summary     = "!source ~/.githelpers && weekly_summary"
     sm          = submodule
     smu         = submodule foreach git pull origin master
+    smur        = submodule update --init --recursive
 [core]
     excludesfile = ~/.gitignore
 [credential]
