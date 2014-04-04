@@ -18,7 +18,6 @@ mac:
 	ln -s `pwd`/.pryrc ~/.pryrc
 	ln -s `pwd`/.gitconfig-dummy ~/.gitconfig
 	ln -s `pwd`/.gitignore-dummy ~/.gitignore
-	ln -s `pwd`/.tmux.conf ~/.tmux.conf
 	ln -s `pwd`/.vimrc ~/.vimrc
 
 # Remove backup files
