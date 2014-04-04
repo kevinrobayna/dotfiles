@@ -8,7 +8,8 @@ call pathogen#helptags()
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
- 
+
+set guifont=Source\ Code\ Pro\ 14
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
