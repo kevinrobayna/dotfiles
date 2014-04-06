@@ -106,3 +106,6 @@
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "color-schemes"]
+	path = color-schemes
+	url = https://github.com/chrishunt/color-schemes.git
