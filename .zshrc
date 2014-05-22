@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+export LANG=en_GB.UTF-8
+export LANGUAGE=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
