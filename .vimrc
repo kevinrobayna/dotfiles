@@ -1,13 +1,9 @@
 " .vimrc
 
-" load up pathogen and all bundles
-call pathogen#infect()
-call pathogen#helptags()
-
 " Tabs are four spaces
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 set guifont=Source\ Code\ Pro:h14
 
@@ -35,9 +31,6 @@ set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
-" put useful info in status bar
-set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
-
 " map :W to :w
 command WQ wq
 command Wq wq
@@ -49,18 +42,9 @@ set list
 set listchars=tab:\ \ ,trail:.
 
 set background=dark
-colorscheme vimbrant
 
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
-
-" Ruby support
-" ------------
-autocmd FileType ruby setlocal expandtab shiftwidth=4 tabstop=4
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
@@ -70,109 +54,7 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
 endif
 
-" ctrlp config
-let g:ctrlp_max_height = 30
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_match_window_reversed = 0
-
-"YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" use silver searcher for ctrlp
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-" map . in visual mode
-vnoremap . :norm.<cr>
-
-" open gist after it's been created
-let g:gist_open_browser_after_post = 1
-
-" clear the command line and search highlighting
-noremap <C-l> :nohlsearch<CR>
-
-" add :Plain command for converting text to plaintext
-command! Plain execute "%s/’/'/ge | %s/[“”]/\"/ge | %s/—/-/ge"
-
 if exists('+colorcolumn')
   set colorcolumn=80
   highlight ColorColumn ctermbg=white
 endif
-
-" execute file if we know how
-function! ExecuteFile(filename)
-  :w
-  :silent !clear
-  if match(a:filename, '\.rb$') != -1
-    exec ":!ruby " . a:filename
-  elseif match(a:filename, '\.js$') != -1
-    exec ":!node " . a:filename
-  elseif match(a:filename, '\.sh$') != -1
-    exec ":!bash " . a:filename
-  else
-  exec ":!echo \"Don't know how to execute: \"" . a:filename
-  end
-endfunction
-
-" jump to last position in file
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
-
-" multi-purpose tab key (auto-complete)
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
-
-" rename current file, via Gary Bernhardt
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'))
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-
-
-" Keyboard shortcuts <leader> "
-
-" set leader key to comma
-let mapleader = ","
-
-" call funtion renamefile
-map <leader>n :call RenameFile()<cr>
-
-" run test runner
-map <leader>T :!rake spec<cr>
-
-" Remap new tab
-nmap <Leader>t <Esc>:tabnew<CR>
-nmap <Leader>c <Esc>:tabclose<CR>
-
-" ctrlp config
-let g:ctrlp_map = '<leader>f'
-
-" map git commands
-map <leader>l :!clear && git log -p %<cr>
-map <leader>d :!clear && git diff %<cr>
-
-" map Silver Searcher
-map <leader>a :Ag!<space>
-
-" search for word under cursor with Silver Searcher
-map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
-
-" execute current file
-map <leader>e :call ExecuteFile(expand("%"))<cr>
-
