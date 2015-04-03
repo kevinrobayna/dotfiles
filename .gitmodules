@@ -1,6 +1,0 @@
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/kevinrobayna/oh-my-zsh.git
-[submodule "XCode-Themes"]
-	path = XCode-Themes
-	url = https://github.com/hdoria/xcode-themes.git
