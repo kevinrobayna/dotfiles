@@ -1,11 +1,34 @@
 # .gitignore
-#  Original by Kevin Robayna - http://kevinrobayna.eu
+#  Original by Kevin Robayna - http://kevinrobayna.com
 
 /doc
 
 *.swp
 *.swo
-.sass-cache
 
-.DS_Store
 .ropeproject
+
+.idea
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Compiled Python files
+*.pyc
+
+# Compiled C++ files
+*.out
+
+# Application specific files
+venv
+node_modules
+.sass-cache
