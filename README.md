@@ -1,12 +1,18 @@
-     _     _           _
-    | |   | |         | |
-    | |___| |_____  __| | ____
-    |_____  (____ |/ _  |/ ___)
-     _____| / ___ ( (_| | |
-    (_______\_____|\____|_|
+```
+     _       _______  _______    _      _____   _____
+    | |     |__   __||  _____|  | |    |  ___| /  __/
+  __| |  ___   | |   | |____  _ | |    | |__  | /_
+ / _  | / _ \  | |   |  ____|/ || |    |  __|  \__ \
+( (_| |( (_| ) | |   | |     | || |___ | |___  __/ /
+ \____| \___/  |_|   |_|     |_||_____||_____||___/
 
-    # Yet Another Dotfile Repo v1.1
-    # Now with Prezto and Vundle!
+```
+
+Hi,
+
+This is my public dotfiles. They might not work for you, but feel free to take something.
+
+Kevin Robayna
 
 How to install!
 
