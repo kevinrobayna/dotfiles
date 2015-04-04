@@ -1,0 +1,110 @@
+# Start
+echo "`basename $0` starting."
+
+# Ask for the administrator password upfront
+sudo -v
+
+echo "Kevin, this will take a while. Take a rest"
+
+echo "brew update"
+# Make sure we’re using the latest Homebrew
+brew update
+
+echo "brew upgrade"
+# Upgrade any already-installed formulae
+brew upgrade
+
+echo "brew tap *"
+brew tap caskroom/cask
+echo "brew install brew-cask"
+brew install brew-cask
+echo "brew tap samueljohn/python"
+brew tap samueljohn/python
+echo "brew tap homebrew/science"
+brew tap homebrew/science
+echo "brew tap caskroom/fonts"
+brew tap caskroom/fonts
+
+echo "brew install tree"
+brew install tree
+echo "brew install zsh-completions"
+brew install zsh-completions
+
+# GCC Compiler
+echo "brew install gcc"
+brew install gcc
+
+#Python things
+echo "brew install python"
+brew install python
+
+echo "pip upgrade"
+pip install --upgrade setuptools
+pip install --upgrade pip
+
+echo "pip install virtualenv"
+pip install virtualenv
+echo "pip install nose"
+pip install nose
+echo "pip install pyparsing"
+pip install pyparsing
+echo "pip install python-dateutil"
+pip install python-dateutil
+echo "pip install pep8"
+pip install pep8
+echo "pip install autopep8"
+pip install autopep8
+
+echo "pip install numpy"
+pip install numpy
+echo "pip install scipy"
+pip install scipy
+echo "pip install matplotlib"
+pip install matplotlib
+
+echo "brew cask install pycharm"
+brew cask install pycharm-ce
+
+#Java Stuff
+echo "brew cask install java"
+brew cask install java
+echo "brew cask install eclipse-ide"
+brew cask install eclipse-ide
+
+
+#Some Aplications
+echo "brew cask install dropbox"
+brew cask install dropbox
+echo "brew cask install google-drive"
+brew cask install google-drive
+echo "brew cask install google-hangouts"
+brew cask install google-hangouts
+echo "brew cask install sublime-text"
+brew cask install sublime-text
+echo "brew cask install vlc"
+brew cask install vlc
+echo "brew cask install skype"
+brew cask install skype
+echo "brew cask install sourcetree"
+brew cask install sourcetree
+echo "brew cask install the-unarchiver"
+brew cask install the-unarchiver
+echo "brew cask install virtualbox"
+brew cask install virtualbox
+
+echo "brew cask install iterm2"
+brew cask install iterm2
+
+echo "brew cask install flash"
+brew cask install flash
+
+#Some fonts
+echo "brew cask install fonts"
+brew cask install font-source-code-pro
+brew cask install font-fira-sans
+
+echo "brew cleanup!"
+brew cask cleanup
+brew cleanup
+
+echo "`basename $0` complete."
