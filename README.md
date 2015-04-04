@@ -1,12 +1,15 @@
+     _     _           _
+    | |   | |         | |
+    | |___| |_____  __| | ____
+    |_____  (____ |/ _  |/ ___)
+     _____| / ___ ( (_| | |
+    (_______\_____|\____|_|
 
-Hi,
-
-This is my public dotfiles. They might not work for you, but feel free to take something.
-
-My dotfiles are [YADR](https://github.com/skwp/dotfiles)
+    # Yet Another Dotfile Repo v1.1
+    # Now with Prezto and Vundle!
 
 How to install!
 
-``
+```bash
 sh -c "`curl -fsSL https://raw.githubusercontent.com/kevinrobayna/dotfiles/master/install.sh`"
-``
+```
