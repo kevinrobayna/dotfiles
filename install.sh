@@ -7,7 +7,6 @@ echo "`basename $0` starting."
 
 if [ -d "/Applications/Xcode.app" ]; then
 	workstation=$HOME/Workstation
-
 	# Initialize environment on Mac
 	[[ ! -d $workstation ]] && mkdir -p $workstation
 	git clone https://github.com/kevinrobayna/dotfiles.git $workstation
@@ -17,6 +16,10 @@ if [ -d "/Applications/Xcode.app" ]; then
 	git submodule init
 	git submodule update --recursive
 
+	$directory/.osx
+	$directory/.brew
+	$directory/.preferences
+
 	cp -r $directory/XCode-Themes/ $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/
 
 	sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" -s ask
@@ -24,10 +27,6 @@ if [ -d "/Applications/Xcode.app" ]; then
 	ln -f -s aliases.zsh $HOME/.zsh.after/aliases.zsh
 	ln -f -s prompt.zsh $HOME/.zsh.after/prompt.zsh
 	ln -f -s prompt_kevinrobayna_setup $HOME/.zsh.prompt/prompt_kevinrobayna_setup
-
-	$directory/.osx
-	$directory/.brew
-	$directory/.preferences
 else
     echo "Kevin, install the Xcode first..."
 fi

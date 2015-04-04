@@ -1,6 +1,10 @@
 # Start
 echo "`basename $0` starting."
 
+echo "Instaling Homebrew"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -15,17 +19,11 @@ echo "brew upgrade"
 brew upgrade
 
 echo "brew tap *"
-brew tap caskroom/cask
-echo "brew install brew-cask"
-brew install brew-cask
 echo "brew tap samueljohn/python"
 brew tap samueljohn/python
 echo "brew tap homebrew/science"
 brew tap homebrew/science
-echo "brew tap caskroom/fonts"
-brew tap caskroom/fonts
-echo "brew tap caskroom/versions"
-brew tap caskroom/versions
+
 
 echo "brew install tree"
 brew install tree
@@ -64,17 +62,28 @@ pip install scipy
 echo "pip install matplotlib"
 pip install matplotlib
 
-echo "brew cask install pycharm"
-brew cask install pycharm-ce
+
+echo "brew tap *"
+brew tap caskroom/cask
+echo "brew install brew-cask"
+brew install brew-cask
+echo "brew tap caskroom/fonts"
+brew tap caskroom/fonts
+echo "brew tap caskroom/versions"
+brew tap caskroom/versions
+
+# Link Homebrew casks in `/Applications` rather than `~/Applications`
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 #Java Stuff
 echo "brew cask install java"
 brew cask install java
-echo "brew cask install eclipse-ide"
-brew cask install eclipse-ide
-
 
 #Some Aplications
+echo "brew cask install eclipse-ide"
+brew cask install eclipse-ide
+echo "brew cask install pycharm"
+brew cask install pycharm-ce
 echo "brew cask install dropbox"
 brew cask install dropbox
 echo "brew cask install google-drive"
