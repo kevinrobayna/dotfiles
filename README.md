@@ -6,5 +6,7 @@ This is my public dotfiles. They might not work for you, but feel free to take s
 My dotfiles are inspired by chrishunt, so check his repository
 
 How to install!
-  
+
+`` bash
 sh -c "`curl -fsSL https://raw.githubusercontent.com/kevinrobayna/dotfiles/master/install.sh`"
+``
