@@ -24,6 +24,8 @@ echo "brew tap homebrew/science"
 brew tap homebrew/science
 echo "brew tap caskroom/fonts"
 brew tap caskroom/fonts
+echo "brew tap caskroom/versions"
+brew tap caskroom/versions
 
 echo "brew install tree"
 brew install tree
@@ -79,8 +81,8 @@ echo "brew cask install google-drive"
 brew cask install google-drive
 echo "brew cask install google-hangouts"
 brew cask install google-hangouts
-echo "brew cask install sublime-text"
-brew cask install sublime-text
+echo "brew cask install sublime-text3"
+brew cask install sublime-text3
 echo "brew cask install vlc"
 brew cask install vlc
 echo "brew cask install skype"
