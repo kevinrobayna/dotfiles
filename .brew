@@ -93,6 +93,8 @@ echo "brew cask install the-unarchiver"
 brew cask install the-unarchiver
 echo "brew cask install virtualbox"
 brew cask install virtualbox
+echo "brew cask install transmission"
+brew cask install transmission
 
 echo "brew cask install iterm2"
 brew cask install iterm2
