@@ -7,4 +7,4 @@ My dotfiles are inspired by chrishunt, so check his repository
 
 How to install!
   
-  sh -c "`curl -fsSL https://raw.githubusercontent.com/kevinrobayna/dotfiles/master/install.sh`"
+sh -c "`curl -fsSL https://raw.githubusercontent.com/kevinrobayna/dotfiles/master/install.sh`"

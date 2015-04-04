@@ -1,0 +1,3 @@
+[submodule "XCode-Themes"]
+	path = XCode-Themes
+	url = https://github.com/hdoria/xcode-themes.git
