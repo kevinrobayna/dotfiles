@@ -62,7 +62,6 @@ pip install scipy
 echo "pip install matplotlib"
 pip install matplotlib
 
-
 echo "brew tap *"
 brew tap caskroom/cask
 echo "brew install brew-cask"
@@ -82,26 +81,34 @@ brew cask install java
 #Some Aplications
 echo "brew cask install eclipse-ide"
 brew cask install eclipse-ide
+
 echo "brew cask install pycharm"
 brew cask install pycharm-ce
+
 echo "brew cask install dropbox"
 brew cask install dropbox
+
 echo "brew cask install google-drive"
 brew cask install google-drive
+
 echo "brew cask install google-hangouts"
 brew cask install google-hangouts
+
 echo "brew cask install sublime-text3"
 brew cask install sublime-text3
+
 echo "brew cask install vlc"
 brew cask install vlc
+
 echo "brew cask install skype"
 brew cask install skype
+
 echo "brew cask install sourcetree"
 brew cask install sourcetree
-echo "brew cask install the-unarchiver"
-brew cask install the-unarchiver
+
 echo "brew cask install virtualbox"
 brew cask install virtualbox
+
 echo "brew cask install transmission"
 brew cask install transmission
 
