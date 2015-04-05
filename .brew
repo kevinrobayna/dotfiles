@@ -21,12 +21,13 @@ brew upgrade
 echo "brew tap *"
 echo "brew tap samueljohn/python"
 brew tap samueljohn/python
+
 echo "brew tap homebrew/science"
 brew tap homebrew/science
 
-
 echo "brew install tree"
 brew install tree
+
 echo "brew install zsh-completions"
 brew install zsh-completions
 
@@ -44,30 +45,40 @@ pip install --upgrade pip
 
 echo "pip install virtualenv"
 pip install virtualenv
+
 echo "pip install nose"
 pip install nose
+
 echo "pip install pyparsing"
 pip install pyparsing
+
 echo "pip install python-dateutil"
 pip install python-dateutil
+
 echo "pip install pep8"
 pip install pep8
+
 echo "pip install autopep8"
 pip install autopep8
 
 echo "pip install numpy"
 pip install numpy
+
 echo "pip install scipy"
 pip install scipy
+
 echo "pip install matplotlib"
 pip install matplotlib
 
 echo "brew tap *"
 brew tap caskroom/cask
+
 echo "brew install brew-cask"
 brew install brew-cask
+
 echo "brew tap caskroom/fonts"
 brew tap caskroom/fonts
+
 echo "brew tap caskroom/versions"
 brew tap caskroom/versions
 
