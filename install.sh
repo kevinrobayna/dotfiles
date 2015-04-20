@@ -26,7 +26,7 @@ if [ -d "/Applications/Xcode.app" ]; then
 
 	ln -f -s aliases.zsh $HOME/.zsh.after/aliases.zsh
 	ln -f -s prompt.zsh $HOME/.zsh.after/prompt.zsh
-	ln -f -s prompt_kevinrobayna_setup $HOME/.zsh.prompt/prompt_kevinrobayna_setup
+	ln -f -s prompt_kevinrobayna_setup $HOME/.zsh.prompt/prompts_kevinrobayna_setup
 else
     echo "Kevin, install the Xcode first..."
 fi
