@@ -1,124 +1,171 @@
-# Original by paradox460 https://github.com/paradox460
-# Modified by Kevin Robayna https://github.com/kevinrobayna
+#
+# A ZSH theme based on a combination of the skwp prezto theme and the robl ohmyzsh theme.
+#  * Current Time shown on the right
+#  * Git branch info on the left
+#  * Single line prompt
+#  * Time since last commit on the left
+#  * Time in place of user@hostname
+#
+# Original Author:
+#   David Rice <me@davidjrice.co.uk>
+#
+# Author:
+#   Kevin Robayna <imkevinrobayna@gmail.com>
+# 
 
-# Load dependencies.
-pmodload 'helper'
 
-CURRENT_BG='NONE'
-SEGMENT_SEPARATOR='⮀'
+ZSH_THEME_REP_TIME_SINCE_COMMIT_SHORT="%{$fg[green]%}"
+ZSH_THEME_REP_TIME_SINCE_COMMIT_MEDIUM="%{$fg[yellow]%}"
+ZSH_THEME_REP_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
+ZSH_THEME_REP_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 
+# returns the time since last git commit
+function git_time_details() {
+  # only proceed if there is actually a git repository
+  if `git rev-parse --git-dir > /dev/null 2>&1`; then
+    # only proceed if there is actually a commit
+    if [[ $(git log 2>&1 > /dev/null | grep -c "^fatal: bad default revision") == 0 ]]; then
+      # get the last commit hash
+      # lc_hash=`git log --pretty=format:'%h' -1 2> /dev/null`
+      # get the last commit time
+      lc_time=`git log --pretty=format:'%at' -1 2> /dev/null`
 
-# Begin a segment
-# Takes two arguments, background and foreground. Both can be omitted,
-# rendering default background/foreground.
-prompt_segment() {
-  local bg fg
-  [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
-  [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
-  if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
+      now=`date +%s`
+      seconds_since_last_commit=$((now-lc_time))
+      lc_time_since=`time_since_commit $seconds_since_last_commit`
+
+      echo "$lc_time_since"
+    else
+      echo ""
+    fi
   else
-    echo -n "%{$bg%}%{$fg%} "
+    echo ""
   fi
-  CURRENT_BG=$1
-  [[ -n $3 ]] && print -Pn $3
 }
 
-# End the prompt, closing any open segments
-prompt_end() {
-  if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+# returns the time by given seconds
+function time_since_commit() {
+  seconds_since_last_commit=$(($1 + 0))
+
+  # totals
+  MINUTES=$((seconds_since_last_commit / 60))
+  HOURS=$((seconds_since_last_commit/3600))
+
+  # sub-hours and sub-minutes
+  DAYS=$((seconds_since_last_commit / 86400))
+  SUB_HOURS=$((HOURS % 24))
+  SUB_MINUTES=$((MINUTES % 60))
+
+  if [ "$HOURS" -gt 24 ]; then
+    echo "${DAYS}d${SUB_HOURS}h${SUB_MINUTES}m"
+  elif [ "$MINUTES" -gt 60 ]; then
+    echo "${HOURS}h${SUB_MINUTES}m"
   else
-    echo -n "%{%k%}"
-  fi
-  echo -n "%{%f%}"
-  CURRENT_BG=''
-}
-
-function build_prompt {
-  prompt_segment black default '%(1?;%{%F{red}%}✘ ;)%(!;%{%F{yellow}%}⚡ ;)%(1j;%{%F{cyan}%}%j⚙ ;)'
-  prompt_segment blue black '%2~'
-  if $git_status; then
-    prompt_segment green black '${(e)git_info[prompt]}${git_info[status]}'
-  fi
-  prompt_end
-}
-
-start_time=$SECONDS
-function prompt_paradox_preexec {
-  start_time=$SECONDS
-}
-
-function calc_elapsed_time {
-  if [[ $timer_result -ge 3600 ]]; then
-    let "timer_hours = $timer_result / 3600"
-    let "remainder = $timer_result % 3600"
-    let "timer_minutes = $remainder / 60"
-    let "timer_seconds = $remainder % 60"
-    print -P "%B%F{red}>>> elapsed time ${timer_hours}h${timer_minutes}m${timer_seconds}s%b"
-  elif [[ $timer_result -ge 60 ]]; then
-    let "timer_minutes = $timer_result / 60"
-    let "timer_seconds = $timer_result % 60"
-    print -P "%B%F{yellow}>>> elapsed time ${timer_minutes}m${timer_seconds}s%b"
-  elif [[ $timer_result -gt 10 ]]; then
-    print -P "%B%F{green}>>> elapsed time ${timer_result}s%b"
+    echo "${MINUTES}m"
   fi
 }
 
-function prompt_paradox_precmd {
-  setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
+function prompt_powerline_precmd {
+  # Check for untracked files or updated submodules since vcs_info doesn't.
+  if [[ ! -z $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    fmt_branch="%b%u%c${__PROMPT_SKWP_COLORS[4]}●%f"
+  else
+    fmt_branch="%b%u%c"
+  fi
+  zstyle ':vcs_info:*:prompt:*' formats "${fmt_branch}"
 
-  # Get Git repository information.
-  if (( $+functions[git-info] )); then
-    git_status=git-info
-  fi
-  timer_result=$(($SECONDS-$start_time))
-  if [[ $timer_result -gt 10 ]]; then
-    calc_elapsed_time
-  fi
-  start_time=$SECONDS
+  vcs_info 'prompt'
+
+  # zstyle ':prezto:module:ruby' rvm '%r'
 }
 
-function prompt_paradox_setup {
+function prompt_powerline_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
   prompt_opts=(cr percent subst)
 
-  # Load required functions.
   autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
 
-  # Add hook for calling git-info before each command.
-  add-zsh-hook preexec prompt_paradox_preexec
-  add-zsh-hook precmd prompt_paradox_precmd
+  add-zsh-hook precmd prompt_powerline_precmd
 
-  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{blue}❯%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{red}♺%f'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{red}❮%f%b'
-  zstyle ':prezto:module:git:info:action' format '! %s'
-  zstyle ':prezto:module:git:info:added' format '✚'
-  zstyle ':prezto:module:git:info:ahead' format '⬆'
-  zstyle ':prezto:module:git:info:behind' format '⬇'
-  zstyle ':prezto:module:git:info:branch' format '⭠ %b'
-  zstyle ':prezto:module:git:info:commit' format '➦ %.7c'
-  zstyle ':prezto:module:git:info:deleted' format '✖'
-  zstyle ':prezto:module:git:info:modified' format '✱'
-  zstyle ':prezto:module:git:info:position' format '%p'
-  zstyle ':prezto:module:git:info:renamed' format '➙'
-  zstyle ':prezto:module:git:info:stashed' format 's'
-  zstyle ':prezto:module:git:info:unmerged' format '═'
-  zstyle ':prezto:module:git:info:untracked' format '?'
-  zstyle ':prezto:module:git:info:keys' format \
-    'prompt' '$(coalesce "%b" "%p" "%c")%s' \
-    'status' ' %A%B%S%a%d%m%r%U%u'
+  # Use extended color pallete if available.
+  if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+    __PROMPT_SKWP_COLORS=(
+      "%F{81}"  # turquoise
+      "%F{166}" # orange
+      "%F{135}" # purple
+      "%F{161}" # hotpink
+      "%F{118}" # limegreen
+    )
+  else
+    __PROMPT_SKWP_COLORS=(
+      "%F{cyan}"
+      "%F{yellow}"
+      "%F{magenta}"
+      "%F{red}"
+      "%F{green}"
+    )
+  fi
 
-  # Define prompts.
-  PROMPT='
-%{%f%b%k%}$(build_prompt)
- ${editor_info[keymap]} '
-  RPROMPT='[%D{%L:%M:%S %p}]'
-  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+  # Enable VCS systems you use.
+  zstyle ':vcs_info:*' enable bzr git hg svn
+
+  # check-for-changes can be really slow.
+  # You should disable it if you work with large repositories.
+  zstyle ':vcs_info:*:prompt:*' check-for-changes true
+
+  # Formats:
+  # %b - branchname
+  # %u - unstagedstr (see below)
+  # %c - stagedstr (see below)
+  # %a - action (e.g. rebase-i)
+  # %R - repository path
+  # %S - path in the repository
+  # %n - user
+  # %m - machine hostname
+
+  # local fmt_branch="(${__PROMPT_SKWP_COLORS[1]}%b%f%u%c)"
+  local fmt_branch="${__PROMPT_SKWP_COLORS[2]}%b%f%u%c"
+  local fmt_action="${__PROMPT_SKWP_COLORS[5]}%a%f"
+  local fmt_unstaged="${__PROMPT_SKWP_COLORS[2]}●%f"
+  local fmt_staged="${__PROMPT_SKWP_COLORS[5]}●%f"
+
+  zstyle ':vcs_info:*:prompt:*' unstagedstr   "${fmt_unstaged}"
+  zstyle ':vcs_info:*:prompt:*' stagedstr     "${fmt_staged}"
+  zstyle ':vcs_info:*:prompt:*' actionformats "${fmt_branch}${fmt_action}"
+  zstyle ':vcs_info:*:prompt:*' formats       "${fmt_branch}"
+  zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
+
+  # if [ "$POWERLINE_RIGHT_B" = "" ]; then
+    # POWERLINE_RIGHT_B=%D{%H:%M:%S}
+    local powerline_right_b=$rvm_split[1]
+  # fi
+
+  # if [ "$POWERLINE_RIGHT_A" = "" ]; then
+    local powerline_right_a=$rvm_split[2]
+  # fi
+
+  # Setup powerline style colouring
+  POWERLINE_COLOR_BG_GRAY=%K{240}
+  POWERLINE_COLOR_BG_LIGHT_GRAY=%K{240}
+  POWERLINE_COLOR_BG_WHITE=%K{255}
+
+  POWERLINE_COLOR_FG_GRAY=%F{240}
+  POWERLINE_COLOR_FG_LIGHT_GRAY=%F{240}
+  POWERLINE_COLOR_FG_WHITE=%F{255}
+
+  POWERLINE_SEPARATOR=$'\u2b80'
+  POWERLINE_R_SEPARATOR=$'\u2b82'
+
+  POWERLINE_LEFT_A="%K{green}%F{white} %~ %k%f%F{green}%K{blue}"$POWERLINE_SEPARATOR
+  POWERLINE_LEFT_B="%k%f%F{white}%K{blue} "'${vcs_info_msg_0_}'" %k%f%F{blue}%K{black}"$POWERLINE_SEPARATOR
+  POWERLINE_LEFT_C=" %k%f%F{white}%K{black}"'$(git_time_details)'" %k%f%F{black}"$POWERLINE_SEPARATOR"%f "
+
+  PROMPT=$POWERLINE_LEFT_A$POWERLINE_LEFT_B$POWERLINE_LEFT_C
+  # RPROMPT=$POWERLINE_COLOR_FG_WHITE$POWERLINE_R_SEPARATOR"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY$powerline_right_b "$POWERLINE_R_SEPARATOR"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE $powerline_right_a %f%k"
+  # RPROMPT=$POWERLINE_COLOR_FG_WHITE$POWERLINE_R_SEPARATOR"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY"'$powerline_right_b'" "$POWERLINE_R_SEPARATOR"%f%k$POWERLINE_COLOR_BG_GRAY$POWERLINE_COLOR_FG_WHITE "'$powerline_right_a'" %f%k"
+  RPROMPT=$POWERLINE_COLOR_FG_WHITE$POWERLINE_R_SEPARATOR"%f$POWERLINE_COLOR_BG_WHITE $POWERLINE_COLOR_FG_GRAY"'[%D{%L:%M:%S %p}]'" "
 }
 
-prompt_paradox_setup "$@"
+prompt_powerline_setup "$@"
