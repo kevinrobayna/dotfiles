@@ -18,18 +18,8 @@ echo "brew upgrade"
 # Upgrade any already-installed formulae
 brew upgrade
 
-echo "brew tap *"
-echo "brew tap samueljohn/python"
-brew tap samueljohn/python
-
-echo "brew tap homebrew/science"
-brew tap homebrew/science
-
 echo "brew install tree"
 brew install tree
-
-echo "brew install zsh-completions"
-brew install zsh-completions
 
 # GCC Compiler
 echo "brew install gcc"
@@ -39,48 +29,11 @@ brew install gcc
 echo "brew install python"
 brew install python
 
-echo "pip upgrade"
-pip install --upgrade setuptools
-pip install --upgrade pip
-
-echo "pip install virtualenv"
-pip install virtualenv
-
-echo "pip install nose"
-pip install nose
-
-echo "pip install pyparsing"
-pip install pyparsing
-
-echo "pip install python-dateutil"
-pip install python-dateutil
-
-echo "pip install pep8"
-pip install pep8
-
-echo "pip install autopep8"
-pip install autopep8
-
-echo "pip install numpy"
-pip install numpy
-
-echo "pip install scipy"
-pip install scipy
-
-echo "pip install matplotlib"
-pip install matplotlib
-
 echo "brew tap *"
 brew tap caskroom/cask
 
-echo "brew install brew-cask"
-brew install brew-cask
-
 echo "brew tap caskroom/fonts"
 brew tap caskroom/fonts
-
-echo "brew tap caskroom/versions"
-brew tap caskroom/versions
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -89,50 +42,30 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 echo "brew cask install java"
 brew cask install java
 
-#Some Aplications
-echo "brew cask install eclipse-ide"
-brew cask install eclipse-ide
-
-echo "brew cask install pycharm"
-brew cask install pycharm-ce
-
 echo "brew cask install dropbox"
 brew cask install dropbox
 
-echo "brew cask install google-drive"
-brew cask install google-drive
+echo "brew cask install intellij-idea-ce"
+brew cask install intellij-idea-ce
 
-echo "brew cask install google-hangouts"
-brew cask install google-hangouts
-
-echo "brew cask install sublime-text3"
-brew cask install sublime-text3
-
-echo "brew cask install vlc"
-brew cask install vlc
-
-echo "brew cask install skype"
-brew cask install skype
-
-echo "brew cask install sourcetree"
-brew cask install sourcetree
-
-echo "brew cask install virtualbox"
-brew cask install virtualbox
-
-echo "brew cask install transmission"
-brew cask install transmission
+echo "brew cask install sublime-text"
+brew cask install sublime-text
 
 echo "brew cask install iterm2"
 brew cask install iterm2
 
-echo "brew cask install flash"
-brew cask install flash
+echo "brew cask install franz"
+brew cask install franz
+
+echo "brew cask install twitch"
+brew cask install twitch
+
+echo "brew cask install steam"
+brew cask install steam
 
 #Some fonts
 echo "brew cask install fonts"
-brew cask install font-source-code-pro
-brew cask install font-fira-sans
+brew cask install font-inconsolata
 
 echo "brew cleanup!"
 brew cask cleanup
