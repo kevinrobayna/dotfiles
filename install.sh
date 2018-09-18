@@ -21,6 +21,9 @@ if [ -d "/Applications/Xcode.app" ]; then
 	git clone https://github.com/benjohnde/Clipinio.git
 	cd ~/dev/Clipinio
 	./build.sh
+
+  git config --global user.name "Kevin Robayna"
+  git config --global user.email me@kevinrobayna.com
 	
 else
     echo "Kevin, install the Xcode first..."
