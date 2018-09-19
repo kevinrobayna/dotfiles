@@ -63,9 +63,16 @@ brew cask install twitch
 echo "brew cask install steam"
 brew cask install steam
 
+echo "brew cask install evernote"
+brew cask install evernote
+
 #Some fonts
 echo "brew cask install fonts"
 brew cask install font-inconsolata
+
+#Random Stuff
+echo "brew cask install aerial"
+brew cask install aerial
 
 echo "brew cleanup!"
 brew cask cleanup
