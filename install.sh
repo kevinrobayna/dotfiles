@@ -9,7 +9,8 @@ if [ -d "/Applications/Xcode.app" ]; then
 	directory=$dev/dotfiles
 	cd $directory
 
-	$directory/.brew
+	sh $directory/.brew
+	sh $directory/.osx
 
 	sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" -s ask
 
