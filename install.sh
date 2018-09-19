@@ -17,11 +17,6 @@ if [ -d "/Applications/Xcode.app" ]; then
 	cp prompt.zsh $HOME/.zsh.after/prompt.zsh
 	cp prompt_kevinrobayna_setup $HOME/.zsh.prompts/prompt_kevinrobayna_setup
 
-	cd ~/dev
-	git clone https://github.com/benjohnde/Clipinio.git
-	cd ~/dev/Clipinio
-	./build.sh
-
   git config --global user.name "Kevin Robayna"
   git config --global user.email me@kevinrobayna.com
 	
