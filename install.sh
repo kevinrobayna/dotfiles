@@ -9,9 +9,11 @@ sh .brew
 
 ln -s .zshrc ~
 ln -s .p10k.zsh ~
-ln -s .gitconfig ~
 
 sh .osx
+
+git config --global user.name "Kevin Robayna"
+git config --global user.email me@kevinrobayna.com
 
 # Finished
 echo "`basename $0` complete."
