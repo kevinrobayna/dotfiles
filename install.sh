@@ -5,25 +5,18 @@ SHELL := /usr/local/bin/zsh
 # Start
 echo "`basename $0` starting."
 
-if [ -d "/Applications/Xcode.app" ]; then
-	directory=$dev/dotfiles
-	cd $directory
+directory=$dev/dotfiles
+cd $directory
 
-	sh $directory/.brew
-	sh $directory/.osx
+sh $directory/.brew
 
-	sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" -s ask
+ln -s $directory/.zshrc ~
+ln -s $directory/.p10k.zsh ~
 
-	cp aliases.zsh $HOME/.zsh.after/aliases.zsh
-	cp prompt.zsh $HOME/.zsh.after/prompt.zsh
-	cp prompt_kevinrobayna_setup $HOME/.zsh.prompts/prompt_kevinrobayna_setup
+sh $directory/.osx
 
-  git config --global user.name "Kevin Robayna"
-  git config --global user.email me@kevinrobayna.com
-	
-else
-    echo "Kevin, install the Xcode first..."
-fi
+git config --global user.name "Kevin Robayna"
+git config --global user.email me@kevinrobayna.com
 
 # Finished
 echo "`basename $0` complete."

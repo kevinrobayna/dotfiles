@@ -18,16 +18,14 @@ echo "brew upgrade"
 # Upgrade any already-installed formulae
 brew upgrade
 
+echo "brew install powerlevel10k"
+brew install romkatv/powerlevel10k/powerlevel10k
+
 echo "brew install tree"
 brew install tree
 
-# GCC Compiler
-echo "brew install gcc"
-brew install gcc
-
-#Python things
-echo "brew install python"
-brew install python
+echo "brew install gpg"
+brew install gpg
 
 echo "brew tap *"
 brew tap caskroom/cask
@@ -42,29 +40,11 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 echo "brew cask install java"
 brew cask install java
 
-echo "brew cask install dropbox"
-brew cask install dropbox
-
-echo "brew cask install intellij-idea-ce"
-brew cask install intellij-idea-ce
-
 echo "brew cask install sublime-text"
 brew cask install sublime-text
 
 echo "brew cask install iterm2"
 brew cask install iterm2
-
-echo "brew cask install franz"
-brew cask install franz
-
-echo "brew cask install twitch"
-brew cask install twitch
-
-echo "brew cask install steam"
-brew cask install steam
-
-echo "brew cask install evernote"
-brew cask install evernote
 
 #Some fonts
 echo "brew cask install fonts"
