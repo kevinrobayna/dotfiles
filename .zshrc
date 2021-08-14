@@ -13,6 +13,8 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 # enable commit signing
 export GPG_TTY=$(tty)
 
+# Help homebrew
+export PATH="/usr/local/sbin:$PATH"
 
 # what is my ip?
 alias myipis='curl http://remote-ip.herokuapp.com'
