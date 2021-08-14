@@ -28,34 +28,30 @@ echo "brew install gpg"
 brew install gpg
 
 echo "brew tap *"
-brew tap caskroom/cask
+brew tap homebrew/cask
 
 echo "brew tap caskroom/fonts"
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 #Java Stuff
 echo "brew cask install java"
-brew cask install java
+brew install java
 
 echo "brew cask install sublime-text"
-brew cask install sublime-text
+brew install sublime-text
 
 echo "brew cask install iterm2"
-brew cask install iterm2
+brew install iterm2
 
 #Some fonts
 echo "brew cask install fonts"
-brew cask install font-inconsolata
+brew install font-inconsolata
 
 #Random Stuff
 echo "brew cask install aerial"
-brew cask install aerial
-
-echo "brew cleanup!"
-brew cask cleanup
-brew cleanup
+brew install aerial
 
 echo "`basename $0` complete."

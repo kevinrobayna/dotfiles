@@ -5,18 +5,13 @@ SHELL := /usr/local/bin/zsh
 # Start
 echo "`basename $0` starting."
 
-directory=$dev/dotfiles
-cd $directory
+sh .brew
 
-sh $directory/.brew
+ln -s .zshrc ~
+ln -s .p10k.zsh ~
+ln -s .gitconfig ~
 
-ln -s $directory/.zshrc ~
-ln -s $directory/.p10k.zsh ~
-
-sh $directory/.osx
-
-git config --global user.name "Kevin Robayna"
-git config --global user.email me@kevinrobayna.com
+sh .osx
 
 # Finished
 echo "`basename $0` complete."
