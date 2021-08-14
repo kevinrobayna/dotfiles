@@ -16,6 +16,6 @@ Kevin Robayna
 
 How to install!
 
-```bash
-sh -c "`curl -fsSL https://raw.githubusercontent.com/kevinrobayna/dotfiles/master/install.sh`"
-```
+* Clone the repo
+* `sh install.sh`
+* Done!
