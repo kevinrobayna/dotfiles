@@ -42,11 +42,22 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
+
+###############################################################################
+# Use list as default in Finder                                               #
+###############################################################################
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+
 ###############################################################################
 # Terminal & iTerm 2                                                          #
 ###############################################################################
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+sudo find / -name ".DS_Store" -exec rm {} \;
 
 ###############################################################################
 # Kill affected applications                                                  #
