@@ -7,8 +7,8 @@ echo "`basename $0` starting."
 
 sh .brew
 
-ln -s .zshrc ~
-ln -s .p10k.zsh ~
+ln -s "$PWD/.zshrc" ~/.zshrc
+ln -s "$PWD/.p10k.zsh" ~/.p10k.zsh
 
 sh .osx
 
