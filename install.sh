@@ -10,6 +10,9 @@ sh .brew
 ln -s "$PWD/.zshrc" ~/.zshrc
 ln -s "$PWD/.p10k.zsh" ~/.p10k.zsh
 
+touch ~/.secrets
+touch ~/.zsh_history
+
 sh .osx
 
 git config --global user.name "Kevin Robayna"
