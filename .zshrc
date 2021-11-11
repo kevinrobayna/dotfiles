@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -38,6 +38,9 @@ export GPG_TTY=$(tty)
 # Help homebrew
 export PATH="/usr/local/sbin:$PATH"
 
+# Secrets
+export $(xargs < ~/.secrets)
+
 # what is my ip?
 alias myipis='curl http://remote-ip.herokuapp.com'
 
@@ -61,7 +64,18 @@ alias dotfile='cd ~/dev/dotfiles'
 
 alias tree='tree -C'
 
-export SAVEHIST=10000
-export HISTSIZE=10000
+# History Settings
+export HISTFILE=~/.zsh_history
+
+# Increase size of file
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+
+# Immediate append
+setopt INC_APPEND_HISTORY
+export HISTTIMEFORMAT="[%F %T] "
+
+# Handle dupplicates
+setopt HIST_IGNORE_ALL_DUPS
 
 export JAVA_HOME=$(/usr/libexec/java_home)

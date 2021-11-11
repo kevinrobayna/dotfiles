@@ -14,6 +14,10 @@ sh .osx
 
 git config --global user.name "Kevin Robayna"
 git config --global user.email me@kevinrobayna.com
+git config --global commit.gpgsign true
 
 # Finished
 echo "`basename $0` complete."
+
+# Remind to run p10k configure
+echo "Now you should run p10k configure to configure p10k fonts"

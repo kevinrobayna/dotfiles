@@ -54,4 +54,8 @@ brew install font-inconsolata
 echo "brew cask install aerial"
 brew install aerial
 
+#Clipboard Manager
+echo "brew install --cask clipy, Remeber to open Clipy"
+brew install --cask clipy
+
 echo "`basename $0` complete."
