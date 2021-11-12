@@ -7,8 +7,8 @@ fi
 
 source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/dev/dotfiles/.p10k.zsh.
+[[ ! -f ~/dev/dotfiles/.p10k.zsh ]] || source ~/dev/dotfiles/.p10k.zsh
 
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
@@ -44,6 +44,7 @@ export $(xargs < ~/.secrets)
 # what is my ip?
 alias myipis='curl http://remote-ip.herokuapp.com'
 
+alias ..='cd ..'
 alias dus='du -hs'
 alias df='df -h'
 alias brewu='brew update;brew upgrade;brew upgrade --cask'
@@ -78,6 +79,17 @@ export HISTTIMEFORMAT="[%F %T] "
 # Handle dupplicates
 setopt HIST_IGNORE_ALL_DUPS
 
+# Java
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Ruby
+alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
+eval "$(rbenv init - zsh)"
+
+# Postgress
+export PATH="/opt/homebrew/opt/postgresql@9.6/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@9.6/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@9.6/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@9.6/lib/pkgconfig"
