@@ -33,7 +33,7 @@ znap function _pyenv pyenvn 'eval "$( pyenv init - --no-rehash )"'
 compctl -K    _pyenv pyenv
 
 # enable commit signing
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 
 # Help homebrew
 export PATH="/usr/local/sbin:$PATH"
@@ -93,3 +93,9 @@ export PATH="/opt/homebrew/opt/postgresql@9.6/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@9.6/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@9.6/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@9.6/lib/pkgconfig"
+
+# Postgress
+export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@11/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
