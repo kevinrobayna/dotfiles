@@ -77,7 +77,7 @@ export HISTTIMEFORMAT="[%F %T] "
 setopt HIST_IGNORE_ALL_DUPS
 
 # Java
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="$(brew --prefix)/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export JAVA_HOME=$(/usr/libexec/java_home)
 
