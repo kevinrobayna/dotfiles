@@ -30,7 +30,8 @@ znap function _pyenv pyenvn 'eval "$( pyenv init - --no-rehash )"'
 compctl -K    _pyenv pyenv
 
 # enable commit signing
-export GPG_TTY=$TTY
+# export GPG_TTY=$TTY is faster but jetbrains does not like it
+export GPG_TTY=$(tty)
 
 # Help homebrew
 export PATH="/usr/local/sbin:$PATH"
@@ -84,12 +85,6 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # Ruby
 alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
 eval "$(rbenv init - zsh)"
-
-# Postgress
-export PATH="/opt/homebrew/opt/postgresql@9.6/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@9.6/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@9.6/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@9.6/lib/pkgconfig"
 
 # Postgress
 export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
