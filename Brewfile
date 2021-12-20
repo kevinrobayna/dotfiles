@@ -11,7 +11,6 @@ brew "zsh-completions"
 brew "romkatv/powerlevel10k/powerlevel10k"
 
 # Generic Tools
-brew "gnupg"
 brew "jq"
 brew "tree"
 brew "docker"
@@ -47,6 +46,14 @@ brew "node"
 # Web Development
 cask "postman"
 
+# Databases
+brew "postgresql@11"
+
+# GPG
+brew "gnupg"
+brew "pinentry-mac"
+cask "gpg-suite"
+
 # Apps
 cask "iterm2"
 cask "dashlane"
@@ -59,7 +66,6 @@ cask "whatsapp"
 cask "caffeine"
 cask "discord"
 cask "docker"
-cask "gpg-suite"
 cask "intellij-idea-ce"
 cask "steam"
 cask "telegram"
