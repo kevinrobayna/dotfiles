@@ -15,6 +15,7 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
     git clone --depth 1 -- \
         https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
 
+source ~/.iterm2_shell_integration.zsh
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 
 # `znap source` automatically downloads and starts your plugins.
@@ -91,3 +92,6 @@ export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@11/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
+
+# Python
+export PATH="$(brew --prefix)/opt/python/libexec/bin:$PATH"
