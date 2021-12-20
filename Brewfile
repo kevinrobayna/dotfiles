@@ -21,6 +21,7 @@ brew "git"
 brew "hub"
 brew "macvim"
 brew "tmux"
+brew "htop"
 
 # Java
 brew "openjdk"
