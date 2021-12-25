@@ -5,7 +5,13 @@ SHELL := /usr/local/bin/zsh
 # Start
 echo "`basename $0` starting."
 
-sh .brew
+echo "Instaling Homebrew"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
+
+# Link Homebrew casks in `/Applications` rather than `~/Applications`
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 
 ln -s "$PWD/.zshrc" ~/.zshrc
 
@@ -20,6 +26,8 @@ git config --global user.name "Kevin Robayna"
 git config --global user.email me@kevinrobayna.com
 git config --global commit.gpgsign true
 git config --global core.excludesfile ~/.gitignore
+
+curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
 # Finished
 echo "`basename $0` complete."

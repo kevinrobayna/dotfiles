@@ -4,6 +4,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "romkatv/powerlevel10k"
+tap "aws/tap"
 
 # ZSH
 brew "zsh"
@@ -53,6 +54,10 @@ brew "postgresql@11"
 brew "gnupg"
 brew "pinentry-mac"
 cask "gpg-suite"
+
+# AWS
+brew "awscli"
+brew "aws-sam-cli"
 
 # Apps
 cask "iterm2"

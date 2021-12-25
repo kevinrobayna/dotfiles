@@ -15,8 +15,8 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
     git clone --depth 1 -- \
         https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
 
-source ~/.iterm2_shell_integration.zsh
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
+source ~/.iterm2_shell_integration.zsh
 
 # `znap source` automatically downloads and starts your plugins.
 znap source marlonrichert/zsh-autocomplete
@@ -36,6 +36,8 @@ export GPG_TTY=$(tty)
 
 # Help homebrew
 export PATH="/usr/local/sbin:$PATH"
+# Link Homebrew casks in `/Applications` rather than `~/Applications`
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Secrets
 export $(xargs < ~/.secrets)
