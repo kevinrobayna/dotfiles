@@ -10,6 +10,9 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/dev/dotfiles/.p10k.zsh.
 [[ ! -f ~/dev/dotfiles/.p10k.zsh ]] || source ~/dev/dotfiles/.p10k.zsh
 
+# Autojump config https://github.com/wting/autojump
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
     git clone --depth 1 -- \
@@ -87,7 +90,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Ruby
 alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
-eval "$(rbenv init - zsh)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
 
 # Postgress
 export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"

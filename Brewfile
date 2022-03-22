@@ -10,6 +10,7 @@ tap "aws/tap"
 brew "zsh"
 brew "zsh-completions"
 brew "romkatv/powerlevel10k/powerlevel10k"
+brew "autojump"
 
 # Generic Tools
 brew "jq"
