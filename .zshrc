@@ -41,6 +41,7 @@ export GPG_TTY=$(tty)
 export PATH="/usr/local/sbin:$PATH"
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export EDITOR="vim"
 
 # Secrets
 export $(xargs < ~/.secrets)
@@ -94,10 +95,10 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 
 # Postgress
-export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@11/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@14/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@14/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@14/lib/pkgconfig"
 
 # Python
 export PATH="$(brew --prefix)/opt/python/libexec/bin:$PATH"

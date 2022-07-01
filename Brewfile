@@ -49,7 +49,7 @@ brew "node"
 cask "postman"
 
 # Databases
-brew "postgresql@11"
+brew "postgresql@14"
 
 # GPG
 brew "gnupg"
