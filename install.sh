@@ -12,15 +12,18 @@ brew doctor
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+brew bundle
 
 ln -s "$PWD/.zshrc" ~/.zshrc
+ln -s "$PWD/.tool-versions" ~/.tool-versions
+ln -s "$PWD/.asdfrc" ~/.asdfrc
 
 touch ~/.secrets
 touch ~/.zsh_history
 
 sh .osx
 
-curl https://www.toptal.com/developers/gitignore/api/macos,intellij+all,rubymine+all,pycharm+all,java,ruby,python,visualstudiocode -o ~/.gitignore
+curl https://www.toptal.com/developers/gitignore/api/macos,intellij+all,rubymine+all,pycharm+all,visualstudiocode -o ~/.gitignore
 
 git config --global user.name "Kevin Robayna"
 git config --global user.email me@kevinrobayna.com

@@ -1,0 +1,6 @@
+java adoptopenjdk-jre-18.0.1+10
+kotlin 1.7.0
+nodejs lts
+ruby 3.1.2
+python 3.10.5
+postgres 14.2

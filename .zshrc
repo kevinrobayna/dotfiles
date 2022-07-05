@@ -84,21 +84,5 @@ export HISTTIMEFORMAT="[%F %T] "
 # Handle dupplicates
 setopt HIST_IGNORE_ALL_DUPS
 
-# Java
-export PATH="$(brew --prefix)/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-# Ruby
-alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
-
-# Postgress
-export PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@14/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@14/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@14/lib/pkgconfig"
-
-# Python
-export PATH="$(brew --prefix)/opt/python/libexec/bin:$PATH"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh

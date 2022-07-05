@@ -7,6 +7,7 @@ tap "romkatv/powerlevel10k"
 tap "aws/tap"
 
 # ZSH
+brew "asdf"
 brew "zsh"
 brew "zsh-completions"
 brew "romkatv/powerlevel10k/powerlevel10k"
@@ -24,32 +25,11 @@ brew "macvim"
 brew "tmux"
 brew "htop"
 
-# Java
-brew "openjdk"
-brew "kotlin"
-cask "java"
-
-# Ruby Stuff
-brew "rbenv"
-brew "ruby"
-
 # Go
-brew "go"
 brew "hugo"
-
-# Python
-brew "pyenv"
-brew "pyenv-virtualenv"
-brew "python"
-
-# Javascript
-brew "node"
 
 # Web Development
 cask "postman"
-
-# Databases
-brew "postgresql@14"
 
 # GPG
 brew "gnupg"
