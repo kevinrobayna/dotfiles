@@ -29,6 +29,7 @@ asdf plugin add nodejs
 asdf plugin add postgres
 asdf plugin add python
 asdf plugin add ruby
+asdf plugin add golang
 
 curl https://www.toptal.com/developers/gitignore/api/macos,intellij+all,rubymine+all,pycharm+all,visualstudiocode -o ~/.gitignore
 
