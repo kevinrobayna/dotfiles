@@ -11,7 +11,7 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/dev/dotfiles/.p10k.zsh ]] || source ~/dev/dotfiles/.p10k.zsh
 
 # Autojump config https://github.com/wting/autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+[ -f `brew --prefix autojump`/etc/profile.d/autojump.sh ] && . `brew --prefix autojump`/etc/profile.d/autojump.sh
 
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
@@ -42,6 +42,9 @@ export PATH="/usr/local/sbin:$PATH"
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export EDITOR="vim"
+
+. `brew --prefix asdf`/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # Secrets
 export $(xargs < ~/.secrets)
@@ -83,6 +86,3 @@ export HISTTIMEFORMAT="[%F %T] "
 
 # Handle dupplicates
 setopt HIST_IGNORE_ALL_DUPS
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
