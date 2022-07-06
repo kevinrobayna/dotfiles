@@ -29,10 +29,6 @@ znap source zsh-users/zsh-syntax-highlighting
 # `znap eval` caches and runs any kind of command output for you.
 znap eval iterm2 'curl -fsSL https://iterm2.com/shell_integration/zsh'
 
-# `znap function` lets you lazy-load features you don't always need.
-znap function _pyenv pyenvn 'eval "$( pyenv init - --no-rehash )"'
-compctl -K    _pyenv pyenv
-
 # enable commit signing
 # export GPG_TTY=$TTY is faster but jetbrains does not like it
 export GPG_TTY=$(tty)
