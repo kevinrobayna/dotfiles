@@ -1,4 +1,3 @@
-tap "adoptopenjdk/openjdk"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -21,9 +20,10 @@ brew "ctags"
 brew "gcc"
 brew "git"
 brew "hub"
-brew "macvim"
-brew "tmux"
 brew "htop"
+brew "bat"
+brew "k9s"
+brew "slides"
 
 # Go
 brew "hugo"
