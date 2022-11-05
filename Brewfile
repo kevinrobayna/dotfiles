@@ -24,6 +24,7 @@ brew "htop"
 brew "bat"
 brew "k9s"
 brew "slides"
+brew "fantastical"
 
 # Go
 brew "hugo"
