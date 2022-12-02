@@ -39,9 +39,6 @@ export PATH="/usr/local/sbin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export EDITOR="vim"
 
-. `brew --prefix asdf`/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
-
 # Secrets
 export $(xargs < ~/.secrets)
 
@@ -88,3 +85,14 @@ export HISTTIMEFORMAT="[%F %T] "
 
 # Handle dupplicates
 setopt HIST_IGNORE_ALL_DUPS
+
+# Ruby
+alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
+
+# Postgress
+export PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@14/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@14/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@14/lib/pkgconfig"
