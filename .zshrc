@@ -89,7 +89,7 @@ setopt HIST_IGNORE_ALL_DUPS
 # Ruby
 alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
 alias be='bundle exec'
-alias rubocop='bundle exec rubocop --display-style-guide --extra-details --display-cop-names'
+alias rubocop='bundle exec rubocop -A --display-style-guide --extra-details --display-cop-names'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 
