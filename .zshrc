@@ -39,8 +39,14 @@ export PATH="/usr/local/sbin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export EDITOR="vim"
 
+. `brew --prefix asdf`/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
+
 # Secrets
 export $(xargs < ~/.secrets)
+
+alias vi='lvim'
+alias vim='lvim'
 
 # what is my ip?
 alias myipis='curl http://remote-ip.herokuapp.com'
@@ -98,3 +104,6 @@ export PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@14/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@14/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@14/lib/pkgconfig"
+
+# Google
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
