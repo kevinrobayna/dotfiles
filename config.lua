@@ -65,31 +65,19 @@ lvim.builtin.telescope.defaults.mappings = {
     ["<c-k>"] = actions.move_selection_previous,
   },
 }
-
--- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["t"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
-}
+
 
 ------------------------
--- Trouble
+-- Harpoon
 ------------------------
-lvim.builtin.which_key.mappings["t"] = {
-  name = "Diagnostics",
-  t = { "<cmd>TroubleToggle<cr>", "trouble" },
-  w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
-  d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
-  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
-  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
-}
+lvim.keys.normal_mode["<leader>a"] = require("harpoon.mark").add_file
+lvim.keys.normal_mode["<C-e>"] = require("harpoon.ui").toggle_quick_menu
+
+lvim.keys.normal_mode["<C-h>"] = function() require("harpoon.ui").nav_file(1) end
+lvim.keys.normal_mode["<C-j>"] = function() require("harpoon.ui").nav_file(2) end
+lvim.keys.normal_mode["<C-k>"] = function() require("harpoon.ui").nav_file(3) end
+lvim.keys.normal_mode["<C-l>"] = function() require("harpoon.ui").nav_file(4) end
 
 -- Change theme settings
 lvim.colorscheme = "lunar"
@@ -120,10 +108,6 @@ linters.setup {
 -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
   {
-    "folke/trouble.nvim",
-    cmd = "troubletoggle",
-  },
-  {
     "sindrets/diffview.nvim",
     event = "BufRead",
   },
@@ -135,6 +119,7 @@ lvim.plugins = {
       vim.g.gitblame_enabled = 0
     end,
   },
+  { "ThePrimeagen/harpoon" }
 }
 
 -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>
@@ -145,3 +130,11 @@ vim.api.nvim_create_autocmd("FileType", {
     require("nvim-treesitter.highlight").attach(0, "bash")
   end,
 })
+
+local harpoon = require "harpoon"
+require("telescope").load_extension('harpoon')
+harpoon.setup {
+  menu = {
+    width = vim.api.nvim_win_get_width(0) - 4,
+  }
+}
