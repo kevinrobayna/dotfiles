@@ -105,20 +105,16 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
-lvim.builtin.dap.active = true
 
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
 
--- generic LSP settings <https://www.lunarvim.org/docs/languages#lsp-support>
---- enable automatic installation of servers
+-- enable automatic installation of servers
 lvim.lsp.installer.setup.automatic_installation = true
 
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "goimports", filetypes = { "go" } },
-  { command = "gofumpt", filetypes = { "go" } },
 }
 
 -- set additional linters
@@ -144,8 +140,6 @@ lvim.plugins = {
       vim.g.gitblame_enabled = 0
     end,
   },
-  { "olexsmir/gopher.nvim" },
-  { "leoluz/nvim-dap-go" },
 }
 
 -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>

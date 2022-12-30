@@ -39,6 +39,7 @@ git config --global user.email me@kevinrobayna.com
 git config --global commit.gpgsign true
 git config --global core.excludesfile ~/.gitignore
 git config --global pull.rebase false
+git config --global init.defaultBranch master
 
 curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
