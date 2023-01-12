@@ -42,6 +42,13 @@ git config --global pull.rebase false
 git config --global init.defaultBranch master
 git config --global core.editor "vim"
 
+# This is to ensure i can pull without creating a commit when i can but automatically create one if i need to
+# I never do anything else other than git pull so this is the best way for me
+git config --global merge.ff no
+git config --global merge.commit no
+git config --global pull.ff yes
+
+
 curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
 # Vim
