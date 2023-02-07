@@ -19,15 +19,11 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
         https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
-source ~/.iterm2_shell_integration.zsh
 
 # `znap source` automatically downloads and starts your plugins.
 znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
-
-# `znap eval` caches and runs any kind of command output for you.
-znap eval iterm2 'curl -fsSL https://iterm2.com/shell_integration/zsh'
 
 # enable commit signing
 # export GPG_TTY=$TTY is faster but jetbrains does not like it
@@ -37,7 +33,7 @@ export GPG_TTY=$(tty)
 export PATH="/usr/local/sbin:$PATH"
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 . `brew --prefix asdf`/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
@@ -45,16 +41,13 @@ export EDITOR="vim"
 # Secrets
 export $(xargs < ~/.secrets)
 
-alias vi='lvim'
-alias vim='lvim'
-
 # what is my ip?
 alias myipis='curl http://remote-ip.herokuapp.com'
 
 alias ..='cd ..'
 alias dus='du -hs'
 alias df='df -h'
-alias brewu='brew update;brew upgrade;brew upgrade --cask'
+alias brewu='brew update;brew upgrade;brew upgrade --cask;brew cleanup'
 
 alias ll='ls -alGh'
 alias ls='ls -Gh'

@@ -14,6 +14,12 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 brew bundle
 
+mkdir ~/.config
+mkdir ~/.config/kitty/
+ln -s "$PWD/.config/kitty/kitty.conf" ~/.config/kitty/kitty.conf
+ln -s "$PWD/.config/kitty/theme.conf" ~/.config/kitty/theme.conf
+
+
 ln -s "$PWD/.zshrc" ~/.zshrc
 ln -s "$PWD/.tool-versions" ~/.tool-versions
 ln -s "$PWD/.asdfrc" ~/.asdfrc
