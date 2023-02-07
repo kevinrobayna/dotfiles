@@ -41,6 +41,9 @@ export EDITOR="nvim"
 # Secrets
 export $(xargs < ~/.secrets)
 
+alias vi="nvim"
+alias vim="nvim"
+
 alias ..='cd ..'
 alias dus='du -hs'
 alias df='df -h'
