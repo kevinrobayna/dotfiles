@@ -41,9 +41,6 @@ export EDITOR="nvim"
 # Secrets
 export $(xargs < ~/.secrets)
 
-# what is my ip?
-alias myipis='curl http://remote-ip.herokuapp.com'
-
 alias ..='cd ..'
 alias dus='du -hs'
 alias df='df -h'
