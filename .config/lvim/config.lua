@@ -132,10 +132,8 @@ harpoon.setup {
         width = vim.api.nvim_win_get_width(0) - 4,
     }
 }
-lvim.keys.normal_mode["<leader>a"] = require("harpoon.mark").add_file
-lvim.keys.normal_mode["<C-e>"] = require("harpoon.ui").toggle_quick_menu
-
-lvim.keys.normal_mode["<C-h>"] = function() require("harpoon.ui").nav_file(1) end
-lvim.keys.normal_mode["<C-j>"] = function() require("harpoon.ui").nav_file(2) end
-lvim.keys.normal_mode["<C-k>"] = function() require("harpoon.ui").nav_file(3) end
-lvim.keys.normal_mode["<C-l>"] = function() require("harpoon.ui").nav_file(4) end
+lvim.builtin.which_key.mappings["h"] = {
+    name = "Harpoon",
+    a = { "<cmd>lua require'harpoon.mark'.add_file{}<CR>", "Add file to Recents" },
+    t = { "<cmd>lua require'harpoon.ui'.toggle_quick_menu{}<CR>", "Toggle Recents" }
+}
