@@ -60,7 +60,7 @@ curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.
 # Vim
 bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 rm ~/.config/lvim/config.lua
-ln -s "$PWD/lvim/config.lua" ~/.config/lvim/config.lua
+ln -s "$PWD/.config/lvim/config.lua" ~/.config/lvim/config.lua
 
 # Finished
 echo "`basename $0` complete."

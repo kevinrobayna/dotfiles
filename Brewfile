@@ -11,6 +11,7 @@ brew "zsh"
 brew "zsh-completions"
 brew "romkatv/powerlevel10k/powerlevel10k"
 brew "autojump"
+brew "ripgrep"
 
 # Generic Tools
 brew "jq"
