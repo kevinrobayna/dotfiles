@@ -33,7 +33,7 @@ export GPG_TTY=$(tty)
 export PATH="/usr/local/sbin:$PATH"
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export EDITOR="nvim"
+export EDITOR="lvim"
 
 . `brew --prefix asdf`/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
@@ -41,8 +41,8 @@ export EDITOR="nvim"
 # Secrets
 export $(xargs < ~/.secrets)
 
-alias vi="lvim"
-alias vim="lvim"
+alias vi="nvim"
+alias vim="nvim"
 
 alias ..='cd ..'
 alias dus='du -hs'

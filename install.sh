@@ -57,12 +57,11 @@ git config --global pull.ff yes
 
 curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
-# Vim
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-rm ~/.config/lvim/config.lua
-ln -s "$PWD/.config/lvim/config.lua" ~/.config/lvim/config.lua
+# Nvim
 ln -s "$PWD/.config/nvim" ~/.config/nvim
 
+# Tmux
+ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 
 
 # Finished
