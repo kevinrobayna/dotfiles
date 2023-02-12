@@ -14,6 +14,7 @@ brew "autojump"
 brew "ripgrep"
 brew "fd"
 brew "nvim"
+brew "lazygit"
 
 # Generic Tools
 brew "jq"
