@@ -12,6 +12,7 @@ brew "zsh-completions"
 brew "romkatv/powerlevel10k/powerlevel10k"
 brew "autojump"
 brew "ripgrep"
+brew "fd"
 brew "nvim"
 
 # Generic Tools
