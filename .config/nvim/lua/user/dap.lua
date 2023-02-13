@@ -13,6 +13,11 @@ if not dap_install_status_ok then
   return
 end
 
+local dap_text_status_ok, dap_text = pcall(require, "nvim-dap-virtual-text")
+if not dap_text_status_ok then
+  return
+end
+
 dap_install.setup {}
 
 dap_install.config("python", {})
@@ -61,6 +66,11 @@ dapui.setup {
 }
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+
+dap_text.setup({
+    enabled = true,
+  }
+)
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()

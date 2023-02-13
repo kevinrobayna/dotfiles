@@ -10,7 +10,7 @@ local diagnostics = null_ls.builtins.diagnostics
 
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 null_ls.setup({
-	debug = false,
+	debug = true,
 	sources = {
 		formatting.prettier,
 		formatting.black.with({ extra_args = { "--fast" } }),
