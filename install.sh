@@ -63,6 +63,9 @@ ln -s "$PWD/.config/nvim" ~/.config/nvim
 # Tmux
 ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 
+# lazygit
+ln -s "$PWD/.config/lazygit" ~/.config/lazygit
+
 
 # Finished
 echo "`basename $0` complete."
