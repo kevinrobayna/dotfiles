@@ -62,3 +62,6 @@ keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>")
 
 -- Comment
 keymap.set("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>")
+keymap.set("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>")
+
+
