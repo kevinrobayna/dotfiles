@@ -33,7 +33,12 @@ export GPG_TTY=$(tty)
 export PATH="/usr/local/sbin:$PATH"
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export EDITOR="lvim"
+
+# Use vi as the default editor
+export EDITOR="nvim"
+# But still use emacs-style zsh bindings
+# https://superuser.com/questions/403355/how-do-i-get-searching-through-my-command-history-working-with-tmux-and-zshell
+bindkey -e
 
 . `brew --prefix asdf`/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
@@ -81,6 +86,13 @@ export HISTSIZE=1000000000
 # Immediate append
 setopt INC_APPEND_HISTORY
 export HISTTIMEFORMAT="[%F %T] "
+
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups
+
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 
 # Handle dupplicates
 setopt HIST_IGNORE_ALL_DUPS
