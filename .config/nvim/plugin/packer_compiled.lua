@@ -290,6 +290,11 @@ _G.packer_plugins = {
     path = "/Users/krobayna/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister",
     url = "https://github.com/inkarkat/vim-ReplaceWithRegister"
   },
+  ["vim-bbye"] = {
+    loaded = true,
+    path = "/Users/krobayna/.local/share/nvim/site/pack/packer/start/vim-bbye",
+    url = "https://github.com/moll/vim-bbye"
+  },
   ["vim-illuminate"] = {
     loaded = true,
     path = "/Users/krobayna/.local/share/nvim/site/pack/packer/start/vim-illuminate",

@@ -57,6 +57,7 @@ return packer.startup(function(use)
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
 	use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
   use("akinsho/bufferline.nvim")
+  use("moll/vim-bbye")
   use("akinsho/toggleterm.nvim")
 
   use("ahmedkhalf/project.nvim")
