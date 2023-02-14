@@ -18,11 +18,17 @@ null_ls.setup({
 		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		formatting.rubocop,
 		formatting.gofumpt,
 		diagnostics.flake8,
-		diagnostics.rubocop,
 		diagnostics.golangci_lint,
+		require("null-ls").builtins.diagnostics.rubocop.with({
+			command = "bundle",
+			args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.diagnostics.rubocop._opts.args),
+		}),
+		require("null-ls").builtins.formatting.rubocop.with({
+			command = "bundle",
+			args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.formatting.rubocop._opts.args),
+		}),
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -31,7 +37,10 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format({ sync = true, bufnr = bufnr })
+					vim.lsp.buf.format({
+						bufnr = bufnr,
+            timeout_ms = 5000,
+					})
 				end,
 			})
 		end
