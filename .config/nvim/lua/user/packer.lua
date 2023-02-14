@@ -56,21 +56,25 @@ return packer.startup(function(use)
 	-- essential plugins
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
 	use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
-  use("akinsho/bufferline.nvim")
-  use("moll/vim-bbye")
-  use("akinsho/toggleterm.nvim")
+	use("akinsho/bufferline.nvim")
+	use("moll/vim-bbye")
+	use("akinsho/toggleterm.nvim")
 
-  use("ahmedkhalf/project.nvim")
-  use("lewis6991/impatient.nvim")
-  use("lukas-reineke/indent-blankline.nvim")
-  use("goolord/alpha-nvim")
+	use("ahmedkhalf/project.nvim")
+	use("lewis6991/impatient.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
+	use("goolord/alpha-nvim")
 
-  -- commenting with gc
+	-- commenting with gc
 	use("numToStr/Comment.nvim")
-  use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- file explorer
-	use("nvim-tree/nvim-tree.lua")
+	-- https://github.com/nvim-tree/nvim-tree.lua/issues/1998
+	use({
+		"nvim-tree/nvim-tree.lua",
+		commit = "f3b73725c5a007b8195118bec5868c32a5eff81f",
+	})
 	use("nvim-tree/nvim-web-devicons")
 
 	-- statusline
@@ -86,8 +90,8 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-nvim-lua")
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
@@ -99,7 +103,7 @@ return packer.startup(function(use)
 
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
-  use("RRethy/vim-illuminate")
+	use("RRethy/vim-illuminate")
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 	use({
 		"smjonas/inc-rename.nvim",
@@ -128,16 +132,11 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-  -- DAP
-  use("mfussenegger/nvim-dap")
-  use("rcarriga/nvim-dap-ui")
-  use("ravenxrz/DAPInstall.nvim")
-  use("theHamsta/nvim-dap-virtual-text")
-
-
-  use('ray-x/go.nvim')
-  use('ray-x/guihua.lua') -- recommended if need floating window support
-
+	-- DAP
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("ravenxrz/DAPInstall.nvim")
+	use("theHamsta/nvim-dap-virtual-text")
 	-- utomatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
