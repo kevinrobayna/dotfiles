@@ -38,6 +38,20 @@ telescope.setup({
 			themes.get_dropdown({}),
 		},
 	},
+	pickers = {
+		find_files = {
+			find_command = {
+				"rg",
+				"--files",
+				"--hidden",
+				"--ignore",
+				"-u",
+				"--glob=!**/.git/*",
+				"--glob=!**/node_modules/*",
+				"--glob=!**/.next/*",
+			},
+		},
+	},
 })
 
 telescope.load_extension("fzf")
