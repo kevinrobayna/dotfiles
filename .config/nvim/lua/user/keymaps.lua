@@ -64,4 +64,7 @@ keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>")
 keymap.set("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>")
 keymap.set("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>")
 
+-- vim-test
+keymap.set("n", "<leader>t", ":TestNearest -strategy=neovim<CR>")
+keymap.set("n", "<leader>T", ":TestFile -strategy=neovim<CR>")
 

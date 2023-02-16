@@ -305,6 +305,11 @@ _G.packer_plugins = {
     path = "/Users/krobayna/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
+  ["vim-test"] = {
+    loaded = true,
+    path = "/Users/krobayna/.local/share/nvim/site/pack/packer/start/vim-test",
+    url = "https://github.com/vim-test/vim-test"
+  },
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/Users/krobayna/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",

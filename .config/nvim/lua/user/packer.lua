@@ -138,8 +138,11 @@ return packer.startup(function(use)
 	use("ravenxrz/DAPInstall.nvim")
 	use("theHamsta/nvim-dap-virtual-text")
 
-  -- Copilot
-  use("github/copilot.vim")
+	-- Copilot
+	use("github/copilot.vim")
+
+  -- Tests
+	use("vim-test/vim-test")
 
 	-- utomatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
