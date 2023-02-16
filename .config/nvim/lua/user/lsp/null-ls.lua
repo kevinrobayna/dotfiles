@@ -11,7 +11,7 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-    formatting.jq,
+		formatting.jq,
 		formatting.stylua,
 		formatting.gofmt,
 		formatting.gofumpt,
@@ -24,5 +24,7 @@ null_ls.setup({
 			command = "bundle",
 			args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.diagnostics.rubocop._opts.args),
 		}),
+		diagnostics.zsh,
+		diagnostics.mdl,
 	},
 })
