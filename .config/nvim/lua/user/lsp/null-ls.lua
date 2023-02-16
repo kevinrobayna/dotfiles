@@ -11,22 +11,18 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({
-			extra_filetypes = { "toml" },
-			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-		}),
-		formatting.black.with({ extra_args = { "--fast" } }),
+    formatting.jq,
 		formatting.stylua,
+		formatting.gofmt,
 		formatting.gofumpt,
-		diagnostics.flake8,
+		require("null-ls").builtins.formatting.rubocop.with({
+			command = "bundle",
+			args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.formatting.rubocop._opts.args),
+		}),
 		diagnostics.golangci_lint,
 		require("null-ls").builtins.diagnostics.rubocop.with({
 			command = "bundle",
 			args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.diagnostics.rubocop._opts.args),
-		}),
-		require("null-ls").builtins.formatting.rubocop.with({
-			command = "bundle",
-			args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.formatting.rubocop._opts.args),
 		}),
 	},
 })
