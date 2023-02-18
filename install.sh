@@ -58,7 +58,6 @@ git config --global pull.ff yes
 ln -s "$PWD/.config/nvim" ~/.config/nvim
 
 # Tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 
 # lazygit
