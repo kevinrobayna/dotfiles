@@ -1,9 +1,19 @@
+tap "homebrew/aliases"
+tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/command-not-found"
 tap "homebrew/core"
+tap "homebrew/formula-analytics"
+tap "homebrew/services"
 tap "romkatv/powerlevel10k"
 tap "aws/tap"
+
+#To allow my to install stuff from Apple Store
+brew "mas"
 
 # ZSH
 brew "zsh"
@@ -34,17 +44,22 @@ brew "slides"
 # Go
 brew "hugo"
 
-# Web Development
-cask "postman"
 
 # GPG
 brew "gnupg"
 brew "pinentry-mac"
 cask "gpg-suite"
 
-# AWS
+# AWS / Google / Etc
 brew "awscli"
 brew "aws-sam-cli"
+cask "google-cloud-sdk"
+
+# Web Development
+cask "jetbrains-toolbox"
+cask "postman"
+cask "ngrok"
+cask "jetbrains-toolbox"
 
 # Apps
 cask "kitty"
@@ -58,6 +73,20 @@ cask "whatsapp"
 cask "caffeine"
 cask "discord"
 cask "docker"
-cask "jetbrains-toolbox"
 cask "steam"
 cask "fantastical"
+cask "notion"
+cask "firefox"
+
+# Keyboard Stuff
+cask "via"
+
+# Elgato FACECAM configuration tool
+cask "elgato-camera-hub"
+# Control your Elgato Key Lights
+cask "elgato-control-center"
+
+# Apple Store Stuff
+mas "Dashlane", id: 517914548
+mas "The Unarchiver", id: 425424353
+
