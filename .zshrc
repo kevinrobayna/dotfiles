@@ -27,10 +27,11 @@ znap source zsh-users/zsh-syntax-highlighting
 
 # enable commit signing
 # export GPG_TTY=$TTY is faster but jetbrains does not like it
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 
 # Help homebrew
-export PATH="/usr/local/sbin:$PATH"
+export PATH="$(eval "brew --prefix")/sbin:$PATH"
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -39,9 +40,6 @@ export EDITOR="nvim"
 # But still use emacs-style zsh bindings
 # https://superuser.com/questions/403355/how-do-i-get-searching-through-my-command-history-working-with-tmux-and-zshell
 bindkey -e
-
-. `brew --prefix asdf`/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
 
 # Secrets
 export $(xargs < ~/.secrets)
@@ -98,15 +96,17 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 setopt HIST_IGNORE_ALL_DUPS
 
 # Ruby
+eval "$(rbenv init - zsh)"
 alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
 alias be='bundle exec'
 alias rubocop='bundle exec rubocop -A --display-style-guide --extra-details --display-cop-names'
 
 # Postgress
-export PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@14/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@14/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@14/lib/pkgconfig"
+export PATH="$(eval "brew --prefix")/opt/postgresql@14/bin:$PATH"
+export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@14/lib"
+export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@14/include"
+export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@14/lib/pkgconfig"
 
 # Google
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+

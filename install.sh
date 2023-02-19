@@ -14,12 +14,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 brew bundle
 
-mkdir ~/.config
-mkdir ~/.config/kitty/
-ln -s "$PWD/.config/kitty/kitty.conf" ~/.config/kitty/kitty.conf
-ln -s "$PWD/.config/kitty/theme.conf" ~/.config/kitty/theme.conf
-
-
 ln -s "$PWD/.zshrc" ~/.zshrc
 ln -s "$PWD/.tool-versions" ~/.tool-versions
 ln -s "$PWD/.asdfrc" ~/.asdfrc
@@ -29,16 +23,7 @@ touch ~/.zsh_history
 
 sh .osx
 
-asdf plugin add java
-asdf plugin add kotlin
-asdf plugin add nodejs
-asdf plugin add postgres
-asdf plugin add python
-asdf plugin add ruby
-asdf plugin add golang
-asdf plugin add rust
-
-curl https://www.toptal.com/developers/gitignore/api/macos,intellij+all,rubymine+all,pycharm+all,visualstudiocode -o ~/.gitignore
+curl https://www.toptal.com/developers/gitignore/api/macos,intellij+all,visualstudiocode,vim,goland+all,rubymine+all,pycharm+all -o ~/.gitignore
 
 git config --global user.name "Kevin Robayna"
 git config --global user.email me@kevinrobayna.com
@@ -53,6 +38,10 @@ git config --global core.editor "vim"
 git config --global merge.ff no
 git config --global merge.commit no
 git config --global pull.ff yes
+
+# Kitty
+rm -Rf ~/.config/kitty
+ln -s "$PWD/.config/kitty" ~/.config/kitty
 
 # Nvim
 ln -s "$PWD/.config/nvim" ~/.config/nvim

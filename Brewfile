@@ -6,15 +6,17 @@ tap "romkatv/powerlevel10k"
 tap "aws/tap"
 
 # ZSH
-brew "asdf"
 brew "zsh"
 brew "zsh-completions"
 brew "romkatv/powerlevel10k/powerlevel10k"
 brew "autojump"
+
+#NVim Stuff
+brew "nvim"
 brew "ripgrep"
 brew "fd"
-brew "nvim"
 brew "lazygit"
+brew "stylua"
 
 # Generic Tools
 brew "jq"
@@ -23,12 +25,11 @@ brew "docker"
 brew "ctags"
 brew "gcc"
 brew "git"
-brew "hub"
+brew "gh"
 brew "htop"
 brew "bat"
 brew "k9s"
 brew "slides"
-brew "fantastical"
 
 # Go
 brew "hugo"
@@ -59,3 +60,4 @@ cask "discord"
 cask "docker"
 cask "jetbrains-toolbox"
 cask "steam"
+cask "fantastical"

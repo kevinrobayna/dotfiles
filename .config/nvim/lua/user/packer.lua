@@ -73,7 +73,6 @@ return packer.startup(function(use)
 	-- https://github.com/nvim-tree/nvim-tree.lua/issues/1998
 	use({
 		"nvim-tree/nvim-tree.lua",
-		commit = "f3b73725c5a007b8195118bec5868c32a5eff81f",
 	})
 	use("nvim-tree/nvim-web-devicons")
 
