@@ -143,6 +143,8 @@ return packer.startup(function(use)
 	-- Tests
 	use("vim-test/vim-test")
 
+	use("folke/which-key.nvim")
+
 	-- utomatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
