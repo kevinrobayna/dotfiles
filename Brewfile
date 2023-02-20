@@ -55,6 +55,7 @@ brew "aws-sam-cli"
 cask "google-cloud-sdk"
 
 # Web Development
+brew "rbenv"
 cask "jetbrains-toolbox"
 cask "postman"
 cask "ngrok"
