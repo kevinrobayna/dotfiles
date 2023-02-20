@@ -44,7 +44,6 @@ brew "slides"
 # Go
 brew "hugo"
 
-
 # GPG
 brew "gnupg"
 brew "pinentry-mac"
@@ -63,7 +62,6 @@ cask "jetbrains-toolbox"
 
 # Apps
 cask "kitty"
-cask "dashlane"
 cask "aerial"
 cask "bartender"
 cask "clipy"
