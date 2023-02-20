@@ -13,11 +13,7 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
--- use jk to exit insert mode
-keymap("i", "jk", "<ESC>", opts)
+keymap("v", "p", '"_dP', opts)
 
 -- clear search highlights
 keymap("n", "<leader>nh", ":nohl<CR>", opts)
@@ -39,6 +35,10 @@ keymap("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
 keymap("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
 keymap("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
 keymap("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
+
+-- Visual Block Move text up and down
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 ----------------------
 -- Plugin Keybinds
