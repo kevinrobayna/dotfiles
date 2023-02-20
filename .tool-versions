@@ -1,8 +1,0 @@
-java adoptopenjdk-jre-18.0.1+10
-kotlin 1.8.0
-nodejs lts
-ruby 3.2.0
-python 3.11.1
-postgres 14.2
-golang 1.19.4
-rust 1.66.0

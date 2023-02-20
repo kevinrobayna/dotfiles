@@ -16,7 +16,6 @@ brew bundle
 
 ln -s "$PWD/.zshrc" ~/.zshrc
 ln -s "$PWD/.tool-versions" ~/.tool-versions
-ln -s "$PWD/.asdfrc" ~/.asdfrc
 
 touch ~/.secrets
 touch ~/.zsh_history
