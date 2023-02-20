@@ -140,7 +140,7 @@ return packer.startup(function(use)
 	-- Copilot
 	use("github/copilot.vim")
 
-  -- Tests
+	-- Tests
 	use("vim-test/vim-test")
 
 	-- utomatically set up your configuration after cloning packer.nvim
