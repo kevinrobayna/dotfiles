@@ -159,7 +159,7 @@ local mappings = {
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		f = { "<cmd>Telescope find_files<cr>", "[S]earch [F]iles" },
 		w = { "<cmd>Telescope grep_string<cr>", "[S]earch current [W]ord" },
-		g = { "<cmd>Telescope live_grep<cr>", "[S]earch by [G]rep" },
+		g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "[S]earch by [G]rep" },
 	},
 	t = {
 		name = "Tests",
