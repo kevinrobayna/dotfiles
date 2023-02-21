@@ -101,6 +101,11 @@ alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main
 alias be='bundle exec'
 alias rubocop='bundle exec rubocop -A --display-style-guide --extra-details --display-cop-names'
 
+# Golang
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 # Postgress
 export PATH="$(eval "brew --prefix")/opt/postgresql@14/bin:$PATH"
 export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@14/lib"
