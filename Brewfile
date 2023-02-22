@@ -27,6 +27,7 @@ brew "ripgrep"
 brew "fd"
 brew "lazygit"
 brew "stylua"
+brew "gnu-sed"
 
 # Generic Tools
 brew "jq"

@@ -147,6 +147,7 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
+	S = { "<cmd>lua require 'spectre'.open_file_search()<cr>", "[S]earch & Replace"},
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
