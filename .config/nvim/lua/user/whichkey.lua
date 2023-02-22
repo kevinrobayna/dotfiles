@@ -147,7 +147,7 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
-	S = { "<cmd>lua require 'spectre'.open_file_search()<cr>", "[S]earch & Replace"},
+	S = { "<cmd>lua require 'spectre'.open_file_search()<cr>", "[S]earch & Replace" },
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -164,11 +164,10 @@ local mappings = {
 	},
 	t = {
 		name = "Tests",
-		t = { "<cmd>TestNearest -strategy=neovim<cr>", "Test Nearest" },
-		T = { "<cmd>TestFile -strategy=neovim<cr>", "Test File" },
-		r = { "<cmd>TestLast -strategy=neovim<cr>", "Test Again" },
-		s = { "<cmd>TestSuite -strategy=neovim<cr>", "Test Suite" },
-		v = { "<cmd>TestVisit -strategy=neovim<cr>", "Test Visit" },
+		t = { "<cmd>lua require 'neotest'.run.run()<cr>", "Test Nearest" },
+		T = { "<cmd>lua require 'neotest'.run.run(vim.fn.expand('%'))<cr>", "File" },
+		s = { "<cmd>lua require 'neotest'.summary.toggle()<cr>", "Summary" },
+		l = { "<cmd>lua require 'neotest'.output_panel.toggle()<cr>", "Test Logs" },
 	},
 }
 

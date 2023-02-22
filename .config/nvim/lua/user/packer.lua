@@ -139,6 +139,19 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+	-- Tests
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/neotest-vim-test",
+			"nvim-neotest/neotest-go",
+			"olimorris/neotest-rspec",
+		},
+	})
+
 	-- DAP
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
@@ -147,9 +160,6 @@ return packer.startup(function(use)
 
 	-- Copilot
 	use("github/copilot.vim")
-
-	-- Tests
-	use("vim-test/vim-test")
 
 	use("folke/which-key.nvim")
 
