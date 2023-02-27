@@ -68,7 +68,7 @@ alias dotfile='cd ~/dev/dotfiles'
 
 alias tree='tree -C'
 
-alias cat='bat --paging=never'
+alias catf='bat --paging=never'
 alias bathelp='bat --plain --language=help'
 help() {
     "$@" --help 2>&1 | bathelp

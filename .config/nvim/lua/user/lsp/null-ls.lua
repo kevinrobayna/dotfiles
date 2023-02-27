@@ -15,6 +15,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.gofmt,
 		formatting.gofumpt,
+		formatting.buf,
 		require("null-ls").builtins.formatting.rubocop.with({
 			command = "bundle",
 			args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.formatting.rubocop._opts.args),
@@ -26,5 +27,6 @@ null_ls.setup({
 		}),
 		diagnostics.zsh,
 		diagnostics.mdl,
+		diagnostics.buf,
 	},
 })
