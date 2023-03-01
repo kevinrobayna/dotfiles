@@ -37,6 +37,8 @@ git config --global merge.ff no
 git config --global merge.commit no
 git config --global pull.ff yes
 
+git config --global alias.co checkout
+
 # GPG Sign
 git config --global commit.gpgsign true
 # We need to configure which key we want to use to sign 
