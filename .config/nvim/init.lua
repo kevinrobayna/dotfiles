@@ -1,25 +1,19 @@
-require("user.impatient")
-require("user.options")
-require("user.keymaps")
-require("user.packer")
-require("user.autocommands")
-require("user.colorscheme")
-require("user.nvim-cmp")
-require("user.telescope")
-require("user.gitsigns")
-require("user.treesitter")
-require("user.autopairs")
-require("user.comment")
-require("user.nvim-tree")
-require("user.nvim-spectre")
-require("user.bufferline")
-require("user.lualine")
-require("user.toggleterm")
-require("user.project")
-require("user.illuminate")
-require("user.indentline")
-require("user.alpha")
-require("user.lsp")
-require("user.dap")
-require("user.neotest")
-require("user.whichkey")
+require("core/options")
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins")
+
+require("core/autocmds")
+require("core/keymaps")
