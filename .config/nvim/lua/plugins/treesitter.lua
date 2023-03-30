@@ -42,8 +42,6 @@ return {
 				"ruby",
 				"gitignore",
 				"dockerfile",
-				"bash",
-				"bash",
 				"c",
 				"help",
 				"html",
