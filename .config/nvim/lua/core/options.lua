@@ -1,8 +1,8 @@
 local opt = vim.opt -- for conciseness
 
 -- Make sure to set `leader` before lazy so your mappings are correct
-vim.g.mapleader = " " 
-vim.g.maplocalleader = " " 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers

@@ -12,15 +12,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Move text up and down
 keymap("v", "p", '"_dP', opts)
 
--- clear search highlights
-keymap("n", "<leader>nh", ":nohl<CR>", opts)
-
 -- delete single character without copying into register
 keymap("n", "x", '"_x', opts)
-
--- increment/decrement numbers
-keymap("n", "<leader>+", "<C-a>", opts) -- increment
-keymap("n", "<leader>-", "<C-x>", opts) -- decrement
 
 -- window management
 keymap("n", "<leader>sv", "<C-w>v", opts) -- split window vertically
