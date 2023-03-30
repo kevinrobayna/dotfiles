@@ -6,6 +6,9 @@ return {
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 		},
+		keys = {
+			{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer" },
+		},
 		config = function(_, opts)
 			local tree_cb = require("nvim-tree.config").nvim_tree_callback
 			local icons = require("core").icons

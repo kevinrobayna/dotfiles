@@ -1,80 +1,179 @@
-return {
-  {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope-ui-select.nvim" },
-      { "nvim-telescope/telescope-live-grep-args.nvim" },
-      { "ahmedkhalf/project.nvim" },
-    },
-    config = function()
-      telescope = require("telescope")
-      local actions = require("telescope.actions")
-      local themes = require("telescope.themes")
+local Util = require("core/util")
 
-      telescope.setup({
-        -- configure custom mappings
-        defaults = {
-          mappings = {
-            i = {
-              ["<C-k>"] = actions.move_selection_previous,                -- move to prev result
-              ["<C-j>"] = actions.move_selection_next,                    -- move to next result
-              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
-            },
-          },
-          vimgrep_arguments = {
-            "rg",
-            "--color=never",
-            "--no-heading",
-            "--with-filename",
-            "--line-number",
-            "--column",
-            "--smart-case",
-            "--trim", -- add this value
-            "--hidden",
-            "--ignore",
-            "--glob=!**/.git/*",
-            "--glob=!**/.idea/*",
-            "--glob=!**/node_modules/*",
-            "--glob=!**/.next/*",
-          },
-        },
-        extensions = {
-          ["ui-select"] = {
-            themes.get_dropdown({}),
-          },
-        },
-        pickers = {
-          find_files = {
-            find_command = {
-              "rg",
-              "--files",
-              "--hidden",
-              "--ignore",
-              "-u",
-              "--glob=!**/.git/*",
-              "--glob=!**/.idea/*",
-              "--glob=!**/node_modules/*",
-              "--glob=!**/.next/*",
-            },
-          },
-        },
-      })
-      telescope.load_extension("ui-select")
-      telescope.load_extension("live_grep_args")
-      telescope.load_extension("projects")
-    end,
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    cmd = "Telescope",
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-    },
-    build = "make",
-    config = function()
-      require("telescope").load_extension("fzf")
-    end,
-  },
+return {
+	{
+		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-ui-select.nvim" },
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+			{ "nvim-telescope/telescope-fzf-native.nvim" },
+			{ "ahmedkhalf/project.nvim" },
+		},
+		keys = {
+			{ "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
+			{ "<leader>/", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
+			{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+			{ "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
+			-- find
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+			{ "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
+			{ "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+			-- git
+			{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+			-- search
+			{ "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
+			{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+			{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+			{ "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
+			{ "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+			{ "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+			{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+			{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+			{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+			{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+			{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+			{ "<leader>sw", Util.telescope("grep_string"), desc = "Word (root dir)" },
+			{ "<leader>sW", Util.telescope("grep_string", { cwd = false }), desc = "Word (cwd)" },
+			{
+				"<leader>uC",
+				Util.telescope("colorscheme", { enable_preview = true }),
+				desc = "Colorscheme with preview",
+			},
+			{
+				"<leader>ss",
+				Util.telescope("lsp_document_symbols", {
+					symbols = {
+						"Class",
+						"Function",
+						"Method",
+						"Constructor",
+						"Interface",
+						"Module",
+						"Struct",
+						"Trait",
+						"Field",
+						"Property",
+					},
+				}),
+				desc = "Goto Symbol",
+			},
+			{
+				"<leader>sS",
+				Util.telescope("lsp_workspace_symbols", {
+					symbols = {
+						"Class",
+						"Function",
+						"Method",
+						"Constructor",
+						"Interface",
+						"Module",
+						"Struct",
+						"Trait",
+						"Field",
+						"Property",
+					},
+				}),
+				desc = "Goto Symbol (Workspace)",
+			},
+		},
+		config = function()
+			local telescope = require("telescope")
+
+			telescope.setup({
+				-- configure custom mappings
+				defaults = {
+					prompt_prefix = " ",
+					selection_caret = " ",
+					layout_strategy = "horizontal",
+					layout_config = { prompt_position = "top" },
+					sorting_strategy = "ascending",
+					winblend = 0,
+					mappings = {
+						i = {
+							["<c-t>"] = function(...)
+								return require("trouble.providers.telescope").open_with_trouble(...)
+							end,
+							["<a-t>"] = function(...)
+								return require("trouble.providers.telescope").open_selected_with_trouble(...)
+							end,
+							["<a-i>"] = function()
+								Util.telescope("find_files", { no_ignore = true })()
+							end,
+							["<a-h>"] = function()
+								Util.telescope("find_files", { hidden = true })()
+							end,
+							["<C-Down>"] = function(...)
+								return require("telescope.actions").cycle_history_next(...)
+							end,
+							["<C-Up>"] = function(...)
+								return require("telescope.actions").cycle_history_prev(...)
+							end,
+							["<C-f>"] = function(...)
+								return require("telescope.actions").preview_scrolling_down(...)
+							end,
+							["<C-b>"] = function(...)
+								return require("telescope.actions").preview_scrolling_up(...)
+							end,
+						},
+						n = {
+							["q"] = function(...)
+								return require("telescope.actions").close(...)
+							end,
+						},
+					},
+					vimgrep_arguments = {
+						"rg",
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--smart-case",
+						"--trim", -- add this value
+						"--hidden",
+						"--ignore",
+						"--glob=!**/.git/*",
+						"--glob=!**/.idea/*",
+						"--glob=!**/node_modules/*",
+						"--glob=!**/.next/*",
+					},
+				},
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown({}),
+					},
+				},
+				pickers = {
+					find_files = {
+						find_command = {
+							"rg",
+							"--files",
+							"--hidden",
+							"--ignore",
+							"-u",
+							"--glob=!**/.git/*",
+							"--glob=!**/.idea/*",
+							"--glob=!**/node_modules/*",
+							"--glob=!**/.next/*",
+						},
+					},
+				},
+			})
+			telescope.load_extension("ui-select")
+			telescope.load_extension("live_grep_args")
+			telescope.load_extension("projects")
+		end,
+	},
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		event = "VeryLazy",
+		build = "make",
+	},
 }
