@@ -83,7 +83,7 @@ return {
 		build = "deno task --quiet build:fast",
 		keys = {
 			{
-				"<leader>op",
+				"<leader>cp",
 				function()
 					local peek = require("peek")
 					if peek.is_open() then
@@ -108,5 +108,11 @@ return {
 			},
 		},
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
+	},
+	{
+		"szw/vim-maximizer",
+		keys = {
+			{ "<leader>sm", "<cmd>MaximizerToggle<cr>", desc = "Toggle split Window maximization" },
+		},
 	},
 }

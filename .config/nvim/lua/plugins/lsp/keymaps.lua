@@ -12,6 +12,7 @@ function M.get()
     M._keys =  {
       { "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
       { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+      { "<leader>cR", "<cmd>LspRestart<cr>", desc = "Lsp Restart" },
       { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Goto Definition", has = "definition" },
       { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "References" },
       { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Goto Declaration" },
