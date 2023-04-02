@@ -40,4 +40,74 @@ return {
 			})
 		end,
 	},
+	{
+		"mfussenegger/nvim-dap", -- Debug Adapter Protocol for Neovim
+		dependencies = {
+			"theHamsta/nvim-dap-virtual-text", -- help to find variable definitions in debug mode
+			"rcarriga/nvim-dap-ui", -- Nice UI for nvim-dap
+
+			"suketa/nvim-dap-ruby",
+			"leoluz/nvim-dap-go",
+		},
+		keys = {
+			{ "<leader>db", "<cmd>lua require 'dap'.toggle_breakpoint()<cr>", desc = "Toggle Breakpoint" },
+			{ "<leader>dc", "<cmd>lua require 'dap'.continue()<cr>", desc = "Continue" },
+			{ "<leader>do", "<cmd>lua require 'dap'.step_over()<cr>", desc = "Step Over" },
+			{ "<leader>di", "<cmd>lua require 'dap'.step_into()<cr>", desc = "Step Into" },
+			{ "<leader>dw", "<cmd>lua require 'dap.ui.widgets'.hover()<cr>", desc = "Widgets" },
+			{ "<leader>dr", "<cmd>lua require 'dap'.repl.toggle()<cr>", desc = "REPL" },
+			{ "<leader>du", "<cmd>lua require 'dapui'.toggle({})<cr>", desc = "Dap UI" },
+		},
+		config = function()
+			local dap = require("dap")
+			local dapui = require("dapui")
+
+			---Show custom virtual text when debugging
+			vim.fn.sign_define("DapBreakpoint", {
+				text = "",
+				texthl = "DebugBreakpoint",
+				linehl = "",
+				numhl = "DebugBreakpoint",
+			})
+			vim.fn.sign_define("DapStopped", {
+				text = "",
+				texthl = "DebugHighlight",
+				linehl = "",
+				numhl = "DebugHighlight",
+			})
+
+			-- Ruby
+			require("dap-ruby").setup()
+			-- Golang
+			require("dap-go").setup({})
+
+			-- Slick UI which is automatically triggered when debugging
+			dapui.setup({
+				layouts = {
+					{
+						elements = {
+							"scopes",
+							"breakpoints",
+							"stacks",
+						},
+						size = 35,
+						position = "left",
+					},
+					{
+						elements = {
+							"repl",
+						},
+						size = 0.30,
+						position = "bottom",
+					},
+				},
+			})
+			dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+			dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+			dap.listeners.before.event_exited["dapui_config"] = dapui.close
+
+			dap.set_log_level("TRACE")
+			require("nvim-dap-virtual-text").setup({})
+		end,
+	},
 }

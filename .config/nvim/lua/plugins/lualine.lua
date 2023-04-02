@@ -41,25 +41,34 @@ return {
 							},
 						},
 						{ "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-            -- stylua: ignore
-            {
-              function() return require("nvim-navic").get_location() end,
-              cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
-            },
+						{
+							function()
+								return require("nvim-navic").get_location()
+							end,
+							cond = function()
+								return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+							end,
+						},
 					},
 					lualine_x = {
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.command.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = fg("Statement")
-            },
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = fg("Constant"),
-            },
+						{
+							function()
+								return require("noice").api.status.command.get()
+							end,
+							cond = function()
+								return package.loaded["noice"] and require("noice").api.status.command.has()
+							end,
+							color = fg("Statement"),
+						},
+						{
+							function()
+								return require("noice").api.status.mode.get()
+							end,
+							cond = function()
+								return package.loaded["noice"] and require("noice").api.status.mode.has()
+							end,
+							color = fg("Constant"),
+						},
 						{
 							require("lazy.status").updates,
 							cond = require("lazy.status").has_updates,
@@ -71,6 +80,15 @@ return {
 								added = icons.git.added,
 								modified = icons.git.modified,
 								removed = icons.git.removed,
+							},
+						},
+						{ "encoding" },
+						{
+							"fileformat",
+							symbols = {
+								unix = "", -- e712
+								dos = "", -- e70f
+								mac = "", -- e711
 							},
 						},
 					},

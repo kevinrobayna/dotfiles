@@ -5,6 +5,19 @@ return {
 		config = true,
 	},
 	{
+		"cshuaimin/ssr.nvim",
+		keys = {
+			{
+				"<leader>sR",
+				function()
+					require("ssr").open()
+				end,
+				mode = { "n", "x" },
+				desc = "Structural Replace",
+			},
+		},
+	},
+	{
 		"monaqa/dial.nvim",
     -- stylua: ignore
     keys = {
