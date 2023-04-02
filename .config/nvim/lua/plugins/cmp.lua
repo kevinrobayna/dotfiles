@@ -15,18 +15,42 @@ return {
 			history = true,
 			delete_check_events = "TextChanged",
 		},
-    -- stylua: ignore
-    keys = {
-      {
-        "<tab>",
-        function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-        end,
-        expr = true, silent = true, mode = "i",
-      },
-      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
-    },
+		keys = {
+			{
+				"<tab>",
+				function()
+					return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+				end,
+				expr = true,
+				silent = true,
+				mode = "i",
+			},
+			{
+				"<tab>",
+				function()
+					require("luasnip").jump(1)
+				end,
+				mode = "s",
+			},
+			{
+				"<s-tab>",
+				function()
+					require("luasnip").jump(-1)
+				end,
+				mode = { "i", "s" },
+			},
+		},
+	},
+
+	-- copilot
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		build = ":Copilot auth",
+		opts = {
+			suggestion = { enabled = false },
+			panel = { enabled = false },
+		},
 	},
 
 	-- auto completion
@@ -38,7 +62,26 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
+			"onsails/lspkind.nvim",
+			{
+				"zbirenbaum/copilot-cmp",
+				dependencies = "copilot.lua",
+				config = function(_, opts)
+					local copilot_cmp = require("copilot_cmp")
+					copilot_cmp.setup(opts)
+					-- attach cmp source whenever copilot attaches
+					-- fixes lazy-loading issues with the copilot cmp source
+					require("core.util").on_attach(function(client)
+						if client.name == "copilot" then
+							copilot_cmp._on_insert_enter()
+						end
+					end)
+				end,
+			},
 		},
 		opts = function()
 			local cmp = require("cmp")
@@ -58,17 +101,20 @@ return {
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
 					["<S-CR>"] = cmp.mapping.confirm({
 						behavior = cmp.ConfirmBehavior.Replace,
 						select = true,
 					}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
+					{ name = "copilot" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
+					{ name = "nvim_lua" },
+					{ name = "nvim_lsp_signature_help" },
 				}),
 				formatting = {
 					format = function(_, item)
@@ -82,6 +128,24 @@ return {
 				experimental = {
 					ghost_text = {
 						hl_group = "LspCodeLens",
+					},
+				},
+				sorting = {
+					priority_weight = 2,
+					comparators = {
+						require("copilot_cmp.comparators").prioritize,
+
+						-- Below is the default comparitor list and order for nvim-cmp
+						cmp.config.compare.offset,
+						-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+						cmp.config.compare.exact,
+						cmp.config.compare.score,
+						cmp.config.compare.recently_used,
+						cmp.config.compare.locality,
+						cmp.config.compare.kind,
+						cmp.config.compare.sort_text,
+						cmp.config.compare.length,
+						cmp.config.compare.order,
 					},
 				},
 			}
