@@ -1,4 +1,5 @@
 return {
+	"christoomey/vim-tmux-navigator", -- tmux & split window navigation
 	{
 		"smjonas/inc-rename.nvim",
 		cmd = "IncRename",

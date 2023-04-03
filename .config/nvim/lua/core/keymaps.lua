@@ -5,7 +5,7 @@ local keymap = vim.api.nvim_set_keymap
 -- General Keymaps
 ---------------------
 
--- Navigate buffers
+-- -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 

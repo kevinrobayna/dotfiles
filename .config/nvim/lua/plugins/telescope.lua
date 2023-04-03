@@ -29,14 +29,18 @@ return {
 			-- git
 			{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
 			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+			{ "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "branches" },
 			-- search
 			{ "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
 			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
 			{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
 			{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
 			{ "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-			{ "<leader>sg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
-			{ "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+			{
+				"<leader>sg",
+				":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+				desc = "Find in Files (Grep)",
+			},
 			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
 			{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
 			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
