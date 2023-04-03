@@ -3,7 +3,7 @@
 SHELL := /usr/local/bin/zsh
 
 # Start
-echo "`basename $0` starting."
+echo "$(basename $0) starting."
 
 echo "Instaling Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -41,11 +41,11 @@ git config --global alias.co checkout
 
 # GPG Sign
 git config --global commit.gpgsign true
-# We need to configure which key we want to use to sign 
+# We need to configure which key we want to use to sign
 # We need first to list the available keys with the following command
 #
 # gpg --list-secret-keys --keyid-format=long
-# 
+#
 # Which will output something like below:
 #
 # /Users/kevinrobayna/.gnupg/pubring.kbx
@@ -67,6 +67,9 @@ ln -s "$PWD/.config/kitty" ~/.config/kitty
 # Nvim
 ln -s "$PWD/.config/nvim" ~/.config/nvim
 
+rm -Rf ~/.hammerspoon
+ln -s "$PWD/.config/hammerspoon" ~/.hammerspoon
+
 # Tmux
 ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 
@@ -74,7 +77,7 @@ ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 ln -s "$PWD/.config/lazygit" ~/.config/lazygit
 
 # Finished
-echo "`basename $0` complete."
+echo "$(basename $0) complete."
 
 # Remind to run p10k configure
 echo "Now you should run p10k configure to configure p10k fonts"

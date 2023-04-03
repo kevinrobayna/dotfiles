@@ -8,22 +8,22 @@ gui:
   theme:
     lightTheme: false
     activeBorderColor:
-      - "#a6e3a1" # Green
+      - green
       - bold
     inactiveBorderColor:
-      - "#cdd6f4" # Text
+      - white
     optionsTextColor:
-      - "#89b4fa" # Blue
+      - blue
     selectedLineBgColor:
-      - "#313244" # Surface0
+      - reverse
     selectedRangeBgColor:
-      - "#313244" # Surface0
+      - blue
     cherryPickedCommitBgColor:
-      - "#94e2d5" # Teal
+      - cyan
     cherryPickedCommitFgColor:
-      - "#89b4fa" # Blue
+      - blue
     unstagedChangesColor:
-      - red # Red language: "auto" # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
+      - red
   commitLength:
     show: true
   mouseEvents: true

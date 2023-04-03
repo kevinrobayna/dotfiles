@@ -15,19 +15,25 @@ tap "aws/tap"
 #To allow my to install stuff from Apple Store
 brew "mas"
 
+# Font, obviously
+cask "font-inconsolata-go-nerd-font"
+
 # ZSH
 brew "zsh"
 brew "zsh-completions"
 brew "romkatv/powerlevel10k/powerlevel10k"
 brew "autojump"
+brew "tmux"
 
 #NVim Stuff
-brew "nvim"
+brew "neovim"
 brew "ripgrep"
 brew "fd"
 brew "lazygit"
 brew "stylua"
 brew "gnu-sed"
+# Markdown preview
+brew "deno"
 
 # Generic Tools
 brew "jq"
@@ -42,7 +48,13 @@ brew "bat"
 brew "k9s"
 brew "slides"
 
+#HotKeys!
+cask "hammerspoon"
+cask "hyperkey"
+
 # Go
+brew "go"
+brew "golangci-lint"
 brew "hugo"
 
 # GPG
@@ -60,14 +72,14 @@ brew "rbenv"
 cask "jetbrains-toolbox"
 cask "postman"
 cask "ngrok"
-cask "jetbrains-toolbox"
+brew "node"
+brew "pre-commit"
 
 # Apps
 cask "kitty"
 cask "aerial"
 cask "bartender"
 cask "clipy"
-cask "font-inconsolata"
 cask "telegram"
 cask "whatsapp"
 cask "caffeine"
@@ -77,6 +89,7 @@ cask "steam"
 cask "fantastical"
 cask "notion"
 cask "firefox"
+cask "via"
 
 # Keyboard Stuff
 cask "via"
@@ -89,4 +102,4 @@ cask "elgato-control-center"
 # Apple Store Stuff
 mas "Dashlane", id: 517914548
 mas "The Unarchiver", id: 425424353
-
+mas "Notability", id: 360593530
