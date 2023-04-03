@@ -8,7 +8,11 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim" },
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+				cond = vim.fn.executable("make") == 1,
+			},
 			{ "ahmedkhalf/project.nvim" },
 			{ "ThePrimeagen/harpoon" },
 			{ "debugloop/telescope-undo.nvim" },
@@ -178,10 +182,5 @@ return {
 			telescope.load_extension("harpoon")
 			telescope.load_extension("undo")
 		end,
-	},
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		event = "VeryLazy",
-		build = "make",
 	},
 }
