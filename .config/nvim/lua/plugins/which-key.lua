@@ -42,7 +42,6 @@ return {
 				["<leader>f"] = { name = "file/find" },
 				["<leader>g"] = { name = "git" },
 				["<leader>s"] = { name = "search" },
-				["<leader>u"] = { name = "ui" },
 				["<leader>t"] = { name = "Tests (NeoTest)" },
 				["<leader>d"] = { name = "Debug (DAP)" },
 				["<leader>x"] = { name = "diagnostics/quickfix" },

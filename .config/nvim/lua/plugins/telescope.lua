@@ -10,6 +10,8 @@ return {
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim" },
 			{ "ahmedkhalf/project.nvim" },
+			{ "ThePrimeagen/harpoon" },
+			{ "debugloop/telescope-undo.nvim" },
 		},
 		keys = {
 			{ "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
@@ -35,15 +37,9 @@ return {
 			{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
 			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
 			{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-			{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
 			{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
 			{ "<leader>sw", Util.telescope("grep_string"), desc = "Word (root dir)" },
 			{ "<leader>sW", Util.telescope("grep_string", { cwd = false }), desc = "Word (cwd)" },
-			{
-				"<leader>uC",
-				Util.telescope("colorscheme", { enable_preview = true }),
-				desc = "Colorscheme with preview",
-			},
 			{
 				"<leader>ss",
 				Util.telescope("lsp_document_symbols", {
@@ -80,6 +76,11 @@ return {
 				}),
 				desc = "Goto Symbol (Workspace)",
 			},
+			-- Harpoon
+			{ "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "Harpoon file" },
+			{ "<leader>sm", "<cmd>Telescope harpoon marks<cr>", desc = "Harpoon (Telescope)" },
+			-- Undo
+			{ "<leader>u", "<cmd>Telescope undo<CR>", desc = "Undo (telescope)" },
 		},
 		config = function()
 			local telescope = require("telescope")
@@ -147,6 +148,13 @@ return {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
 					},
+					undo = {
+						side_by_side = true,
+						layout_strategy = "vertical",
+						layout_config = {
+							preview_height = 0.8,
+						},
+					},
 				},
 				pickers = {
 					find_files = {
@@ -167,6 +175,8 @@ return {
 			telescope.load_extension("ui-select")
 			telescope.load_extension("live_grep_args")
 			telescope.load_extension("projects")
+			telescope.load_extension("harpoon")
+			telescope.load_extension("undo")
 		end,
 	},
 	{
