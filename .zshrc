@@ -44,6 +44,8 @@ bindkey -e
 # Secrets
 export $(xargs < ~/.secrets)
 
+alias t="~/dev/dotfiles/bin/tmux-sessionizer"
+
 alias vi="nvim"
 alias vim="nvim"
 

@@ -71,7 +71,12 @@ rm -Rf ~/.hammerspoon
 ln -s "$PWD/.config/hammerspoon" ~/.hammerspoon
 
 # Tmux
-ln -s "$PWD/.tmux.conf" ~/.tmux.conf
+rm -Rf ~/.config/tmux
+ln -s "$PWD/./config/tmux" ~/.config/tmux
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tmp && ~/.config/tmux/plugins/tmp/bin/install_plugins
+
+infocmp -x tmux-256color >tmux-256color.src
+tic -x tmux-256color.src
 
 # lazygit
 ln -s "$PWD/.config/lazygit" ~/.config/lazygit
