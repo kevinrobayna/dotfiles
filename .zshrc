@@ -44,7 +44,10 @@ bindkey -e
 # Secrets
 export $(xargs < ~/.secrets)
 
+# Create tmux session for dev folders, also cd into them, similar to autojump
 alias t="~/dev/dotfiles/bin/tmux-sessionizer"
+# Close all tmux sessions except current
+alias tc="tmux kill-session -a"
 
 alias vi="nvim"
 alias vim="nvim"
