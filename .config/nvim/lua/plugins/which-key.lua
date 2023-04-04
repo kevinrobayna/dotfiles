@@ -8,13 +8,10 @@ return {
 					enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
 				},
 			},
-			-- add operators that will trigger motion and text object completion
-			-- to enable all native operators, set the preset / operators plugin above
-			-- operators = { gc = "Comments" },
 			icons = {
-				breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-				separator = "➜", -- symbol used between a key and it's label
-				group = "+", -- symbol prepended to a group
+				breadcrumb = require("core").icons.ui.DoubleChevronRight, -- symbol used in the command line area that shows your active key combo
+				separator = require("core").icons.ui.BoldArrowRight, -- symbol used between a key and it's label
+				group = require("core").icons.ui.Plus, -- symbol prepended to a group
 			},
 			hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 			show_help = true, -- show help message on the command line when the popup is visible

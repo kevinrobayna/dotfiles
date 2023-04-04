@@ -17,7 +17,7 @@ return {
 				diagnostics_indicator = function(_, _, diag)
 					local icons = require("core").icons.diagnostics
 					local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-						.. (diag.warning and icons.Warn .. diag.warning or "")
+						.. (diag.warning and icons.Warning .. diag.warning or "")
 					return vim.trim(ret)
 				end,
 				close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"

@@ -112,7 +112,36 @@ return {
 					}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-					{ name = "copilot" },
+					{
+						name = "copilot",
+						-- keyword_length = 0,
+						max_item_count = 3,
+						trigger_characters = {
+							{
+								".",
+								":",
+								"(",
+								"'",
+								'"',
+								"[",
+								",",
+								"#",
+								"*",
+								"@",
+								"|",
+								"=",
+								"-",
+								"{",
+								"/",
+								"\\",
+								"+",
+								"?",
+								" ",
+								-- "\t",
+								-- "\n",
+							},
+						},
+					},
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
@@ -121,14 +150,20 @@ return {
 					{ name = "nvim_lsp_signature_help" },
 				}),
 				formatting = {
+					fields = { "kind", "abbr", "menu" },
+					kind_icons = require("core").icons.kind,
+					duplicates_default = 0,
 					format = function(_, item)
-						local icons = require("core").icons.kinds
-						if icons[item.kind] then
-							item.kind = icons[item.kind] .. item.kind
-						end
+						local icons = require("core").icons.kind
+						local icon = icons[item.kind] or item.kind
+
+						item.menu = item.kind
+						item.kind = icon
+
 						return item
 					end,
 				},
+
 				experimental = {
 					ghost_text = {
 						hl_group = "LspCodeLens",
