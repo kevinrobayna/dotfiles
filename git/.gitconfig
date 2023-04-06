@@ -1,0 +1,18 @@
+[user]
+	name = Kevin Robayna
+	email = me@kevinrobayna.com
+	signingkey = 2EBBCF382556544C
+[commit]
+	gpgsign = true
+[core]
+    editor = nvim 
+[pull]
+	rebase = false
+	ff = yes
+[init]
+	defaultBranch = master
+[merge]
+	ff = no
+	commit = no
+[alias]
+	co = checkout

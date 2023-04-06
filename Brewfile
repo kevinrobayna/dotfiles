@@ -24,6 +24,7 @@ brew "zsh-completions"
 brew "romkatv/powerlevel10k/powerlevel10k"
 brew "autojump"
 brew "tmux"
+brew "stow"
 
 #NVim Stuff
 brew "neovim"
