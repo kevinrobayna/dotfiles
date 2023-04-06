@@ -25,6 +25,7 @@ brew "romkatv/powerlevel10k/powerlevel10k"
 brew "autojump"
 brew "tmux"
 brew "stow"
+brew "fzf"
 
 #NVim Stuff
 brew "neovim"
