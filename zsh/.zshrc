@@ -44,6 +44,8 @@ bindkey -e
 # Secrets
 export $(xargs < ~/.secrets)
 
+alias details="neofetch"
+
 # Create tmux session for dev folders, also cd into them, similar to autojump
 alias t="~/dev/dotfiles/bin/tmux-sessionizer"
 # Close all tmux sessions except current

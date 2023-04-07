@@ -26,6 +26,8 @@ brew "autojump"
 brew "tmux"
 brew "stow"
 brew "fzf"
+brew "ncurses"
+brew "neofetch"
 
 #NVim Stuff
 brew "neovim"
