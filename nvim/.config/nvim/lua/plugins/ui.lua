@@ -1,5 +1,81 @@
 return {
 	{
+		"goolord/alpha-nvim",
+		event = "VimEnter",
+		opts = function()
+			local dashboard = require("alpha.themes.dashboard")
+
+			dashboard.section.header.val = {
+				[[ ███╗   ██╗██╗   ██╗██╗███╗   ███╗       Z]],
+				[[ ████╗  ██║██║   ██║██║████╗ ████║     Z]],
+				[[ ██╔██╗ ██║██║   ██║██║██╔████╔██║   z]],
+				[[ ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║ z]],
+				[[ ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║]],
+				[[ ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+			}
+			dashboard.section.buttons.val = {
+				dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+				dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+				dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+				dashboard.button(
+					"p",
+					" " .. " Find project",
+					":lua require('telescope').extensions.projects.projects()<CR>"
+				),
+				dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+				dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
+				dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
+				dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+			}
+			for _, button in ipairs(dashboard.section.buttons.val) do
+				button.opts.hl = "AlphaButtons"
+				button.opts.hl_shortcut = "AlphaShortcut"
+			end
+			dashboard.section.header.opts.hl = "AlphaHeader"
+			dashboard.section.buttons.opts.hl = "AlphaButtons"
+			dashboard.section.footer.opts.hl = "AlphaFooter"
+			dashboard.opts.layout[1].val = 8
+			return dashboard
+		end,
+		config = function(_, dashboard)
+			-- close Lazy and re-open when the dashboard is ready
+			if vim.o.filetype == "lazy" then
+				vim.cmd.close()
+				vim.api.nvim_create_autocmd("User", {
+					pattern = "AlphaReady",
+					callback = function()
+						require("lazy").show()
+					end,
+				})
+			end
+
+			require("alpha").setup(dashboard.opts)
+
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "LazyVimStarted",
+				callback = function()
+					local stats = require("lazy").stats()
+					local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+					dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+					pcall(vim.cmd.AlphaRedraw)
+				end,
+			})
+		end,
+	},
+	{
+		"ahmedkhalf/project.nvim",
+		event = "VimEnter",
+		opts = {
+			-- detection_methods = { "lsp", "pattern" }, -- NOTE: lsp detection will get annoying with multiple langs in one project
+			detection_methods = { "pattern" },
+			-- patterns used to detect root dir, when **"pattern"** is in detection_methods
+			patterns = { ".git", "Makefile", "package.json" },
+		},
+		config = function(opts)
+			require("project_nvim").setup(opts)
+		end,
+	},
+	{
 		"stevearc/dressing.nvim",
 		lazy = true,
 		init = function()
@@ -13,48 +89,6 @@ return {
 				require("lazy").load({ plugins = { "dressing.nvim" } })
 				return vim.ui.input(...)
 			end
-		end,
-	},
-	{
-		"petertriho/nvim-scrollbar",
-		event = "BufReadPost",
-		config = function()
-			local scrollbar = require("scrollbar")
-			local colors = require("tokyonight.colors").setup()
-			scrollbar.setup({
-				handle = { color = colors.bg_highlight },
-				excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify" },
-				marks = {
-					Search = { color = colors.orange },
-					Error = { color = colors.error },
-					Warn = { color = colors.warning },
-					Info = { color = colors.info },
-					Hint = { color = colors.hint },
-					Misc = { color = colors.purple },
-				},
-			})
-		end,
-	},
-	-- floating winbar
-	{
-		"b0o/incline.nvim",
-		event = "BufReadPre",
-		config = function()
-			local colors = require("tokyonight.colors").setup()
-			require("incline").setup({
-				highlight = {
-					groups = {
-						InclineNormal = { guibg = "#FC56B1", guifg = colors.black },
-						InclineNormalNC = { guifg = "#FC56B1", guibg = colors.black },
-					},
-				},
-				window = { margin = { vertical = 0, horizontal = 1 } },
-				render = function(props)
-					local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-					local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-					return { { icon, guifg = color }, { " " }, { filename } }
-				end,
-			})
 		end,
 	},
 	{
@@ -107,23 +141,5 @@ return {
 			},
 		},
 		opts = { theme = "light" },
-	},
-	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		opts = {
-			plugins = {
-				gitsigns = true,
-				tmux = true,
-				kitty = { enabled = false, font = "+2" },
-			},
-		},
-		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
-	},
-	{
-		"szw/vim-maximizer",
-		keys = {
-			{ "<leader>m", "<cmd>MaximizerToggle!<cr>", desc = "Toggle split Window maximization" },
-		},
 	},
 }
