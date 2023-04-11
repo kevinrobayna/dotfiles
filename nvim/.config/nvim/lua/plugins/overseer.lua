@@ -2,7 +2,7 @@ return {
 	"stevearc/overseer.nvim", -- Task runner and job management
 	keys = {
 		{
-			"<leader>to",
+			"<leader>tr",
 			function()
 				local overseer = require("overseer")
 				local tasks = overseer.list_tasks({ recent_first = true })
@@ -12,8 +12,9 @@ return {
 					overseer.run_action(tasks[1], "restart")
 				end
 			end,
-			desc = "Run the last Overseer task",
+			desc = "Rerun last",
 		},
+		{ "<leader>to", "<cmd>OverseerToggle<cr>", desc = "Tasks" },
 	},
 	opts = {
 		component_aliases = {

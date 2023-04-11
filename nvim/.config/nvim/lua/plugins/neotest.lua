@@ -13,9 +13,7 @@ return {
 		{ "<leader>ta", "<cmd>lua require 'neotest'.run.attach()<cr>", desc = "NeoTest Attach" },
 		{ "<leader>tt", "<cmd>lua require 'neotest'.run.run()<cr>", desc = "NeoTest Test" },
 		{ "<leader>tT", "<cmd>lua require 'neotest'.run.run(vim.fn.expand('%'))<cr>", desc = "NeoTest Test File" },
-		{ "<leader>tr", "<cmd>lua require 'neotest'.run.run_last()<cr>", desc = "NeoTest Rerun" },
 		{ "<leader>ts", "<cmd>lua require 'neotest'.summary.toggle()<cr>", desc = "NeoTest Summary" },
-		{ "<leader>tl", "<cmd>lua require 'neotest'.output_panel.toggle()<cr>", desc = "NeoTest Logs" },
 	},
 	config = function()
 		require("neotest").setup({
