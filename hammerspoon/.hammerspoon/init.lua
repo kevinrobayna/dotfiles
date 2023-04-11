@@ -4,6 +4,9 @@ local notify = function()
 	hs.notify.new({ title = "Hammerspoon", informativeText = "Config loaded" }):send()
 end
 
+-- Some applications have alternate names which can also be checked by enabling the following
+hs.application.enableSpotlightForNameSearches(true)
+
 -- Use 0 to reload the configuration
 hs.hotkey.bind(hyper, "0", function()
 	notify()
