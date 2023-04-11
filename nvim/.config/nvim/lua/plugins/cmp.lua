@@ -11,7 +11,6 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind.nvim",
-		"rcarriga/cmp-dap",
 		{
 			"zbirenbaum/copilot-cmp",
 			dependencies = "copilot.lua",
@@ -31,9 +30,6 @@ return {
 	opts = function()
 		local cmp = require("cmp")
 		return {
-			enabled = function()
-				return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
-			end,
 			completion = {
 				completeopt = "menu,menuone,noinsert",
 			},

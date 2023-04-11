@@ -7,6 +7,7 @@ return {
 		"nvim-neotest/neotest-vim-test",
 		"nvim-neotest/neotest-go",
 		"olimorris/neotest-rspec",
+		"stevearc/overseer.nvim",
 	},
 	keys = {
 		{ "<leader>ta", "<cmd>lua require 'neotest'.run.attach()<cr>", desc = "NeoTest Attach" },
@@ -34,6 +35,18 @@ return {
 				require("neotest-vim-test")({
 					ignore_file_types = { "ruby", "go" },
 				}),
+			},
+			consumers = {
+				overseer = require("neotest.consumers.overseer"),
+			},
+			diagnostic = {
+				enabled = false,
+			},
+			log_level = 1,
+			floating = {
+				border = "single",
+				max_height = 0.8,
+				max_width = 0.9,
 			},
 			icons = {
 				expanded = "",

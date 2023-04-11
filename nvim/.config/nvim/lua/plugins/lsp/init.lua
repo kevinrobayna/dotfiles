@@ -6,7 +6,7 @@ return {
 		dependencies = {
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = true },
 			{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
-			"mason.nvim",
+			{ "williamboman/mason.nvim" },
 			"williamboman/mason-lspconfig.nvim",
 			{
 				"hrsh7th/cmp-nvim-lsp",
@@ -178,6 +178,7 @@ return {
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
+		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
 		opts = {
 			ensure_installed = {
