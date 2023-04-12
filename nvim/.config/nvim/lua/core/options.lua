@@ -7,6 +7,7 @@ vim.g.maplocalleader = " "
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+vim.opt.statuscolumn = "%l %r" -- Show both absolute and relative line number on the side
 
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
