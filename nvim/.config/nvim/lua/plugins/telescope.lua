@@ -24,7 +24,7 @@ return {
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 		{ "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
 		{ "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-		{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+		{ "<leader>fr", "<cmd>Telescope oldfiles cwd_only=true<cr>", desc = "Recent" },
 		-- git
 		{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
 		{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
@@ -35,11 +35,8 @@ return {
 		{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
 		{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
 		{ "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-		{
-			"<leader>sg",
-			":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
-			desc = "Find in Files (Grep)",
-		},
+		{ "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+		{ "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
 		{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
 		{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
 		{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
@@ -134,22 +131,6 @@ return {
 						end,
 					},
 				},
-				vimgrep_arguments = {
-					"rg",
-					"--color=never",
-					"--no-heading",
-					"--with-filename",
-					"--line-number",
-					"--column",
-					"--smart-case",
-					"--trim", -- add this value
-					"--hidden",
-					"--ignore",
-					"--glob=!**/.git/*",
-					"--glob=!**/.idea/*",
-					"--glob=!**/node_modules/*",
-					"--glob=!**/.next/*",
-				},
 			},
 			extensions = {
 				["ui-select"] = {
@@ -160,21 +141,6 @@ return {
 					layout_strategy = "vertical",
 					layout_config = {
 						preview_height = 0.8,
-					},
-				},
-			},
-			pickers = {
-				find_files = {
-					find_command = {
-						"rg",
-						"--files",
-						"--hidden",
-						"--ignore",
-						"-u",
-						"--glob=!**/.git/*",
-						"--glob=!**/.idea/*",
-						"--glob=!**/node_modules/*",
-						"--glob=!**/.next/*",
 					},
 				},
 			},
