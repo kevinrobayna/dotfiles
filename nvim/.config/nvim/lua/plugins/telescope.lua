@@ -6,7 +6,6 @@ return {
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-ui-select.nvim" },
-		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -24,7 +23,7 @@ return {
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 		{ "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
 		{ "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-		{ "<leader>fr", "<cmd>Telescope oldfiles cwd_only=true<cr>", desc = "Recent" },
+		{ "<leader>fr", Util.telescope("oldfiles"), desc = "Recent" },
 		-- git
 		{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
 		{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
@@ -146,7 +145,6 @@ return {
 			},
 		})
 		telescope.load_extension("ui-select")
-		telescope.load_extension("live_grep_args")
 		telescope.load_extension("projects")
 		telescope.load_extension("harpoon")
 		telescope.load_extension("undo")
