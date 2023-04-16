@@ -78,10 +78,15 @@ stow -t $HOME hammerspoon
 stow -t $HOME nvim
 stow -t $HOME kitty
 stow -t $HOME lazygit
+stow -t $HOME git
+stow -t $HOME zsh
+stow -t $HOME htop
+stow -t $HOME neofetch
+stow -t $HOME bat
 
 stow -t $HOME tmux
 infocmp -x tmux-256color >tmux-256color.src
 tic -x tmux-256color.src
 
-stow -t $HOME git
+
 ```
