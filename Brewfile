@@ -29,6 +29,8 @@ brew "ncurses"
 brew "neofetch"
 brew "gitmux"
 brew "git-delta"
+brew "starship"
+brew "zoxide"
 
 #NVim Stuff
 brew "neovim"

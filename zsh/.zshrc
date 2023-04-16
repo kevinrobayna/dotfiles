@@ -1,4 +1,17 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+PROCESSOR=$(/usr/sbin/sysctl -n machdep.cpu.brand_string)
+M1PATH=/opt/homebrew/bin/brew
+INTELPATH=/usr/local/bin/brew
+
+case `arch` in
+    arm64) # M1
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    ;;
+    i386) # Intel
+        eval "$(/usr/local/bin/brew shellenv)"
+    ;;
+esac
 
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
