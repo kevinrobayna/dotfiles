@@ -1,17 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/dev/dotfiles/.p10k.zsh.
-[[ ! -f ~/dev/dotfiles/.p10k.zsh ]] || source ~/dev/dotfiles/.p10k.zsh
-
-# Autojump config https://github.com/wting/autojump
-[ -f `brew --prefix autojump`/etc/profile.d/autojump.sh ] && . `brew --prefix autojump`/etc/profile.d/autojump.sh
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
@@ -21,9 +8,9 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 
 # `znap source` automatically downloads and starts your plugins.
-znap source marlonrichert/zsh-autocomplete
-znap source zsh-users/zsh-autosuggestions
-znap source zsh-users/zsh-syntax-highlighting
+# znap source marlonrichert/zsh-autocomplete
+# znap source zsh-users/zsh-autosuggestions
+# znap source zsh-users/zsh-syntax-highlighting
 
 # enable commit signing
 # export GPG_TTY=$TTY is faster but jetbrains does not like it
@@ -98,7 +85,6 @@ export HISTCONTROL=ignoredups:erasedups
 # After each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-
 # Handle dupplicates
 setopt HIST_IGNORE_ALL_DUPS
 
@@ -123,5 +109,9 @@ export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@14/lib/pkgconfig"
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Tmux Stuff
+export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
