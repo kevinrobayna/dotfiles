@@ -41,7 +41,9 @@ bindkey -e
 # Secrets
 export $(xargs < ~/.secrets)
 
-alias details="neofetch"
+alias nf="neofetch"
+alias lg="lazygit"
+alias ld="lazydocker"
 
 # Create tmux session for dev folders, also cd into them, similar to autojump
 alias t="~/dev/dotfiles/bin/tmux-sessionizer"
