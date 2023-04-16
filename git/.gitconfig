@@ -1,6 +1,7 @@
 [user]
   name = Kevin Robayna
   email = me@kevinrobayna.com
+  signingkey = E229645C198022A0 
 [commit]
   gpgsign = true
 [core]
