@@ -1,7 +1,4 @@
-# eval "$(/opt/homebrew/bin/brew shellenv)"
-PROCESSOR=$(/usr/sbin/sysctl -n machdep.cpu.brand_string)
-M1PATH=/opt/homebrew/bin/brew
-INTELPATH=/usr/local/bin/brew
+export TERM="xterm-kitty"
 
 case `arch` in
     arm64) # M1
