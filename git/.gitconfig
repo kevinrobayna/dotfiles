@@ -1,7 +1,8 @@
 [user]
   name = Kevin Robayna
   email = me@kevinrobayna.com
-  signingkey = E229645C198022A0 
+  # NOTE: This key is secured on dashlane. Use GPG Keychain to import the key.
+  signingkey = 0FB33959421F81BB
 [commit]
   gpgsign = true
 [core]
@@ -25,8 +26,3 @@
   light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [diff]
   colorMoved = default
-[maintenance]
-	repo = /Users/krobayna/Git/zsh-autocomplete
-	repo = /Users/krobayna/Git/zsh-autosuggestions
-	repo = /Users/krobayna/Git/zsh-snap
-	repo = /Users/krobayna/Git/zsh-syntax-highlighting
