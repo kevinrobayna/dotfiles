@@ -1,18 +1,31 @@
 [user]
-	name = Kevin Robayna
-	email = me@kevinrobayna.com
-	signingkey = 2EBBCF382556544C
+  name = Kevin Robayna
+  email = me@kevinrobayna.com
 [commit]
-	gpgsign = true
+  gpgsign = true
 [core]
-    editor = nvim 
+  editor = nvim 
+  pager = delta
 [pull]
-	rebase = false
-	ff = yes
+  rebase = false
+  ff = yes
 [init]
-	defaultBranch = master
+  defaultBranch = master
 [merge]
-	ff = no
-	commit = no
+  ff = no
+  commit = no
+  conflictstyle = diff3
 [alias]
-	co = checkout
+  co = checkout
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[diff]
+  colorMoved = default
+[maintenance]
+	repo = /Users/krobayna/Git/zsh-autocomplete
+	repo = /Users/krobayna/Git/zsh-autosuggestions
+	repo = /Users/krobayna/Git/zsh-snap
+	repo = /Users/krobayna/Git/zsh-syntax-highlighting

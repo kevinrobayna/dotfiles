@@ -9,8 +9,8 @@ tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "homebrew/formula-analytics"
 tap "homebrew/services"
-tap "romkatv/powerlevel10k"
 tap "aws/tap"
+tap "arl/arl"
 
 #To allow my to install stuff from Apple Store
 brew "mas"
@@ -21,13 +21,14 @@ cask "font-inconsolata-go-nerd-font"
 # ZSH
 brew "zsh"
 brew "zsh-completions"
-brew "romkatv/powerlevel10k/powerlevel10k"
 brew "autojump"
 brew "tmux"
 brew "stow"
 brew "fzf"
 brew "ncurses"
 brew "neofetch"
+brew "gitmux"
+brew "git-delta"
 
 #NVim Stuff
 brew "neovim"
