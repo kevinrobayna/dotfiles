@@ -1,5 +1,5 @@
 return {
-	"Maan2003/lsp_lines.nvim",
+	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		-- NOTE: this although not doing much is required! otherwise it will not work properly
