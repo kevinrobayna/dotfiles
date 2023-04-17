@@ -30,6 +30,7 @@ brew "gitmux"
 brew "git-delta"
 brew "starship"
 brew "zoxide"
+brew "lf"
 
 #NVim Stuff
 brew "neovim"

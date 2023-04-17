@@ -74,7 +74,7 @@ touch ~/.zsh_history
 
 sh .osx
 
-stow -t $HOME  */
+stow -t $HOME config
 
 infocmp -x tmux-256color >tmux-256color.src
 tic -x tmux-256color.src
