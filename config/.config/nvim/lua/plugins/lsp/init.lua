@@ -14,6 +14,7 @@ return {
 					return require("core.util").has("nvim-cmp")
 				end,
 			},
+			{ "Maan2003/lsp_lines.nvim" },
 		},
 		---@class PluginLspOpts
 		opts = {
@@ -22,6 +23,7 @@ return {
 				underline = true,
 				update_in_insert = false,
 				virtual_text = false,
+				virtual_lines = { only_current_line = true },
 				severity_sort = true,
 			},
 			-- Automatically format on save

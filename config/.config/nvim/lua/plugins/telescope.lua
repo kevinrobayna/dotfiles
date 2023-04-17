@@ -85,68 +85,88 @@ return {
 		-- Undo
 		{ "<leader>u", "<cmd>Telescope undo<CR>", desc = "Undo (telescope)" },
 	},
-	config = function()
+	opts = {
+		-- configure custom mappings
+		defaults = {
+			file_ignore_patterns = { ".git/", "node_modules" },
+			prompt_prefix = " ",
+			selection_caret = " ",
+			path_display = { "smart" },
+			layout_strategy = "horizontal",
+			layout_config = {
+				preview_width = 0.6,
+				prompt_position = "top",
+			},
+			sorting_strategy = "ascending",
+			winblend = 0,
+			mappings = {
+				i = {
+					["<c-t>"] = function(...)
+						return require("trouble.providers.telescope").open_with_trouble(...)
+					end,
+					["<a-t>"] = function(...)
+						return require("trouble.providers.telescope").open_selected_with_trouble(...)
+					end,
+					["<a-i>"] = function()
+						Util.telescope("find_files", { no_ignore = true })()
+					end,
+					["<a-h>"] = function()
+						Util.telescope("find_files", { hidden = true })()
+					end,
+					["<C-Down>"] = function(...)
+						return require("telescope.actions").cycle_history_next(...)
+					end,
+					["<C-Up>"] = function(...)
+						return require("telescope.actions").cycle_history_prev(...)
+					end,
+					["<C-f>"] = function(...)
+						return require("telescope.actions").preview_scrolling_down(...)
+					end,
+					["<C-b>"] = function(...)
+						return require("telescope.actions").preview_scrolling_up(...)
+					end,
+				},
+				n = {
+					["q"] = function(...)
+						return require("telescope.actions").close(...)
+					end,
+				},
+			},
+		},
+		pickers = {
+			buffers = {
+				prompt_prefix = "﬘ ",
+			},
+			commands = {
+				prompt_prefix = " ",
+			},
+			git_files = {
+				prompt_prefix = " ",
+				show_untracked = true,
+			},
+			find_files = {
+				prompt_prefix = " ",
+				find_command = { "rg", "--files", "--hidden" },
+			},
+		},
+		extensions = {
+			["ui-select"] = {
+				require("telescope.themes").get_dropdown({}),
+			},
+			undo = {
+				side_by_side = true,
+				layout_strategy = "vertical",
+				layout_config = {
+					preview_height = 0.8,
+				},
+			},
+		},
+	},
+	config = function(_, opts)
 		local telescope = require("telescope")
-
-		telescope.setup({
-			-- configure custom mappings
-			defaults = {
-				prompt_prefix = " ",
-				selection_caret = " ",
-				layout_strategy = "horizontal",
-				layout_config = { prompt_position = "top" },
-				sorting_strategy = "ascending",
-				winblend = 0,
-				mappings = {
-					i = {
-						["<c-t>"] = function(...)
-							return require("trouble.providers.telescope").open_with_trouble(...)
-						end,
-						["<a-t>"] = function(...)
-							return require("trouble.providers.telescope").open_selected_with_trouble(...)
-						end,
-						["<a-i>"] = function()
-							Util.telescope("find_files", { no_ignore = true })()
-						end,
-						["<a-h>"] = function()
-							Util.telescope("find_files", { hidden = true })()
-						end,
-						["<C-Down>"] = function(...)
-							return require("telescope.actions").cycle_history_next(...)
-						end,
-						["<C-Up>"] = function(...)
-							return require("telescope.actions").cycle_history_prev(...)
-						end,
-						["<C-f>"] = function(...)
-							return require("telescope.actions").preview_scrolling_down(...)
-						end,
-						["<C-b>"] = function(...)
-							return require("telescope.actions").preview_scrolling_up(...)
-						end,
-					},
-					n = {
-						["q"] = function(...)
-							return require("telescope.actions").close(...)
-						end,
-					},
-				},
-			},
-			extensions = {
-				["ui-select"] = {
-					require("telescope.themes").get_dropdown({}),
-				},
-				undo = {
-					side_by_side = true,
-					layout_strategy = "vertical",
-					layout_config = {
-						preview_height = 0.8,
-					},
-				},
-			},
-		})
-		telescope.load_extension("ui-select")
-		telescope.load_extension("projects")
+		telescope.setup(opts)
+		telescope.load_extension("fzf")
+		telescope.load_extension("notify")
 		telescope.load_extension("harpoon")
-		telescope.load_extension("undo")
 	end,
 }
