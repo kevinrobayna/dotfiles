@@ -1,39 +1,15 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "BufReadPre",
 	opts = {
 		signcolumn = true,
 		signs = {
-			add = {
-				hl = "GitSignsAdd",
-				text = require("core").icons.ui.BoldLineLeft,
-				numhl = "GitSignsAddNr",
-				linehl = "GitSignsAddLn",
-			},
-			change = {
-				hl = "GitSignsChange",
-				text = require("core").icons.ui.BoldLineLeft,
-				numhl = "GitSignsChangeNr",
-				linehl = "GitSignsChangeLn",
-			},
-			delete = {
-				hl = "GitSignsDelete",
-				text = require("core").icons.ui.Triangle,
-				numhl = "GitSignsDeleteNr",
-				linehl = "GitSignsDeleteLn",
-			},
-			topdelete = {
-				hl = "GitSignsDelete",
-				text = require("core").icons.ui.Triangle,
-				numhl = "GitSignsDeleteNr",
-				linehl = "GitSignsDeleteLn",
-			},
-			changedelete = {
-				hl = "GitSignsChange",
-				text = require("core").icons.ui.BoldLineLeft,
-				numhl = "GitSignsChangeNr",
-				linehl = "GitSignsChangeLn",
-			},
+			add = { text = require("core").icons.git.LineAdded },
+			change = { text = require("core").icons.git.LineModified },
+			delete = { text = require("core").icons.git.LineRemoved },
+			topdelete = { text = require("core").icons.git.LineRemoved },
+			changedelete = { text = require("core").icons.git.LineModified },
+			untracked = { text = require("core").icons.git.FileUntracked },
 		},
 	},
 }
