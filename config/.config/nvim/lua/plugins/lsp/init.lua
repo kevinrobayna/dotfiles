@@ -22,6 +22,7 @@ return {
 				underline = true,
 				update_in_insert = false,
 				virtual_text = true,
+				virtual_lines = true,
 				severity_sort = true,
 			},
 			-- Automatically format on save
