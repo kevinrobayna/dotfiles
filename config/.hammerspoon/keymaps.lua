@@ -16,7 +16,7 @@ local apps = {
 	m = "Mail.app", -- Mail
 	o = "Notion", -- Life OS
 	p = "Dashlane",
-	t = "kitty", -- Terminal
+	t = "Alacritty", -- Terminal
 }
 
 local LaunchOrToggle = function(key, app_name, app_filename)

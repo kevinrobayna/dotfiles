@@ -85,6 +85,7 @@ brew "pre-commit"
 
 # Apps
 cask "kitty"
+cask "alacritty"
 cask "aerial"
 cask "bartender"
 cask "clipy"

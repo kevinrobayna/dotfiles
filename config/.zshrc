@@ -1,5 +1,3 @@
-export TERM="xterm-kitty"
-
 case `arch` in
     arm64) # M1
         eval "$(/opt/homebrew/bin/brew shellenv)"
