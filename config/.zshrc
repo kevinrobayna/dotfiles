@@ -18,9 +18,9 @@ esac
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 
 # `znap source` automatically downloads and starts your plugins.
-znap source zsh-users/zsh-autosuggestions
-znap source marlonrichert/zsh-autocomplete
-znap source zsh-users/zsh-syntax-highlighting
+# znap source zsh-users/zsh-autosuggestions
+# znap source marlonrichert/zsh-autocomplete
+# znap source zsh-users/zsh-syntax-highlighting
 
 # enable commit signing
 # export GPG_TTY=$TTY is faster but jetbrains does not like it

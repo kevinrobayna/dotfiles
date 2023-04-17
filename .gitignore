@@ -1,7 +1,4 @@
-.p10k.zsh.zwc
-lazygit/.config/lazygit/state.yml
-tmux/.config/tmux/plugins/
-tmux/.config/tmux/resurrect
+config/.config/lazygit/state.yml
+config/.config/tmux/plugins/
+config/.config/tmux/resurrect/
 tmux-256color.src
-
-
