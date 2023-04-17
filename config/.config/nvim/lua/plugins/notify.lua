@@ -17,6 +17,7 @@ return {
 		max_width = function()
 			return math.floor(vim.o.columns * 0.75)
 		end,
+		stages = "static",
 		background_colour = "#2E3440",
 	},
 	init = function()

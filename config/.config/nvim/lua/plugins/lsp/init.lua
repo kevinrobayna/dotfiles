@@ -14,7 +14,6 @@ return {
 					return require("core.util").has("nvim-cmp")
 				end,
 			},
-			{ "Maan2003/lsp_lines.nvim" },
 		},
 		---@class PluginLspOpts
 		opts = {
@@ -22,8 +21,7 @@ return {
 			diagnostics = {
 				underline = true,
 				update_in_insert = false,
-				virtual_text = false,
-				virtual_lines = { only_current_line = true },
+				virtual_text = true,
 				severity_sort = true,
 			},
 			-- Automatically format on save
@@ -55,6 +53,13 @@ return {
 							completion = {
 								callSnippet = "Replace",
 							},
+						},
+					},
+				},
+				yamlls = {
+					settings = {
+						yaml = {
+							keyOrdering = false,
 						},
 					},
 				},
@@ -170,7 +175,6 @@ return {
 					nls.builtins.diagnostics.zsh,
 					nls.builtins.diagnostics.mdl,
 					nls.builtins.diagnostics.buf,
-					-- nls.builtins.diagnostics.flake8,
 				},
 			}
 		end,
@@ -183,6 +187,14 @@ return {
 		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
 		opts = {
+			ui = {
+				border = "double",
+				icons = {
+					package_installed = "﫟",
+					package_pending = "﫠",
+					package_uninstalled = "",
+				},
+			},
 			ensure_installed = {
 				"stylua",
 				"shfmt",
