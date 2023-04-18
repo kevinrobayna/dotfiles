@@ -70,6 +70,9 @@ alias gce='git commit --allow-empty -m'
 alias squash='git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
 alias dotfile='cd ~/dev/dotfiles'
 
+alias :GoToFile="nvim +GoToFile"
+alias :GoToCommand="nvim +GoToCommand"
+
 alias tree='tree -C'
 
 alias catf='bat --paging=never'

@@ -13,6 +13,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- NOTE: This allows me to open a nvim session easily within the terminal
+vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])
+vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
+
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
