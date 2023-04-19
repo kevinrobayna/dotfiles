@@ -60,3 +60,7 @@ opt.undofile = true
 opt.updatetime = 50
 
 opt.colorcolumn = "120"
+
+-- spelling
+vim.opt.spell = false
+vim.opt.spelllang = { "en_gb" }
