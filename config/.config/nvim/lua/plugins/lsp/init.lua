@@ -7,13 +7,14 @@ return {
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = true },
 			{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
 			{ "williamboman/mason.nvim" },
-			"williamboman/mason-lspconfig.nvim",
+			{ "williamboman/mason-lspconfig.nvim" },
 			{
 				"hrsh7th/cmp-nvim-lsp",
 				cond = function()
 					return require("core.util").has("nvim-cmp")
 				end,
 			},
+			{ "b0o/SchemaStore.nvim", version = false }, -- last release is way too old
 		},
 		---@class PluginLspOpts
 		opts = {
@@ -35,7 +36,6 @@ return {
 				timeout_ms = 5000,
 			},
 			-- LSP Server Settings
-			---@type lspconfig.options
 			servers = {
 				lua_ls = {
 					-- mason = false, -- set to false if you don't want this server to be installed with mason
@@ -61,6 +61,21 @@ return {
 					settings = {
 						yaml = {
 							keyOrdering = false,
+						},
+					},
+				},
+				jsonls = {
+					-- lazy-load schemastore when needed
+					on_new_config = function(new_config)
+						new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+						vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+					end,
+					settings = {
+						json = {
+							format = {
+								enable = true,
+							},
+							validate = { enable = true },
 						},
 					},
 				},
@@ -158,11 +173,14 @@ return {
 			return {
 				root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
 				sources = {
+					nls.builtins.code_actions.refactoring,
+					nls.builtins.code_actions.gitsigns,
 					nls.builtins.formatting.shfmt,
 					nls.builtins.formatting.jq,
 					nls.builtins.formatting.stylua,
 					nls.builtins.formatting.gofmt,
 					nls.builtins.formatting.gofumpt,
+					nls.builtins.formatting.mdformat,
 					nls.builtins.formatting.buf,
 					nls.builtins.formatting.rubocop.with({
 						command = "bundle",
@@ -175,6 +193,7 @@ return {
 					}),
 					nls.builtins.diagnostics.zsh,
 					nls.builtins.diagnostics.mdl,
+					nls.builtins.diagnostics.markdownlint,
 					nls.builtins.diagnostics.buf,
 				},
 			}
@@ -201,6 +220,15 @@ return {
 				"shfmt",
 				"solargraph",
 				"gopls",
+				"jq",
+				"yamlfix",
+				"yamlfmt",
+				"yamllint",
+				"google-java-format",
+				"buf",
+				"delve",
+				"jdtls",
+				"sorbet",
 			},
 		},
 		---@param opts MasonSettings | {ensure_installed: string[]}
