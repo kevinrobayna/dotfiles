@@ -1,13 +1,3 @@
-case `arch` in
-    arm64) # M1
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-
-    ;;
-    i386) # Intel
-        eval "$(/usr/local/bin/brew shellenv)"
-    ;;
-esac
-
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
     git clone --depth 1 -- \
@@ -16,9 +6,9 @@ esac
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 
 # `znap source` automatically downloads and starts your plugins.
-# znap source zsh-users/zsh-autosuggestions
-# znap source marlonrichert/zsh-autocomplete
-# znap source zsh-users/zsh-syntax-highlighting
+znap source zsh-users/zsh-autosuggestions
+znap source marlonrichert/zsh-autocomplete
+znap source zsh-users/zsh-syntax-highlighting
 
 # enable commit signing
 # export GPG_TTY=$TTY is faster but jetbrains does not like it
@@ -97,6 +87,11 @@ export HISTCONTROL=ignoredups:erasedups
 
 # After each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+setopt EXTENDED_HISTORY          # write the history file in the ":start:elapsed;command" format.
+setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording entry.
+setopt SHARE_HISTORY             # share history between all sessions.
+setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
 
 # Handle dupplicates
 setopt HIST_IGNORE_ALL_DUPS
