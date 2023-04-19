@@ -19,22 +19,48 @@ font:
   size: 14.0
 
 window:
-  opacity: 0.8
+  opacity: 0.9
   padding:
-    x: 14
-    y: 10
-  dynamic_padding: false
-  # decorations: buttonless
+    x: 2
+    y: 2
+  # spread additional padding evenly around the terminal content
+  dynamic_padding: true
+  # window decoarations
+  # - full: borders and title bar
+  # - none: neither borders nor title bar
+  # - (macos) transparent: title bar, transparent background, and title bar buttons
+  # - (macos) buttonless: title bar transparent background, but no title bar buttons
+  decorations: buttonless
+  # dynamically set the window title
+  dynamic_title: true
+  # Startup mode
+  # - Windowed
+  # - Maximized
+  # - Fullscreen
+  # - SimpleFullscreen (macos only)
+  startup_mode: SimpleFullscreen
+scrolling:
+  history: 10000
+  multiplier: 3
+
+mouse:
+  # hide the cursor when typing
+  hide_when_typing: true
+  # save selected text to system clipboard
+  save_to_clipboard: true
 
 # NOTE: helpful hex codes
 # \x1b = escape (useful for vim-related keybindings)
 # \x02 = control-b (the default tmux prefix)
 
 key_bindings:
-  - { key: D, mods: Command, chars: "\x02|" } # split tmux window vertically
-  - { key: D, mods: Command|Shift, chars: "\x02-" } # split tmux window horizontally
+  - { key: R, mods: Command, chars: "\x02r" } # reload tmux config 
+  - { key: I, mods: Command, chars: "\x02I" } # install plugins for tmux 
+  - { key: E, mods: Command, chars: "\x02|" } # split tmux window vertically
+  - { key: E, mods: Command|Shift, chars: "\x02-" } # split tmux window horizontally
   - { key: F, mods: Command, chars: "lf\n" } # open file manager 'gokcehan/lf'
   - { key: F, mods: Command|Shift, chars: "\x02\x5b\x2f" } # start tmux search mode
+  - { key: D, mods: Command, chars: "\x02d" } # open git manager 'jesseduffield/lazydocker'
   - { key: G, mods: Command, chars: "\x02g" } # open git manager 'jesseduffield/lazygit'
   - { key: J, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
   - { key: K, mods: Command, chars: "\x02s" } # open interactive tmux session client
