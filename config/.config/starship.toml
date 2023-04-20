@@ -102,6 +102,9 @@ symbol = " "
 [nodejs]
 symbol = " "
 
+[gcloud]
+disabled = true
+
 [os.symbols]
 Alpaquita = " "
 Alpine = " "
