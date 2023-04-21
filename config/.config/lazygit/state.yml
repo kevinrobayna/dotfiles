@@ -1,8 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
 - /Users/krobayna/dev/dotfiles
-- /Users/krobayna/dev/rotabot
 - /Users/krobayna/dev/nexus
+- /Users/krobayna/dev/frontier
+- /Users/krobayna/dev/rotabot
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false

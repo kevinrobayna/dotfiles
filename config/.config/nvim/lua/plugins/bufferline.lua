@@ -4,7 +4,7 @@ return {
 		"moll/vim-bbye",
 		"nvim-tree/nvim-web-devicons",
 	},
-	event = "VeryLazy",
+	event = "BufReadPost",
 	keys = {
 		{ "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
 		{ "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },

@@ -1,6 +1,5 @@
 return {
 	"2kabhishek/co-author.nvim",
-	event = "VeryLazy",
 	cmd = "GitCoAuhors",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
