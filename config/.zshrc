@@ -7,8 +7,16 @@ source ~/Git/zsh-snap/znap.zsh  # Start Znap
 
 # `znap source` automatically downloads and starts your plugins.
 znap source zsh-users/zsh-autosuggestions
-znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-syntax-highlighting
+znap source unixorn/fzf-zsh-plugin
+export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
+export FZF_PREVIEW_ADVANCED=true
+export FZF_PREVIEW_WINDOW='right:65%:nohidden'
+export FZF_DEFAULT_OPTS="\
+--reverse --no-info --prompt=' ' --pointer='' --marker=' ' \
+--color=bg+:,bg:,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # enable commit signing
 # export GPG_TTY=$TTY is faster but jetbrains does not like it
@@ -46,8 +54,8 @@ alias dus='du -hs'
 alias df='df -h'
 alias brewu='brew update;brew upgrade;brew upgrade --cask;brew cleanup'
 
+alias ls='exa -Gh'
 alias ll='ls -alGh'
-alias ls='ls -Gh'
 alias less='less -r'
 
 alias ga='git add -A'
