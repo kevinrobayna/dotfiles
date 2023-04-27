@@ -54,8 +54,8 @@ alias dus='du -hs'
 alias df='df -h'
 alias brewu='brew update;brew upgrade;brew upgrade --cask;brew cleanup'
 
-alias ls='exa -Gh'
-alias ll='ls -alGh'
+alias ls='exa'
+alias ll='ls -al'
 alias less='less -r'
 
 alias ga='git add -A'
