@@ -24,6 +24,7 @@ brew "zsh-completions"
 brew "tmux"
 brew "stow"
 brew "fzf"
+brew "exa"
 brew "ncurses"
 brew "neofetch"
 brew "gitmux"
@@ -112,3 +113,4 @@ cask "elgato-control-center"
 mas "Dashlane", id: 517914548
 mas "The Unarchiver", id: 425424353
 mas "Notability", id: 360593530
+mas "Unsplash Wallpapers", id:1284863847
