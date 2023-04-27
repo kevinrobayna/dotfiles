@@ -100,6 +100,7 @@ cask "fantastical"
 cask "notion"
 cask "firefox"
 cask "via"
+cask "arc"
 
 # Keyboard Stuff
 cask "via"

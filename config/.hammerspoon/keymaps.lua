@@ -8,7 +8,7 @@ local hyper = { "cmd", "alt", "ctrl" }
   this, a table can be passed which contains the app name followed by the filename
 ]]
 local apps = {
-	b = "Firefox", -- Browser
+	b = "Arc.app", -- Browser
 	f = "Finder",
 	c = "Fantastical",
 	s = "Slack",
