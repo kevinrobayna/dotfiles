@@ -2,3 +2,4 @@ config/.config/lazygit/state.yml
 config/.config/tmux/plugins/
 config/.config/tmux/resurrect/
 tmux-256color.src
+Brewfile.lock.json

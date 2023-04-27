@@ -26,3 +26,8 @@
   light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [diff]
   colorMoved = default
+[maintenance]
+	repo = /Users/kevinrobayna/Git/zsh-autocomplete
+	repo = /Users/kevinrobayna/Git/zsh-autosuggestions
+	repo = /Users/kevinrobayna/Git/zsh-snap
+	repo = /Users/kevinrobayna/Git/zsh-syntax-highlighting
