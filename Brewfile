@@ -17,6 +17,7 @@ brew "mas"
 
 # Font, obviously
 cask "font-inconsolata-go-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 
 # ZSH
 brew "zsh"
