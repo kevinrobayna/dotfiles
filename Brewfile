@@ -90,13 +90,9 @@ cask "aerial"
 cask "bartender"
 cask "clipy"
 cask "caffeine"
-cask "discord"
 cask "docker"
 cask "steam"
 cask "fantastical"
-cask "notion"
-cask "firefox"
-cask "via"
 cask "arc"
 
 # Keyboard Stuff
