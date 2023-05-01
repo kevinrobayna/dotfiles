@@ -45,7 +45,6 @@ brew "deno"
 
 # Generic Tools
 brew "jq"
-brew "tree"
 brew "docker"
 brew "lazydocker"
 brew "ctags"

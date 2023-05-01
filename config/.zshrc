@@ -20,4 +20,8 @@ plug "zsh-users/zsh-syntax-highlighting"
 # keybinds
 bindkey '^ ' autosuggest-accept
 
+# But still use emacs-style zsh bindings
+# https://superuser.com/questions/403355/how-do-i-get-searching-through-my-command-history-working-with-tmux-and-zshell
+bindkey -e
+
 export PATH="$HOME/.local/bin":$PATH
