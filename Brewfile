@@ -85,13 +85,10 @@ brew "node"
 brew "pre-commit"
 
 # Apps
-cask "kitty"
 cask "alacritty"
 cask "aerial"
 cask "bartender"
 cask "clipy"
-cask "telegram"
-cask "whatsapp"
 cask "caffeine"
 cask "discord"
 cask "docker"
