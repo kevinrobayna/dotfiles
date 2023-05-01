@@ -31,10 +31,6 @@ success() {
 	echo -e "${COLOR_GREEN}$1${COLOR_NONE}"
 }
 
-get_linkables() {
-	find -H "$DOTFILES" -maxdepth 3 -name '*.symlink'
-}
-
 setup_symlinks() {
 	title "Creating symlinks"
 
@@ -145,43 +141,42 @@ setup_macos() {
 		echo "Enable Safari’s debug menu"
 		defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
+		echo "Require password immediately after sleep or screen saver begins"
+		defaults write com.apple.screensaver askForPassword -int 1
+		defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-    echo "Require password immediately after sleep or screen saver begins"
-    defaults write com.apple.screensaver askForPassword -int 1
-    defaults write com.apple.screensaver askForPasswordDelay -int 0
+		echo "Disable “natural” (Lion-style) scrolling"
+		defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
-    echo "Disable “natural” (Lion-style) scrolling"
-    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+		echo "Set the icon size of Dock items to 36 pixels"
+		defaults write com.apple.dock tilesize -int 36
 
-    echo "Set the icon size of Dock items to 36 pixels"
-    defaults write com.apple.dock tilesize -int 36
-    
-    echo "Hot corners"
-    # Hot corners
-    # Possible values:
-    #  0: no-op
-    #  2: Mission Control
-    #  3: Show application windows
-    #  4: Desktop
-    #  5: Start screen saver
-    #  6: Disable screen saver
-    #  7: Dashboard
-    # 10: Put display to sleep
-    # 11: Launchpad
-    # 12: Notification Center
-    # Top left screen corner → Mission Control
-    defaults write com.apple.dock wvous-tl-corner -int 2
-    defaults write com.apple.dock wvous-tl-modifier -int 0
-    # Top right screen corner → Desktop
-    defaults write com.apple.dock wvous-tr-corner -int 4
-    defaults write com.apple.dock wvous-tr-modifier -int 0
-    # Bottom left screen corner → Start screen saver
-    defaults write com.apple.dock wvous-bl-corner -int 5
-    defaults write com.apple.dock wvous-bl-modifier -int 0
-    
-    echo "Use list view in all Finder windows by default"
-    # Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
-    defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+		echo "Hot corners"
+		# Hot corners
+		# Possible values:
+		#  0: no-op
+		#  2: Mission Control
+		#  3: Show application windows
+		#  4: Desktop
+		#  5: Start screen saver
+		#  6: Disable screen saver
+		#  7: Dashboard
+		# 10: Put display to sleep
+		# 11: Launchpad
+		# 12: Notification Center
+		# Top left screen corner → Mission Control
+		defaults write com.apple.dock wvous-tl-corner -int 2
+		defaults write com.apple.dock wvous-tl-modifier -int 0
+		# Top right screen corner → Desktop
+		defaults write com.apple.dock wvous-tr-corner -int 4
+		defaults write com.apple.dock wvous-tr-modifier -int 0
+		# Bottom left screen corner → Start screen saver
+		defaults write com.apple.dock wvous-bl-corner -int 5
+		defaults write com.apple.dock wvous-bl-modifier -int 0
+
+		echo "Use list view in all Finder windows by default"
+		# Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
+		defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 		echo "Kill affected applications"
 
