@@ -1,133 +1,23 @@
-# Download Znap, if it's not there yet.
-[[ -f ~/Git/zsh-snap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
+#!/bin/sh
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 
-source ~/Git/zsh-snap/znap.zsh  # Start Znap
+# history
+HISTFILE=~/.zsh_history
 
-# `znap source` automatically downloads and starts your plugins.
-znap source zsh-users/zsh-autosuggestions
-znap source zsh-users/zsh-syntax-highlighting
-znap source unixorn/fzf-zsh-plugin
-export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
-export FZF_PREVIEW_ADVANCED=true
-export FZF_PREVIEW_WINDOW='right:65%:nohidden'
-export FZF_DEFAULT_OPTS="\
---reverse --no-info --prompt=' ' --pointer='' --marker=' ' \
---color=bg+:,bg:,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+# source
+plug "$HOME/.config/zsh/aliases.zsh"
+plug "$HOME/.config/zsh/exports.zsh"
 
-# enable commit signing
-# export GPG_TTY=$TTY is faster but jetbrains does not like it
-# export GPG_TTY=$(tty)
-export GPG_TTY=$TTY
+plug "esc/conda-zsh-completion"
+plug "zsh-users/zsh-autosuggestions"
+plug "hlissner/zsh-autopair"
+plug "zap-zsh/supercharge"
+plug "zap-zsh/vim"
+plug "zap-zsh/fzf"
+plug "zap-zsh/exa"
+plug "zsh-users/zsh-syntax-highlighting"
 
-# Help homebrew
-export PATH="$(eval "brew --prefix")/sbin:$PATH"
-# Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# keybinds
+bindkey '^ ' autosuggest-accept
 
-# Use vi as the default editor
-export EDITOR="nvim"
-# But still use emacs-style zsh bindings
-# https://superuser.com/questions/403355/how-do-i-get-searching-through-my-command-history-working-with-tmux-and-zshell
-bindkey -e
-
-# Secrets
-export $(xargs < ~/.secrets)
-
-alias nf="neofetch"
-alias lg="lazygit"
-alias ld="lazydocker"
-
-# Create tmux session for dev folders, also cd into them, similar to autojump
-alias t="~/dev/dotfiles/bin/tmux-sessionizer"
-# Close all tmux sessions except current
-alias tc="tmux kill-session -a"
-
-alias vi="nvim"
-alias vim="nvim"
-
-alias ..='cd ..'
-alias dus='du -hs'
-alias df='df -h'
-alias brewu='brew update;brew upgrade;brew upgrade --cask;brew cleanup'
-
-alias ls='exa'
-alias ll='ls -al'
-alias less='less -r'
-
-alias ga='git add -A'
-alias gb='git branch'
-alias gs='git status'
-alias gc='git commit -S -m'
-alias gd='git diff --color'
-alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %C(cyan)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
-alias gce='git commit --allow-empty -m'
-alias squash='git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
-alias dotfile='cd ~/dev/dotfiles'
-
-alias :GoToFile="nvim +GoToFile"
-alias :GoToCommand="nvim +GoToCommand"
-
-alias tree='tree -C'
-
-alias catf='bat --paging=never'
-alias bathelp='bat --plain --language=help'
-help() {
-    "$@" --help 2>&1 | bathelp
-}
-
-# History Settings
-export HISTFILE=~/.zsh_history
-
-# Increase size of file
-export HISTFILESIZE=1000000000
-export HISTSIZE=1000000000
-
-# Immediate append
-setopt INC_APPEND_HISTORY
-export HISTTIMEFORMAT="[%F %T] "
-
-# avoid duplicates..
-export HISTCONTROL=ignoredups:erasedups
-
-# After each command, save and reload history
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
-setopt EXTENDED_HISTORY          # write the history file in the ":start:elapsed;command" format.
-setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording entry.
-setopt SHARE_HISTORY             # share history between all sessions.
-setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
-
-# Handle dupplicates
-setopt HIST_IGNORE_ALL_DUPS
-
-# Ruby
-eval "$(rbenv init - zsh)"
-alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
-alias be='bundle exec'
-alias rubocop='bundle exec rubocop -A --display-style-guide --extra-details --display-cop-names'
-
-# Golang
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
-# Postgress
-export PATH="$(eval "brew --prefix")/opt/postgresql@14/bin:$PATH"
-export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@14/lib"
-export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@14/include"
-export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@14/lib/pkgconfig"
-
-# Google
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-# Tmux Stuff
-export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
-
+export PATH="$HOME/.local/bin":$PATH
