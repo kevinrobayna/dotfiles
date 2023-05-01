@@ -31,7 +31,7 @@ alias dotfile='cd ~/dev/dotfiles'
 alias :GoToFile="nvim +GoToFile"
 alias :GoToCommand="nvim +GoToCommand"
 
-alias catf='bat --paging=never'
+alias catf='bat'
 alias bathelp='bat --plain --language=help'
 help() {
     "$@" --help 2>&1 | bathelp
