@@ -37,7 +37,7 @@ window:
   # - Maximized
   # - Fullscreen
   # - SimpleFullscreen (macos only)
-  startup_mode: Fullscreen
+  startup_mode: SimpleFullscreen
 scrolling:
   history: 10000
   multiplier: 3
