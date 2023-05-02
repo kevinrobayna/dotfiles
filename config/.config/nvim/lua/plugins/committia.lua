@@ -1,3 +1,3 @@
 return {
-	"rhysd/committia.vim",
+  "rhysd/committia.vim",
 }

@@ -1,9 +1,5 @@
 local opt = vim.opt -- for conciseness
 
--- Make sure to set `leader` before lazy so your mappings are correct
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- line numbers
 opt.relativenumber = false -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
