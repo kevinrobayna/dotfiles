@@ -26,7 +26,6 @@ alias gd='git diff --color'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %C(cyan)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gce='git commit --allow-empty -m'
 alias squash='git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
-alias dotfile='cd ~/dev/dotfiles'
 
 alias :GoToFile="nvim +GoToFile"
 alias :GoToCommand="nvim +GoToCommand"
@@ -40,3 +39,6 @@ help() {
 alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
 alias be='bundle exec'
 alias rubocop='bundle exec rubocop -A --display-style-guide --extra-details --display-cop-names'
+
+alias up='docker-compose up -d'
+alias down='docker-compose down -v'
