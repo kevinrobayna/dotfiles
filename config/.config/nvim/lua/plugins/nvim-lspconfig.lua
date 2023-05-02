@@ -3,6 +3,14 @@ return {
   dependencies = {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+    {
+      "folke/which-key.nvim",
+      opts = {
+        defaults = {
+          ["<leader>cR"] = { "<cmd>LspRestart<cr>", "LspRestart" },
+        },
+      },
+    },
   },
   opts = {
     capabilities = {
