@@ -18,6 +18,9 @@ alias brewu='brew update;brew upgrade;brew upgrade --cask;brew cleanup'
 
 alias less='less -r'
 
+# Aliasing zoxide to also be j since it's more convenient
+alias j='z'
+
 alias ga='git add -A'
 alias gb='git branch'
 alias gs='git status'
