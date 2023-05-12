@@ -55,7 +55,7 @@ export FZF_DEFAULT_OPTS="\
 # Tmux Stuff
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
-eval "$(rbenv init - zsh)"
+eval "$(rbenv init - --no-rehash)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
