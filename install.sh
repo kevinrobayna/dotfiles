@@ -35,6 +35,7 @@ setup_symlinks() {
 	title "Creating symlinks"
 
 	stow -t $HOME config
+	stow -t $HOME gitconfig --dotfiles
 }
 
 setup_homebrew() {
