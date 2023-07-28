@@ -10,6 +10,7 @@ return {
       nls.builtins.formatting.stylua,
       nls.builtins.formatting.mdformat,
       nls.builtins.formatting.buf,
+      nls.builtins.formatting.xmllint,
       nls.builtins.diagnostics.zsh,
       nls.builtins.diagnostics.mdl,
       nls.builtins.diagnostics.markdownlint,
