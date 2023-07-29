@@ -21,3 +21,9 @@ set clipboard+=unnamedplus
 
 set updatetime=50
 set colorcolumn="120"
+
+
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+map <leader>z <Action>(ToggleDistractionFreeMode)
