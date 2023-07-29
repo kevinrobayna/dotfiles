@@ -1,0 +1,23 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" line numbers
+set relativenumber
+""" shows absolute line number on cursor line (when relative number is on)
+set number
+
+""" cursor line
+""" highlight the current cursor line
+set cursorline
+
+""" appearance
+set guicursor=""
+
+set scrolloff=8
+
+""" clipboard
+""" use system clipboard as default register
+set clipboard+=unnamedplus
+
+set updatetime=50
+set colorcolumn="120"
