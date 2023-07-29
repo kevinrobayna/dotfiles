@@ -58,5 +58,5 @@ opt.updatetime = 50
 opt.colorcolumn = "120"
 
 -- spelling
-vim.opt.spell = false
-vim.opt.spelllang = { "en_gb" }
+opt.spell = false
+opt.spelllang = { "en_gb" }
