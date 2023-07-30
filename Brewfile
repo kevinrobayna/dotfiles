@@ -9,7 +9,6 @@ tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "homebrew/formula-analytics"
 tap "homebrew/services"
-tap "aws/tap"
 tap "arl/arl"
 
 #To allow my to install stuff from Apple Store
