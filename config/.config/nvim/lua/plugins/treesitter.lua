@@ -18,6 +18,7 @@ return {
         "http",
         "jsdoc",
         "jsonc",
+        "jsonnet",
         "lua",
         "luap",
         "markdown",
