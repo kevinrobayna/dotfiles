@@ -29,6 +29,8 @@ alias gd='git diff --color'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %C(cyan)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gce='git commit --allow-empty -m'
 alias squash='git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
+alias squashm='git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD))'
+
 
 alias :GoToFile="nvim +GoToFile"
 alias :GoToCommand="nvim +GoToCommand"
