@@ -31,7 +31,7 @@ return {
         "<leader>fr",
         function()
           require("telescope.builtin").oldfiles({
-            cwd = require("lazyvim.util").get_root(),
+            cwd = require("lazyvim.util").root.get(),
             include_current_session = true,
           })
         end,
