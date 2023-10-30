@@ -31,3 +31,5 @@
 	repo = /Users/kevinrobayna/Git/zsh-autosuggestions
 	repo = /Users/kevinrobayna/Git/zsh-snap
 	repo = /Users/kevinrobayna/Git/zsh-syntax-highlighting
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
