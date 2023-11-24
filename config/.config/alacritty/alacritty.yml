@@ -15,7 +15,7 @@ env:
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: JetBrainsMono NF
   size: 14.0
 
 window:
