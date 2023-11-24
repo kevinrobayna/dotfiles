@@ -28,15 +28,13 @@ return {
       virtual_lines = true,
       severity_sort = true,
     },
-    -- Automatically format on save
-    -- autoformat = false,
     -- options for vim.lsp.buf.format
     -- `bufnr` and `filter` is handled by the LazyVim formatter,
     -- but can be also overridden when specified
-    -- format = {
-    --   formatting_options = nil,
-    --   timeout_ms = 5000,
-    -- },
+    format = {
+      formatting_options = nil,
+      timeout_ms = 5000,
+    },
     ---@type lspconfig.options
     servers = {
       bashls = {},

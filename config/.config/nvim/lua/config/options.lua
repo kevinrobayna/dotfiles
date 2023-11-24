@@ -25,6 +25,8 @@ opt.incsearch = true
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
 
+vim.g.autoformat = false
+
 -- appearance
 opt.guicursor = ""
 
