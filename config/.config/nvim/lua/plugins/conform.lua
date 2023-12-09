@@ -6,7 +6,6 @@ return {
       json = { "jq" },
       yaml = { "yq" },
       xml = { "xmlformat" },
-      markdown = { "mdformat" },
       ruby = { "bundle" },
       sql = { "sql_formatter" },
     },
