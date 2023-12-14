@@ -2,14 +2,6 @@ return {
   {
     "telescope.nvim",
     dependencies = {
-      { "nvim-telescope/telescope-ui-select.nvim" },
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        config = function()
-          require("telescope").load_extension("fzf")
-        end,
-      },
       {
         "ThePrimeagen/harpoon",
         config = function()
@@ -19,7 +11,7 @@ return {
     },
     keys = {
       {
-        "<leader>fP",
+        "<leader>fp",
         function()
           require("telescope.builtin").find_files({
             cwd = require("lazy.core.config").options.root,
@@ -49,11 +41,6 @@ return {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
-      },
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({}),
-        },
       },
     },
   },
