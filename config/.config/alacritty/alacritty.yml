@@ -16,7 +16,7 @@ env:
 font:
   normal:
     family: JetBrainsMono NF
-  size: 14.0
+  size: 20.0
 
 window:
   padding:
