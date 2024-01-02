@@ -81,7 +81,7 @@ lf
 key = "F"
 mods = "Command"
 
- # start tmux search mode
+# start tmux search mode
 [[keyboard.bindings]]
 chars = "\u0002[/"
 key = "F"
@@ -253,7 +253,7 @@ key = "Key9"
 mods = "Command"
 
 [mouse]
-  # hide the cursor when typing
+# hide the cursor when typing
 hide_when_typing = true
 # save selected text to system clipboard
 # save_to_clipboard = true
@@ -263,21 +263,21 @@ history = 10000
 multiplier = 3
 
 [window]
-  # window decoarations
-  # - full: borders and title bar
-  # - none: neither borders nor title bar
-  # - (macos) transparent: title bar, transparent background, and title bar buttons
-  # - (macos) buttonless: title bar transparent background, but no title bar buttons
+# window decoarations
+# - full: borders and title bar
+# - none: neither borders nor title bar
+# - (macos) transparent: title bar, transparent background, and title bar buttons
+# - (macos) buttonless: title bar transparent background, but no title bar buttons
 decorations = "full"
-  # spread additional padding evenly around the terminal content
+# spread additional padding evenly around the terminal content
 dynamic_padding = true
-  # dynamically set the window title
+# dynamically set the window title
 dynamic_title = true
-  # Startup mode
-  # - Windowed
-  # - Maximized
-  # - Fullscreen
-  # - SimpleFullscreen (macos only)
+# Startup mode
+# - Windowed
+# - Maximized
+# - Fullscreen
+# - SimpleFullscreen (macos only)
 startup_mode = "Fullscreen"
 
 [window.padding]
