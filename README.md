@@ -8,6 +8,4 @@ These are my personal dotfiles that I use daily to do my job. They might not wor
 
 ## How to install
 
-First lets ensure our mac behaves the way we like it to. Run '~/dev/dotfiles/install.sh' 
-
-
+First lets ensure our mac behaves the way we like it to. Run '~/dev/dotfiles/install.sh'

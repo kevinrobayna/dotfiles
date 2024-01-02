@@ -8,6 +8,8 @@ return {
       yaml = { "yq" },
       lua = { "stylua" },
       ruby = { "rubocop" },
+      markdown = { "markdownlint-cli2" },
+      norg = { "markdownlint-cli2" },
     },
   },
 }
