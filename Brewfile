@@ -40,8 +40,9 @@ brew "fd"
 brew "lazygit"
 brew "stylua"
 brew "gnu-sed"
-# Markdown preview
-brew "deno"
+brew "markdownlint-cli2"
+brew "xmlformat"
+brew "taplo"
 
 # Generic Tools
 brew "jq"
@@ -55,6 +56,7 @@ brew "htop"
 brew "bat"
 brew "k9s"
 brew "slides"
+brew "bottom"
 
 #HotKeys!
 cask "hammerspoon"
