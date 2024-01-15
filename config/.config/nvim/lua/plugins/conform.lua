@@ -3,6 +3,7 @@ return {
   optional = true,
   opts = {
     formatters_by_ft = {
+      xml = { "xmlformat" },
       json = { "jq" },
       toml = { "taplo" },
       yaml = { "yq" },
