@@ -4,6 +4,7 @@ return {
   opts = {
     formatters_by_ft = {
       xml = { "xmlformat" },
+      eruby = { "erb-format" },
       json = { "jq" },
       toml = { "taplo" },
       yaml = { "yq" },
