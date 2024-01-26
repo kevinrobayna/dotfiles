@@ -14,7 +14,7 @@ return {
       workspaces = {
         {
           name = "Notes",
-          path = "~/dev/notes",
+          path = "~/dev/vault",
         },
       },
       daily_notes = {

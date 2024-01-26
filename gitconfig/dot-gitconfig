@@ -32,3 +32,5 @@
 	repo = /Users/kevinrobayna/Git/zsh-syntax-highlighting
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[gpg]
+	program = /opt/homebrew/bin/gpg
