@@ -1,7 +1,7 @@
 [user]
   name = Kevin Robayna
   email = me@kevinrobayna.com
-	signingkey = 0FB33959421F81BB # NOTE: This key is secured on dashlane. Use GPG Keychain to import the key.
+  signingkey = 0FB33959421F81BB # NOTE: This key is secured on dashlane. Use GPG Keychain to import the key.
 [commit]
   gpgsign = true
 [core]
@@ -26,11 +26,11 @@
 [diff]
   colorMoved = default
 [maintenance]
-	repo = /Users/kevinrobayna/Git/zsh-autocomplete
-	repo = /Users/kevinrobayna/Git/zsh-autosuggestions
-	repo = /Users/kevinrobayna/Git/zsh-snap
-	repo = /Users/kevinrobayna/Git/zsh-syntax-highlighting
+  repo = /Users/kevinrobayna/Git/zsh-autocomplete
+  repo = /Users/kevinrobayna/Git/zsh-autosuggestions
+  repo = /Users/kevinrobayna/Git/zsh-snap
+  repo = /Users/kevinrobayna/Git/zsh-syntax-highlighting
 [url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [gpg]
-	program = /opt/homebrew/bin/gpg
+  program = /opt/homebrew/bin/gpg
