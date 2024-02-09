@@ -2,12 +2,7 @@ return {
   {
     "telescope.nvim",
     dependencies = {
-      {
-        "ThePrimeagen/harpoon",
-        config = function()
-          require("telescope").load_extension("harpoon")
-        end,
-      },
+      "ThePrimeagen/harpoon",
     },
     keys = {
       {
@@ -29,9 +24,6 @@ return {
         end,
         desc = "Find Recents",
       },
-      -- Harpoon
-      { "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "Harpoon file" },
-      { "<leader>sm", "<cmd>Telescope harpoon marks<cr>", desc = "Harpoon (Telescope)" },
     },
     opts = {
       defaults = {
