@@ -95,6 +95,7 @@ cask "docker"
 cask "steam"
 cask "fantastical"
 cask "arc"
+cask "obsidian"
 
 # Keyboard Stuff
 cask "via"
