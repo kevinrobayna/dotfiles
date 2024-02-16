@@ -9,6 +9,7 @@ return {
       "yamlfmt",
       "yamllint",
       "buf",
+      "standardrb",
     })
   end,
 }
