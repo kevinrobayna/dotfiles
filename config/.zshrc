@@ -29,3 +29,5 @@ bindkey -e
 export PATH="$HOME/.local/bin":$PATH
 # Help homebrew
 export PATH="$(eval "brew --prefix")/sbin:$PATH"
+
+export PATH="$HOME/.rd/bin:$PATH"
