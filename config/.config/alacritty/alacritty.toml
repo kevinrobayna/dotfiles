@@ -263,12 +263,13 @@ history = 10000
 multiplier = 3
 
 [window]
+opacity = 0.9
 # window decoarations
 # - full: borders and title bar
 # - none: neither borders nor title bar
 # - (macos) transparent: title bar, transparent background, and title bar buttons
 # - (macos) buttonless: title bar transparent background, but no title bar buttons
-decorations = "full"
+decorations = "buttonless"
 # spread additional padding evenly around the terminal content
 dynamic_padding = true
 # dynamically set the window title
@@ -278,7 +279,7 @@ dynamic_title = true
 # - Maximized
 # - Fullscreen
 # - SimpleFullscreen (macos only)
-startup_mode = "Fullscreen"
+startup_mode = "SimpleFullscreen"
 
 [window.padding]
 x = 2

@@ -5,11 +5,11 @@ return {
   opts = function()
     return {
       style = "moon",
-      -- transparent = true,
-      -- styles = {
-      --   sidebars = "transparent",
-      --   floats = "transparent",
-      -- },
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
       sidebars = {
         "qf",
         "vista_kind",
