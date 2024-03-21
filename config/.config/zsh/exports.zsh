@@ -38,10 +38,10 @@ export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Postgress
-export PATH="$(eval "brew --prefix")/opt/postgresql@14/bin:$PATH"
-export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@14/lib"
-export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@14/include"
-export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@14/lib/pkgconfig"
+export PATH="$(eval "brew --prefix")/opt/postgresql@15/bin:$PATH"
+export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@15/lib"
+export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@15/include"
+export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@15/lib/pkgconfig"
 
 export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
 export FZF_PREVIEW_ADVANCED=true
