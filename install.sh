@@ -152,6 +152,9 @@ setup_macos() {
 		echo "Set the icon size of Dock items to 36 pixels"
 		defaults write com.apple.dock tilesize -int 36
 
+		echo "Ensuring screenshots are saved to the ~/Downloads folder"
+		defaults write com.apple.screencapture location ~/Downloads
+
 		echo "Hot corners"
 		# Hot corners
 		# Possible values:
