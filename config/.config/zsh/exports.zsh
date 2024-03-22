@@ -25,6 +25,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Use vi as the default editor
 export EDITOR="nvim"
+export GIT_EDITOR="nvim"
 
 # Secrets
 export $(xargs < ~/.secrets)
