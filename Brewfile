@@ -82,7 +82,6 @@ cask "jetbrains-toolbox"
 cask "postman"
 cask "ngrok"
 brew "node"
-brew "pre-commit"
 
 # Apps
 cask "alacritty"
