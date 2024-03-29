@@ -79,13 +79,13 @@ chars = """
 lf
 """
 key = "F"
-mods = "Command"
+mods = "Command|Shift"
 
 # start tmux search mode
 [[keyboard.bindings]]
 chars = "\u0002[/"
 key = "F"
-mods = "Command|Shift"
+mods = "Command"
 
 # open git manager 'jesseduffield/lazydocker'
 [[keyboard.bindings]]
