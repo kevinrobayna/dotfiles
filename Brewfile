@@ -92,6 +92,7 @@ cask "steam"
 cask "fantastical"
 cask "arc"
 cask "obsidian"
+cask "logi-options-plus"
 
 # Keyboard Stuff
 cask "via"
