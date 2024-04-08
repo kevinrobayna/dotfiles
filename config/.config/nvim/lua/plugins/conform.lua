@@ -13,6 +13,7 @@ return {
       markdown = { "markdownlint-cli2" },
       norg = { "markdownlint-cli2" },
       sql = { "sqlfmt" },
+      jsonnet = { "jsonnetfmt" },
     },
   },
 }
