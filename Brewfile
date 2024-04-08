@@ -75,12 +75,15 @@ cask "google-cloud-sdk"
 
 # Web Development
 brew "rbenv"
+brew "buf"
+brew "jsonnet"
 cask "jetbrains-toolbox"
 cask "postman"
 cask "ngrok"
 brew "node"
 cask "rancher"
 brew "docker-compose"
+brew "postgresql@15"
 
 # Apps
 cask "alacritty"
