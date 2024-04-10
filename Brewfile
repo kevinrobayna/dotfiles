@@ -84,6 +84,7 @@ brew "node"
 cask "rancher"
 brew "docker-compose"
 brew "postgresql@15"
+brew "shared-mime-info"
 
 # Apps
 cask "alacritty"
