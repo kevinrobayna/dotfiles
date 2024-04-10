@@ -102,10 +102,9 @@ cask "spotify"
 # Keyboard Stuff
 cask "via"
 
-# Elgato FACECAM configuration tool
 cask "elgato-camera-hub"
-# Control your Elgato Key Lights
 cask "elgato-control-center"
+cask "elgato-stream-deck"
 
 # Apple Store Stuff
 mas "Dashlane", id: 517914548
