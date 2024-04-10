@@ -29,6 +29,7 @@ return {
         "vim",
         "yaml",
         "dockerfile",
+        "ruby",
       },
       matchup = {
         enable = true,
