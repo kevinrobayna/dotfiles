@@ -96,6 +96,7 @@ cask "fantastical"
 cask "arc"
 cask "obsidian"
 cask "logi-options-plus"
+cask "spotify"
 
 # Keyboard Stuff
 cask "via"
