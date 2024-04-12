@@ -189,6 +189,16 @@ setup_macos() {
 	fi
 }
 
+setup_tmux() {
+	title "Configuring Tmux"
+	if [ ! -f ~/.config/tmux/plugins/tpm/tpm ]; then
+		rm -Rf ~/.config/tmux/plugins
+		git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+	else
+		echo "Found tpm!, Skipping"
+	fi
+}
+
 case "$1" in
 link)
 	setup_symlinks
@@ -205,12 +215,16 @@ terminfo)
 macos)
 	setup_macos
 	;;
+tmux)
+	setup_tmux
+	;;
 all)
 	setup_homebrew
 	setup_symlinks
 	setup_shell
 	setup_macos
 	setup_terminfo
+	setup_tmux
 	;;
 *)
 	echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|terminfo|macos|all}\n"
