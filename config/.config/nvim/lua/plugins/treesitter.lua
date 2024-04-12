@@ -30,6 +30,7 @@ return {
         "yaml",
         "dockerfile",
         "ruby",
+        "tmux",
       },
       matchup = {
         enable = true,
