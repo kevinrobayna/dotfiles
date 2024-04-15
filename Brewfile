@@ -102,6 +102,8 @@ cask "spotify"
 # Keyboard Stuff
 cask "via"
 
+cask "obs"
+cask "vb-cable"
 cask "elgato-camera-hub"
 cask "elgato-control-center"
 cask "elgato-stream-deck"
