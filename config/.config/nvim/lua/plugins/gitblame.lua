@@ -6,6 +6,6 @@ return {
     virtual_style = "float",
   },
   keys = {
-    { "<leader>gb", "<cmd>ToggleBlame<cr>", desc = "Toggle Git Blame UI" },
+    { "<leader>gb", "<cmd>BlameToggle<cr>", desc = "Toggle Git Blame UI" },
   },
 }
