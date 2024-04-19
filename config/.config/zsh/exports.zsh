@@ -38,6 +38,9 @@ export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
+# Ruby
+export DISABLE_SPRING=true
+
 # Postgress
 export PATH="$(eval "brew --prefix")/opt/postgresql@15/bin:$PATH"
 export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@15/lib"
