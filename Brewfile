@@ -84,6 +84,9 @@ brew "node"
 cask "rancher"
 brew "docker-compose"
 brew "postgresql@15"
+
+# Ruby / Postgres
+brew "icu4c"
 brew "shared-mime-info"
 
 # Apps
