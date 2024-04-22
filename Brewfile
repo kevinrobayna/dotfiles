@@ -33,6 +33,7 @@ brew "lf"
 #NVim Stuff
 brew "neovim"
 brew "ripgrep"
+brew "the_silver_searcher"
 brew "fd"
 brew "lazygit"
 brew "stylua"
