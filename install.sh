@@ -197,6 +197,8 @@ setup_tmux() {
 	else
 		echo "Found tpm!, Skipping"
 	fi
+  tic -x resources/tmux.terminfo
+  tic -x resources/xterm-256color-italic.terminfo
 }
 
 case "$1" in
