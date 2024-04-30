@@ -41,6 +41,8 @@ brew "gnu-sed"
 brew "markdownlint-cli2"
 brew "xmlformat"
 brew "taplo"
+brew "terraform_fmt"
+brew "sqlfmt"
 
 # Generic Tools
 brew "jq"
@@ -54,6 +56,7 @@ brew "bat"
 brew "k9s"
 brew "slides"
 brew "bottom"
+brew "terraform"
 
 #HotKeys!
 cask "hammerspoon"
