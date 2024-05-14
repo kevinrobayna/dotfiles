@@ -1,9 +1,6 @@
 return {
   {
     "telescope.nvim",
-    dependencies = {
-      "ThePrimeagen/harpoon",
-    },
     keys = {
       {
         "<leader>fp",
