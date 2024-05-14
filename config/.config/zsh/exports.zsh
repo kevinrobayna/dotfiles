@@ -40,6 +40,7 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Ruby
 export DISABLE_SPRING=true
+export RUBY_CONFIGURE_OPTS="--enable-yjit"
 
 # Postgress
 export PATH="$(eval "brew --prefix")/opt/postgresql@15/bin:$PATH"

@@ -90,6 +90,7 @@ brew "docker-compose"
 brew "postgresql@15"
 
 # Ruby / Postgres
+brew "rust"
 brew "icu4c"
 brew "shared-mime-info"
 
