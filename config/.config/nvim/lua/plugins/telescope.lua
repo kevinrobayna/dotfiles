@@ -31,6 +31,12 @@ return {
         sorting_strategy = "ascending",
         winblend = 0,
       },
+      -- TODO: Remove this https://github.com/LazyVim/LazyVim/issues/3157
+      pickers = {
+        lsp_definitions = {
+          jump_type = "never",
+        },
+      },
     },
   },
 }
