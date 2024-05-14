@@ -31,12 +31,6 @@ return {
         sorting_strategy = "ascending",
         winblend = 0,
       },
-      -- TODO: Remove this https://github.com/nvim-telescope/telescope.nvim/issues/3100
-      pickers = {
-        lsp_definitions = {
-          jump_type = "never",
-        },
-      },
     },
   },
 }
