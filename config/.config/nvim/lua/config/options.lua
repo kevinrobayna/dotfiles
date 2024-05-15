@@ -64,6 +64,3 @@ opt.spell = false
 opt.spelllang = { "en_gb" }
 
 
--- required by obsidian.nvim
--- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
-opt.conceallevel = 2
