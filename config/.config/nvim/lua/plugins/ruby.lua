@@ -2,19 +2,21 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "ruby",
-      })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "ruby" })
+      end
     end,
   },
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "ruby-lsp",
-        "sorbet",
-        "rubocop",
-      })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, {
+          "ruby-lsp",
+          "sorbet",
+          "rubocop",
+        })
+      end
     end,
   },
   {
