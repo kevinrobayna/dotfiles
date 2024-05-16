@@ -97,7 +97,6 @@ return {
         },
       },
       vimls = {},
-      standardrb = {},
     },
   },
 }
