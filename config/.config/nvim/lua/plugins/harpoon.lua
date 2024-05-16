@@ -4,6 +4,16 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  keys = {
+    {
+      "<leader>a",
+      desc = "Add buffer to Harpoon",
+    },
+    {
+      "<C-e>",
+      desc = "Open Harpoon list",
+    },
+  },
   config = function()
     local harpoon = require("harpoon")
 
