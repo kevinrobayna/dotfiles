@@ -19,6 +19,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.trouble-v3" },
     { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.coding.codeium" },
+    { import = "lazyvim.plugins.extras.coding.yanky" },
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.dap.core" },
