@@ -42,7 +42,6 @@ brew "gnu-sed"
 brew "markdownlint-cli2"
 brew "xmlformat"
 brew "taplo"
-brew "terraform_fmt"
 brew "sqlfmt"
 
 # Generic Tools
