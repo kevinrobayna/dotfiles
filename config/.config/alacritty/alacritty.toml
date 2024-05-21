@@ -107,7 +107,7 @@ mods = "Command"
 
 # open t - tmux smart session manager
 [[keyboard.bindings]]
-chars = "\u0002T"
+chars = "\u0002J"
 key = "J"
 mods = "Command"
 
