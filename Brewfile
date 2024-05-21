@@ -7,6 +7,7 @@ tap "homebrew/command-not-found"
 tap "homebrew/formula-analytics"
 tap "homebrew/services"
 tap "arl/arl"
+tap "joshmedeski/sesh"
 
 #To allow my to install stuff from Apple Store
 brew "mas"
@@ -30,6 +31,7 @@ brew "starship"
 brew "zoxide"
 brew "lf"
 brew "btop
+brew "sesh"
 
 #NVim Stuff
 brew "neovim"
