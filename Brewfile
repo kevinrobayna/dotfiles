@@ -29,6 +29,7 @@ brew "git-delta"
 brew "starship"
 brew "zoxide"
 brew "lf"
+brew "btop
 
 #NVim Stuff
 brew "neovim"
