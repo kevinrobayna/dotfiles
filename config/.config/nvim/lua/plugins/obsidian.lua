@@ -2,19 +2,6 @@ vim.cmd([[highlight CodeBlock guibg=none]])
 vim.cmd([[highlight Headline guibg=none]])
 vim.cmd([[highlight Dash guibg=#D19A66 gui=bold]])
 return {
-  { "preservim/vim-pencil", ft = "markdown" },
-  {
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    ft = "markdown",
-    opts = {
-      markdown = {
-        fat_headlines = false,
-        fat_headline_upper_string = "_",
-        fat_headline_lower_string = "-",
-      },
-    },
-  },
   {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
