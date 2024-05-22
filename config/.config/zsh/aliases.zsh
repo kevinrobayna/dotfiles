@@ -3,7 +3,7 @@ alias lg="lazygit"
 alias ld="lazydocker"
 
 # Create tmux session for dev folders, also cd into them, similar to autojump
-# alias t="~/dev/dotfiles/bin/tmux-sessionizer"
+alias t="~/dev/dotfiles/bin/tmux-sessionizer"
 # Close all tmux sessions except current
 alias tc="tmux kill-session -a"
 

@@ -105,12 +105,6 @@ chars = "\u0002p"
 key = "P"
 mods = "Command"
 
-# open t - tmux smart session manager
-[[keyboard.bindings]]
-chars = "\u0002J"
-key = "J"
-mods = "Command"
-
 # open interactive tmux session client
 [[keyboard.bindings]]
 chars = "\u0002s"
