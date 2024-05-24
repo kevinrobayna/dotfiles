@@ -4,6 +4,8 @@
   signingkey = 0FB33959421F81BB # NOTE: This key is secured on dashlane. Use GPG Keychain to import the key.
 [commit]
   gpgsign = true
+  template = /Users/kevinrobayna/.config/git/gitmessage
+  template = /Users/krobayna/.config/git/gitmessage
 [core]
   editor = nvim 
   pager = delta
