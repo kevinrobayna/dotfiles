@@ -4,8 +4,7 @@
   signingkey = 0FB33959421F81BB # NOTE: This key is secured on dashlane. Use GPG Keychain to import the key.
 [commit]
   gpgsign = true
-  template = /Users/kevinrobayna/.config/git/gitmessage
-  template = /Users/krobayna/.config/git/gitmessage
+  template = ~/.config/git/gitmessage
 [core]
   editor = nvim 
   pager = delta
@@ -28,10 +27,10 @@
 [diff]
   colorMoved = default
 [maintenance]
-  repo = /Users/kevinrobayna/Git/zsh-autocomplete
-  repo = /Users/kevinrobayna/Git/zsh-autosuggestions
-  repo = /Users/kevinrobayna/Git/zsh-snap
-  repo = /Users/kevinrobayna/Git/zsh-syntax-highlighting
+  repo = ~/Git/zsh-autocomplete
+  repo = ~/Git/zsh-autosuggestions
+  repo = ~/Git/zsh-snap
+  repo = ~/Git/zsh-syntax-highlighting
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 [gpg]
