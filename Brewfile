@@ -109,8 +109,6 @@ cask "obsidian"
 cask "logi-options-plus"
 cask "spotify"
 
-cask "obs"
-cask "vb-cable"
 cask "elgato-camera-hub"
 cask "elgato-control-center"
 cask "elgato-stream-deck"
