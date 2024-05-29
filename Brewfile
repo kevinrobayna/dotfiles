@@ -109,9 +109,6 @@ cask "obsidian"
 cask "logi-options-plus"
 cask "spotify"
 
-# Keyboard Stuff
-cask "via"
-
 cask "obs"
 cask "vb-cable"
 cask "elgato-camera-hub"
