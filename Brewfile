@@ -30,8 +30,9 @@ brew "git-delta"
 brew "starship"
 brew "zoxide"
 brew "lf"
-brew "btop
+brew "btop"
 brew "sesh"
+brew "gum"
 
 #NVim Stuff
 brew "neovim"
