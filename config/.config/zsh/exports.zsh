@@ -48,6 +48,7 @@ export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@15/lib"
 export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@15/include"
 export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@15/lib/pkgconfig"
 
+source ~/.local/share/nvim/lazy/tokyonight.nvim/extras/fzf/tokyonight_moon.sh
 export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
 export FZF_PREVIEW_ADVANCED=true
 export FZF_PREVIEW_WINDOW='right:65%:nohidden'
