@@ -2,7 +2,6 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-    { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
     {
       "folke/which-key.nvim",
       opts = {
