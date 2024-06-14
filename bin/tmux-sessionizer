@@ -6,4 +6,4 @@ ls -d ~/dev/* | xargs -I {} zoxide add {}
 mkdir -p ~/work
 ls -d ~/work/* | xargs -I {} zoxide add {}
 
-sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder 'Pick a session' --height 60 --prompt='⚡')"
+sesh connect $(sesh list -i | gum filter --limit 1 --placeholder 'Pick a session' --height 60 --prompt='⚡')
