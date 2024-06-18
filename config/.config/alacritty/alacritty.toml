@@ -10,31 +10,37 @@
 
 live_config_reload = true
 
-# NOTE: this is coming from https://github.com/alacritty/alacritty-theme
-# We are using tokyo night, obviously
-[colors.bright]
-black = "0x444b6a"
-blue = "0x7da6ff"
-cyan = "0x0db9d7"
-green = "0xb9f27c"
-magenta = "0xbb9af7"
-red = "0xff7a93"
-white = "0xacb0d0"
-yellow = "0xff9e64"
-
-[colors.normal]
-black = "0x32344a"
-blue = "0x7aa2f7"
-cyan = "0x449dab"
-green = "0x9ece6a"
-magenta = "0xad8ee6"
-red = "0xf7768e"
-white = "0x787c99"
-yellow = "0xe0af68"
-
+# TokyoNight Alacritty Colors
+# Default colors
 [colors.primary]
-background = "0x1a1b26"
-foreground = "0xa9b1d6"
+background = '#222436'
+foreground = '#c8d3f5'
+
+[colors.cursor]
+cursor = '#c8d3f5'
+text = '#222436'
+
+# Normal colors
+[colors.normal]
+black = '#1b1d2b'
+red = '#ff757f'
+green = '#c3e88d'
+yellow = '#ffc777'
+blue = '#82aaff'
+magenta = '#c099ff'
+cyan = '#86e1fc'
+white = '#828bb8'
+
+# Bright colors
+[colors.bright]
+black = '#444a73'
+red = '#ff757f'
+green = '#c3e88d'
+yellow = '#ffc777'
+blue = '#82aaff'
+magenta = '#c099ff'
+cyan = '#86e1fc'
+white = '#c8d3f5'
 
 [env]
 TERM = "xterm-256color"
