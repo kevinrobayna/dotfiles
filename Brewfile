@@ -46,6 +46,7 @@ brew "markdownlint-cli2"
 brew "xmlformat"
 brew "taplo"
 brew "sqlfmt"
+brew "prettier"
 
 # Generic Tools
 brew "jq"
