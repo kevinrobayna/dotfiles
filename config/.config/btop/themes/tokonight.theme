@@ -1,8 +1,8 @@
-# Theme: tokyo-storm
+# Theme: tokyo-night
 # By: Pascal Jaeger
 
 # Main bg
-theme[main_bg]="#24283b"
+theme[main_bg]="#1a1b26"
 
 # Main text color
 theme[main_fg]="#cfc9c2"
