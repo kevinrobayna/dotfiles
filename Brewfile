@@ -47,6 +47,7 @@ brew "xmlformat"
 brew "taplo"
 brew "sqlfmt"
 brew "prettier"
+brew "luarocks"
 
 # Generic Tools
 brew "jq"
