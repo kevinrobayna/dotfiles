@@ -1,4 +1,4 @@
-alias nf="neofetch"
+alias nf="fastfetch"
 alias lg="lazygit"
 alias ld="lazydocker"
 
