@@ -87,6 +87,7 @@ export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 eval "$(rbenv init - --no-rehash)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+source <(fzf --zsh)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
