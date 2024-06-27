@@ -121,8 +121,8 @@ cask "elgato-control-center"
 cask "elgato-stream-deck"
 
 # Apple Store Stuff
-mas "Dashlane", id: 517914548
 mas "The Unarchiver", id: 425424353
 mas "Notability", id: 360593530
 mas "Unsplash Wallpapers", id:1284863847
 mas "Sleeve for Spotify, Music", id: 1606145041
+mas "Dashlane Password Manager", id: 517914548
