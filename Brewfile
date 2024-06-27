@@ -68,6 +68,9 @@ brew "terraform"
 cask "hammerspoon"
 cask "hyperkey"
 
+# Java
+brew "java"
+
 # Go
 brew "go"
 brew "golangci-lint"
