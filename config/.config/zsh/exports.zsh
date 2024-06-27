@@ -33,6 +33,9 @@ export $(xargs < ~/.secrets)
 # After each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+# Java
+export PATH="$(eval "brew --prefix")/opt/openjdk/bin:$PATH"
+
 # Golang
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
