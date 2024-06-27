@@ -59,6 +59,9 @@ setup_homebrew() {
 	echo -e
 	info "Installing fzf"
 	"$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
+
+	gem install erb-formatter
+	gem install neovim
 }
 
 fetch_catppuccin_theme() {
@@ -197,8 +200,8 @@ setup_tmux() {
 	else
 		echo "Found tpm!, Skipping"
 	fi
-  tic -x resources/tmux.terminfo
-  tic -x resources/xterm-256color-italic.terminfo
+	tic -x resources/tmux.terminfo
+	tic -x resources/xterm-256color-italic.terminfo
 }
 
 case "$1" in
