@@ -6,7 +6,6 @@ return {
     local colors = require("tokyonight.colors").setup()
     scrollbar.setup({
       handle = { color = colors.bg_highlight },
-      excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify" },
       marks = {
         Search = { color = colors.orange },
         Error = { color = colors.error },
