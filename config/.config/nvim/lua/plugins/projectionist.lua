@@ -2,11 +2,9 @@ return {
   "tpope/vim-projectionist",
   event = "BufReadPre",
   cmd = "A",
-  -- TODO: this does not work for now
-  -- keys = {
-  --   { "C-t", "<cmd>A<cr>", desc = "Alternate File" },
-  --   { "C-T", "<cmd>AV<cr>", desc = "Alternate File" },
-  -- },
+  keys = {
+    { "<C-t>", "<esc><cmd>A<cr>", desc = "Alternate File" },
+  },
   config = function()
     vim.g.projectionist_heuristics = {
       [".ruby-version"] = {
