@@ -9,7 +9,7 @@ return {
       toml = { "taplo" },
       yaml = { "yq" },
       lua = { "stylua" },
-      ruby = { "standardrb" },
+      ruby = { "rubocop" },
       markdown = { "markdownlint-cli2" },
       norg = { "markdownlint-cli2" },
       sql = { "sqlfmt" },
