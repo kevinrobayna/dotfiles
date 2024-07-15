@@ -47,10 +47,10 @@ export RUBY_CONFIGURE_OPTS="--enable-yjit"
 export RUBY_YJIT_ENABLE=1
 
 # Postgress
-export PATH="$(eval "brew --prefix")/opt/postgresql@15/bin:$PATH"
-export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@15/lib"
-export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@15/include"
-export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@15/lib/pkgconfig"
+export PATH="$(eval "brew --prefix")/opt/postgresql@16/bin:$PATH"
+export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@16/lib"
+export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@16/include"
+export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@16/lib/pkgconfig"
 
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --highlight-line \
