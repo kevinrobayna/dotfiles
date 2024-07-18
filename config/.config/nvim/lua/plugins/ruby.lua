@@ -1,3 +1,13 @@
+vim.g.lazyvim_ruby_lsp = "ruby_lsp"
+vim.g.lazyvim_ruby_formatter = "rubocop"
+
+local lsp = vim.g.lazyvim_ruby_lsp or "ruby_lsp"
+if vim.fn.has("nvim-0.10") == 0 then
+  -- ruby_lsp does not work well with Neovim < 0.10
+  lsp = vim.g.lazyvim_ruby_lsp or "solarpath"
+end
+local formatter = vim.g.lazyvim_ruby_formatter or "rubocop"
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -5,14 +15,28 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        -- disable solargraph from auto running when you open ruby files
-        solargraph = {
-          autostart = false,
+        ruby_lsp = {
+          enabled = lsp == "ruby_lsp",
         },
-        -- ruby_lsp will be automatically installed with mason and loaded with lspconfig
-        ruby_lsp = {},
-        rubocop = {},
-        sorbet = {},
+        solargraph = {
+          enabled = lsp == "solargraph",
+        },
+        rubocop = {
+          enabled = formatter == "rubocop",
+        },
+        standardrb = {
+          enabled = formatter == "standardrb",
+        },
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        ruby = { formatter },
+        eruby = { "erb-format" },
       },
     },
   },

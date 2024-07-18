@@ -4,12 +4,10 @@ return {
   opts = {
     formatters_by_ft = {
       xml = { "xmlformat" },
-      eruby = { "erb-format" },
       json = { "jq" },
       toml = { "taplo" },
       yaml = { "yq" },
       lua = { "stylua" },
-      ruby = { "rubocop" },
       markdown = { "markdownlint-cli2" },
       norg = { "markdownlint-cli2" },
       sql = { "sqlfmt" },
