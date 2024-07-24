@@ -1,6 +1,3 @@
-vim.cmd([[highlight CodeBlock guibg=none]])
-vim.cmd([[highlight Headline guibg=none]])
-vim.cmd([[highlight Dash guibg=#D19A66 gui=bold]])
 return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
