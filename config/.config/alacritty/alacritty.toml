@@ -55,13 +55,19 @@ family = "JetBrainsMono NF"
 # \x1b = escape (useful for vim-related keybindings)
 # \x02 = control-b (the default tmux prefix)
 
-# reload tmux config 
+# reload tmux config
 [[keyboard.bindings]]
 chars = "\u0002r"
 key = "R"
 mods = "Command"
 
-# install plugins for tmux 
+# update plugins for tmux
+[[keyboard.bindings]]
+chars = "\u0002U"
+key = "U"
+mods = "Command"
+
+# install plugins for tmux
 [[keyboard.bindings]]
 chars = "\u0002I"
 key = "I"
@@ -77,14 +83,6 @@ mods = "Command"
 [[keyboard.bindings]]
 chars = "\u0002-"
 key = "E"
-mods = "Command|Shift"
-
-# open file manager 'gokcehan/lf'
-[[keyboard.bindings]]
-chars = """
-lf
-"""
-key = "F"
 mods = "Command|Shift"
 
 # start tmux search mode
@@ -129,22 +127,6 @@ chars = "\u0002u"
 key = "O"
 mods = "Command"
 
-# Commands
-[[keyboard.bindings]]
-chars = """
-:GoToCommand
-"""
-key = "P"
-mods = "Command|Shift"
-
-# Quit nvim
-[[keyboard.bindings]]
-chars = """
-:q
-"""
-key = "Q"
-mods = "Command"
-
 # Save Nvim buffer
 [[keyboard.bindings]]
 chars = """
@@ -171,11 +153,6 @@ chars = "\u0002z"
 key = "Z"
 mods = "Command"
 
-# switch to next tmux window
-[[keyboard.bindings]]
-chars = "\u0002n"
-key = "Tab"
-mods = "Control"
 
 # navigate back in vim (ctrl+o)
 [[keyboard.bindings]]
@@ -183,23 +160,11 @@ chars = "\u000F"
 key = "LBracket"
 mods = "Command"
 
-# switch to next tmux window
-[[keyboard.bindings]]
-chars = "\u0002p"
-key = "LBracket"
-mods = "Command|Shift"
-
 # navigate forward in vim (ctrl+i)
 [[keyboard.bindings]]
 chars = "\t"
 key = "RBracket"
 mods = "Command"
-
-# switch to previous tmux window
-[[keyboard.bindings]]
-chars = "\u0002n"
-key = "RBracket"
-mods = "Command|Shift"
 
 # enter the tmux command prompt
 [[keyboard.bindings]]
