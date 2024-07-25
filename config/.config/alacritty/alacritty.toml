@@ -109,6 +109,12 @@ chars = "\u0002p"
 key = "P"
 mods = "Command"
 
+# open htop
+[[keyboard.bindings]]
+chars = "\u0002/"
+key = "/"
+mods = "Command"
+
 # open interactive tmux session client
 [[keyboard.bindings]]
 chars = "\u0002s"
@@ -152,7 +158,6 @@ mods = "Command"
 chars = "\u0002z"
 key = "Z"
 mods = "Command"
-
 
 # navigate back in vim (ctrl+o)
 [[keyboard.bindings]]
