@@ -96,13 +96,14 @@ cask "ngrok"
 brew "node"
 cask "rancher"
 brew "docker-compose"
-brew "postgresql@15"
-brew "postgresql@16"
 
 # Ruby / Postgres
 brew "rust"
 brew "icu4c"
 brew "shared-mime-info"
+brew "postgresql@15"
+brew "postgresql@16"
+brew "pgformatter"
 
 # Apps
 cask "alacritty"

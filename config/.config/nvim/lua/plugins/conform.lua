@@ -10,7 +10,7 @@ return {
       lua = { "stylua" },
       markdown = { "markdownlint-cli2" },
       norg = { "markdownlint-cli2" },
-      sql = { "sqlfmt" },
+      sql = { "pg_format" },
       jsonnet = { "jsonnetfmt" },
     },
   },
