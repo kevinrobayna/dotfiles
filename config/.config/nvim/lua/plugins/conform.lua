@@ -8,8 +8,6 @@ return {
       toml = { "taplo" },
       yaml = { "yq" },
       lua = { "stylua" },
-      markdown = { "markdownlint-cli2" },
-      norg = { "markdownlint-cli2" },
       sql = { "pg_format" },
       jsonnet = { "jsonnetfmt" },
     },
