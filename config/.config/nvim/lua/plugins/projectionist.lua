@@ -37,7 +37,7 @@ return {
             'require "spec_helper"',
             "",
             "# spec/{}_spec.rb",
-            "Rspec.describe {} do",
+            "RSpec.describe {} do",
             "end",
           },
         },
