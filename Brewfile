@@ -96,6 +96,7 @@ cask "ngrok"
 brew "node"
 cask "rancher"
 brew "docker-compose"
+cask "chatgpt"
 
 # Ruby / Postgres
 brew "rust"
