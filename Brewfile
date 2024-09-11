@@ -16,6 +16,9 @@ brew "mas"
 cask "font-inconsolata-go-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 
+# SSH from iPad
+brew "mosh"
+
 # ZSH
 brew "zsh"
 brew "zsh-completions"
