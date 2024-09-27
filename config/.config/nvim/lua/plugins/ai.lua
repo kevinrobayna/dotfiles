@@ -15,11 +15,4 @@ return {
       return string.match(cwd, "dev")
     end,
   },
-  {
-    "Exafunction/codeium.nvim",
-    cond = function()
-      local cwd = Util.root.cwd()
-      return string.match(cwd, "work")
-    end,
-  },
 }
