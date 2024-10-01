@@ -1,8 +1,6 @@
 tap "homebrew/aliases"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
 tap "homebrew/formula-analytics"
 tap "homebrew/services"
