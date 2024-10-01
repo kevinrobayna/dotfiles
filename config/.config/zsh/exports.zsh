@@ -34,12 +34,10 @@ export $(xargs < ~/.secrets)
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Java
-export PATH="$(eval "brew --prefix")/opt/openjdk/bin:$PATH"
+export GRADLE_USER_HOME="$HOME/.gradle"
 
 # Golang
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export GOPRIVATE=$PRIVATE_SCM
 
 # Ruby
 export DISABLE_SPRING=true
@@ -86,6 +84,20 @@ export FZF_DEFAULT_OPTS="\
 
 # Tmux Stuff
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+
+# Kubernetes Stuff
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# AWS Stuff
+export AWS_VAULT_KEYCHAIN_NAME="login"
+export AWS_SESSION_TTL="12h"
+
+# Configure Colima as Docker Host for applications which don't respect Docker Contexts
+# Testcontainers should use the default Docker Socket
+# Testcontainers should use the Colima VM instance local address as host
+export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address // ""')
 
 eval "$(rbenv init - --no-rehash)"
 eval "$(zoxide init zsh)"
