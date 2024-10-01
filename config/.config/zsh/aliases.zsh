@@ -28,7 +28,6 @@ alias gce='git commit --allow-empty -m'
 alias squash='git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
 alias squashm='git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD))'
 
-
 alias :GoToFile="nvim +GoToFile"
 alias :GoToCommand="nvim +GoToCommand"
 
@@ -44,3 +43,6 @@ alias rcode='bundle exec rubocop --autocorrect --display-style-guide --extra-det
 
 alias up='docker-compose up -d'
 alias down='docker-compose down -v'
+
+alias kubectx="kubectl-ctx"
+alias kubens="kubectl-ns"
