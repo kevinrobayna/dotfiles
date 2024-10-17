@@ -88,12 +88,6 @@ quitOnTopLevelReturn: true
 disableStartupPopups: false
 notARepository: prompt # one of: 'prompt' | 'create' | 'skip'
 promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
-customCommands:
-  - key: z
-    command: ~/.config/bin/gc
-    context: files
-    loadingText: Commitizen prompt
-    subprocess: true
 keybinding:
   universal:
     quit: q
