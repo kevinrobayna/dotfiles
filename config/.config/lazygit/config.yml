@@ -46,6 +46,7 @@ gui:
   authorColors: # in case you're not happy with the randomly assigned colour
     kevinrobayna: '#7d26cd'
 git:
+  branchPrefix: "krobayna_"
   paging:
     colorArg: always
     useConfig: false
