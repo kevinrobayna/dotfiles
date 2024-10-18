@@ -70,11 +70,7 @@ brew "terraform"
 cask "hammerspoon"
 cask "hyperkey"
 
-# Java
-brew "java"
-
 # Go
-brew "go"
 brew "golangci-lint"
 brew "hugo"
 
@@ -90,13 +86,15 @@ cask "google-cloud-sdk"
 
 # Web Development
 brew "rbenv"
+brew "asdf"
 brew "buf"
 brew "jsonnet"
 cask "jetbrains-toolbox"
 cask "postman"
 cask "ngrok"
 brew "node"
-cask "rancher"
+brew "colima"
+brew "docker"
 brew "docker-compose"
 cask "chatgpt"
 

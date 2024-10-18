@@ -32,7 +32,7 @@ export PATH="$(eval "brew --prefix")/sbin:$PATH"
 
 export PATH="$HOME/.rd/bin:$PATH"
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. "$(eval "brew --prefix")/opt/asdf/libexec/asdf.sh"
 . ~/.asdf/plugins/java/set-java-home.zsh
 . ~/.asdf/plugins/golang/set-env.zsh
 
