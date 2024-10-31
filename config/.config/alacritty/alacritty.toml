@@ -8,6 +8,7 @@
 # A cross-platform, OpenGL terminal emulator.
 # https://alacritty.org
 
+[general]
 live_config_reload = true
 
 # TokyoNight Alacritty Colors
