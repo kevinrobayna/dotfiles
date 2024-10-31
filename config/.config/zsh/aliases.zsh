@@ -41,8 +41,8 @@ alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main
 alias be='bundle exec'
 alias rcode='bundle exec rubocop --autocorrect --display-style-guide --extra-details --display-cop-names --parallel'
 
-alias up='docker-compose up -d'
-alias down='docker-compose down -v'
+alias up='docker-compose up -d --remove-orphans'
+alias down='docker-compose down -v --remove-orphans'
 
 alias kubectx="kubectl-ctx"
 alias kubens="kubectl-ns"
