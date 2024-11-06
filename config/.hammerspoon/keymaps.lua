@@ -10,12 +10,12 @@ local hyper = { "cmd", "alt", "ctrl" }
 local apps = {
 	b = "Arc.app", -- Browser
 	f = "Finder",
-	c = "Fantastical",
+	c = "Calendar",
 	s = "Slack",
 	z = "Zoom.us",
 	m = "Mail.app", -- Mail
-	o = "Notion", -- Life OS
-	p = "Dashlane",
+	o = "Obsidian", -- Life OS
+	p = "1Password",
 	t = "Alacritty", -- Terminal
 }
 
