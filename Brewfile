@@ -118,6 +118,7 @@ cask "arc"
 cask "obsidian"
 cask "logi-options-plus"
 cask "spotify"
+cask "1password"
 
 cask "elgato-camera-hub"
 cask "elgato-control-center"
@@ -129,4 +130,3 @@ mas "Notability", id: 360593530
 mas "Unsplash Wallpapers", id:1284863847
 mas "Sleeve for Spotify, Music", id: 1606145041
 mas "Dynamic Wallpaper Engine", id: 1453504509
-mas "Dashlane Password Manager", id: 517914548
