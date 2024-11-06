@@ -211,4 +211,11 @@ tags
 .history
 .ionide
 
+### NVim Lazy Config
+# vim.g.dbs = {
+#    dev = "postgres://UseName:password@localhost:5432/DataBase",
+# }
+# return {}
+.lazy.lua
+
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains+all,goland+all,vim,visualstudiocode,macos
