@@ -13,6 +13,7 @@
   "co-author.nvim": { "branch": "main", "commit": "db0debbde453c0ce10d1b925cd9f3139e4291c42" },
   "committia.vim": { "branch": "master", "commit": "c8c0f255e8090ed90dd9d5dd2e8672994f8e3671" },
   "conform.nvim": { "branch": "master", "commit": "8c354323201d04530727d8bdcc4669791ee082ef" },
+  "copilot-cmp": { "branch": "master", "commit": "b6e5286b3d74b04256d0a7e3bd2908eabec34b44" },
   "copilot.lua": { "branch": "master", "commit": "f8d8d872bb319f640d5177dad5fbf01f7a16d7d0" },
   "dashboard-nvim": { "branch": "master", "commit": "ae309606940d26d8c9df8b048a6e136b6bbec478" },
   "dial.nvim": { "branch": "master", "commit": "ed4d6a5bbd5e479b4c4a3019d148561a2e6c1490" },
@@ -77,6 +78,7 @@
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "refactoring.nvim": { "branch": "master", "commit": "53ed6854e0bba64d467c58e87084dcf8b1c22d36" },
   "render-markdown.nvim": { "branch": "main", "commit": "78a2eb7fc273f36790aa390262f390a3265eedff" },
+  "snacks.nvim": { "branch": "main", "commit": "bc0cf370915ac4e8d5b1bd8188b5091a4a0ee22c" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "tokyonight.nvim": { "branch": "main", "commit": "ce91ba480070c95f40753e4663e32b4632ac6db3" },
   "trouble.nvim": { "branch": "main", "commit": "3dc00c0447c016cd43e03054c3d49436a1f2076d" },
@@ -91,5 +93,5 @@
   "vim-projectionist": { "branch": "master", "commit": "104394c31ead4b09fbf0e16f9d367e3e179ee50a" },
   "vim-tmux-navigator": { "branch": "master", "commit": "424b5caa154bff34dc258ee53cec5a8e36cf7ea8" },
   "which-key.nvim": { "branch": "main", "commit": "68e37e12913a66b60073906f5d3f14dee0de19f2" },
-  "yanky.nvim": { "branch": "main", "commit": "73215b77d22ebb179cef98e7e1235825431d10e4" }
+  "yanky.nvim": { "branch": "main", "commit": "a86d33912017878a4cb18758cd863dd335873bf8" }
 }
