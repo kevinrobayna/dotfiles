@@ -6,6 +6,7 @@ tap "homebrew/formula-analytics"
 tap "homebrew/services"
 tap "arl/arl"
 tap "joshmedeski/sesh"
+tap "kevinrobayna/tap"
 
 #To allow my to install stuff from Apple Store
 brew "mas"
@@ -65,6 +66,7 @@ brew "k9s"
 brew "slides"
 brew "bottom"
 brew "terraform"
+brew "aoc2md"
 
 #HotKeys!
 cask "hammerspoon"
