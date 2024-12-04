@@ -107,6 +107,7 @@ brew "shared-mime-info"
 brew "postgresql@15"
 brew "postgresql@16"
 brew "pgformatter"
+brew "watchman"
 
 # Apps
 cask "alacritty"
