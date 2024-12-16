@@ -121,6 +121,7 @@ cask "obsidian"
 cask "logi-options-plus"
 cask "spotify"
 cask "1password"
+cask "meetingbar"
 
 cask "elgato-camera-hub"
 cask "elgato-control-center"
