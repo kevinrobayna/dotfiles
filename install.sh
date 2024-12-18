@@ -36,6 +36,9 @@ setup_symlinks() {
 
   stow -t $HOME config
   stow -t $HOME gitconfig --dotfiles
+
+  mkdir -p "$HOME/Library/Application Support/jesseduffield/lazygit/"
+  ln -s "$PWD/lazygit/config.yml" "$HOME/Library/Application Support/jesseduffield/lazygit/config.yml"
 }
 
 setup_homebrew() {
