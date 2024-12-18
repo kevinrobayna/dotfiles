@@ -36,7 +36,7 @@ gui:
   authorColors: # in case you're not happy with the randomly assigned colour
     kevinrobayna: '#7d26cd'
 services:
-  'gitlab.personio-internal.de': gitlab:gitlab.personio-internal.de
+  gitlab.personio-internal.de: gitlab:gitlab.personio-internal.de
 git:
   branchPrefix: krobayna_
   paging:
@@ -144,7 +144,7 @@ keybinding:
     checkForUpdate: u
     recentRepos: <enter>
   files:
-    commitChanges: 'c'
+    commitChanges: c
     commitChangesWithoutHook: w # commit changes without pre-commit hook
     amendLastCommit: A
     commitChangesWithEditor: C
