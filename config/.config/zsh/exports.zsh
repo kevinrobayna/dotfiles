@@ -20,9 +20,6 @@ setopt SHARE_HISTORY             # share history between all sessions.
 # export GPG_TTY=$(tty)
 export GPG_TTY=$TTY
 
-# Make sure we use the right folder for config
-export XDG_CONFIG_HOME="$HOME/.config"
-
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
