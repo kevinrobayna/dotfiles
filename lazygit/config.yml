@@ -1,41 +1,31 @@
 gui:
-  # stuff relating to the UI
-  showIcons: true
+  nerdFontsVersion: "3"
   scrollHeight: 2 # how many lines you scroll by
   scrollPastBottom: true # enable scrolling past the bottom
-  sidePanelWidth: 0.3333 # number from 0 to 1
-  expandFocusedSidePanel: false
+  sidePanelWidth: 0.25 # number from 0 to 1
+  expandFocusedSidePanel: true
   mainPanelSplitMode: flexible # one of 'horizontal' | 'flexible' | 'vertical'
   language: auto # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
-  nerdFontsVersion: "3"
   theme:
     activeBorderColor:
-      - '#ff966c'
+      - blue
       - bold
     inactiveBorderColor:
-      - '#589ed7'
-    searchingActiveBorderColor:
-      - '#ff966c'
-      - bold
+      - black
     optionsTextColor:
-      - '#82aaff'
+      - black
     selectedLineBgColor:
-      - '#2d3f76'
-    cherryPickedCommitFgColor:
-      - '#82aaff'
+      - black
     cherryPickedCommitBgColor:
-      - '#c099ff'
-    markedBaseCommitFgColor:
-      - '#82aaff'
-    markedBaseCommitBgColor:
-      - '#ffc777'
+      - blue
+    cherryPickedCommitFgColor:
+      - cyan
     unstagedChangesColor:
-      - '#c53b53'
-    defaultFgColor:
-      - '#c8d3f5'
+      - white
   commitLength:
     show: true
   mouseEvents: true
+  skipDiscardChangeWarning: false
   skipStashWarning: true
   showFileTree: true # for rendering changes files in a tree format
   showListFooter: false # for seeing the '5 of 20' message in list panels
@@ -46,11 +36,11 @@ gui:
   authorColors: # in case you're not happy with the randomly assigned colour
     kevinrobayna: '#7d26cd'
 git:
-  branchPrefix: "krobayna_"
+  branchPrefix: krobayna_
   paging:
-    colorArg: always
     useConfig: false
-    # pager: delta --dark --color-only --side-by-side
+    colorArg: always
+    pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   merging:
     # only applicable to unix users
     manualCommit: false
@@ -74,9 +64,6 @@ git:
     showGraph: always
     # displays the whole git graph by default in the commits panel (equivalent to passing the `--all` argument to `git log`)
     showWholeGraph: true
-os:
-  editPreset: nvim
-  openLinkCommand: open {{link}}
 refresher:
   refreshInterval: 10 # file/submodule refresh interval in seconds
   fetchInterval: 60 # re-fetch interval in seconds
@@ -114,8 +101,8 @@ keybinding:
       - "3"
       - "4"
       - "5"
-    nextMatch: 'n' # goto the Nth block / panel
-    prevMatch: 'N'
+    nextMatch: "n" # goto the Nth block / panel
+    prevMatch: "N"
     optionMenu: x # show help menu
     optionMenu-alt1: '?' # show help menu
     select: <space>
@@ -123,7 +110,7 @@ keybinding:
     openRecentRepos: <c-r>
     confirm: <enter>
     remove: d
-    new: 'n'
+    new: "n"
     edit: e
     openFile: o
     scrollUpMain: <pgup> # main panel scroll up
@@ -132,6 +119,7 @@ keybinding:
     scrollDownMain-alt1: J # main panel scroll down
     scrollUpMain-alt2: <c-u> # main panel scroll up
     scrollDownMain-alt2: <c-d> # main panel scroll down
+    executeShellCommand: ':'
     createRebaseOptionsMenu: m
     pushFiles: P
     pullFiles: p
@@ -154,7 +142,7 @@ keybinding:
     checkForUpdate: u
     recentRepos: <enter>
   files:
-    commitChanges: c
+    commitChanges: 'c'
     commitChangesWithoutHook: w # commit changes without pre-commit hook
     amendLastCommit: A
     commitChangesWithEditor: C
@@ -168,7 +156,7 @@ keybinding:
     toggleTreeView: '`'
   branches:
     createPullRequest: o
-    viewPullRequestOptions: O
+    # viewPullRequestOptions: "O"
     checkoutBranchByName: c
     forceCheckoutBranch: F
     rebaseBranch: r
