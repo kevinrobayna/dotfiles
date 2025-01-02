@@ -121,11 +121,11 @@ cask "obsidian"
 cask "logi-options-plus"
 cask "spotify"
 cask "1password"
+cask "1password-cli"
 cask "meetingbar"
 
 cask "elgato-camera-hub"
 cask "elgato-control-center"
-cask "elgato-stream-deck"
 
 # Apple Store Stuff
 mas "The Unarchiver", id: 425424353
