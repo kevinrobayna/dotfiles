@@ -78,8 +78,6 @@ brew "hugo"
 
 # GPG
 brew "gnupg"
-brew "pinentry-mac"
-cask "gpg-suite"
 
 # AWS / Google / Etc
 brew "awscli"
