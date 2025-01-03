@@ -1,0 +1,24 @@
+gui:
+  nerdFontsVersion: "3"
+  scrollHeight: 2 # how many lines you scroll by
+  scrollPastBottom: true # enable scrolling past the bottom
+  sidePanelWidth: 0.25 # number from 0 to 1
+  expandFocusedSidePanel: true
+  mainPanelSplitMode: flexible # one of 'horizontal' | 'flexible' | 'vertical'
+  language: auto # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
+  theme:
+    activeBorderColor:
+      - blue
+      - bold
+    inactiveBorderColor:
+      - black
+    optionsTextColor:
+      - black
+    selectedLineBgColor:
+      - black
+    cherryPickedCommitBgColor:
+      - blue
+    cherryPickedCommitFgColor:
+      - cyan
+    unstagedChangesColor:
+      - white

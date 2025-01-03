@@ -40,6 +40,14 @@ setup_symlinks() {
   mkdir -p "$HOME/Library/Application Support/jesseduffield/lazygit/"
   rm "$HOME/Library/Application Support/jesseduffield/lazygit/config.yml"
   ln -s "$PWD/lazygit/config.yml" "$HOME/Library/Application Support/jesseduffield/lazygit/config.yml"
+
+  mkdir -p "$HOME/Library/Application Support/jesseduffield/lazydocker/"
+  rm "$HOME/Library/Application Support/jesseduffield/lazydocker/config.yml"
+  ln -s "$PWD/lazydocker/config.yml" "$HOME/Library/Application Support/jesseduffield/lazydocker/config.yml"
+
+  mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty/"
+  rm "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+  ln -s "$PWD/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 }
 
 setup_homebrew() {
@@ -72,12 +80,6 @@ setup_extras() {
   gem install neovim
   asdf plugin-add java https://github.com/halcyon/asdf-java.git
   asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
-}
-
-fetch_catppuccin_theme() {
-  for palette in frappe latte macchiato mocha; do
-    curl -o "$DOTFILES/config/kitty/themes/catppuccin-$palette.conf" "https://raw.githubusercontent.com/catppuccin/kitty/main/$palette.conf"
-  done
 }
 
 setup_shell() {
