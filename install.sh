@@ -38,6 +38,7 @@ setup_symlinks() {
   stow -t $HOME gitconfig --dotfiles
 
   mkdir -p "$HOME/Library/Application Support/jesseduffield/lazygit/"
+  rm "$HOME/Library/Application Support/jesseduffield/lazygit/config.yml"
   ln -s "$PWD/lazygit/config.yml" "$HOME/Library/Application Support/jesseduffield/lazygit/config.yml"
 }
 
