@@ -1,0 +1,141 @@
+#
+#  ██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗████████╗██╗   ██╗
+# ██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
+# ██║  ███╗███████║██║   ██║███████╗   ██║      ██║    ╚████╔╝
+# ██║   ██║██╔══██║██║   ██║╚════██║   ██║      ██║     ╚██╔╝
+# ╚██████╔╝██║  ██║╚██████╔╝███████║   ██║      ██║      ██║
+#  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝      ╚═╝
+#
+# Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
+# https://ghostty.org/docs/config/reference
+
+# visuals
+font-family = JetBrains Mono
+background-opacity = 0.9
+background-blur-radius = 20
+theme = tokyonight-storm
+
+# clipboard
+clipboard-read = "allow"
+clipboard-trim-trailing-spaces = true
+clipboard-write = "allow"
+
+# keybindings
+# the \x02 character below is some hexadecimal magic
+# Example for character z (lowercase):
+# The ASCII/Unicode value of the lowercase z is 122 in decimal.
+# Converting 122 to hexadecimal gives 0x7A.
+
+# reload config
+keybind = super+shift+r=reload_config
+
+# reload tmux config
+keybind = super+r=text:\x02\x72
+
+# update plugins for tmux
+keybind = super+u=text:\x02\x55
+
+# update plugins for tmux
+keybind = super+i=text:\x02\x49
+
+# split tmux window vertically
+keybind = super+e=text:\x02\x7c
+
+# split tmux window horizontally
+keybind = super+shift+e=text:\x02\x2D
+
+# start tmux search mode
+# [[keyboard.bindings]]
+# chars = "\u0002[/"
+# key = "F"
+# mods = "Command"
+
+# open docker manager 'jesseduffield/lazydocker'
+keybind = super+d=text:\x02\x64
+
+# open git manager 'jesseduffield/lazygit'
+keybind = super+g=text:\x02\x67
+
+# open process manager htop
+keybind = super+p=text:\x02\x70
+
+# open pomodoro
+keybind = super+/=text:\x02\x2f
+
+# open interactive tmux session client
+keybind = super+k=text:\x02\x73
+
+# switch to the last tmux session
+keybind = super+l=text:\x02\x4c
+
+# open URL
+keybind = super+o=text:\x02\x75
+
+# Save Nvim buffer
+keybind = super+s=text:\x3a\x77\x0a
+
+# create tmux window
+keybind = super+t=text:\x02\x63
+
+# kill the current pane
+keybind = super+w=text:\x02\x78
+
+# toggle zoom state of the current tmux pane
+keybind = super+z=text:\x02\x7a
+
+# navigate back in vim (ctrl+o)
+# [[keyboard.bindings]]
+# chars = "\u000F"
+# key = "LBracket"
+# mods = "Command"
+#
+# navigate forward in vim (ctrl+i)
+# [[keyboard.bindings]]
+# chars = "\t"
+# key = "RBracket"
+# mods = "Command"
+
+# [[keyboard.bindings]]
+# chars = "\u00021"
+# key = "Key1"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# chars = "\u00022"
+# key = "Key2"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# chars = "\u00023"
+# key = "Key3"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# chars = "\u00024"
+# key = "Key4"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# chars = "\u00025"
+# key = "Key5"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# chars = "\u00026"
+# key = "Key6"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# chars = "\u00027"
+# key = "Key7"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# chars = "\u00028"
+# key = "Key8"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# chars = "\u00029"
+# key = "Key9"
+# mods = "Command"

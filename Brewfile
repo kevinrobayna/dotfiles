@@ -110,7 +110,7 @@ brew "pgformatter"
 brew "watchman"
 
 # Apps
-cask "alacritty"
+cask "ghostty"
 cask "aerial"
 cask "bartender"
 cask "clipy"
