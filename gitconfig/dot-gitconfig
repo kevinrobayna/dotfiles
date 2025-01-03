@@ -1,7 +1,7 @@
 [user]
   name = Kevin Robayna
   email = me@kevinrobayna.com
-  signingkey = 0FB33959421F81BB # NOTE: This key is secured on dashlane. Use GPG Keychain to import the key.
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIELsQ8I0Q54Jb4X4NbOuqMim5ZwaHbBhch7BbKWKEKi5
 [commit]
   gpgsign = true
   template = ~/.config/git/gitmessage
@@ -45,5 +45,6 @@
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 [gpg]
-  program = /opt/homebrew/bin/gpg
-  program = /usr/local/bin/gpg
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"

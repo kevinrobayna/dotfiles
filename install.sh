@@ -45,8 +45,7 @@ setup_homebrew() {
   title "Setting up Homebrew"
 
   if test ! "$(command -v brew)"; then
-    info "Homebrew not installed. Installing."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    error "Homebrew not installed."
   fi
 
   if [ "$(uname)" == "Linux" ]; then
@@ -63,6 +62,11 @@ setup_homebrew() {
   info "Installing fzf"
   "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
 
+  info "Installing zap-zsh"
+  zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+}
+
+setup_extras() {
   gem install erb-formatter
   gem install neovim
   asdf plugin-add java https://github.com/halcyon/asdf-java.git
@@ -230,16 +234,20 @@ macos)
 tmux)
   setup_tmux
   ;;
+extras)
+  setup_extras
+  ;;
 all)
   setup_homebrew
   setup_symlinks
   setup_shell
   setup_macos
   setup_terminfo
+  setup_extras
   setup_tmux
   ;;
 *)
-  echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|terminfo|macos|all}\n"
+  echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|extras|tmux|terminfo|macos|all}\n"
   exit 1
   ;;
 esac
