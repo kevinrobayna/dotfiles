@@ -27,22 +27,22 @@ clipboard-write = "allow"
 # Converting 122 to hexadecimal gives 0x7A.
 
 # reload config
-keybind = super+shift+r=reload_config
+keybind = cmd+shift+r=reload_config
 
 # reload tmux config
-keybind = super+r=text:\x02\x72
+keybind = cmd+r=text:\x02\x72
 
 # update plugins for tmux
-keybind = super+u=text:\x02\x55
+keybind = cmd+u=text:\x02\x55
 
 # update plugins for tmux
-keybind = super+i=text:\x02\x49
+keybind = cmd+i=text:\x02\x49
 
 # split tmux window vertically
-keybind = super+e=text:\x02\x7c
+keybind = cmd+e=text:\x02\x7c
 
 # split tmux window horizontally
-keybind = super+shift+e=text:\x02\x2D
+keybind = cmd+shift+e=text:\x02\x2D
 
 # start tmux search mode
 # [[keyboard.bindings]]
@@ -51,57 +51,51 @@ keybind = super+shift+e=text:\x02\x2D
 # mods = "Command"
 
 # open docker manager 'jesseduffield/lazydocker'
-keybind = super+d=text:\x02\x64
+keybind = cmd+d=text:\x02\x64
 
 # open git manager 'jesseduffield/lazygit'
-keybind = super+g=text:\x02\x67
+keybind = cmd+g=text:\x02\x67
 
 # open process manager htop
-keybind = super+p=text:\x02\x70
+keybind = cmd+p=text:\x02\x70
 
 # open pomodoro
-keybind = super+/=text:\x02\x2f
+keybind = cmd+/=text:\x02\x2f
 
 # open interactive tmux session client
-keybind = super+k=text:\x02\x73
+keybind = cmd+k=text:\x02\x73
 
 # switch to the last tmux session
-keybind = super+l=text:\x02\x4c
+keybind = cmd+l=text:\x02\x4c
 
 # open URL
-keybind = super+o=text:\x02\x75
+keybind = cmd+o=text:\x02\x75
 
 # Save Nvim buffer
-keybind = super+s=text:\x3a\x77\x0a
+keybind = cmd+s=text:\x3a\x77\x0a
 
 # create tmux window
-keybind = super+t=text:\x02\x63
+keybind = cmd+t=text:\x02\x63
 
 # kill the current pane
-keybind = super+w=text:\x02\x78
+keybind = cmd+w=text:\x02\x78
 
 # toggle zoom state of the current tmux pane
-keybind = super+z=text:\x02\x7a
+keybind = cmd+z=text:\x02\x7a
 
-# navigate back in vim (ctrl+o)
-# [[keyboard.bindings]]
-# chars = "\u000F"
-# key = "LBracket"
-# mods = "Command"
-#
-# navigate forward in vim (ctrl+i)
-# [[keyboard.bindings]]
-# chars = "\t"
-# key = "RBracket"
-# mods = "Command"
+# special characters
+# jump back
+keybind = cmd+left_bracket=text:<C-o>
+# jump forward
+keybind = cmd+right_bracket=text:<C-i>
 
 # switch to window by index (1-based)
-keybind = super+physical:one=text:\x021
-keybind = super+physical:two=text:\x022
-keybind = super+physical:three=text:\x023
-keybind = super+physical:four=text:\x024
-keybind = super+physical:five=text:\x025
-keybind = super+physical:six=text:\x026
-keybind = super+physical:seven=text:\x027
-keybind = super+physical:eight=text:\x028
-keybind = super+physical:nine=text:\x029
+keybind = cmd+physical:one=text:\x021
+keybind = cmd+physical:two=text:\x022
+keybind = cmd+physical:three=text:\x023
+keybind = cmd+physical:four=text:\x024
+keybind = cmd+physical:five=text:\x025
+keybind = cmd+physical:six=text:\x026
+keybind = cmd+physical:seven=text:\x027
+keybind = cmd+physical:eight=text:\x028
+keybind = cmd+physical:nine=text:\x029
