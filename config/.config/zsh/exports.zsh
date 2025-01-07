@@ -95,7 +95,7 @@ export AWS_SESSION_TTL="12h"
 # Configure Colima as Docker Host for applications which don't respect Docker Contexts
 # Testcontainers should use the default Docker Socket
 # Testcontainers should use the Colima VM instance local address as host
-export DOCKER_HOST=unix://${XDG_CONFIG_HOME}/colima/default/docker.sock
+export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address // ""')
 
