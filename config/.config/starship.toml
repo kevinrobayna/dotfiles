@@ -14,8 +14,10 @@ disabled = true
 disabled = true
 
 [hostname]
+ssh_only = true
 ssh_symbol = " "
-disabled = true
+format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+aliases = { "Kevins-Mac-mini" = "home" }
 
 [aws]
 symbol = "  "
@@ -165,4 +167,3 @@ symbol = " "
 
 [spack]
 symbol = "🅢 "
-
