@@ -110,7 +110,8 @@ brew "watchman"
 # Apps
 cask "ghostty"
 cask "aerial"
-cask "bartender"
+# Temporarily removed due to Apple being annoying with it recording my screen
+# cask "bartender"
 cask "clipy"
 cask "caffeine"
 cask "steam"
