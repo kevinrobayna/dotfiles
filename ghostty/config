@@ -77,6 +77,9 @@ keybind = cmd+s=text:\x3a\x77\x0a
 # create tmux window
 keybind = cmd+t=text:\x02\x63
 
+# create ghostty window
+keybind = cmd+shift+t=new_tab
+
 # kill the current pane
 keybind = cmd+w=text:\x02\x78
 
