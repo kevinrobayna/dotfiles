@@ -124,7 +124,6 @@ cask "1password-cli"
 cask "meetingbar"
 
 cask "elgato-camera-hub"
-cask "elgato-control-center"
 
 # Apple Store Stuff
 mas "The Unarchiver", id: 425424353
