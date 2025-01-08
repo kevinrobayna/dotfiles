@@ -102,3 +102,14 @@ keybind = cmd+physical:six=text:\x026
 keybind = cmd+physical:seven=text:\x027
 keybind = cmd+physical:eight=text:\x028
 keybind = cmd+physical:nine=text:\x029
+
+# switch to ghostty window by index (1-based)
+keybind = cmd+shift+physical:one=goto_tab:1
+keybind = cmd+shift+physical:two=goto_tab:2
+keybind = cmd+shift+physical:three=goto_tab:3
+keybind = cmd+shift+physical:four=goto_tab:4
+keybind = cmd+shift+physical:five=goto_tab:5
+keybind = cmd+shift+physical:six=goto_tab:6
+keybind = cmd+shift+physical:seven=goto_tab:7
+keybind = cmd+shift+physical:eight=goto_tab:8
+keybind = cmd+shift+physical:nine=goto_tab:9
