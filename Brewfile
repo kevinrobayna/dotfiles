@@ -16,7 +16,6 @@ cask "font-inconsolata-go-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 
 # SSH from iPad
-brew "mosh"
 cask "tailscale"
 
 # ZSH
