@@ -97,16 +97,6 @@ setup_shell() {
   fi
 }
 
-function setup_terminfo() {
-  title "Configuring terminfo"
-
-  info "adding tmux.terminfo"
-  tic -x "$DOTFILES/resources/tmux.terminfo"
-
-  info "adding xterm-256color-italic.terminfo"
-  tic -x "$DOTFILES/resources/xterm-256color-italic.terminfo"
-}
-
 setup_macos() {
   title "Configuring macOS"
   if [[ "$(uname)" == "Darwin" ]]; then
