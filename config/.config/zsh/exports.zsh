@@ -15,8 +15,6 @@ setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording en
 setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
 setopt SHARE_HISTORY             # share history between all sessions.
 
-export TERM=xterm-ghostty
-
 # enable commit signing
 # export GPG_TTY=$TTY is faster but jetbrains does not like it
 # export GPG_TTY=$(tty)
