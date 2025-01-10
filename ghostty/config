@@ -83,6 +83,9 @@ keybind = cmd+shift+t=new_tab
 # kill the current pane
 keybind = cmd+w=text:\x02\x78
 
+# kill the ghostty "surface" (tab, window etc etc)
+keybind = cmd+shift+w=close_surface
+
 # toggle zoom state of the current tmux pane
 keybind = cmd+z=text:\x02\x7a
 
