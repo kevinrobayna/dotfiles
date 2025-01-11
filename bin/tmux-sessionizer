@@ -3,6 +3,9 @@
 mkdir -p ~/dev
 mkdir -p ~/work
 
+zoxide add ~/dev
+zoxide add ~/work
+
 # Make sure everything under dev and work is added to zoxide
 if [ -n "$(find ~/dev/ -prune -empty -type d 2>/dev/null)" ]
 then
