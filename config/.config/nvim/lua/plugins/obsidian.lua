@@ -62,7 +62,8 @@ return {
 
       completion = {
         -- Set to false to disable completion.
-        nvim_cmp = true,
+        -- disabling for now
+        -- nvim_cmp = true,
 
         -- Trigger completion at 2 chars.
         min_chars = 2,
