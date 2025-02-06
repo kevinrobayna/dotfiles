@@ -5,6 +5,7 @@ return {
     formatters_by_ft = {
       xml = { "xmlformat" },
       json = { "jq" },
+      jsonl = { "jq" },
       toml = { "taplo" },
       yaml = { "yq" },
       lua = { "stylua" },
