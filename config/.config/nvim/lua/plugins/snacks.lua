@@ -3,6 +3,9 @@ return {
   opts = {
     picker = {
       hidden = true,
+      sources = {
+        files = { hidden = true },
+      },
     },
   },
   keys = {
