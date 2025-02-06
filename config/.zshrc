@@ -32,7 +32,7 @@ export PATH="$(eval "brew --prefix")/sbin:$PATH"
 
 export PATH="$HOME/.rd/bin:$PATH"
 
-. "$(eval "brew --prefix")/opt/asdf/libexec/asdf.sh"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 . ~/.asdf/plugins/java/set-java-home.zsh
 . ~/.asdf/plugins/golang/set-env.zsh
 
