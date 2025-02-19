@@ -7,6 +7,7 @@ return {
         files = { hidden = true },
       },
     },
+    image = {},
   },
   keys = {
     {

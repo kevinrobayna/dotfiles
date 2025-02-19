@@ -51,6 +51,8 @@ brew "sqlfmt"
 brew "prettier"
 brew "prettierd"
 brew "luarocks"
+brew "imagemagick"
+cask "basictex"
 
 # Generic Tools
 brew "jq"
