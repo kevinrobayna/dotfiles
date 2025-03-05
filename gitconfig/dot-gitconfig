@@ -44,6 +44,8 @@
   repo = ~/Git/zsh-syntax-highlighting
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [gpg]
   format = ssh
 [remote "origin"]
