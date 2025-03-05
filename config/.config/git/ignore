@@ -218,4 +218,6 @@ tags
 # return {}
 .lazy.lua
 
+kls_database.db
+
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains+all,goland+all,vim,visualstudiocode,macos
