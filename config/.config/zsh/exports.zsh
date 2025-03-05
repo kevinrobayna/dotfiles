@@ -33,6 +33,9 @@ export $(xargs < ~/.secrets)
 # After each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+# npm
+export PATH="$PATH:$(npm config get prefix)/bin"
+
 # Java
 export GRADLE_USER_HOME="$HOME/.gradle"
 export JAVA_OPTS="-Xmx8192m"
