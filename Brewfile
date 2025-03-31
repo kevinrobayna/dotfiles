@@ -1,11 +1,7 @@
-tap "homebrew/aliases"
 tap "homebrew/autoupdate"
-tap "homebrew/bundle"
 tap "homebrew/command-not-found"
 tap "homebrew/formula-analytics"
-tap "homebrew/services"
 tap "arl/arl"
-tap "joshmedeski/sesh"
 tap "kevinrobayna/tap"
 
 #To allow my to install stuff from Apple Store
@@ -34,7 +30,7 @@ brew "starship"
 brew "zoxide"
 brew "lf"
 brew "btop"
-brew "sesh"
+brew "joshmedeski/sesh/sesh"
 brew "gum"
 
 #NVim Stuff
@@ -67,7 +63,6 @@ brew "bat"
 brew "k9s"
 brew "slides"
 brew "bottom"
-brew "terraform"
 brew "aoc2md"
 
 #HotKeys!
