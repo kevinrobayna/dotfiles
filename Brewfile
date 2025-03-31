@@ -50,6 +50,8 @@ brew "prettierd"
 brew "luarocks"
 brew "imagemagick"
 cask "basictex"
+#This is needed for copilot
+brew "nvm"
 
 # Generic Tools
 brew "jq"
