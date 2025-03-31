@@ -81,6 +81,7 @@ setup_extras() {
   asdf plugin-add java https://github.com/halcyon/asdf-java.git
   asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
   asdf plugin-add python
+  nvm use --lts --system
 }
 
 setup_shell() {
