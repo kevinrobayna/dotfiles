@@ -70,7 +70,7 @@ brew "aoc2md"
 
 # Cloud Development 
 brew "ansible"
-brew "vagrant"
+cask "vagrant"
 
 #HotKeys!
 cask "hammerspoon"
