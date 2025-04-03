@@ -68,6 +68,10 @@ brew "slides"
 brew "bottom"
 brew "aoc2md"
 
+# Cloud Development 
+brew "ansible"
+brew "vagrant"
+
 #HotKeys!
 cask "hammerspoon"
 cask "hyperkey"
