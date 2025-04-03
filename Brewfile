@@ -32,6 +32,7 @@ brew "lf"
 brew "btop"
 brew "joshmedeski/sesh/sesh"
 brew "gum"
+cask "alacritty"
 
 #NVim Stuff
 brew "neovim"
