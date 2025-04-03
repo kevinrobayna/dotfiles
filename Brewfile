@@ -71,6 +71,7 @@ brew "aoc2md"
 # Cloud Development 
 brew "ansible"
 cask "vagrant"
+cask "vagrant-vmware-utility"
 
 #HotKeys!
 cask "hammerspoon"
