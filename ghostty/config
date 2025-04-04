@@ -59,9 +59,6 @@ keybind = cmd+g=text:\x02\x67
 # open process manager htop
 keybind = cmd+p=text:\x02\x70
 
-# open pomodoro
-keybind = cmd+/=text:\x02\x2f
-
 # open interactive tmux session client
 keybind = cmd+k=text:\x02\x73
 
