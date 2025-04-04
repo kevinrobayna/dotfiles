@@ -105,7 +105,7 @@ cask "chatgpt"
 brew "rust"
 brew "icu4c"
 brew "shared-mime-info"
-brew "postgresql"
+brew "postgresql@17"
 brew "pgformatter"
 brew "watchman"
 
