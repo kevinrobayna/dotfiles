@@ -34,7 +34,6 @@ export PATH="$HOME/.rd/bin:$PATH"
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 . ~/.asdf/plugins/java/set-java-home.zsh
-. ~/.asdf/plugins/golang/set-env.zsh
 
 export NVM_DIR="$HOME/.nvm"
 

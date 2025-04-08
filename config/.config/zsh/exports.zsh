@@ -41,6 +41,8 @@ export GRADLE_USER_HOME="$HOME/.gradle"
 export JAVA_OPTS="-Xmx8192m"
 
 # Golang
+export GOROOT="$(brew --prefix golang)/libexec"
+export GOPATH=$HOME/go
 export GOPRIVATE=$PRIVATE_SCM
 
 # Ruby
