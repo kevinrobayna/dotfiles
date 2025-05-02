@@ -17,7 +17,7 @@ local apps = {
 	o = "Obsidian", -- Life OS
 	i = "IntelliJ IDEA Ultimate",
 	p = "1Password",
-	t = "Alacritty", -- Terminal
+	t = "Ghostty", -- Terminal
 }
 
 local LaunchOrToggle = function(key, app_name, app_filename)
