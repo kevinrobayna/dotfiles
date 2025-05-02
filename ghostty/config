@@ -9,6 +9,10 @@
 # Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 # https://ghostty.org/docs/config/reference
 
+# BUG: Improper handling of window title sequences can lead to arbitrary command execution
+# https://github.com/ghostty-org/ghostty/security/advisories/GHSA-5hcq-3j4q-4v6p
+title = Ghostty
+
 # visuals
 font-family = JetBrains Mono
 background-opacity = 0.86
@@ -39,6 +43,16 @@ palette = 15=#c8d3f5
 clipboard-read = "allow"
 clipboard-trim-trailing-spaces = true
 clipboard-write = "allow"
+
+
+#################
+## keybindings ##
+#################
+# Some useful encoded characters:
+# \x0a = Enter/Return
+# \x1b = Esc
+# \x02 = <C-b> (tmux prefix)
+macos-option-as-alt = true
 
 # keybindings
 # the \x02 character below is some hexadecimal magic
