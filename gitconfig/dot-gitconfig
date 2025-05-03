@@ -1,7 +1,7 @@
 [user]
   name = Kevin Robayna
   email = me@kevinrobayna.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIELsQ8I0Q54Jb4X4NbOuqMim5ZwaHbBhch7BbKWKEKi5
+  signingkey = ~/.ssh/id_signing.pub
 [commit]
   gpgsign = true
   template = ~/.config/git/gitmessage
@@ -44,8 +44,6 @@
   repo = ~/Git/zsh-syntax-highlighting
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
-[gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [gpg]
   format = ssh
 [remote "origin"]
