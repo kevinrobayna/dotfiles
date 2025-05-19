@@ -16,7 +16,7 @@ return {
     end,
   },
   {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     ft = "markdown",
@@ -37,7 +37,7 @@ return {
         -- Optional, if you keep daily notes in a separate directory.
         folder = "diary",
         -- Optional, if you want to change the date format for the ID of daily notes.
-        date_format = "%Y-W%W",
+        date_format = "%Y-W%V",
         -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
         template = "weekly.md",
       },
