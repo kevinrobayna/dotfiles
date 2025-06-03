@@ -8,6 +8,8 @@
 [core]
   editor = nvim 
   pager = delta
+  fsmonitor = true
+  untrackedcache = true
 [pull]
   rebase = false
   ff = yes
