@@ -1,7 +1,3 @@
-[user]
-  name = Kevin Robayna
-  email = me@kevinrobayna.com
-  signingkey = ~/.ssh/id_signing.pub
 [commit]
   gpgsign = true
   template = ~/.config/git/gitmessage
@@ -50,3 +46,11 @@
   format = ssh
 [remote "origin"]
 	prune = true
+
+# Personal config always added by symlink
+[includeIf "gitdir:~/dev/"]
+  path = ~/.gitconfig-personal
+
+# Work config always added manually
+[includeIf "gitdir:~/work/"]
+  path = ~/.gitconfig-work

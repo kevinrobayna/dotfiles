@@ -1,0 +1,4 @@
+[user]
+  name = Kevin Robayna
+  email = me@kevinrobayna.com
+  signingkey = ~/.ssh/id_signing.pub
