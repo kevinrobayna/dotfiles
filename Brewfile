@@ -133,3 +133,4 @@ mas "Notability", id: 360593530
 mas "Unsplash Wallpapers", id:1284863847
 mas "Sleeve for Spotify, Music", id: 1606145041
 mas "Dynamic Wallpaper Engine", id: 1453504509
+mas "1Password for Safari", id: 1569813296
