@@ -54,3 +54,5 @@
 # Work config always added manually
 [includeIf "gitdir:~/work/"]
   path = ~/.gitconfig-work
+[url "git@github.com:"]
+  insteadOf = https://github.com/
