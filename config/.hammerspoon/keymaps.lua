@@ -15,7 +15,7 @@ local apps = {
 	z = "Zoom.us",
 	m = "Mail.app", -- Mail
 	o = "Obsidian", -- Life OS
-	i = "IntelliJ IDEA Ultimate",
+	i = "IntelliJ IDEA",
 	p = "1Password",
 	t = "Ghostty", -- Terminal
 }
