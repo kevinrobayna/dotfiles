@@ -87,6 +87,9 @@ keybind = cmd+shift+e=text:\x02\x2D
 # open docker manager 'jesseduffield/lazydocker'
 keybind = cmd+d=text:\x02\x64
 
+# open claude-code
+keybind = cmd+shift+a=text:\x02\x61
+
 # open git manager 'jesseduffield/lazygit'
 keybind = cmd+g=text:\x02\x67
 
