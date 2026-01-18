@@ -85,7 +85,7 @@ brew "gnupg"
 # AWS / Google / Etc
 brew "awscli"
 brew "aws-sam-cli"
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 
 # Web Development
 brew "rbenv"
@@ -119,7 +119,7 @@ cask "caffeine"
 cask "steam"
 cask "arc"
 cask "obsidian"
-cask "logi-options-plus"
+cask "logi-options+"
 cask "spotify"
 cask "1password"
 cask "1password-cli"
