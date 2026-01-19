@@ -129,7 +129,6 @@ cask "elgato-camera-hub"
 
 # Apple Store Stuff
 mas "The Unarchiver", id: 425424353
-mas "Notability", id: 360593530
 mas "Unsplash Wallpapers", id:1284863847
 mas "Sleeve for Spotify, Music", id: 1606145041
 mas "Dynamic Wallpaper Engine", id: 1453504509
