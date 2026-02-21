@@ -194,6 +194,8 @@ keybinding:
   main:
     toggleSelectHunk: a
     pickBothHunks: b
+  worktrees:
+    viewWorktreeOptions: w
   submodules:
     init: i
     update: u
