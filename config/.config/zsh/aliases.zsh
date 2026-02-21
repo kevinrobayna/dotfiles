@@ -6,6 +6,8 @@ alias ld="lazydocker"
 alias t="~/dev/dotfiles/bin/tmux-sessionizer"
 # Close all tmux sessions except current
 alias tc="tmux kill-session -a"
+# Create a git worktree and open it in a new tmux session
+alias gwt="~/dev/dotfiles/bin/gwt"
 
 alias v="nvim"
 alias vi="nvim"

@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+set -e
+
+# Must be inside a git repo
+git_root=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not in a git repo"; exit 1; }
+
+# Detect default branch (master or main)
+default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+if [[ -z "$default_branch" ]]; then
+  # Fallback: check if master or main exists
+  if git show-ref --verify --quiet refs/heads/master; then
+    default_branch="master"
+  elif git show-ref --verify --quiet refs/heads/main; then
+    default_branch="main"
+  else
+    echo "Could not determine default branch"; exit 1
+  fi
+fi
+
+# Fetch latest remote branches
+git fetch origin
+
+# Pick base branch (default branch is pre-selected)
+base_branch=$(git branch -r --format='%(refname:short)' | sed 's@^origin/@@' | grep -v HEAD | gum filter --placeholder "Base branch" --value "$default_branch")
+[[ -z "$base_branch" ]] && { echo "No base branch selected"; exit 1; }
+
+# Determine branch name for the worktree
+if [[ "$base_branch" == "$default_branch" ]]; then
+  # New feature branch — pre-fill with prefix
+  branch_name=$(gum input --placeholder "Branch name" --value "krobayna_")
+  [[ -z "$branch_name" ]] && { echo "No branch name provided"; exit 1; }
+else
+  # Reviewing someone else's branch — use their branch name
+  branch_name="$base_branch"
+fi
+
+repo_name=$(basename "$git_root")
+worktree_path="$(dirname "$git_root")/${repo_name}_wt_${branch_name}"
+
+# Create worktree
+if [[ "$base_branch" == "$default_branch" ]]; then
+  git worktree add -b "$branch_name" "$worktree_path" "origin/$base_branch"
+else
+  git worktree add --track -b "$branch_name" "$worktree_path" "origin/$base_branch" 2>/dev/null \
+    || git worktree add "$worktree_path" "origin/$base_branch"
+fi
+
+# Connect via sesh (creates tmux session and switches to it)
+sesh connect "$worktree_path"
