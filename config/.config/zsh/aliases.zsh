@@ -8,6 +8,8 @@ alias t="~/dev/dotfiles/bin/tmux-sessionizer"
 alias tc="tmux kill-session -a"
 # Create a git worktree and open it in a new tmux session
 alias gwt="~/dev/dotfiles/bin/gwt"
+# Remove git worktrees and their tmux sessions
+alias gwt-rm="~/dev/dotfiles/bin/gwt-rm"
 
 alias v="nvim"
 alias vi="nvim"

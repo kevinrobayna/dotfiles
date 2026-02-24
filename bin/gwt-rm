@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+set -e
+
+# Must be inside a git repo
+git rev-parse --show-toplevel &>/dev/null || { echo "Not in a git repo"; exit 1; }
+
+# The main worktree is always the first entry
+main_worktree=$(git worktree list --porcelain | head -1 | sed 's/^worktree //')
+
+# List worktrees (exclude the main working tree)
+worktrees=$(git worktree list --porcelain | grep '^worktree ' | sed 's/^worktree //' | grep -v "^${main_worktree}$")
+
+if [[ -z "$worktrees" ]]; then
+  echo "No worktrees to remove"
+  exit 0
+fi
+
+# Let the user pick a worktree to remove
+selected=$(echo "$worktrees" | gum filter --header "Select worktree to remove")
+[[ -z "$selected" ]] && { echo "No worktree selected"; exit 0; }
+
+# Confirm removal
+gum confirm "Remove $selected?" || { echo "Aborted"; exit 0; }
+
+# Kill the tmux session if one exists for this worktree
+sesh_name=$(basename "$selected")
+tmux kill-session -t "$sesh_name" 2>/dev/null || true
+
+git worktree remove --force "$selected"
+echo "Removed $selected"
+
+# Clean up stale worktree references
+git worktree prune
