@@ -72,7 +72,8 @@
       "Bash(./gradlew detekt:*)",
       "Bash(./gradlew kotlinCompilerPerformance:*)",
       "Bash(./gradlew apiDump:*)",
-      "Bash(./gradlew apiCheck:*)"
+      "Bash(./gradlew apiCheck:*)",
+      "Bash(./gradlew :*)"
     ]
   },
   "hooks": {
