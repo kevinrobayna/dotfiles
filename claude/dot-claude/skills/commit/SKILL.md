@@ -5,7 +5,6 @@ allowed-tools:
   - Bash
   - Read
   - AskUserQuestion
-model: haiku
 ---
 
 # Git Commit Creator
@@ -78,7 +77,7 @@ Identify the scope - the component, module, or area affected:
 - Keep it concise and lowercase
 - Omit if changes span multiple areas or scope isn't clear
 
-### Step 5: Generate Commit Message
+### Step 4: Generate Commit Message
 
 Create a commit message with this structure:
 
@@ -131,7 +130,7 @@ Improves consistency across services and makes the codebase easier to maintain.
 chore(deps): upgrade Spring Boot to 3.2.1
 ```
 
-### Step 6: Stage Changes (if needed)
+### Step 5: Stage Changes (if needed)
 
 If there are unstaged changes:
 
@@ -140,7 +139,7 @@ If there are unstaged changes:
 
 If changes are already staged, proceed to commit.
 
-### Step 7: Create the Commit
+### Step 6: Create the Commit
 
 Use git commit with a heredoc to preserve formatting:
 
@@ -157,7 +156,7 @@ EOF
 
 Always include the `Co-Authored-By` line.
 
-### Step 8: Confirm
+### Step 7: Confirm
 
 After creating the commit:
 
