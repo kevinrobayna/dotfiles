@@ -25,6 +25,10 @@ This skill:
 
 When this skill is invoked, follow these steps:
 
+
+### Step 0: Make sure code is ready
+- Make sure you run linter so that we don't push code that will fail on CI
+
 ### Step 1: Analyze the Changeset
 
 Use git commands to understand what has changed:
