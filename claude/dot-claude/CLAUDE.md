@@ -2,8 +2,7 @@
 
 ## General
 
-Prefer using the any cli cli over MCP.
-Always use github's CLI `gh` never a mcp.
+Prefer using any CLI over MCP.
 Follow commit message standards when committing.
 
 ## Plan
