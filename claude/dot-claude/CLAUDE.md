@@ -5,6 +5,11 @@
 Prefer using any CLI over MCP.
 Follow commit message standards when committing.
 
+## Git Branching
+
+Always prefix branch names with `krobayna_`.
+NEVER use `/` in branch names — use `_` or `-` instead.
+
 ## Plan
 
 Always start with a plan for every feature or bugfix before writing code.
