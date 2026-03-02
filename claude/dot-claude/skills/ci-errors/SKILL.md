@@ -30,6 +30,8 @@ Analyze GitHub Actions workflow failures for a PR, identify root causes, and pro
 
 ### Step 1: Fetch Failing Checks
 
+Note: If you see that remote is `@github.com-work`, use `@github.com` instead.
+
 ```bash
 # Get all checks for the PR
 gh pr checks <PR_NUMBER>
@@ -69,6 +71,7 @@ gh pr diff <PR_NUMBER>
 ```
 
 Cross-reference failures with changed files:
+
 - If a test file failed, check if it was modified in the PR
 - If a source file error, check if that file or its dependencies were modified
 - Identify if failures are likely caused by PR changes vs pre-existing issues
@@ -85,7 +88,9 @@ For each failure, produce:
 **File**: `path/to/file.ts:line`
 **Error Message**:
 ```
+
 [Relevant error excerpt]
+
 ```
 
 **Proposed Fix**:
@@ -112,7 +117,6 @@ For each failure, produce:
 
 1. `file.ts:42` - [Brief description]
 2. `other.ts:15` - [Brief description]
-
 ```
 
 ## Edge Cases

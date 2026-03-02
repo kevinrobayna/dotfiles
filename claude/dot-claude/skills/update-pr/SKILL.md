@@ -18,6 +18,7 @@ Update an existing GitHub Pull Request with an improved title following conventi
 ## Overview
 
 This skill:
+
 1. Identifies the PR to update (from argument or current branch)
 2. Views the current PR state
 3. Analyzes the changes and commits in the PR
@@ -31,21 +32,26 @@ When this skill is invoked, follow these steps:
 
 ### Step 1: Identify the PR
 
+Note: If you see that remote is `@github.com-work`, use `@github.com` instead.
+
 Determine which PR to update:
 
 **Option A: PR number provided by user**
+
 ```bash
 # User provides PR number as argument
 # Example: /update-pr 123
 ```
 
 **Option B: Auto-detect from current branch**
+
 ```bash
 # Get PR associated with current branch
 gh pr view --json number,url,title -q ".number"
 ```
 
 If no PR can be found:
+
 - Use AskUserQuestion to ask for the PR number
 - Provide option to enter the PR number or cancel
 
@@ -61,6 +67,7 @@ gh pr view <number> --json number,title,body,headRefName,baseRefName,url
 **Note:** You can use `gh pr view` directly - no need to use the `/github` skill for this.
 
 Display to user:
+
 - Current title
 - Current description (summarize if very long)
 - Base and head branches
@@ -83,11 +90,13 @@ gh pr view <number> --json commits -q ".commits[].commit.message"
 ```
 
 **Important Notes:**
+
 - `gh pr diff` supports: `--name-only`, `--patch`, `--color`, `--web`
 - The `--stat` flag does NOT exist (will cause an error)
 - The commits query may return empty output - this is normal, use the file list instead
 
 Determine:
+
 - The primary type of change (feat, fix, refactor, chore, etc.)
 - The scope/component affected
 - The purpose and motivation
@@ -104,12 +113,14 @@ Create a PR title following conventional commits format:
 - **Description**: Concise summary (imperative mood, no period, under 72 chars)
 
 **Examples:**
+
 - `feat(auth): implement OAuth2 token refresh logic`
 - `fix(email-service): handle null recipient addresses`
 - `chore(ci): add GitHub Actions performance test workflow`
 - `refactor: align task-management-service with email-service patterns`
 
 **Guidelines:**
+
 - Use imperative mood: "add" not "added" or "adds"
 - Keep under 72 characters
 - No period at the end
@@ -120,6 +131,7 @@ Create a PR title following conventional commits format:
 Create a PR description that focuses on the "why", trade-offs, and context:
 
 **Structure:**
+
 ```
 <Explain WHY this change is needed and the context>
 
@@ -130,6 +142,7 @@ Create a PR description that focuses on the "why", trade-offs, and context:
 ```
 
 **Guidelines:**
+
 - Focus intensely on **why**, not what (code shows the what)
 - Explain the problem being solved, the motivation, or the improvement being made
 - Always mention trade-offs, alternatives considered, or important decisions when they exist
@@ -168,12 +181,14 @@ Fixes a NullPointerException that occurs when JWT tokens are missing the company
 Before updating, show the user:
 
 **Current:**
+
 ```
 Title: <old title>
 Description: <old description>
 ```
 
 **Proposed:**
+
 ```
 Title: <new title>
 Description: <new description>
@@ -207,6 +222,7 @@ gh pr view <number> --json url,title,body
 ```
 
 Display to user:
+
 ```
 ✓ Pull Request updated successfully!
 
@@ -330,6 +346,7 @@ Actions:
 ## Usage
 
 Invoke this skill with:
+
 ```
 /update-pr                # Auto-detect PR from current branch
 /update-pr 123           # Update specific PR by number
