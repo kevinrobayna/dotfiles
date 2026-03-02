@@ -24,12 +24,17 @@ This skill:
 
 When this skill is invoked, follow these steps:
 
-
 ### Step 0: Make sure code is ready
-- Make sure you run linter so that we don't push code that will fail on CI
-- Check the current branch with `git branch --show-current` and compare it against the default branch (`git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'`). If on the default branch, ask the user if they want to continue or create a new branch first. Do NOT proceed without explicit confirmation.
 
-### Step 1: Analyze the Changeset
+- Make sure you run linter so that we don't push code that will fail on CI
+- Check the current branch with If on the default branch,
+
+### Step 1: Move to Correct branch
+
+- Check what's the branch in which we are located `git branch --show-current` and compare it against the default branch (`git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'`).
+- If the user is on the default branch, Ask the User, with `AskUserQuestion`, if they want to directly to the default branch or create a new branch first.
+
+### Step 2: Analyze the Changeset
 
 Use git commands to understand what has changed:
 
@@ -53,7 +58,7 @@ Analyze:
 - The scope of the changes (which component/module)
 - The context and purpose of the changes
 
-### Step 2: Determine Commit Type
+### Step 3: Determine Commit Type
 
 Based on the changes, determine the conventional commit type:
 
@@ -70,7 +75,7 @@ Based on the changes, determine the conventional commit type:
 
 If multiple types apply, use the most significant one.
 
-### Step 3: Determine Scope (Optional)
+### Step 4: Determine Scope (Optional)
 
 Identify the scope - the component, module, or area affected:
 
@@ -78,7 +83,7 @@ Identify the scope - the component, module, or area affected:
 - Keep it concise and lowercase
 - Omit if changes span multiple areas or scope isn't clear
 
-### Step 4: Generate Commit Message
+### Step 5: Generate Commit Message
 
 Create a commit message with this structure:
 
@@ -131,7 +136,7 @@ Improves consistency across services and makes the codebase easier to maintain.
 chore(deps): upgrade Spring Boot to 3.2.1
 ```
 
-### Step 5: Stage Changes (if needed)
+### Step 6: Stage Changes (if needed)
 
 If there are unstaged changes:
 
@@ -140,7 +145,7 @@ If there are unstaged changes:
 
 If changes are already staged, proceed to commit.
 
-### Step 6: Create the Commit
+### Step 7: Create the Commit
 
 Use git commit with a heredoc to preserve formatting:
 
@@ -157,7 +162,7 @@ EOF
 
 Always include the `Co-Authored-By` line.
 
-### Step 7: Confirm
+### Step 8: Confirm
 
 After creating the commit:
 
