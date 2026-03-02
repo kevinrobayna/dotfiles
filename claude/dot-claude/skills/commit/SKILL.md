@@ -4,7 +4,6 @@ description: Create a git commit with a well-structured message following conven
 allowed-tools:
   - Bash
   - Read
-  - AskUserQuestion
 ---
 
 # Git Commit Creator
