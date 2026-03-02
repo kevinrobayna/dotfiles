@@ -1,5 +1,15 @@
 {
   "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(~/.ssh/)",
+      "Read(~/.aws/)",
+      "Read(./secrets/**)",
+      "Read(~/.secrets",
+      "Edit(./.env)",
+      "Edit(./.env.*)"
+    ],
     "allow": [
       "Bash(/var/folders/**:*)",
       "Bash(/tmp/**:*)",
