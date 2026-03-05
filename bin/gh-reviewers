@@ -17,10 +17,11 @@ if [[ -z "$default_branch" ]]; then
 fi
 
 current_branch=$(git branch --show-current)
+current_user=$(gh api user -q '.login')
 
 # If on the default branch, let the user pick from open PRs
 if [[ "$current_branch" == "$default_branch" ]]; then
-  pr_list=$(gh pr list --json number,title,headRefName -q '.[] | "#\(.number) \(.headRefName) - \(.title)"')
+  pr_list=$(gh pr list --author "$current_user" --json number,title,headRefName -q '.[] | "#\(.number) \(.headRefName) - \(.title)"')
   [[ -z "$pr_list" ]] && { echo "No open PRs found"; exit 1; }
 
   selected_pr=$(echo "$pr_list" | gum filter --placeholder "Select a PR")
@@ -31,9 +32,6 @@ else
   pr_number=$(gh pr view --json number -q '.number' 2>/dev/null) || { echo "No PR found for current branch"; exit 1; }
   [[ -z "$pr_number" ]] && { echo "No PR found for current branch"; exit 1; }
 fi
-
-# Get current user to exclude from reviewer list
-current_user=$(gh api user -q '.login')
 
 # Fetch repo collaborators, excluding ourselves
 repo=$(gh repo view --json nameWithOwner -q '.nameWithOwner')
