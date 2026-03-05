@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+set -e
+
+# Must be inside a git repo
+git rev-parse --show-toplevel &>/dev/null || { echo "Not in a git repo"; exit 1; }
+
+# Detect default branch
+default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+if [[ -z "$default_branch" ]]; then
+  if git show-ref --verify --quiet refs/heads/master; then
+    default_branch="master"
+  elif git show-ref --verify --quiet refs/heads/main; then
+    default_branch="main"
+  else
+    echo "Could not determine default branch"; exit 1
+  fi
+fi
+
+current_branch=$(git branch --show-current)
+
+# If on the default branch, let the user pick from open PRs
+if [[ "$current_branch" == "$default_branch" ]]; then
+  pr_list=$(gh pr list --json number,title,headRefName -q '.[] | "#\(.number) \(.headRefName) - \(.title)"')
+  [[ -z "$pr_list" ]] && { echo "No open PRs found"; exit 1; }
+
+  selected_pr=$(echo "$pr_list" | gum filter --placeholder "Select a PR")
+  [[ -z "$selected_pr" ]] && { echo "No PR selected"; exit 0; }
+
+  pr_number=$(echo "$selected_pr" | grep -o '^#[0-9]*' | tr -d '#')
+else
+  pr_number=$(gh pr view --json number -q '.number' 2>/dev/null) || { echo "No PR found for current branch"; exit 1; }
+  [[ -z "$pr_number" ]] && { echo "No PR found for current branch"; exit 1; }
+fi
+
+# Get current user to exclude from reviewer list
+current_user=$(gh api user -q '.login')
+
+# Fetch repo collaborators, excluding ourselves
+repo=$(gh repo view --json nameWithOwner -q '.nameWithOwner')
+reviewers=$(gh api "repos/${repo}/collaborators" --paginate -q '.[].login' | grep -v "^${current_user}$" | sort -f)
+
+[[ -z "$reviewers" ]] && { echo "No eligible reviewers found"; exit 1; }
+
+# Pick reviewers
+selected=$(echo "$reviewers" | gum filter --no-limit --header "Select reviewers for PR #${pr_number}")
+[[ -z "$selected" ]] && { echo "No reviewers selected"; exit 0; }
+
+# Build comma-separated list
+reviewer_list=$(echo "$selected" | paste -sd ',' -)
+
+gh pr edit "$pr_number" --add-reviewer "$reviewer_list"
+echo "Added reviewers to PR #${pr_number}: ${reviewer_list}"

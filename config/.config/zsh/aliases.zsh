@@ -10,6 +10,8 @@ alias tc="tmux kill-session -a"
 alias gwt="~/dev/dotfiles/bin/gwt"
 # Remove git worktrees and their tmux sessions
 alias gwt-rm="~/dev/dotfiles/bin/gwt-rm"
+# Add reviewers to a GitHub PR
+alias gh-review="~/dev/dotfiles/bin/gh-reviewers"
 
 alias v="nvim"
 alias vi="nvim"
