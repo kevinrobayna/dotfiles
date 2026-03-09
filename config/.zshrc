@@ -26,7 +26,7 @@ bindkey '^ ' autosuggest-accept
 # https://superuser.com/questions/403355/how-do-i-get-searching-through-my-command-history-working-with-tmux-and-zshell
 bindkey -e
 
-export PATH="$HOME/.local/bin":$PATH
+export PATH="/Library/TeX/texbin:$HOME/.local/bin":$PATH
 # Help homebrew
 export PATH="$(eval "brew --prefix")/sbin:$PATH"
 
