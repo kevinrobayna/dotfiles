@@ -1,0 +1,66 @@
+#!/usr/bin/env zsh
+set -e
+
+# Must be inside a git repo
+git rev-parse --show-toplevel &>/dev/null || { echo "Not in a git repo"; exit 1; }
+
+repo=$(gh repo view --json nameWithOwner -q '.nameWithOwner')
+current_user=$(gh api user -q '.login')
+
+# GraphQL query to fetch PRs with review request details
+read -r -d '' gql_query << 'EOF' || true
+query($sq: String!) {
+  search(query: $sq, type: ISSUE, first: 100) {
+    nodes {
+      ... on PullRequest {
+        number
+        title
+        author { login }
+        reviewRequests(first: 100) {
+          nodes {
+            requestedReviewer {
+              ... on User { login }
+              ... on Team { name }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+EOF
+
+search_query="repo:${repo} is:pr is:open review-requested:${current_user} -author:app/dependabot -author:app/renovate"
+raw=$(gh api graphql -F sq="$search_query" -f query="$gql_query")
+
+# Categorize PRs into groups: direct user requests, then each team
+result=$(echo "$raw" | jq --arg user "$current_user" '
+  [.data.search.nodes[] |
+  select(.author.login | test("(dependabot|renovate|greenkeeper)"; "i") | not) |
+  {
+    number,
+    title,
+    author: .author.login,
+    is_direct: ([.reviewRequests.nodes[].requestedReviewer | select(.login == $user)] | length > 0),
+    teams: [.reviewRequests.nodes[].requestedReviewer | .name // empty]
+  }] | {
+    direct: [.[] | select(.is_direct) | {number, title, author}],
+    teams: ([.[] | select(.is_direct | not) | . as $pr | .teams[] | {team: ., pr: {number: $pr.number, title: $pr.title, author: $pr.author}}]
+      | group_by(.team)
+      | map({team: .[0].team, prs: [.[].pr]}))
+  }')
+
+echo "$result" | jq -r --arg repo "$repo" '
+  if (.direct | length) > 0 then
+    "@\($repo) (direct):",
+    "",
+    (.direct[] | "  #\(.number)  \(.title)  (by \(.author))")
+  else
+    "No PRs directly requesting your review in \($repo)"
+  end,
+  (.teams[] |
+    "",
+    "via team @\(.team):",
+    "",
+    (.prs[] | "  #\(.number)  \(.title)  (by \(.author))")
+  )'

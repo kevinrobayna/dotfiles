@@ -12,6 +12,8 @@ alias gwt="~/dev/dotfiles/bin/gwt"
 alias gwt-rm="~/dev/dotfiles/bin/gwt-rm"
 # Add reviewers to a GitHub PR
 alias gh-review="~/dev/dotfiles/bin/gh-reviewers"
+# List PRs pending your review
+alias ghr="~/dev/dotfiles/bin/gh-review"
 
 alias v="nvim"
 alias vi="nvim"
