@@ -33,7 +33,6 @@ git push -u origin <branch-name>
 ```
 
 If there is no branch yet, create one with the pattern `krobayna_...`.
-Ask for a ticket if unsure. If the user does not provide a ticket, skip adding the ticket reference completely.
 
 ### Step 3: Draft the PR Title and Description
 

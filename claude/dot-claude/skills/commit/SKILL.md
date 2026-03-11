@@ -109,6 +109,7 @@ Use my gitmessage template found in ~/.config/git/gitmessage
 - Explain the context or problem being solved
 - Keep it concise - 1-3 sentences
 - Leave a blank line after the title
+- Do NOT add ticket or JIRA references unless the user explicitly provides one
 
 **Examples:**
 
