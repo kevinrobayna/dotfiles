@@ -1,15 +1,5 @@
 {
   "permissions": {
-    "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(~/.ssh/)",
-      "Read(~/.aws/)",
-      "Read(./secrets/**)",
-      "Read(~/.secrets",
-      "Edit(./.env)",
-      "Edit(./.env.*)"
-    ],
     "allow": [
       "Bash(/var/folders/**:*)",
       "Bash(/tmp/**:*)",
@@ -99,6 +89,15 @@
       "Bash(./gradlew apiDump:*)",
       "Bash(./gradlew apiCheck:*)",
       "Bash(./gradlew :*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(~/.ssh/)",
+      "Read(~/.aws/)",
+      "Read(./secrets/**)",
+      "Edit(./.env)",
+      "Edit(./.env.*)"
     ]
   },
   "model": "opus",
@@ -119,6 +118,7 @@
     "claude-md-management@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "kotlin-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true
   }
 }
