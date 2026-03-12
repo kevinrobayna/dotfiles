@@ -5,6 +5,12 @@
 Prefer using any CLI over MCP.
 Follow commit message standards when committing.
 
+## Skills
+
+Always use the /commit skill when committing.
+Always use the /create-pr skill when creating pull requests.
+Always use the /github skill for GitHub operations.
+
 ## Git Branching
 
 Always prefix branch names with `krobayna_`.
