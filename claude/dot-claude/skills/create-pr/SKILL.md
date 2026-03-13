@@ -64,7 +64,7 @@ If there is no branch yet, create one with the pattern `krobayna_...`.
 Always use the `--draft` flag. No exceptions.
 
 ```bash
-gh pr create --draft --title "<title>" --body "<description>"
+gh pr create --draft --assignee @me --title "<title>" --body "<description>"
 ```
 
 ### Step 5: Report Back
