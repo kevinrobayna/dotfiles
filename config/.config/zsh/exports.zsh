@@ -56,37 +56,20 @@ export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@17/lib"
 export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@17/include"
 export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@17/lib/pkgconfig"
 
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --highlight-line \
-  --info=inline-right \
-  --ansi \
-  --layout=reverse \
-  --border=none
-  --color=bg+:#2d3f76 \
-  --color=bg:#1e2030 \
-  --color=border:#589ed7 \
-  --color=fg:#c8d3f5 \
-  --color=gutter:#1e2030 \
-  --color=header:#ff966c \
-  --color=hl+:#65bcff \
-  --color=hl:#65bcff \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#65bcff \
-  --color=query:#c8d3f5:regular \
-  --color=scrollbar:#589ed7 \
-  --color=separator:#ff966c \
-  --color=spinner:#ff007c \
-"
 export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
 export FZF_PREVIEW_ADVANCED=true
 export FZF_PREVIEW_WINDOW='right:65%:nohidden'
 export FZF_DEFAULT_OPTS="\
---reverse --no-info --prompt=' ' --pointer='' --marker=' ' \
---color=bg+:,bg:,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+  --highlight-line \
+  --reverse \
+  --ansi \
+  --info=inline-right \
+  --prompt=' ' \
+  --pointer='' \
+  --marker=' ' \
+  --layout=reverse \
+  --border=none 
+"
 
 # Tmux Stuff
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH

@@ -27,6 +27,7 @@ bindkey '^ ' autosuggest-accept
 bindkey -e
 
 export PATH="/Library/TeX/texbin:$HOME/.local/bin":$PATH
+export PATH="/usr/local/texlive/2026basic/bin/universal-darwin:$PATH"
 # Help homebrew
 export PATH="$(eval "brew --prefix")/sbin:$PATH"
 
