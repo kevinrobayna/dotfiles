@@ -3,6 +3,7 @@ tap "homebrew/command-not-found"
 tap "homebrew/formula-analytics"
 tap "arl/arl"
 tap "kevinrobayna/tap"
+tap "atlassian/homebrew-acli"
 
 #To allow my to install stuff from Apple Store
 brew "mas"
@@ -52,6 +53,9 @@ brew "imagemagick"
 cask "basictex"
 #This is needed for copilot
 brew "nvm"
+
+# Atlassian
+brew "acli"
 
 # Generic Tools
 brew "jq"

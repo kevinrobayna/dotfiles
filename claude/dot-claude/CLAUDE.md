@@ -10,6 +10,7 @@ Follow commit message standards when committing.
 Always use the /commit skill when committing.
 Always use the /create-pr skill when creating pull requests.
 Always use the /github skill for GitHub operations.
+Always use the /jira skill for Jira operations.
 
 ## Git Branching
 
