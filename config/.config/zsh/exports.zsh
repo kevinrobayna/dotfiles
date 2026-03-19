@@ -84,6 +84,9 @@ export GH_HOST=github.com
 export AWS_VAULT_KEYCHAIN_NAME="login"
 export AWS_SESSION_TTL="12h"
 
+# DataDog stuff
+export DD_SITE=datadoghq.eu
+
 # Configure Colima as Docker Host for applications which don't respect Docker Contexts
 # Testcontainers should use the default Docker Socket
 # Testcontainers should use the Colima VM instance local address as host

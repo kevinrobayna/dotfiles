@@ -4,6 +4,7 @@ tap "homebrew/formula-analytics"
 tap "arl/arl"
 tap "kevinrobayna/tap"
 tap "atlassian/homebrew-acli"
+tap "datadog-labs/pack"
 
 #To allow my to install stuff from Apple Store
 brew "mas"
@@ -56,6 +57,9 @@ brew "nvm"
 
 # Atlassian
 brew "acli"
+
+# datadog-labs
+brew "pup"
 
 # Generic Tools
 brew "jq"
