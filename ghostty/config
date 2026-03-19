@@ -54,6 +54,9 @@ clipboard-write = "allow"
 # \x02 = <C-b> (tmux prefix)
 macos-option-as-alt = true
 
+# UK ISO keyboard: Option+3 produces # (broken by macos-option-as-alt)
+keybind = alt+three=text:\x23
+
 # keybindings
 # the \x02 character below is some hexadecimal magic
 # Example for character z (lowercase):
