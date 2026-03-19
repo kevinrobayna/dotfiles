@@ -77,6 +77,9 @@ export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # Kubernetes Stuff
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# To fix my hack of github.com-work
+export GH_HOST=github.com
+
 # AWS Stuff
 export AWS_VAULT_KEYCHAIN_NAME="login"
 export AWS_SESSION_TTL="12h"
