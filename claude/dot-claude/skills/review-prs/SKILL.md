@@ -150,8 +150,6 @@ The review body should be formatted as markdown:
 ### Suggestions
 - <file:line> — description
 
----
-🤖 Reviewed with [Claude Code](https://claude.com/claude-code)
 ```
 
 If there are no findings at all, post a simple approval:

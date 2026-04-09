@@ -179,7 +179,7 @@ After resolving all selected issues:
 ### Commit Strategy
 - One commit per theme/issue (or small group of related issues)
 - Use the `/commit` skill to create commits (invoked via Skill tool)
-- The commit skill will handle message formatting and Co-Authored-By line
+- The commit skill will handle message formatting
 - Stage changes before invoking the commit skill
 
 ### Error Handling

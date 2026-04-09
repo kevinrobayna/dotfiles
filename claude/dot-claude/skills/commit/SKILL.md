@@ -154,13 +154,11 @@ git commit -m "$(cat <<'EOF'
 <type>(<scope>): <short summary>
 
 <body>
-
-Co-Authored-By: Claude Code <noreply@anthropic.com>
 EOF
 )"
 ```
 
-Always include the `Co-Authored-By` line.
+Do NOT include a `Co-Authored-By` trailer.
 
 ### Step 8: Confirm
 

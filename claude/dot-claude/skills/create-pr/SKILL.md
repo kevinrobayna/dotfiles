@@ -54,8 +54,6 @@ If there is no branch yet, create one with the pattern `krobayna_...`.
 
 - [ ] <How to verify the changes work>
 
----
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
 ```
 
 

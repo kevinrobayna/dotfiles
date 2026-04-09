@@ -136,9 +136,6 @@ Create a PR description that focuses on the "why", trade-offs, and context:
 <Explain WHY this change is needed and the context>
 
 <Optional: Trade-offs or important decisions section>
-
----
-🤖 Updated with [Claude Code](https://claude.com/claude-code)
 ```
 
 **Guidelines:**
@@ -149,7 +146,7 @@ Create a PR description that focuses on the "why", trade-offs, and context:
 - Provide enough context for reviewers to understand the reasoning
 - Keep it concise but complete - don't sacrifice clarity for brevity
 - Use clear, straightforward language
-- Include Claude Code attribution at the end
+- Do NOT include Claude Code attribution
 
 **Examples:**
 
@@ -157,23 +154,14 @@ Create a PR description that focuses on the "why", trade-offs, and context:
 Adds automated performance testing for the email-service to catch regressions early in the development cycle. Uses GitHub Actions to run tests on every PR.
 
 Trade-off: Tests add ~5 minutes to CI runtime but provide valuable performance insights.
-
----
-🤖 Updated with [Claude Code](https://claude.com/claude-code)
 ```
 
 ```
 Improves service consistency by aligning the task-management-service architecture with the patterns used in email-service. Makes the codebase easier to maintain and onboard new developers.
-
----
-🤖 Updated with [Claude Code](https://claude.com/claude-code)
 ```
 
 ```
 Fixes a NullPointerException that occurs when JWT tokens are missing the company_id claim. Adds defensive null checks and proper error handling.
-
----
-🤖 Updated with [Claude Code](https://claude.com/claude-code)
 ```
 
 ### Step 6: Preview Changes
@@ -205,9 +193,6 @@ gh pr edit <number> \
   --title "<new title>" \
   --body "$(cat <<'EOF'
 <new description>
-
----
-🤖 Updated with [Claude Code](https://claude.com/claude-code)
 EOF
 )"
 ```
@@ -290,9 +275,6 @@ Actions:
 5. Generate description:
    Implements OAuth2 authentication to replace the legacy auth system.
    Improves security and enables SSO integration.
-
-   ---
-   🤖 Updated with [Claude Code](https://claude.com/claude-code)
 6. Preview and ask for confirmation
 7. Update using gh pr edit
 8. Confirm success
@@ -315,9 +297,6 @@ Actions:
 4. Generate description:
    Enables automated performance testing on PRs to catch regressions early.
    Trade-off: Adds ~5 minutes to CI but provides valuable performance insights.
-
-   ---
-   🤖 Updated with [Claude Code](https://claude.com/claude-code)
 5. Update PR
 ```
 
@@ -337,9 +316,6 @@ Actions:
 4. Generate description:
    Prevents NullPointerException when email recipients are null or empty.
    Adds validation and proper error messages.
-
-   ---
-   🤖 Updated with [Claude Code](https://claude.com/claude-code)
 5. Update PR
 ```
 
