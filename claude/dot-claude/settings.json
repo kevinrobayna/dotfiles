@@ -98,7 +98,8 @@
       "Read(./secrets/**)",
       "Edit(./.env)",
       "Edit(./.env.*)"
-    ]
+    ],
+    "defaultMode": "plan"
   },
   "model": "opus[1m]",
   "hooks": {
@@ -122,5 +123,6 @@
     "ruby-lsp@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true
-  }
+  },
+  "skipAutoPermissionPrompt": true
 }
