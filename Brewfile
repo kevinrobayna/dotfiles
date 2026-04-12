@@ -14,7 +14,7 @@ cask "font-inconsolata-go-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 
 # SSH from iPad
-cask "tailscale"
+cask "tailscale-app"
 brew "mosh"
 
 # ZSH
@@ -89,6 +89,10 @@ brew "hugo"
 
 # GPG
 brew "gnupg"
+
+# GPG
+cask "claude"
+cask "claude-code"
 
 # AWS / Google / Etc
 brew "awscli"
