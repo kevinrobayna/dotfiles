@@ -26,10 +26,8 @@ gum confirm "Remove $selected?" || { echo "Aborted"; exit 0; }
 sesh_name=$(basename "$selected")
 tmux kill-session -t "$sesh_name" 2>/dev/null || true
 
-git worktree remove --force "$selected"
-
-# Remove the directory if it still exists
-[[ -d "$selected" ]] && rm -rf "$selected"
+git worktree remove --force "$selected" 2>/dev/null || true
+rm -rf "$selected"
 
 echo "Removed $selected"
 
