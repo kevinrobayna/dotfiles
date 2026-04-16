@@ -122,7 +122,16 @@
     "lua-lsp@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true
+    "pr-review-toolkit@claude-plugins-official": true,
+    "personio-common@personio-claude-code-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "personio-claude-code-marketplace": {
+      "source": {
+        "source": "git",
+        "url": "git@github.com-work:Personio-Internal/claude-code-marketplace.git"
+      }
+    }
   },
   "skipAutoPermissionPrompt": true
 }
