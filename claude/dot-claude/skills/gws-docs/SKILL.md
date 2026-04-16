@@ -2,7 +2,7 @@
 name: gws-docs
 description: "Read and write Google Docs."
 metadata:
-  version: 0.22.2
+  version: 0.22.1
   openclaw:
     category: "productivity"
     requires:
@@ -46,3 +46,4 @@ gws schema docs.<resource>.<method>
 ```
 
 Use `gws schema` output to build your `--params` and `--json` flags.
+
