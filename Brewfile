@@ -94,7 +94,7 @@ brew "gnupg"
 
 # GPG
 cask "claude"
-cask "claude-code"
+cask "claude-code@latest"
 
 # AWS / Google / Etc
 brew "awscli"
