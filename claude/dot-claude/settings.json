@@ -123,15 +123,6 @@
             "command": "$HOME/.claude/hooks/open-plan-split.sh"
           }
         ]
-      },
-      {
-        "matcher": "Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/open-plan-split.sh"
-          }
-        ]
       }
     ]
   },
