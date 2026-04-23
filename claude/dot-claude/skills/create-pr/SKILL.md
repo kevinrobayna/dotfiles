@@ -69,6 +69,10 @@ gh pr create --draft --assignee @me --title "<title>" --body "<description>"
 
 Return the PR URL and branch of the PR and target branch back to the user so they can see it.
 
+### Step 6: Monitor CI
+
+Invoke the `loop` skill with `/babysit-pr <PR_NUMBER>` to automatically monitor CI checks until they pass or failures are diagnosed and fixed.
+
 ## Rules
 
 - **Always draft**: Never create a non-draft PR.
