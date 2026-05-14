@@ -99,7 +99,7 @@
       "Edit(./.env)",
       "Edit(./.env.*)"
     ],
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "model": "opus[1m]",
   "hooks": {
