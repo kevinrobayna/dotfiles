@@ -54,3 +54,5 @@ alias down='docker-compose down -v --remove-orphans'
 
 alias kubectx="kubectl-ctx"
 alias kubens="kubectl-ns"
+
+alias loc="tokei ."

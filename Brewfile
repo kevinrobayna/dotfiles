@@ -76,6 +76,7 @@ brew "k9s"
 brew "slides"
 brew "bottom"
 brew "aoc2md"
+brew "tokei"
 
 # Cloud Development 
 brew "ansible"
