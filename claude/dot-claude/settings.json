@@ -135,7 +135,9 @@
     "skill-creator@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
     "personio-common@personio-claude-code-marketplace": true,
-    "data-access@personio-claude-code-marketplace": true
+    "data-access@personio-claude-code-marketplace": true,
+    "personio-eng-common@personio-claude-code-marketplace": true,
+    "personio-eng-kotlin@personio-claude-code-marketplace": true
   },
   "extraKnownMarketplaces": {},
   "skipAutoPermissionPrompt": true
