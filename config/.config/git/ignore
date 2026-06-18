@@ -1,7 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/jetbrains+all,goland+all,vim,visualstudiocode,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=jetbrains+all,goland+all,vim,visualstudiocode,macos
 
-.idea/
+.idea/*
 
 ### GoLand+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -221,5 +221,8 @@ tags
 kls_database.db
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains+all,goland+all,vim,visualstudiocode,macos
+
+# Keep shared JetBrains run configurations under version control
+!.idea/runConfigurations/
 
 **/.claude/settings.local.json
