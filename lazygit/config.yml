@@ -141,6 +141,7 @@ keybinding:
     submitEditorText: <enter>
     extrasMenu: '@'
     toggleWhitespaceInDiffView: <c-w>
+    newWorktree: w
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -193,8 +194,6 @@ keybinding:
   main:
     toggleSelectHunk: a
     pickBothHunks: b
-  worktrees:
-    viewWorktreeOptions: w
   submodules:
     init: i
     update: u
