@@ -6,8 +6,6 @@
       "Read(//var/folders/**)",
       "Read(//tmp/**)",
       "Read(~/dev/**)",
-      "Write(//var/folders/**)",
-      "Write(//tmp/**)",
       "Edit(//var/folders/**)",
       "Edit(//tmp/**)",
       "Bash(git status)",
@@ -144,5 +142,6 @@
     "personio-eng-kotlin@personio-claude-code-marketplace": true
   },
   "extraKnownMarketplaces": {},
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }
