@@ -139,9 +139,10 @@
     "personio-common@personio-claude-code-marketplace": true,
     "data-access@personio-claude-code-marketplace": true,
     "personio-eng-common@personio-claude-code-marketplace": true,
-    "personio-eng-kotlin@personio-claude-code-marketplace": true
+    "personio-eng-kotlin@personio-claude-code-marketplace": true,
+    "pgc@personio-claude-code-marketplace": true
   },
   "extraKnownMarketplaces": {},
-  "skipAutoPermissionPrompt": true,
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "skipAutoPermissionPrompt": true
 }
