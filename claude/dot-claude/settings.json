@@ -99,7 +99,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -137,10 +136,10 @@
     "skill-creator@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
     "personio-common@personio-claude-code-marketplace": true,
-    "data-access@personio-claude-code-marketplace": true,
     "personio-eng-common@personio-claude-code-marketplace": true,
     "personio-eng-kotlin@personio-claude-code-marketplace": true,
-    "pgc@personio-claude-code-marketplace": true
+    "pgc@personio-claude-code-marketplace": true,
+    "split-io@personio-claude-code-marketplace": true
   },
   "extraKnownMarketplaces": {},
   "tui": "fullscreen",
