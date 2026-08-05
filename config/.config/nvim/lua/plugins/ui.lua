@@ -61,22 +61,18 @@ return {
       })
     end,
   },
-{
-  "kevinhwang91/nvim-ufo",
-  dependencies = { "kevinhwang91/promise-async" },
-  event = "VeryLazy", -- You can make it lazy-loaded via VeryLazy, but comment out if anything doesn’t work
-  init = function()
-    vim.o.foldlevel = 99
-    vim.o.foldlevelstart = 99
-  end,
-  config = function()
-    require("ufo").setup({
-      -- your config goes here
-      -- open_fold_hl_timeout = ...,
-      -- provider_selector = function(bufnr, filetype)
-      --  ...
-      -- end,
-    })
-  end,
-}
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    event = "VeryLazy", -- You can make it lazy-loaded via VeryLazy, but comment out if anything doesn’t work
+    init = function()
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
+    end,
+    opts = {
+      provider_selector = function()
+        return { "lsp", "indent" }
+      end,
+    },
+  },
 }
