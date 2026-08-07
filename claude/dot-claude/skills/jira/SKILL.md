@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: jira
 description: Interact with Jira Cloud using the acli CLI tool for work items, boards, sprints, projects, and more
 allowed-tools:

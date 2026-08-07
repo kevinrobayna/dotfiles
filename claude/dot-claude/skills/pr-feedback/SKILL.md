@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: pr-feedback
 description: Resolve unresolved issues from a GitHub PR review
 allowed-tools:

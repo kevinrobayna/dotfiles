@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: ci-failure-analysis
 description: Analyze GitHub Actions CI failures, fetch logs, identify root causes, and propose fixes
 allowed-tools:

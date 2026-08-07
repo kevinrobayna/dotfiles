@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: commit
 description: Create a git commit with a well-structured message following conventional commits
 allowed-tools:

@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: update-pr
 description: Update an existing GitHub PR with a better title and description focusing on "why" and trade-offs
 allowed-tools:

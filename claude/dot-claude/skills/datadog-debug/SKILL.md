@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: datadog-troubleshooting
 description: Troubleshoot application issues using Datadog via the pup CLI. Investigate errors, performance problems, and service health by correlating logs, traces, metrics, monitors, and incidents.
 allowed-tools: Bash(pup logs:*), Bash(pup traces:*), Bash(pup metrics query:*), Bash(pup metrics list:*), Bash(pup metrics search:*), Bash(pup monitors list:*), Bash(pup monitors get:*), Bash(pup monitors search:*), Bash(pup events list:*), Bash(pup events search:*), Bash(pup events get:*), Bash(pup incidents list:*), Bash(pup incidents get:*), Bash(pup slos list:*), Bash(pup slos get:*), Bash(pup slos status:*), Bash(pup apm:*), Bash(pup auth status)

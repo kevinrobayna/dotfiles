@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: babysit-pr
 description: Monitor CI status on a PR, polling until checks complete. Reports success or invokes ci-errors to diagnose and fix failures. Use when asked to watch CI, babysit a PR, or monitor checks.
 allowed-tools:

@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: create-pr
 description: Create draft PRs with review request. Activates when creating pull requests, pushing branches for review, or submitting code changes.
 allowed-tools:

@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: github
 description: Interact with GitHub ( https://github.com/ ) using the gh CLI tool for repository operations, PRs, issues, and more
 allowed-tools:

@@ -1,4 +1,5 @@
 ---
+model: sonnet
 name: review-prs
 description: Discover all PRs assigned to you for review, create worktrees for each, and run parallel code reviews. Use when asked to review pending PRs, check review queue, or batch-review assigned pull requests.
 allowed-tools:
