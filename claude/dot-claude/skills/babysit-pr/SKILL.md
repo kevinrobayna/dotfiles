@@ -25,7 +25,7 @@ Monitor CI checks on a pull request. Poll until all checks complete, then report
 
 - User asks to watch, babysit, or monitor a PR
 - User asks to check CI status and wait for it
-- Invoked automatically after `/create-pr`
+- Invoked after a PR is created
 
 ## Inputs
 

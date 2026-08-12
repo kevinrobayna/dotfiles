@@ -143,11 +143,10 @@ For each issue or group of issues the user wants resolved:
    ```bash
    git add <changed-files>
    ```
-5. **Create a focused commit** using the `/commit` skill:
-   - Use the Skill tool to invoke the commit skill
-   - The commit skill will analyze the changes and create an appropriate commit message
+5. **Create a focused commit**:
+   - Analyze the changes and write an appropriate commit message
    - The commit type will typically be `fix` for addressing PR feedback
-   - Examples of generated commits:
+   - Examples:
      - `fix(pr-feedback): refactor variable naming per review`
      - `fix(pr-feedback): add error handling as requested`
      - `fix(pr-feedback): improve test coverage for edge cases`
@@ -179,9 +178,8 @@ After resolving all selected issues:
 
 ### Commit Strategy
 - One commit per theme/issue (or small group of related issues)
-- Use the `/commit` skill to create commits (invoked via Skill tool)
-- The commit skill will handle message formatting
-- Stage changes before invoking the commit skill
+- Follow conventional commit message formatting
+- Stage changes before committing
 
 ### Error Handling
 - If a comment is unclear, note it and ask the user for clarification

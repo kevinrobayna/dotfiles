@@ -56,4 +56,4 @@ Formatting: Lua files use `stylua` (config in `stylua.toml`).
 
 The `claude/dot-claude/` directory gets stowed to `~/.claude/` and contains:
 - `CLAUDE.md` - Global instructions applied to all projects
-- `skills/` - Custom skill definitions (commit, create-pr, update-pr, pr-feedback, ci-errors, github)
+- `skills/` - Custom skill definitions (update-pr, pr-feedback, ci-errors, babysit-pr, review-prs, gh-stack, jira)

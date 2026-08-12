@@ -65,8 +65,6 @@ Get the current PR details:
 gh pr view <number> --json number,title,body,headRefName,baseRefName,url
 ```
 
-**Note:** You can use `gh pr view` directly - no need to use the `/github` skill for this.
-
 Display to user:
 
 - Current title
@@ -225,7 +223,6 @@ The title and description have been updated.
 - Use `gh pr view` directly for viewing PR information
 - Use `gh pr diff --name-only` to get list of changed files (NOT `--stat`)
 - Use `gh pr edit` to update the PR title and body
-- The `/github` skill is NOT required for this workflow
 
 ### Title Quality
 
@@ -331,7 +328,4 @@ Invoke this skill with:
 
 ## Related Skills
 
-- **/create-pr**: Create new PRs with proper formatting
-- **/commit**: Create well-formatted commits
 - **/pr-feedback**: Address PR review comments
-- **/github**: General GitHub operations
