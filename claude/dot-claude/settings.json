@@ -141,6 +141,7 @@
     "pgc@personio-claude-code-marketplace": true,
     "split-io@personio-claude-code-marketplace": true
   },
+  "includeCoAuthoredBy": false,
   "extraKnownMarketplaces": {},
   "tui": "fullscreen",
   "skipAutoPermissionPrompt": true
