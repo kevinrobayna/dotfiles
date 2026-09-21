@@ -47,12 +47,12 @@
 [remote "origin"]
 	prune = true
 
-# Personal config always added by symlink
-[includeIf "gitdir:~/dev/"]
-  path = ~/.gitconfig-personal
-
 # Work config always added manually
-[includeIf "gitdir:~/work/"]
+[includeIf "gitdir:~/dev/"]
   path = ~/.gitconfig-work
+
+# Personal config always added by symlink
+[includeIf "gitdir:~/personal/"]
+  path = ~/.gitconfig-personal
 [url "git@github.com:"]
   insteadOf = https://github.com/
