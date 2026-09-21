@@ -3,17 +3,17 @@ alias lg="lazygit"
 alias ld="lazydocker"
 
 # Create tmux session for dev folders, also cd into them, similar to autojump
-alias t="~/dev/dotfiles/bin/tmux-sessionizer"
+alias t="~/personal/dotfiles/bin/tmux-sessionizer"
 # Close all tmux sessions except current
 alias tc="tmux kill-session -a"
 # Create a git worktree and open it in a new tmux session
-alias gwt="~/dev/dotfiles/bin/gwt"
+alias gwt="~/personal/dotfiles/bin/gwt"
 # Remove git worktrees and their tmux sessions
-alias gwt-rm="~/dev/dotfiles/bin/gwt-rm"
+alias gwt-rm="~/personal/dotfiles/bin/gwt-rm"
 # Add reviewers to a GitHub PR
-alias gh-review="~/dev/dotfiles/bin/gh-reviewers"
+alias gh-review="~/personal/dotfiles/bin/gh-reviewers"
 # List PRs pending your review
-alias ghr="~/dev/dotfiles/bin/gh-review"
+alias ghr="~/personal/dotfiles/bin/gh-review"
 
 alias v="nvim"
 alias vi="nvim"

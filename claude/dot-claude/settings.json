@@ -6,6 +6,7 @@
       "Read(//var/folders/**)",
       "Read(//tmp/**)",
       "Read(~/dev/**)",
+      "Read(~/personal/**)",
       "Edit(//var/folders/**)",
       "Edit(//tmp/**)",
       "Bash(git status)",

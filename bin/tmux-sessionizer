@@ -1,22 +1,22 @@
 #!/usr/bin/env zsh
 
 mkdir -p ~/dev
-mkdir -p ~/work
+mkdir -p ~/personal
 
 zoxide add ~/dev
-zoxide add ~/work
+zoxide add ~/personal
 
-# Make sure everything under dev and work is added to zoxide
+# Make sure everything under dev and personal is added to zoxide
 if [ -n "$(find ~/dev/ -prune -empty -type d 2>/dev/null)" ]
 then
 else
   ls -d ~/dev/* | xargs -I {} zoxide add {}
 fi
 
-if [ -n "$(find ~/work/ -prune -empty -type d 2>/dev/null)" ]
+if [ -n "$(find ~/personal/ -prune -empty -type d 2>/dev/null)" ]
 then
 else
-  ls -d ~/work/* | xargs -I {} zoxide add {}
+  ls -d ~/personal/* | xargs -I {} zoxide add {}
 fi
 
 sesh connect $(sesh list -i | gum filter --limit 1 --placeholder 'Pick a session' --height 60 --prompt='⚡')

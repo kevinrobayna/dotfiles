@@ -7,8 +7,8 @@ Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
 ## Quick Start
 
 ```bash
-git clone https://github.com/kevinrobayna/dotfiles ~/dev/dotfiles
-cd ~/dev/dotfiles
+git clone https://github.com/kevinrobayna/dotfiles ~/personal/dotfiles
+cd ~/personal/dotfiles
 ./install.sh all        # Run everything below
 ```
 
