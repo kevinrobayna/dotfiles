@@ -207,8 +207,6 @@ setup_tmux() {
   tic -x resources/xterm-256color-italic.terminfo
 }
 
-echo "hello=world" >>~/.secrets
-
 case "$1" in
 link)
   setup_symlinks
