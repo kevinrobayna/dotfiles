@@ -42,6 +42,14 @@
   repo = ~/Git/zsh-syntax-highlighting
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
+
+# Work repos must authenticate with id_github_work via the github.com-work
+# alias. Longest-prefix match wins, so these override the generic rule above
+# no matter which URL form gets pasted.
+[url "git@github.com-work:Personio-Internal/"]
+  insteadOf = https://github.com/Personio-Internal/
+  insteadOf = ssh://git@github.com/Personio-Internal/
+  insteadOf = git@github.com:Personio-Internal/
 [gpg]
   format = ssh
 [remote "origin"]
@@ -54,5 +62,3 @@
 # Personal config always added by symlink
 [includeIf "gitdir:~/personal/"]
   path = ~/.gitconfig-personal
-[url "git@github.com:"]
-  insteadOf = https://github.com/
