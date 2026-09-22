@@ -77,10 +77,16 @@ setup_homebrew() {
 }
 
 setup_extras() {
+  # Installs everything pinned in config/.config/mise/config.toml, so this has
+  # to run after setup_symlinks has put that config in place.
+  if test "$(command -v mise)"; then
+    mise install
+  else
+    warning "mise not installed. Skipping runtime setup."
+  fi
+
   gem install erb-formatter
   gem install neovim
-  asdf plugin-add java https://github.com/halcyon/asdf-java.git
-  nvm use --lts --system
 }
 
 setup_shell() {

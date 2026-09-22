@@ -35,7 +35,7 @@ Or run individual steps:
 
 **macOS** — [Hammerspoon](https://www.hammerspoon.org) hotkeys, Finder tweaks, keyboard repeat speed, Dock settings, and 30+ system defaults
 
-**Dev Tools** — Docker via [Colima](https://github.com/abiosoft/colima), [asdf](https://asdf-vm.com)/[nvm](https://github.com/nvm-sh/nvm)/[rbenv](https://github.com/rbenv/rbenv) version managers, AWS CLI, GCloud CLI, [k9s](https://k9scli.io)
+**Dev Tools** — Docker via [Colima](https://github.com/abiosoft/colima), [mise](https://mise.jdx.dev) for language runtimes, AWS CLI, GCloud CLI, [k9s](https://k9scli.io)
 
 ## Custom Scripts
 
