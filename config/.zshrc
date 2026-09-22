@@ -33,11 +33,11 @@ export PATH="$(eval "brew --prefix")/sbin:$PATH"
 
 export PATH="$HOME/.rd/bin:$PATH"
 
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-. ~/.asdf/plugins/java/set-java-home.zsh
-
-export NVM_DIR="$HOME/.nvm"
-
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# mise manages the language runtimes (java, node, python, ruby, go, rust).
+# Last thing in the file so it wins over every PATH export above.
+# Shims are for GUI apps like JetBrains that never source this file; activate
+# is what interactive shells actually use.
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+eval "$(mise activate zsh)"

@@ -45,7 +45,6 @@ help() {
     "$@" --help 2>&1 | bathelp
 }
 
-alias rbenv-doctor='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash'
 alias be='bundle exec'
 alias rcode='bundle exec rubocop --autocorrect --display-style-guide --extra-details --display-cop-names --parallel'
 

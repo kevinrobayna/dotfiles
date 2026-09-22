@@ -33,15 +33,11 @@ export $(xargs < ~/.secrets)
 # After each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# npm
-export PATH="$PATH:$(npm config get prefix)/bin"
-
 # Java
 export GRADLE_USER_HOME="$HOME/.gradle"
 export JAVA_OPTS="-Xmx8192m"
 
 # Golang
-export GOROOT="$(brew --prefix golang)/libexec"
 export GOPATH=$HOME/go
 export GOPRIVATE=$PRIVATE_SCM
 
@@ -97,7 +93,6 @@ export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address // ""')
 
-eval "$(rbenv init - --no-rehash)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 source <(fzf --zsh)
