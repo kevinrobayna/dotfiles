@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-DOTFILES="$(pwd)"
 COLOR_GRAY="\033[1;38;5;243m"
 COLOR_BLUE="\033[1;34m"
 COLOR_GREEN="\033[1;32m"
@@ -34,9 +33,9 @@ success() {
 setup_symlinks() {
   title "Creating symlinks"
 
-  stow -t $HOME config
-  stow -t $HOME gitconfig --dotfiles
-  stow -t $HOME claude --dotfiles
+  stow -t "$HOME" config
+  stow -t "$HOME" gitconfig --dotfiles
+  stow -t "$HOME" claude --dotfiles
 
   mkdir -p "$HOME/Library/Application Support/jesseduffield/lazygit/"
   rm "$HOME/Library/Application Support/jesseduffield/lazygit/config.yml"
@@ -173,6 +172,7 @@ setup_macos() {
     defaults write com.apple.screensaver askForPassword -int 1
     defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+    # shellcheck disable=SC1111 # curly quotes match the macOS setting name
     echo "Disable “natural” (Lion-style) scrolling"
     defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
