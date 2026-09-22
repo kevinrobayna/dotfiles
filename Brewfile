@@ -113,6 +113,8 @@ brew "docker-compose"
 cask "chatgpt"
 
 # Ruby / Postgres
+# ruby-build needs autoconf to compile ruby (mise config sets ruby.compile)
+brew "autoconf"
 brew "icu4c"
 brew "shared-mime-info"
 brew "postgresql@17"
