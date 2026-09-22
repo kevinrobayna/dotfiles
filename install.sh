@@ -64,6 +64,22 @@ setup_homebrew() {
     test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
   fi
 
+  # Homebrew 7 refuses to load formulae/casks/commands from third-party taps
+  # until they are trusted, which would make `brew bundle` below skip them.
+  # Trust is recorded in ~/.homebrew/trust.json, which is deliberately NOT
+  # committed: it also holds work-only taps. Narrow (per-package) trust is used
+  # rather than whole-tap trust so a compromised tap cannot ship anything else.
+  info "Trusting third-party taps used by the Brewfile"
+  brew trust --formula \
+    anomalyco/tap/opencode \
+    arl/arl/gitmux \
+    atlassian/acli/acli \
+    datadog-labs/pack/pup \
+    joshmedeski/sesh/sesh \
+    kevinrobayna/tap/aoc2md
+  brew trust --cask kevinrobayna/tap/codeowner
+  brew trust --command domt4/autoupdate/autoupdate
+
   # install brew dependencies from Brewfile
   brew bundle
 
