@@ -1,0 +1,19 @@
+[tools]
+java = "corretto-23.0.2.7.1"
+python = "3.11.16"
+node = "24.18.0"
+ruby = "4.0.1"
+go = "1.27.1"
+rust = "stable"
+
+[settings]
+# mise ignores .nvmrc/.ruby-version/.python-version by default; repos that ship
+# only those (and no .tool-versions) still need to resolve correctly.
+idiomatic_version_file_enable_tools = ["node", "ruby", "python", "java"]
+
+[settings.ruby]
+# mise's precompiled ruby is verified via GitHub artifact attestations, which
+# need tuf-repo-cdn.sigstore.dev — blocked on the work network (TLS handshake
+# refused). Compiling with ruby-build instead keeps SHA256 verification and
+# matches what rbenv did here, rather than turning attestations off.
+compile = true

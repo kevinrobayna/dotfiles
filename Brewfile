@@ -22,6 +22,7 @@ brew "zsh"
 brew "zsh-completions"
 brew "tmux"
 brew "stow"
+brew "mise"
 brew "fswatch"
 brew "fzf"
 brew "eza"
@@ -54,8 +55,6 @@ brew "prettierd"
 brew "luarocks"
 brew "imagemagick"
 cask "basictex"
-#This is needed for copilot
-brew "nvm"
 
 # Atlassian
 brew "acli"
@@ -103,21 +102,17 @@ brew "aws-sam-cli"
 cask "gcloud-cli"
 
 # Web Development
-brew "rbenv"
-brew "asdf"
 brew "buf"
 brew "jsonnet"
 cask "jetbrains-toolbox"
 cask "postman"
 cask "ngrok"
-brew "node"
 brew "colima"
 brew "docker"
 brew "docker-compose"
 cask "chatgpt"
 
 # Ruby / Postgres
-brew "rust"
 brew "icu4c"
 brew "shared-mime-info"
 brew "postgresql@17"
