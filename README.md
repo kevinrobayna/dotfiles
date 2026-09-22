@@ -29,7 +29,7 @@ Or run individual steps:
 
 **Editor** — [Neovim](https://neovim.io) with [LazyVim](https://www.lazyvim.org) framework, language servers, treesitter, formatters, and git integration
 
-**Terminal** — [Ghostty](https://ghostty.org), [Alacritty](https://alacritty.org), and [tmux](https://github.com/tmux/tmux) with custom keybindings and status line
+**Terminal** — [Ghostty](https://ghostty.org) and [tmux](https://github.com/tmux/tmux) with custom keybindings and status line
 
 **Git** — [delta](https://github.com/dandavison/delta) for diffs, [lazygit](https://github.com/jesseduffield/lazygit) TUI, GPG commit signing, custom hooks
 

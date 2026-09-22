@@ -22,7 +22,7 @@ Personal dotfiles for macOS. Configs are managed with GNU Stow and symlinked int
 ### Symlink Strategy (GNU Stow)
 
 Three stow packages are used in `install.sh`:
-- `config/` - stowed to `$HOME` (contains `.config/` subtree: nvim, zsh, tmux, git, alacritty, bat, btop, htop, lf, starship)
+- `config/` - stowed to `$HOME` (contains `.config/` subtree: nvim, zsh, tmux, git, bat, btop, htop, lf, starship)
 - `gitconfig/` - stowed to `$HOME` with `--dotfiles` flag (files prefixed `dot-` become `.` files)
 - `claude/` - stowed to `$HOME` with `--dotfiles` flag (Claude Code config at `dot-claude/`)
 
