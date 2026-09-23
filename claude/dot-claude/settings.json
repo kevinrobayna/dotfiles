@@ -1,4 +1,9 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
   "permissions": {
     "allow": [
       "Bash(/var/folders/**:*)",
@@ -142,12 +147,8 @@
     "pgc@personio-claude-code-marketplace": true,
     "split-io@personio-claude-code-marketplace": true
   },
-  "attribution": {
-    "commit": "",
-    "pr": "",
-    "sessionUrl": false
-  },
   "extraKnownMarketplaces": {},
   "tui": "fullscreen",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "model": "opus[1m]"
 }
