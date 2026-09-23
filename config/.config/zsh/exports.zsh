@@ -84,7 +84,7 @@ export AWS_SESSION_TTL="12h"
 export DD_SITE=datadoghq.eu
 
 # Preferred model
-export ANTHROPIC_MODEL="claude-opus-5[1m]"
+export ANTHROPIC_MODEL="claude-opus-5-5"
 
 # Configure Colima as Docker Host for applications which don't respect Docker Contexts
 # Testcontainers should use the default Docker Socket
