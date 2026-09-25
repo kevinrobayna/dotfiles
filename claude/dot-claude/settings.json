@@ -149,6 +149,5 @@
   },
   "extraKnownMarketplaces": {},
   "tui": "fullscreen",
-  "skipAutoPermissionPrompt": true,
-  "model": "opus[1m]"
+  "skipAutoPermissionPrompt": true
 }
