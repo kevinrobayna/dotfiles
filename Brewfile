@@ -2,7 +2,6 @@
 # load them; `setup_homebrew` in install.sh does that before running `brew bundle`.
 tap "arl/arl"
 tap "kevinrobayna/tap"
-tap "atlassian/homebrew-acli"
 tap "datadog-labs/pack"
 tap "anomalyco/tap"
 # homebrew/autoupdate was deprecated and moved here
@@ -45,65 +44,32 @@ brew "neovim"
 brew "ripgrep"
 brew "the_silver_searcher"
 brew "fd"
-brew "lazygit"
-brew "stylua"
-brew "glow"
 brew "gnu-sed"
-brew "markdownlint-cli2"
-brew "shellcheck"
-brew "yamllint"
-brew "taplo"
-brew "sqlfmt"
-brew "prettier"
-brew "prettierd"
 brew "luarocks"
 brew "imagemagick"
 cask "basictex"
-
-# Atlassian
-brew "acli"
 
 # datadog-labs
 brew "pup"
 
 # Generic Tools
-brew "jq"
-brew "yq"
-brew "sops"
-brew "d2"
 brew "rsync"
-brew "cookiecutter"
 brew "dnsmasq"
-brew "lazydocker"
 brew "ctags"
 brew "gcc"
 brew "git"
-brew "git-absorb"
+brew "git-absorb" # upstream only ships x86_64 macOS binaries, so not via mise
 brew "gh"
 brew "htop"
 brew "bat"
-brew "slides"
 brew "bottom"
 brew "aoc2md"
 brew "tokei"
-
-# Kubernetes
-brew "k9s"
-brew "krew"
-brew "kubeconform"
-
-# Cloud Development
-brew "ansible"
-cask "vagrant"
+brew "tree"
 
 #HotKeys!
 cask "hammerspoon"
 cask "hyperkey"
-
-# Go
-brew "golangci-lint"
-brew "goreleaser"
-brew "hugo"
 
 # GPG
 brew "gnupg"
@@ -116,14 +82,9 @@ cask "claude-code@latest"
 brew "opencode"
 
 # AWS / Google / Etc
-brew "awscli"
-brew "aws-sam-cli"
 cask "gcloud-cli"
 
 # Web Development
-brew "buf"
-brew "jsonnet"
-brew "grpcurl"
 cask "jetbrains-toolbox"
 cask "postman"
 cask "ngrok"

@@ -5,6 +5,49 @@ node = "24.18.0"
 ruby = "4.0.1"
 go = "1.27.1"
 rust = "stable"
+uv = "latest" # backend for the pypi: tools below
+
+# CLI tools: prebuilt binaries (aqua) or packages on the runtimes above.
+# `latest` resolves at install time; bump with `mise upgrade`.
+
+# Go / API
+golangci-lint = "latest"
+goreleaser = "latest"
+"aqua:gohugoio/hugo/hugo-extended" = "latest"
+buf = "latest"
+grpcurl = "latest"
+"aqua:google/go-jsonnet" = "latest"
+
+# Linters / formatters (used by nvim)
+stylua = "latest"
+shellcheck = "latest"
+taplo = "latest"
+yamllint = "latest"
+markdownlint-cli2 = "latest"
+prettier = "latest"
+"npm:@fsouza/prettierd" = "latest"
+"pypi:shandy-sqlfmt" = "latest"
+
+# Kubernetes
+k9s = "latest"
+krew = "latest"
+kubeconform = "latest"
+
+# Cloud
+awscli = "latest"
+aws-sam-cli = "latest"
+cookiecutter = "latest"
+
+# Misc
+lazygit = "latest"
+lazydocker = "latest"
+jq = "latest"
+yq = "latest"
+sops = "latest"
+d2 = "latest"
+glow = "latest"
+"aqua:maaslalani/slides" = "latest"
+acli = "latest"
 
 [settings]
 # mise ignores .nvmrc/.ruby-version/.python-version by default; repos that ship

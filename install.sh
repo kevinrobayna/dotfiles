@@ -72,7 +72,6 @@ setup_homebrew() {
   brew trust --formula \
     anomalyco/tap/opencode \
     arl/arl/gitmux \
-    atlassian/acli/acli \
     datadog-labs/pack/pup \
     joshmedeski/sesh/sesh \
     kevinrobayna/tap/aoc2md
