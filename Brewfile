@@ -30,7 +30,7 @@ brew "fzf"
 brew "eza"
 brew "ncurses"
 brew "fastfetch"
-brew "gitmux"
+brew "arl/arl/gitmux"
 brew "git-delta"
 brew "starship"
 brew "zoxide"
@@ -50,7 +50,7 @@ brew "imagemagick"
 cask "basictex"
 
 # datadog-labs
-brew "pup"
+brew "datadog-labs/pack/pup"
 
 # Generic Tools
 brew "rsync"
@@ -78,8 +78,8 @@ cask "gpg-suite"
 
 # AI Tools
 cask "claude"
-cask "claude-code@latest"
-brew "opencode"
+cask "claude-code"
+brew "anomalyco/tap/opencode"
 
 # AWS / Google / Etc
 cask "gcloud-cli"
