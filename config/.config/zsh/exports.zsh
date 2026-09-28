@@ -76,6 +76,11 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # To fix my hack of github.com-work
 export GH_HOST=github.com
 
+# Authenticate mise's GitHub API calls (anonymous limit is 60/h per shared IP)
+if command -v gh >/dev/null 2>&1; then
+  export MISE_GITHUB_TOKEN="$(gh auth token 2>/dev/null)"
+fi
+
 # AWS Stuff
 export AWS_VAULT_KEYCHAIN_NAME="login"
 export AWS_SESSION_TTL="12h"
