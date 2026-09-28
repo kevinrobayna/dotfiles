@@ -78,7 +78,7 @@ cask "gpg-suite"
 
 # AI Tools
 cask "claude"
-cask "claude-code"
+cask "claude-code@latest"
 brew "anomalyco/tap/opencode"
 
 # AWS / Google / Etc
