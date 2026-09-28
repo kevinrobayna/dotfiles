@@ -5,6 +5,7 @@ tmux-256color.src
 Brewfile.lock.json
 
 # Claude Code runtime files
+claude/dot-claude/.last-cleanup
 claude/dot-claude/backups/
 claude/dot-claude/cache/
 claude/dot-claude/history.jsonl
@@ -15,3 +16,5 @@ claude/dot-claude/file-history/
 claude/dot-claude/plans/
 claude/dot-claude/shell-snapshots/
 claude/dot-claude/skills/synced/
+claude/dot-claude/chrome
+claude/dot-claude/state
