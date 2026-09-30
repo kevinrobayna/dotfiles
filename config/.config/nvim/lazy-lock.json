@@ -1,6 +1,6 @@
 {
   "LazyVim": { "branch": "main", "commit": "999700997f72227187d49d8b92667183dc7fc809" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "cab3cff740114bd6a7d9f862839ed049f5701e47" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "90513f613907e00ce9a07cfd9773a3e18d73146e" },
   "async.nvim": { "branch": "main", "commit": "15f28ec323a75f34f317336831c00c2d1b0a7192" },
   "auto-save.nvim": { "branch": "main", "commit": "5961d5e041c227e4d99e9e44e3a7ce9c6826c145" },
   "blame.nvim": { "branch": "main", "commit": "179da7aaacce7c52874af636255ede72dd6fe796" },
@@ -29,7 +29,7 @@
   "mini.icons": { "branch": "main", "commit": "f642e3ba8c12afbc8f32f6d77ef6597eac56786f" },
   "mini.indentscope": { "branch": "main", "commit": "92fbaf895f83c59575ec599df532b297ebf62b14" },
   "mini.surround": { "branch": "main", "commit": "33a2ebe5df8eb4751828fcba133e18ed0fbbdfab" },
-  "neoconf.nvim": { "branch": "main", "commit": "bf77b09c3e18df9b438c34dee334abafadf78f47" },
+  "neoconf.nvim": { "branch": "main", "commit": "4b39a6d9f2d3d481225eedcf85d04506e2cb997e" },
   "neotest": { "branch": "master", "commit": "27bf921498043f7ecd821d6db68d05de244bbd02" },
   "neotest-golang": { "branch": "main", "commit": "65b2be63c3de00e6f15c05388ebdc8d603dbd727" },
   "neotest-python": { "branch": "master", "commit": "1b56ca4ba51c6014f986d6548ee629bdc95589d1" },
