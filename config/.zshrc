@@ -5,7 +5,6 @@
 HISTFILE=~/.zsh_history
 
 # source
-plug "$HOME/.config/zsh/aliases.zsh"
 plug "$HOME/.config/zsh/exports.zsh"
 
 plug "esc/conda-zsh-completion"
@@ -18,6 +17,9 @@ plug "Aloxaf/fzf-tab"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "wintermi/zsh-gcloud"
+
+# after plugins so our aliases override theirs
+plug "$HOME/.config/zsh/aliases.zsh"
 
 # keybinds
 bindkey '^ ' autosuggest-accept

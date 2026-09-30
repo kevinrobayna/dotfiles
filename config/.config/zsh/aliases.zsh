@@ -1,6 +1,8 @@
 alias nf="fastfetch"
 alias lg="lazygit"
 alias ld="lazydocker"
+# Override zap-zsh/exa: its bare `--icons` swallows the next arg as its value (e.g. `ls ~/dev`)
+alias ls="eza --group-directories-first --icons=auto"
 
 # Create tmux session for dev folders, also cd into them, similar to autojump
 alias t="~/personal/dotfiles/bin/tmux-sessionizer"
