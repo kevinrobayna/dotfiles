@@ -46,8 +46,13 @@ brew "the_silver_searcher"
 brew "fd"
 brew "gnu-sed"
 brew "luarocks"
+brew "tree-sitter-cli" # nvim-treesitter builds parsers with it; mason's copy is only on PATH once mason loads
 brew "imagemagick"
 cask "basictex"
+# setup_extras builds the nvim perl provider with these; system perl lacks headers
+brew "perl"
+brew "cpanminus"
+brew "wget" # used by mason
 
 # datadog-labs
 brew "datadog-labs/pack/pup"

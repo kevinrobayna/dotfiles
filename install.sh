@@ -101,6 +101,17 @@ setup_extras() {
 
   gem install erb-formatter
   gem install neovim
+
+  # nvim node, python and perl providers
+  npm install -g neovim
+  python3 -m pip install pynvim
+  cpanm --notest Neovim::Ext
+
+  # BasicTeX ships without these; vimtex compiles with latexmk
+  if test "$(command -v tlmgr)"; then
+    sudo tlmgr update --self
+    sudo tlmgr install latexmk biber
+  fi
 }
 
 setup_shell() {

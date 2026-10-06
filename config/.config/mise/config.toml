@@ -27,6 +27,10 @@ markdownlint-cli2 = "latest"
 prettier = "latest"
 "npm:@fsouza/prettierd" = "latest"
 "pypi:shandy-sqlfmt" = "latest"
+terraform = "latest"
+ast-grep = "latest" # grug-far structural search
+"npm:@mermaid-js/mermaid-cli" = "latest" # snacks mermaid rendering
+"pypi:pylatexenc" = "latest" # render-markdown latex
 
 # Kubernetes
 k9s = "latest"
