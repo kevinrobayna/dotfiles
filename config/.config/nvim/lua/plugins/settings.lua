@@ -76,6 +76,7 @@ return {
         "yamlfmt",
         "yamllint",
         "buf",
+        "xmlformatter",
       })
     end,
   },
