@@ -107,10 +107,11 @@ setup_extras() {
   python3 -m pip install pynvim
   cpanm --notest Neovim::Ext
 
-  # BasicTeX ships without these; vimtex compiles with latexmk
+  # BasicTeX ships without these; vimtex compiles with latexmk.
+  # sudo keeps the caller's umask, and a restrictive one (027) leaves the
+  # installed files unreadable to the user, so force a world-readable one.
   if test "$(command -v tlmgr)"; then
-    sudo tlmgr update --self
-    sudo tlmgr install latexmk biber
+    sudo sh -c 'umask 022 && tlmgr update --self && tlmgr install latexmk biber'
   fi
 }
 
