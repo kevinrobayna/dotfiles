@@ -133,6 +133,15 @@ cask "meetingbar"
 
 cask "elgato-camera-hub"
 
+# Blu-ray playback (keys and MakeMKV are set up by the private vlc repo's install.sh;
+# Homebrew disabled the makemkv cask)
+# Media player
+cask "vlc"
+# AACS decryption library VLC loads for Blu-rays
+brew "libaacs"
+# BD+ decryption library VLC loads for Blu-rays
+brew "libbdplus"
+
 # Apple Store Stuff
 mas "The Unarchiver", id: 425424353
 mas "Unsplash Wallpapers", id: 1284863847
