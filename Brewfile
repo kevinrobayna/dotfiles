@@ -184,8 +184,8 @@ brew "watchman"
 cask "ghostty"
 # Apple TV aerial screensaver
 cask "aerial"
-# Temporarily removed due to Apple being annoying with it recording my screen
-# cask "bartender"
+# Menu bar organizer
+cask "bartender"
 # Clipboard history manager
 cask "clipy"
 # Keep the Mac awake
@@ -218,6 +218,8 @@ cask "meetingbar"
 
 # Elgato webcam settings
 cask "elgato-camera-hub"
+# Elgato Key Light / accessory control
+cask "elgato-control-center"
 
 # Blu-ray playback (keys and MakeMKV are set up by the private vlc repo's install.sh;
 # Homebrew disabled the makemkv cask)
