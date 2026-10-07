@@ -229,6 +229,12 @@ cask "vlc"
 brew "libaacs"
 # BD+ decryption library VLC loads for Blu-rays
 brew "libbdplus"
+# Video transcoder (shrinks MakeMKV rips)
+cask "handbrake-app"
+# HandBrakeCLI, for batch-converting rips
+brew "handbrake"
+# Media server for ripped discs
+cask "jellyfin"
 
 # Apple Store Stuff
 mas "The Unarchiver", id: 425424353
