@@ -149,10 +149,6 @@ cask "gcloud-cli"
 # Web Development
 # Installer/updater for JetBrains IDEs
 cask "jetbrains-toolbox"
-# API client
-cask "postman"
-# Expose local servers through public tunnels
-cask "ngrok"
 # Container runtime VM for Docker on macOS
 brew "colima"
 # Docker CLI
@@ -168,6 +164,8 @@ brew "docker-compose"
 brew "autoconf"
 # Unicode/i18n library
 brew "icu4c"
+# YAML parser (ruby's psych links against it; without it ruby-lsp/bundler crash)
+brew "libyaml"
 # MIME type database (needed by Rails' marcel)
 brew "shared-mime-info"
 # PostgreSQL 17 server and client
@@ -194,14 +192,8 @@ cask "caffeine"
 cask "steam"
 # Arc web browser
 cask "arc"
-# Run web apps as PWAs in Firefox
-brew "firefoxpwa"
 # Markdown knowledge base / notes
 cask "obsidian"
-# Telegram messenger
-cask "telegram"
-# VS Code editor
-cask "visual-studio-code"
 # CLI for working with CODEOWNERS files
 cask "codeowner"
 # Installer-type cask, so brew keeps no receipt for an existing manual install.
