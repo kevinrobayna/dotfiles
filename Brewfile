@@ -188,8 +188,6 @@ cask "bartender"
 cask "clipy"
 # Keep the Mac awake
 cask "caffeine"
-# Game store and launcher
-cask "steam"
 # Arc web browser
 cask "arc"
 # Markdown knowledge base / notes
