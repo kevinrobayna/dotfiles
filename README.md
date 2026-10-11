@@ -21,6 +21,7 @@ Or run individual steps:
 ./install.sh macos      # Apply macOS system defaults
 ./install.sh tmux       # Install tmux plugin manager + terminfo
 ./install.sh extras     # Install extra gems and language plugins
+./install.sh docker     # Docker CLI: Homebrew plugins (buildx), Keychain logins
 ```
 
 ## What's Inside

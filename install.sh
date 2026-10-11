@@ -240,6 +240,24 @@ setup_tmux() {
   tic -x resources/xterm-256color-italic.terminfo
 }
 
+setup_docker() {
+  title "Configuring the Docker CLI"
+  # ~/.docker/config.json isn't linked from this repo: Docker rewrites it and
+  # keeps registry logins in it. Patch our settings in instead:
+  # - Homebrew installs buildx/compose outside Docker's plugin path.
+  # - Logins go to the macOS Keychain; inline (base64) tokens are dropped, so
+  #   log in again (`kamal deploy` does it itself).
+  local config="$HOME/.docker/config.json"
+  mkdir -p "$HOME/.docker"
+  [ -f "$config" ] || echo '{}' >"$config"
+  jq --arg plugins "$(brew --prefix)/lib/docker/cli-plugins" '
+    .cliPluginsExtraDirs = [$plugins]
+    | .credsStore = "osxkeychain"
+    | if .auths then .auths |= map_values(del(.auth)) else . end
+  ' "$config" >"$config.tmp" && mv "$config.tmp" "$config"
+  chmod 600 "$config"
+}
+
 case "$1" in
 link)
   setup_symlinks
@@ -262,6 +280,9 @@ tmux)
 extras)
   setup_extras
   ;;
+docker)
+  setup_docker
+  ;;
 all)
   setup_homebrew
   setup_symlinks
@@ -270,9 +291,10 @@ all)
   setup_terminfo
   setup_extras
   setup_tmux
+  setup_docker
   ;;
 *)
-  echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|extras|tmux|terminfo|macos|all}\n"
+  echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|extras|tmux|terminfo|macos|docker|all}\n"
   exit 1
   ;;
 esac

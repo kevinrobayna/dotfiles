@@ -159,6 +159,10 @@ brew "docker"
 brew "docker-buildx"
 # Multi-container orchestration plugin
 brew "docker-compose"
+# Keeps registry logins (e.g. Kamal's ghcr.io token) in the macOS Keychain
+brew "docker-credential-helper"
+# JSON processor (install.sh patches ~/.docker/config.json with it)
+brew "jq"
 
 # Ruby / Postgres
 # ruby-build needs autoconf to compile ruby (mise config sets ruby.compile)
