@@ -145,6 +145,8 @@ brew "anomalyco/tap/opencode"
 # AWS / Google / Etc
 # Google Cloud SDK (gcloud, gsutil, bq)
 cask "gcloud-cli"
+# Hetzner Cloud CLI (token lives in ~/.config/hcloud/cli.toml, not in this repo)
+brew "hcloud"
 
 # Web Development
 # Installer/updater for JetBrains IDEs

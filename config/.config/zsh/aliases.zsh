@@ -57,3 +57,7 @@ alias kubectx="kubectl-ctx"
 alias kubens="kubectl-ns"
 
 alias loc="tokei ."
+
+# 1Password shell plugins (`op plugin init <cli>`, e.g. hcloud): the CLI gets
+# its token from 1Password when it runs, never from a file on disk.
+[ -f "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
