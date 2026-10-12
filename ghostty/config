@@ -128,20 +128,20 @@ keybind = cmd+z=text:\x02\x7a
 
 # special characters
 # jump back
-keybind = cmd+left_bracket=text:\x0f
+keybind = cmd+[=text:\x0f
 # jump forward
-keybind = cmd+right_bracket=text:\x1b[105;5u
+keybind = cmd+]=text:\x1b[105;5u
 
 # switch to window by index (1-based)
-keybind = cmd+physical:one=text:\x021
-keybind = cmd+physical:two=text:\x022
-keybind = cmd+physical:three=text:\x023
-keybind = cmd+physical:four=text:\x024
-keybind = cmd+physical:five=text:\x025
-keybind = cmd+physical:six=text:\x026
-keybind = cmd+physical:seven=text:\x027
-keybind = cmd+physical:eight=text:\x028
-keybind = cmd+physical:nine=text:\x029
+keybind = cmd+1=text:\x021
+keybind = cmd+2=text:\x022
+keybind = cmd+3=text:\x023
+keybind = cmd+4=text:\x024
+keybind = cmd+5=text:\x025
+keybind = cmd+6=text:\x026
+keybind = cmd+7=text:\x027
+keybind = cmd+8=text:\x028
+keybind = cmd+9=text:\x029
 
 # switch to ghostty window by index (1-based)
 keybind = cmd+shift+physical:one=goto_tab:1
