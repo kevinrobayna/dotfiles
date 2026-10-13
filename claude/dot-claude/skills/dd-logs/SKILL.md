@@ -16,7 +16,11 @@ Search, process, and archive logs with cost awareness.
 
 ## Prerequisites
 
-Datadog Pup should already be installed. See [Setup Pup](https://github.com/datadog-labs/agent-skills/tree/main?tab=readme-ov-file#setup-pup) if not.
+Datadog Pup (dd-pup/pup) should already be installed:
+
+```bash
+cargo install --git https://github.com/DataDog/pup
+```
 
 ## Quick Start
 
@@ -33,8 +37,8 @@ pup logs search --query="status:error" --from="1h"
 # With filters
 pup logs search --query="service:api status:error" --from="1h" --limit 100
 
-# JSON output
-pup logs search --query="@http.status_code:>=500" --from="1h" --json
+# JSON output is the default
+pup logs search --query="@http.status_code:>=500" --from="1h"
 ```
 
 ### Search Syntax
@@ -48,16 +52,37 @@ pup logs search --query="@http.status_code:>=500" --from="1h" --json
 | `service:api AND env:prod` | Boolean |
 | `@message:*timeout*` | Wildcard |
 
+### Trace IDs in Log Results
+
+Logs that show a linked trace in the Datadog UI may not include `dd.trace_id` /
+`dd.span_id` in API results. When a trace ID attribute is remapped for trace
+correlation (via JSON preprocessing or a Trace Remapper processor), the source
+attribute is removed and the value is stored as an internal attribute that the
+Logs Search API does not return. The UI's "trace" link reads that internal
+attribute, so UI and API results differ.
+
+**This is expected Datadog Log Management behavior, not a pup bug or an
+instrumentation problem.** Do not retry queries or change instrumentation to
+"fix" it. Datadog is tracking making these values queryable (support reference
+FRLOGSS-4306).
+
+Workarounds until then:
+
+- Emit the trace ID under a separate attribute that is not remapped (e.g.
+  `@custom.trace_id`) and query that.
+- Pivot the other way: search spans by the log's service/time window via
+  `pup traces search`, or use the trace link in the Datadog UI.
+
 ## Pipelines
 
 Process logs before indexing:
 
 ```bash
 # List pipelines
-pup logs pipelines list
+pup obs-pipelines list
 
 # Create pipeline (JSON)
-pup logs pipelines create --json @pipeline.json
+pup obs-pipelines create --file pipeline.json
 ```
 
 ### Common Processors
@@ -104,7 +129,7 @@ pup logs pipelines create --json @pipeline.json
 
 ```bash
 # Find noisiest log sources
-pup logs search --query="*" --from="1h" --json | jq 'group_by(.service) | map({service: .[0].service, count: length}) | sort_by(-.count)[:10]'
+pup logs search --query="*" --from="1h" | jq 'group_by(.service) | map({service: .[0].service, count: length}) | sort_by(-.count)[:10]'
 ```
 
 | Exclude | Query |
@@ -135,27 +160,13 @@ pup logs archives list
 }
 ```
 
-### Rehydrate (Restore)
-
-```bash
-# Rehydrate archived logs
-pup logs rehydrate create \
-  --archive-id abc123 \
-  --from "2024-01-01T00:00:00Z" \
-  --to "2024-01-02T00:00:00Z" \
-  --query "service:api status:error"
-```
-
 ## Log-Based Metrics
 
-Create metrics from logs (cheaper than indexing):
+Inspect log-based metrics:
 
 ```bash
-# Count errors per service
-pup logs metrics create \
-  --name "api.errors.count" \
-  --query "service:api status:error" \
-  --group-by "endpoint"
+# List existing log-based metrics
+pup logs metrics list
 ```
 
 **⚠️ Cardinality warning:** Group by bounded values only.
@@ -194,6 +205,7 @@ def sanitize_log(message: str) -> str:
 | High costs | Add exclusion filters |
 | Search slow | Narrow time range, use indexes |
 | Missing attributes | Check grok parser |
+| `dd.trace_id` missing but UI shows a trace | Expected: remapped trace IDs become internal attributes (see [Trace IDs in Log Results](#trace-ids-in-log-results)) |
 
 ## References/Documentation
 

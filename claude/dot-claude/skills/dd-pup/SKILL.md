@@ -1,6 +1,6 @@
 ---
 name: dd-pup
-description: Datadog CLI (Go). OAuth2 auth with token refresh.
+description: Datadog CLI (pup). OAuth2 auth with token refresh.
 metadata:
   version: "1.0.0"
   author: datadog-labs
@@ -17,23 +17,28 @@ Pup CLI for Datadog API operations. Supports OAuth2 and API key auth.
 
 | Task | Command |
 |------|---------|
-| Search error logs | `pup logs search --query "status:error" --duration 1h` |
+| Search error logs | `pup logs search --query "status:error" --from 1h` |
 | List monitors | `pup monitors list` |
-| Mute a monitor | `pup monitors mute --id 123 --duration 1h` |
-| Find slow traces | `pup apm traces list --service api --min-duration 500ms` |
-| List active incidents | `pup incidents list --status active` |
-| Create incident | `pup incidents create --title "Issue" --severity SEV-2` |
+| Create downtime | `pup downtime create --file downtime.json` |
+| Find slow traces | `pup traces search --query="@duration:>500000000" --from="1h"` |
+| List incidents | `pup incidents list` |
 | Query metrics | `pup metrics query --query "avg:system.cpu.user{*}"` |
-| List hosts | `pup hosts list` |
+| List hosts | `pup infrastructure hosts list` |
 | Check SLOs | `pup slos list` |
-| Who's on call | `pup on-call who --team my-team` |
-| Security signals | `pup security signals list --severity critical` |
+| On-call teams | `pup on-call teams list` |
+| Security signals | `pup security signals list --query "*" --from 24h` |
+| Inspect runtime values | `pup debugger probes create --service my-svc --env prod --probe-location "com.example.MyClass:myMethod"` or `"com.example.MyClass:myMethod(String, int)"` |
+| Find probe-able methods | `pup symdb search --service my-svc --query MyController --view probe-locations` |
 | Check auth | `pup auth status` |
 | Refresh token | `pup auth refresh` |
 
 ## Prerequisites
 
-Install pup using the [setup instructions](https://github.com/datadog-labs/agent-skills/tree/main?tab=readme-ov-file#setup-pup).
+```bash
+# Install pup via Homebrew (recommended)
+brew tap datadog-labs/pack
+brew install pup
+```
 
 ## Auth
 
@@ -66,126 +71,213 @@ export DD_SITE=datadoghq.com    # or datadoghq.eu, etc.
 ```bash
 pup monitors list --limit 10
 pup monitors list --tags "env:prod"
-pup monitors get --id 12345
-pup monitors mute --id 12345 --duration 1h
-pup monitors unmute --id 12345
-pup monitors create --name "High CPU" --type "metric alert" \
-  --query "avg(last_5m):avg:system.cpu.user{*} > 80" \
-  --message "CPU high @slack-ops"
+pup monitors get 12345
+pup monitors search --query "High CPU"
+pup monitors create --file monitor.json
+pup monitors update 12345 --file monitor.json
+pup monitors delete 12345
 ```
 
 ### Logs
 ```bash
-pup logs search --query "status:error" --duration 1h
-pup logs search --query "service:payment-api" --duration 1h --limit 100
-pup logs search --query "@http.status_code:5*" --duration 24h
-pup logs search --query "env:prod level:error" --duration 1h --json
+pup logs search --query "status:error" --from 1h
+pup logs search --query "service:payment-api" --from 1h --limit 100
+pup logs search --query "@http.status_code:5*" --from 24h
+pup logs aggregate --query "service:api" --compute count --from 1h
 ```
 
 ### Metrics
 ```bash
-pup metrics query --query "avg:system.cpu.user{*}" --duration 1h
-pup metrics query --query "sum:trace.express.request.hits{service:api}" --duration 1h
+pup metrics query --query "avg:system.cpu.user{*}" --from 1h
+pup metrics query --query "sum:trace.express.request.hits{service:api}" --from 1h
 pup metrics list --filter "system.*"
 ```
 
-### APM / Traces
+### APM / Services
 ```bash
-pup apm services list
-pup apm traces list --service my-service --duration 1h
-pup apm traces list --service api --min-duration 500ms --duration 1h
-pup apm traces list --service api --status error --duration 1h
-pup apm traces get abc123def456
+pup apm services list --env production
+pup apm services stats --env production
+pup apm services operations --env production --service my-service
+pup apm services resources --env production --service my-service --name http.request
+pup apm dependencies list --env production
+```
+
+### Traces
+```bash
+# Search traces (duration in nanoseconds: 1s = 1000000000)
+pup traces search --query="service:api-gateway" --from="1h"
+pup traces search --query="service:api @duration:>1000000000" --from="1h"
+pup traces search --query="service:api status:error" --from="1h"
+pup traces aggregate --query="service:api" --compute="avg(@duration)" --group-by="resource_name" --from="1h"
 ```
 
 ### Incidents
 ```bash
-pup incidents list --status active
-pup incidents list --status resolved --duration 7d
-pup incidents create --title "API Degradation" --severity SEV-2
-pup incidents update --id abc-123 --status stable
-pup incidents resolve --id abc-123
+pup incidents list
+pup incidents list --limit 20
+pup incidents get <incident-id>
 ```
 
 ### Dashboards
 ```bash
 pup dashboards list
-pup dashboards list --tags "team:platform"
-pup dashboards get --id abc-123
-pup dashboards create --title "My Dashboard" --description "..." --widgets '[...]'
+pup dashboards get abc-123
+pup dashboards create --file dashboard.json
+pup dashboards update abc-123 --file dashboard.json
+pup dashboards delete abc-123
 ```
 
 ### SLOs
 ```bash
 pup slos list
-pup slos get --id slo-123
-pup slos history --id slo-123 --duration 30d
+pup slos get slo-123
+pup slos status slo-123 --from 30d --to now
+pup slos create --file slo.json
 ```
 
 ### Synthetics
 ```bash
-pup synthetics list
-pup synthetics results --test-id abc-123
-pup synthetics trigger --test-id abc-123
-```
-
-### On-Call
-```bash
-pup on-call teams list
-pup on-call schedules list
-pup on-call who --team platform-team
-```
-
-### Hosts / Infrastructure
-```bash
-pup hosts list --limit 50
-pup hosts list --filter "env:prod"
-pup hosts mute --hostname web-01 --duration 1h
-pup hosts get --hostname web-01
-```
-
-### Events
-```bash
-pup events list --duration 24h
-pup events list --tags "source:deploy"
-pup events post --title "Deploy started" --text "v1.2.3" --tags "env:prod"
+pup synthetics tests list
+pup synthetics tests get abc-123
+pup synthetics tests search --text "login"
+pup synthetics locations list
 ```
 
 ### Downtimes
 ```bash
 pup downtime list
-pup downtime create --scope "env:staging" --duration 2h --message "Maintenance"
-pup downtime cancel --id 12345
+pup downtime get abc-123-def
+pup downtime create --file downtime.json
+pup downtime cancel abc-123-def
+```
+
+### Infrastructure / Hosts
+```bash
+pup infrastructure hosts list
+pup infrastructure hosts list --filter "env:prod"
+pup infrastructure hosts list --count 100
+pup infrastructure hosts get <host-id>
+```
+
+### Events
+```bash
+pup events list --from 24h
+pup events list --tags "source:deploy" --from 24h
+pup events search --query "deploy" --from 24h
+pup events get <event-id>
 ```
 
 ### Users / Teams
 ```bash
 pup users list
-pup teams list
+pup users get <user-id>
+pup on-call teams list
+pup on-call teams get <team-id>
 ```
 
 ### Security
 ```bash
-pup security signals list --duration 24h
-pup security signals list --severity critical
+pup security signals list --query "*" --from 24h
+pup security signals list --query "severity:critical" --from 24h
+pup security rules list
+```
+
+### Live Debugger
+```bash
+# Check service context (verify env has active instances)
+pup debugger context my-svc
+pup debugger context my-svc --env prod
+
+# Find probe-able methods in a service
+pup symdb search --service my-svc --query MyController --view probe-locations
+
+# Place a log probe with capture expressions
+# --probe-location accepts TYPE:METHOD or TYPE:METHOD(arg1, arg2, ...) with optional signature
+pup debugger probes create --service my-svc --env prod \
+  --probe-location "com.example.MyController:handleRequest" \
+  --capture "request.id" --capture "request.headers" \
+  --ttl 1h
+
+# With method signature (useful when the method is overloaded)
+pup debugger probes create --service my-svc --env prod \
+  --probe-location "com.example.MyController:handleRequest(String, HttpHeaders)" \
+  --capture "request.id" --ttl 1h
+
+# Watch probe events — compact output
+pup debugger probes watch <PROBE_ID> --fields "message,captures,timestamp" --timeout 60 --limit 10 --wait 5
+
+# Watch — template message only
+pup debugger probes watch <PROBE_ID> --fields "message" --limit 10
+
+# List and delete probes
+pup debugger probes list --service my-svc
+pup debugger probes delete <PROBE_ID>
 ```
 
 ### Service Catalog
 ```bash
-pup services list
-pup services get --name payment-api
+pup service-catalog list
+pup service-catalog get <service-name>
 ```
 
 ### Notebooks
 ```bash
 pup notebooks list
-pup notebooks get --id 12345
+pup notebooks get 12345
+pup notebooks create --file notebook.json
 ```
 
-### Workflows
+### Observability Pipelines
 ```bash
-pup workflows list
-pup workflows trigger --id workflow-123 --input '{"key": "value"}'
+pup obs-pipelines list
+pup obs-pipelines get <pipeline-id>
+pup obs-pipelines create --file pipeline.json
+pup obs-pipelines update <pipeline-id> --file pipeline.json
+pup obs-pipelines delete <pipeline-id>
+pup obs-pipelines validate --file pipeline.json
+```
+
+### LLM Observability
+```bash
+pup llm-obs projects list
+pup llm-obs projects create --file project.json
+pup llm-obs experiments list
+pup llm-obs experiments list --filter-project-id <project-id>
+pup llm-obs experiments list --filter-dataset-id <dataset-id>
+pup llm-obs experiments create --file experiment.json
+pup llm-obs experiments update <experiment-id> --file experiment.json
+pup llm-obs experiments delete --file delete-request.json
+pup llm-obs datasets list --project-id <project-id>
+pup llm-obs datasets create --project-id <project-id> --file dataset.json
+```
+
+### Reference Tables
+```bash
+pup reference-tables list
+pup reference-tables get <table-id>
+pup reference-tables create --file table.json
+pup reference-tables batch-query --file query.json
+```
+
+### Cost Cloud Configs
+```bash
+# AWS CUR configs
+pup costs datadog aws-config list
+pup costs datadog aws-config get <account-id>
+pup costs datadog aws-config create --file config.json
+pup costs datadog aws-config delete <account-id>
+
+# Azure UC configs
+pup costs datadog azure-config list
+pup costs datadog azure-config get <account-id>
+pup costs datadog azure-config create --file config.json
+pup costs datadog azure-config delete <account-id>
+
+# GCP usage cost configs
+pup costs datadog gcp-config list
+pup costs datadog gcp-config get <account-id>
+pup costs datadog gcp-config create --file config.json
+pup costs datadog gcp-config delete <account-id>
 ```
 
 ## Subcommand Discovery
@@ -206,13 +298,20 @@ pup <command> --help    # Command-specific help
 
 ## Install
 
-See [Setup Pup](https://github.com/datadog-labs/agent-skills/tree/main?tab=readme-ov-file#setup-pup) for installation instructions.
+```bash
+# Homebrew (recommended)
+brew tap datadog-labs/pack
+brew install pup
+
+# Or build from source
+cargo install --git https://github.com/DataDog/pup
+```
 
 ### Verify Installation
 
 ```bash
-which pup
 pup --version
+pup auth status
 ```
 
 ## Sites
