@@ -7,7 +7,7 @@ Follow commit message standards when committing.
 
 ## Skills
 
-Always use the /jira skill for Jira operations.
+Always use the personio-common:acli skill for Jira operations.
 
 ## Git Branching
 
