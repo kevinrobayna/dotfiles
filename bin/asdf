@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Minimal asdf shim for plugins that hardcode `asdf install nodejs X`
+if [[ "$1" == "install" && "$2" == "nodejs" ]]; then
+  exec mise install "node@$3"
+fi
+exec mise "$@"
