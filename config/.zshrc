@@ -43,3 +43,7 @@ source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 # is what interactive shells actually use.
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 eval "$(mise activate zsh)"
+
+# Work-only config (aliases, functions, env) that never goes in this repo.
+# Like ~/.secrets, created by hand on the work laptop. Last so it overrides everything.
+[ -f "$HOME/.zshrc.work" ] && source "$HOME/.zshrc.work"

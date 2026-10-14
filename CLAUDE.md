@@ -35,6 +35,7 @@ Manual symlinks (not stow-managed):
 
 - `config/.config/nvim/` - Neovim config using LazyVim. Entry point: `init.lua` → `lua/config/lazy.lua`. Plugins in `lua/plugins/`.
 - `config/.config/zsh/` - Shell config: `exports.zsh` (env vars, tool inits) and `aliases.zsh`
+- `~/.zshrc.work` - Optional, untracked work-only zsh config (like `~/.secrets`), sourced last by `.zshrc` if present
 - `config/.config/tmux/tmux.conf` - Tmux configuration
 - `config/.config/git/` - Git config (hooks, attributes, ignore patterns)
 - `bin/` - Custom scripts: `gwt` (git worktree helper), `gwt-rm`, `tmux-sessionizer`
