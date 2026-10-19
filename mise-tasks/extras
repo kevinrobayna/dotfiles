@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#MISE description="Install neovim providers, formatters and LaTeX packages"
+#MISE depends=["tools"]
+set -euo pipefail
+
+gem install erb-formatter
+gem install neovim
+
+# nvim node, python and perl providers
+npm install -g neovim
+python3 -m pip install pynvim
+cpanm --notest Neovim::Ext
+
+# BasicTeX ships without these; vimtex compiles with latexmk.
+# sudo keeps the caller's umask, and a restrictive one (027) leaves the
+# installed files unreadable to the user, so force a world-readable one.
+if command -v tlmgr >/dev/null; then
+  sudo sh -c 'umask 022 && tlmgr update --self && tlmgr install latexmk biber'
+fi

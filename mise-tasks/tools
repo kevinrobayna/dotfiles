@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#MISE description="Install runtimes and CLI tools pinned in the mise config"
+#MISE depends=["link"]
+set -euo pipefail
+
+# Reads ~/.config/mise/config.toml, which `link` puts in place.
+mise install --yes

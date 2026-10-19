@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE description="Set up a machine from scratch (runs every task in order)"
+set -euo pipefail
+
+# Sequential rather than `depends`: mise runs dependencies in parallel, and
+# several of these prompt for sudo or need the previous step's output.
+for task in homebrew link shell macos tools extras tmux docker; do
+  mise run "$task"
+done

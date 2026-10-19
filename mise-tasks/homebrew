@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#MISE description="Install Homebrew packages from the Brewfile"
+set -euo pipefail
+
+if ! command -v brew >/dev/null; then
+  echo "Error: Homebrew not installed." >&2
+  exit 1
+fi
+
+# Homebrew 7 refuses to load formulae/casks/commands from third-party taps
+# until they are trusted, which would make `brew bundle` below skip them.
+# Trust is recorded in ~/.homebrew/trust.json, which is deliberately NOT
+# committed: it also holds work-only taps. Narrow (per-package) trust is used
+# rather than whole-tap trust so a compromised tap cannot ship anything else.
+brew trust --formula \
+  anomalyco/tap/opencode \
+  arl/arl/gitmux \
+  datadog-labs/pack/pup \
+  joshmedeski/sesh/sesh \
+  kevinrobayna/tap/aoc2md
+brew trust --cask kevinrobayna/tap/codeowner
+brew trust --command domt4/autoupdate/autoupdate
+
+brew bundle
+
+"$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
+
+if [ ! -f "$HOME/.local/share/zap/zap.zsh" ]; then
+  zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep
+fi

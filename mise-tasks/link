@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#MISE description="Symlink configs into $HOME (stow + app-support configs)"
+set -euo pipefail
+
+stow -t "$HOME" config
+stow -t "$HOME" gitconfig --dotfiles
+stow -t "$HOME" claude --dotfiles
+
+# Apps that read from ~/Library/Application Support instead of ~/.config
+link() {
+  mkdir -p "$(dirname "$2")"
+  ln -sfn "$PWD/$1" "$2"
+}
+link lazygit/config.yml "$HOME/Library/Application Support/jesseduffield/lazygit/config.yml"
+link lazydocker/config.yml "$HOME/Library/Application Support/jesseduffield/lazydocker/config.yml"
+link ghostty/config "$HOME/Library/Application Support/com.mitchellh.ghostty/config"

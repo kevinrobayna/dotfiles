@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#MISE description="Install the tmux plugin manager (tpm)"
+set -euo pipefail
+
+if [ ! -f ~/.config/tmux/plugins/tpm/tpm ]; then
+  rm -rf ~/.config/tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+else
+  echo "Found tpm, skipping"
+fi
