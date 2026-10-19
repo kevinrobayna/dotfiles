@@ -64,8 +64,11 @@ mise run tools       # Install runtimes and CLI tools from the mise config
 mise run extras      # nvim python/perl providers, LaTeX packages
 mise run tmux        # Install the tmux plugin manager
 mise run docker      # Docker CLI: Homebrew plugins (buildx), Keychain logins
-mise run update      # Upgrade Homebrew packages and mise tools
+mise run update      # Upgrade mise, its tools and Homebrew packages, then brew-cleanup
+mise run brew-cleanup  # Uninstall formulae, casks and taps not in the Brewfiles
 ```
+
+`homebrew` and `update` both end with `brew-cleanup`, so anything installed with `brew install` but not added to the `Brewfile` (or the untracked `~/.Brewfile.work`) is removed on the next run. Mac App Store apps are never touched.
 
 To add a CLI tool, add it to `config/.config/mise/config.toml` (not the Brewfile) and run `mise install`.
 

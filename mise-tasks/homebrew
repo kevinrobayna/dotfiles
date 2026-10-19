@@ -24,6 +24,8 @@ if [ -f "$HOME/.Brewfile.work" ]; then
   brew bundle --file "$HOME/.Brewfile.work"
 fi
 
+mise run brew-cleanup
+
 if [ ! -f "$HOME/.local/share/zap/zap.zsh" ]; then
   zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep
 fi

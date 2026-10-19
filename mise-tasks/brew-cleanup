@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#MISE description="Uninstall Homebrew formulae, casks and taps not in the Brewfiles"
+set -euo pipefail
+
+# brew bundle reads a single Brewfile, so merge the tracked one with the
+# untracked work one; otherwise the work packages would be removed.
+brewfile="$(mktemp)"
+trust_backup="$(mktemp)"
+trap 'rm -f "$brewfile" "$trust_backup"' EXIT
+cat Brewfile >"$brewfile"
+if [ -f "$HOME/.Brewfile.work" ]; then
+  cat "$HOME/.Brewfile.work" >>"$brewfile"
+fi
+
+# `brew bundle cleanup --force` deletes the tap trust store (seen on
+# Homebrew 7), after which brew skips every third-party formula. Restore it.
+trust="${XDG_CONFIG_HOME:+$XDG_CONFIG_HOME/homebrew}"
+trust="${trust:-$HOME/.homebrew}/trust.json"
+[ -f "$trust" ] && cp -p "$trust" "$trust_backup"
+
+# Formulae, casks and taps only. Mac App Store apps are left alone: that list
+# includes Apple's own apps and MDM-installed ones (e.g. Okta Verify).
+brew bundle cleanup --formula --cask --tap --force --file "$brewfile"
+
+if [ ! -f "$trust" ] && [ -s "$trust_backup" ]; then
+  cp -p "$trust_backup" "$trust"
+fi
