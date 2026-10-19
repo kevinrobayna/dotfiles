@@ -12,3 +12,7 @@ fi
 
 # Reads ~/.config/mise/config.toml, which `link` puts in place.
 mise install --yes
+
+# Used by the gh-stack Claude skill. Needs `gh auth login`.
+mise exec gh -- gh extension list | grep -q github/gh-stack ||
+  mise exec gh -- gh extension install github/gh-stack
