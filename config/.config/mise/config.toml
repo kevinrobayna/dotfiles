@@ -35,6 +35,7 @@ ast-grep = "latest" # grug-far structural search
 "pypi:pylatexenc" = "latest" # render-markdown latex
 
 # Kubernetes
+kubectl = "latest"
 k9s = "latest"
 krew = "latest"
 kubeconform = "latest"
