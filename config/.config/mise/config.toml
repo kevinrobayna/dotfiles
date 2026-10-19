@@ -45,6 +45,7 @@ kubeconform = "latest"
 awscli = "latest"
 aws-sam-cli = "latest"
 cookiecutter = "latest"
+sops = "latest" # encrypted secret files (KMS, age, PGP)
 
 # Misc
 lazygit = "latest"
