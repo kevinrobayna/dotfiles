@@ -9,3 +9,8 @@ brew upgrade
 brew upgrade --cask
 brew cleanup
 mise upgrade --yes
+
+# python and ruby track `latest`, and these nvim providers are tied to the
+# runtime they were installed with (pip site-packages, native gem extensions).
+mise exec python -- python3 -m pip install --quiet --upgrade pynvim
+mise install --force gem:neovim gem:erb-formatter
