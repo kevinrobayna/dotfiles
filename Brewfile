@@ -5,6 +5,7 @@
 # load them; the `homebrew` mise task does that before running `brew bundle`.
 tap "kevinrobayna/tap"
 tap "peonping/tap"
+tap "localstack/tap"
 # homebrew/autoupdate was deprecated and moved here
 tap "domt4/autoupdate"
 
@@ -109,6 +110,11 @@ brew "peonping/tap/peon-ping"
 # AWS / Google / Etc
 # Google Cloud SDK (gcloud, gsutil, bq)
 cask "gcloud-cli"
+# Store AWS credentials in the macOS Keychain
+brew "aws-vault"
+# LocalStack (local AWS emulator) CLI, plus `awslocal`, the aws CLI pointed at it
+brew "localstack/tap/localstack-cli"
+brew "awscli-local"
 
 # Web Development
 # Installer/updater for JetBrains IDEs
@@ -123,6 +129,10 @@ brew "docker-buildx"
 brew "docker-compose"
 # Keeps registry logins (e.g. Kamal's ghcr.io token) in the macOS Keychain
 brew "docker-credential-helper"
+# Docker logins for Amazon ECR registries
+brew "docker-credential-helper-ecr"
+# JVM build tool (Kotlin/Java projects)
+brew "gradle"
 
 # Ruby / Postgres
 # ruby-build needs autoconf to compile ruby (mise config sets ruby.compile)

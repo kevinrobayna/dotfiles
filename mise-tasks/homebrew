@@ -12,7 +12,7 @@ fi
 # Trust is recorded in ~/.homebrew/trust.json, which is deliberately NOT
 # committed: it also holds work-only taps. Narrow (per-package) trust is used
 # rather than whole-tap trust so a compromised tap cannot ship anything else.
-brew trust --formula peonping/tap/peon-ping
+brew trust --formula peonping/tap/peon-ping localstack/tap/localstack-cli
 brew trust --cask kevinrobayna/tap/codeowner
 brew trust --command domt4/autoupdate/autoupdate
 
