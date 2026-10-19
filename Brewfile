@@ -4,6 +4,7 @@
 # Packages from the third-party taps below must be trusted before Homebrew will
 # load them; the `homebrew` mise task does that before running `brew bundle`.
 tap "kevinrobayna/tap"
+tap "peonping/tap"
 # homebrew/autoupdate was deprecated and moved here
 tap "domt4/autoupdate"
 
@@ -76,6 +77,8 @@ brew "ctags"
 brew "gcc"
 # Up-to-date git
 brew "git"
+# Automatic git commit --fixup
+brew "git-absorb"
 # Interactive process viewer
 brew "htop"
 # Directory listing as a tree
@@ -100,6 +103,8 @@ cask "gpg-suite"
 cask "claude"
 # Claude Code CLI
 cask "claude-code@latest"
+# Sound effects and desktop notifications for AI coding agents
+brew "peonping/tap/peon-ping"
 
 # AWS / Google / Etc
 # Google Cloud SDK (gcloud, gsutil, bq)
@@ -127,6 +132,8 @@ brew "autoconf"
 brew "icu4c"
 # YAML parser (ruby's psych links against it; without it ruby-lsp/bundler crash)
 brew "libyaml"
+# Library metadata lookup used when compiling ruby and native gems
+brew "pkgconf"
 # MIME type database (needed by Rails' marcel)
 brew "shared-mime-info"
 # PostgreSQL 17 server and client
@@ -166,6 +173,20 @@ cask "1password"
 cask "1password-cli"
 # Next meeting in the menu bar
 cask "meetingbar"
+# Code editor
+cask "visual-studio-code"
+# Messaging
+cask "telegram"
+# Pair programming / screen sharing
+cask "pop-app"
+# Expose local servers through public tunnels
+cask "ngrok"
+# VM environments from a Vagrantfile
+cask "vagrant"
+# Install and manage web apps as Firefox PWAs
+brew "firefoxpwa"
+# Games
+cask "steam"
 
 # Elgato webcam settings
 cask "elgato-camera-hub"
@@ -176,6 +197,8 @@ cask "elgato-control-center"
 # Homebrew disabled the makemkv cask)
 # Media player
 cask "vlc"
+# Blu-ray player app
+cask "blu-ray-player"
 # AACS decryption library VLC loads for Blu-rays
 brew "libaacs"
 # BD+ decryption library VLC loads for Blu-rays
