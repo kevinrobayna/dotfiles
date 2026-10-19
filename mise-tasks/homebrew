@@ -12,18 +12,10 @@ fi
 # Trust is recorded in ~/.homebrew/trust.json, which is deliberately NOT
 # committed: it also holds work-only taps. Narrow (per-package) trust is used
 # rather than whole-tap trust so a compromised tap cannot ship anything else.
-brew trust --formula \
-  anomalyco/tap/opencode \
-  arl/arl/gitmux \
-  datadog-labs/pack/pup \
-  joshmedeski/sesh/sesh \
-  kevinrobayna/tap/aoc2md
 brew trust --cask kevinrobayna/tap/codeowner
 brew trust --command domt4/autoupdate/autoupdate
 
 brew bundle
-
-"$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
 
 if [ ! -f "$HOME/.local/share/zap/zap.zsh" ]; then
   zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep

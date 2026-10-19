@@ -1,9 +1,9 @@
+# CLI tools live in config/.config/mise/config.toml. Homebrew is for what mise
+# can't manage: zsh/bash/tmux, services, libraries, compilers, casks and fonts.
+
 # Packages from the third-party taps below must be trusted before Homebrew will
-# load them; `setup_homebrew` in install.sh does that before running `brew bundle`.
-tap "arl/arl"
+# load them; the `homebrew` mise task does that before running `brew bundle`.
 tap "kevinrobayna/tap"
-tap "datadog-labs/pack"
-tap "anomalyco/tap"
 # homebrew/autoupdate was deprecated and moved here
 tap "domt4/autoupdate"
 
@@ -38,46 +38,34 @@ brew "stow"
 brew "mise"
 # Cross-platform file change monitor
 brew "fswatch"
-# Fuzzy finder
-brew "fzf"
 # Modern ls replacement
 brew "eza"
 # Terminal handling library (terminfo, tput)
 brew "ncurses"
-# System info printer (neofetch successor)
-brew "fastfetch"
-# Git status in the tmux status bar
-brew "arl/arl/gitmux"
-# Syntax-highlighting pager for git diffs
-brew "git-delta"
-# Cross-shell prompt
-brew "starship"
-# Smarter cd that learns frequent directories
-brew "zoxide"
-# Terminal file manager
-brew "lf"
-# Resource monitor TUI
+# Resource monitor TUI (aqua has no macOS build)
 brew "btop"
-# Smart tmux session manager
-brew "joshmedeski/sesh/sesh"
+# System info printer (neofetch successor); aqua expects the binary at the
+# archive root but the macOS release ships it under usr/bin
+brew "fastfetch"
+
+# These have mise backends, but aqua verifies them with GitHub attestations,
+# which need Sigstore, and Sigstore is unreachable from the work network.
 # Interactive prompts for shell scripts
 brew "gum"
+# GitHub CLI
+brew "gh"
+# Cross-platform graphical process/system monitor (btm)
+brew "bottom"
+# Tree-sitter parser generator CLI
+brew "tree-sitter-cli" # nvim-treesitter builds parsers with it; mason's copy is only on PATH once mason loads
 
 #NVim Stuff
-# Neovim editor
-brew "neovim"
-# Fast recursive grep (rg)
-brew "ripgrep"
 # Code search tool (ag)
 brew "the_silver_searcher"
-# Fast, user-friendly find alternative
-brew "fd"
 # GNU sed (gsed)
 brew "gnu-sed"
 # Lua package manager
 brew "luarocks"
-# Tree-sitter parser generator CLI
-brew "tree-sitter-cli" # nvim-treesitter builds parsers with it; mason's copy is only on PATH once mason loads
 # Image conversion/manipulation tools
 brew "imagemagick"
 # Minimal TeX Live distribution
@@ -90,10 +78,6 @@ brew "cpanminus"
 # HTTP/FTP file downloader
 brew "wget" # used by mason
 
-# datadog-labs
-# Datadog CLI
-brew "datadog-labs/pack/pup"
-
 # Generic Tools
 # Fast incremental file transfer
 brew "rsync"
@@ -105,18 +89,8 @@ brew "ctags"
 brew "gcc"
 # Up-to-date git
 brew "git"
-# GitHub CLI
-brew "gh"
 # Interactive process viewer
 brew "htop"
-# cat clone with syntax highlighting
-brew "bat"
-# Cross-platform graphical process/system monitor (btm)
-brew "bottom"
-# Advent of Code project setup generator
-brew "aoc2md"
-# Count lines of code by language
-brew "tokei"
 # Directory listing as a tree
 brew "tree"
 
@@ -139,14 +113,10 @@ cask "gpg-suite"
 cask "claude"
 # Claude Code CLI
 cask "claude-code@latest"
-# Open-source terminal AI coding agent
-brew "anomalyco/tap/opencode"
 
 # AWS / Google / Etc
 # Google Cloud SDK (gcloud, gsutil, bq)
 cask "gcloud-cli"
-# Hetzner Cloud CLI (token lives in ~/.config/hcloud/cli.toml, not in this repo)
-brew "hcloud"
 
 # Web Development
 # Installer/updater for JetBrains IDEs
@@ -161,8 +131,6 @@ brew "docker-buildx"
 brew "docker-compose"
 # Keeps registry logins (e.g. Kamal's ghcr.io token) in the macOS Keychain
 brew "docker-credential-helper"
-# JSON processor (install.sh patches ~/.docker/config.json with it)
-brew "jq"
 
 # Ruby / Postgres
 # ruby-build needs autoconf to compile ruby (mise config sets ruby.compile)

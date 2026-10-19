@@ -53,6 +53,26 @@ d2 = "latest"
 glow = "latest"
 "aqua:maaslalani/slides" = "latest"
 acli = "latest"
+"github:kevinrobayna/aoc2md" = "latest"
+tokei = "latest"
+hcloud = "latest" # token lives in ~/.config/hcloud/cli.toml, not in this repo
+"github:datadog-labs/pup" = "latest"
+opencode = "latest"
+
+# Shell / terminal
+fzf = "latest"
+starship = "latest"
+zoxide = "latest"
+delta = "latest"
+bat = "latest"
+"aqua:gokcehan/lf" = "latest"
+"aqua:joshmedeski/sesh" = "latest"
+"aqua:arl/gitmux" = "latest"
+
+# Neovim
+neovim = "latest" # tree-sitter stays in brew (see Brewfile)
+ripgrep = "latest"
+fd = "latest"
 
 [settings]
 # mise ignores .nvmrc/.ruby-version/.python-version by default; repos that ship
