@@ -34,8 +34,6 @@ brew "bash"
 brew "tmux"
 # Symlink farm manager used to install these dotfiles
 brew "stow"
-# Polyglot runtime/tool version manager
-brew "mise"
 # Cross-platform file change monitor
 brew "fswatch"
 # Modern ls replacement

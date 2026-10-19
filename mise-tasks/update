@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-#MISE description="Upgrade Homebrew packages and mise tools"
+#MISE description="Upgrade mise, its tools, and Homebrew packages"
 set -euo pipefail
+
+mise self-update --yes
 
 brew update
 brew upgrade

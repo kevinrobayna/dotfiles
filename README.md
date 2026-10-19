@@ -14,12 +14,14 @@ Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
    eval "$(/opt/homebrew/bin/brew shellenv)"
    ```
 
-2. Install mise and log in to GitHub with the `gh` it provides. mise uses the
-   token for GitHub API calls; anonymously it runs out of rate limit partway
-   through the install:
+2. Install [mise](https://mise.jdx.dev) (into `~/.local/bin`; `mise run update`
+   keeps it current with `mise self-update`) and log in to GitHub with the `gh`
+   it provides. mise uses the token for GitHub API calls; anonymously it runs
+   out of rate limit partway through the install:
 
    ```bash
-   brew install mise
+   curl https://mise.run | sh
+   export PATH="$HOME/.local/bin:$PATH"
    mise exec gh -- gh auth login
    ```
 

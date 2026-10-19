@@ -23,9 +23,10 @@ fi
 if (( $+commands[brew] )); then
     fpath=("$(brew --prefix)/share/zsh/functions" $fpath)
 fi
-# mise shims, for tools that read a login shell's env but never run .zshrc
-# (e.g. JetBrains). Interactive shells use `mise activate` in .zshrc instead.
-export PATH="$HOME/.local/share/mise/shims:$PATH"
+# mise itself (installed from mise.run into ~/.local/bin; .zshrc activates it),
+# and its shims for tools that read a login shell's env but never run .zshrc
+# (e.g. JetBrains). Interactive shells use `mise activate` instead.
+export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
 
 fpath=(${(u)fpath})     # de-duplicate
 fpath=(${^fpath}(N-/))  # keep only directories that still exist
