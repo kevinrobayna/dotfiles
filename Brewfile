@@ -127,6 +127,8 @@ brew "docker-compose"
 brew "docker-credential-helper"
 # Docker logins for Amazon ECR registries
 brew "docker-credential-helper-ecr"
+# Decompile Java/Kotlin .class and .jar files back to Java source
+brew "cfr-decompiler"
 # Ruby / Postgres
 # ruby-build needs autoconf to compile ruby (mise config sets ruby.compile)
 # Generates configure scripts for building from source
