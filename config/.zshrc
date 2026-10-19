@@ -4,6 +4,11 @@
 # history
 HISTFILE=~/.zsh_history
 
+# mise manages runtimes and CLI tools, and exports.zsh runs some of them
+# (zoxide, starship, fzf), so activate first. Its precmd hook re-prepends the
+# mise paths on every prompt, so the PATH exports below can't shadow them.
+eval "$(mise activate zsh)"
+
 # source
 plug "$HOME/.config/zsh/exports.zsh"
 
@@ -36,13 +41,6 @@ export PATH="$(eval "brew --prefix")/sbin:$PATH"
 export PATH="$HOME/.rd/bin:$PATH"
 
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-
-# mise manages the language runtimes (java, node, python, ruby, go, rust).
-# Last thing in the file so it wins over every PATH export above.
-# Shims are for GUI apps like JetBrains that never source this file; activate
-# is what interactive shells actually use.
-export PATH="$HOME/.local/share/mise/shims:$PATH"
-eval "$(mise activate zsh)"
 
 # Work-only config (aliases, functions, env) that never goes in this repo.
 # Like ~/.secrets, created by hand on the work laptop. Last so it overrides everything.
