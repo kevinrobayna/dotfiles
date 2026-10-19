@@ -13,6 +13,12 @@ fi
 # Reads ~/.config/mise/config.toml, which `link` puts in place.
 mise install --yes
 
-# Used by the gh-stack Claude skill. Needs `gh auth login`.
-mise exec gh -- gh extension list | grep -q github/gh-stack ||
-  mise exec gh -- gh extension install github/gh-stack
+# gh extensions. Needs `gh auth login`.
+extensions=(
+  github/gh-stack     # stacked PRs (used by the gh-stack Claude skill)
+  basecamp/gh-signoff # local CI signoff as a commit status
+)
+installed="$(mise exec gh -- gh extension list)"
+for ext in "${extensions[@]}"; do
+  grep -q "$ext" <<<"$installed" || mise exec gh -- gh extension install "$ext"
+done
