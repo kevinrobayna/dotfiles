@@ -4,7 +4,6 @@
 # Packages from the third-party taps below must be trusted before Homebrew will
 # load them; the `homebrew` mise task does that before running `brew bundle`.
 tap "kevinrobayna/tap"
-tap "peonping/tap"
 tap "localstack/tap"
 # homebrew/autoupdate was deprecated and moved here
 tap "domt4/autoupdate"
@@ -104,9 +103,6 @@ cask "gpg-suite"
 cask "claude"
 # Claude Code CLI
 cask "claude-code@latest"
-# Sound effects and desktop notifications for AI coding agents
-brew "peonping/tap/peon-ping"
-
 # AWS / Google / Etc
 # Google Cloud SDK (gcloud, gsutil, bq)
 cask "gcloud-cli"
@@ -131,9 +127,6 @@ brew "docker-compose"
 brew "docker-credential-helper"
 # Docker logins for Amazon ECR registries
 brew "docker-credential-helper-ecr"
-# JVM build tool (Kotlin/Java projects)
-brew "gradle"
-
 # Ruby / Postgres
 # ruby-build needs autoconf to compile ruby (mise config sets ruby.compile)
 # Generates configure scripts for building from source

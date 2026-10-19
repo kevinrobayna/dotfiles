@@ -1,5 +1,6 @@
 [tools]
 java = "corretto-23.0.2.7.1"
+gradle = "latest" # runs on the java above
 python = "latest"
 node = "latest"
 ruby = "latest"
