@@ -14,12 +14,24 @@ Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
    eval "$(/opt/homebrew/bin/brew shellenv)"
    ```
 
-2. Install mise and the GitHub CLI, and log in. mise uses the token for GitHub
-   API calls; anonymously it runs out of rate limit partway through the install:
+2. Install mise and log in to GitHub with the `gh` it provides. mise uses the
+   token for GitHub API calls; anonymously it runs out of rate limit partway
+   through the install:
 
    ```bash
-   brew install mise gh
-   gh auth login
+   brew install mise
+   mise exec gh -- gh auth login
+   ```
+
+   On a network that blocks Sigstore (`*.sigstore.dev`), mise can't verify
+   release provenance and every install fails with `TUF repository load
+   failed`. On such a machine, export these first (and keep them in the
+   untracked `~/.zshrc.work`); SHA256 checksums still run:
+
+   ```bash
+   export MISE_GITHUB_ATTESTATIONS=false MISE_SLSA=false \
+     MISE_AQUA_GITHUB_ATTESTATIONS=false MISE_AQUA_COSIGN=false MISE_AQUA_SLSA=false \
+     MISE_GITHUB_GITHUB_ATTESTATIONS=false MISE_GITHUB_SLSA=false
    ```
 
 3. Clone the repo and run the bootstrap task:

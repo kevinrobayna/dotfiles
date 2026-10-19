@@ -21,7 +21,9 @@ Lint task scripts with `shellcheck mise-tasks/*`.
 
 ### mise vs Homebrew
 
-CLI tools go in `config/.config/mise/config.toml`. The Brewfile holds only what mise can't manage: zsh/bash/tmux, stow, services, libraries/compilers, casks, fonts, and a few tools whose aqua packages fail on this machine (see Brewfile comments; Sigstore is blocked on the work network, which breaks aqua's attestation check).
+CLI tools go in `config/.config/mise/config.toml`. The Brewfile holds only what mise can't manage: zsh/bash/tmux, stow, services, libraries/compilers, casks, fonts, and btop/fastfetch, whose aqua packages don't work on macOS (see Brewfile comments).
+
+Sigstore is blocked on the work network, so the work laptop's untracked `~/.zshrc.work` sets `MISE_*` env vars that turn off mise's provenance checks (attestations, cosign, SLSA). Attestation failures elsewhere are a real signal, not this.
 
 ## Architecture
 

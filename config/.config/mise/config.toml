@@ -68,11 +68,15 @@ bat = "latest"
 "aqua:gokcehan/lf" = "latest"
 "aqua:joshmedeski/sesh" = "latest"
 "aqua:arl/gitmux" = "latest"
+gh = "latest"
+gum = "latest"
+bottom = "latest"
 
 # Neovim
-neovim = "latest" # tree-sitter stays in brew (see Brewfile)
+neovim = "latest"
 ripgrep = "latest"
 fd = "latest"
+tree-sitter = "latest" # nvim-treesitter builds parsers with it
 "gem:erb-formatter" = "latest"
 "gem:neovim" = "latest" # ruby provider
 "npm:neovim" = "latest" # node provider

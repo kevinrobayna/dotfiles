@@ -48,17 +48,6 @@ brew "btop"
 # archive root but the macOS release ships it under usr/bin
 brew "fastfetch"
 
-# These have mise backends, but aqua verifies them with GitHub attestations,
-# which need Sigstore, and Sigstore is unreachable from the work network.
-# Interactive prompts for shell scripts
-brew "gum"
-# GitHub CLI
-brew "gh"
-# Cross-platform graphical process/system monitor (btm)
-brew "bottom"
-# Tree-sitter parser generator CLI
-brew "tree-sitter-cli" # nvim-treesitter builds parsers with it; mason's copy is only on PATH once mason loads
-
 #NVim Stuff
 # Code search tool (ag)
 brew "the_silver_searcher"
