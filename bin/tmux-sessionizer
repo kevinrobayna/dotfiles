@@ -1,22 +1,12 @@
 #!/usr/bin/env zsh
 
-mkdir -p ~/dev
-mkdir -p ~/personal
+mkdir -p ~/dev ~/personal
 
-zoxide add ~/dev
-zoxide add ~/personal
+# Put the real tool binaries on PATH: every call through a mise shim costs
+# ~250ms, which adds up for the tools below.
+eval "$(mise env -s zsh)"
 
 # Make sure everything under dev and personal is added to zoxide
-if [ -n "$(find ~/dev/ -prune -empty -type d 2>/dev/null)" ]
-then
-else
-  ls -d ~/dev/* | xargs -I {} zoxide add {}
-fi
-
-if [ -n "$(find ~/personal/ -prune -empty -type d 2>/dev/null)" ]
-then
-else
-  ls -d ~/personal/* | xargs -I {} zoxide add {}
-fi
+zoxide add ~/dev ~/personal ~/dev/*(N/) ~/personal/*(N/)
 
 sesh connect $(sesh list -i | gum filter --limit 1 --placeholder 'Pick a session' --height 60 --prompt='⚡')
