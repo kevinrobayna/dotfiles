@@ -24,7 +24,7 @@ alias vim="nvim"
 alias ..='cd ..'
 alias dus='du -hs'
 alias df='df -h'
-alias brewu='brew update;brew upgrade;brew upgrade --cask;brew cleanup'
+alias brewu='mise -C ~/personal/dotfiles run update'
 
 alias less='less -r'
 

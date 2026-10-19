@@ -70,7 +70,7 @@ brew "luarocks"
 brew "imagemagick"
 # Minimal TeX Live distribution
 cask "basictex"
-# setup_extras builds the nvim perl provider with these; system perl lacks headers
+# the `extras` mise task builds the nvim perl provider with these; system perl lacks headers
 # Perl 5 interpreter
 brew "perl"
 # Lightweight CPAN module installer

@@ -1,28 +1,59 @@
 # dotfiles
 
-Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/). Configs for Neovim, zsh, tmux, git, and more — plus 150+ Homebrew packages and opinionated macOS defaults.
+Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) and [mise](https://mise.jdx.dev). Configs for Neovim, zsh, tmux, git, and more, plus opinionated macOS defaults. mise installs the language runtimes and CLI tools; Homebrew covers only what mise can't (zsh, tmux, services, libraries, casks and fonts).
 
 ![dotfiles image](./setup.png)
 
-## Quick Start
+## Bootstrapping a new laptop
+
+1. Install the Xcode command line tools (for `git`) and [Homebrew](https://brew.sh):
+
+   ```bash
+   xcode-select --install
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   eval "$(/opt/homebrew/bin/brew shellenv)"
+   ```
+
+2. Install mise and the GitHub CLI, and log in. mise uses the token for GitHub
+   API calls; anonymously it runs out of rate limit partway through the install:
+
+   ```bash
+   brew install mise gh
+   gh auth login
+   ```
+
+3. Clone the repo and run the bootstrap task:
+
+   ```bash
+   git clone https://github.com/kevinrobayna/dotfiles ~/personal/dotfiles
+   cd ~/personal/dotfiles
+   touch ~/.secrets          # KEY=value env vars the shell exports; never committed
+   mise run bootstrap
+   ```
+
+   It asks for your password a few times (`/etc/shells`, `chsh`, `tlmgr`), and
+   it is safe to re-run.
+
+4. Open a new terminal, start tmux, and press `prefix + I` to install the tmux plugins.
+
+## Tasks
+
+Every setup step is a [mise file task](https://mise.jdx.dev/tasks/file-tasks.html) in `mise-tasks/`. Run `mise tasks` to list them, or run any one on its own:
 
 ```bash
-git clone https://github.com/kevinrobayna/dotfiles ~/personal/dotfiles
-cd ~/personal/dotfiles
-./install.sh all        # Run everything below
+mise run bootstrap   # Everything below, in order
+mise run homebrew    # Install Homebrew packages from the Brewfile
+mise run link        # Symlink configs into $HOME (via stow)
+mise run shell       # Set Homebrew zsh as the default shell
+mise run macos       # Apply macOS system defaults
+mise run tools       # Install runtimes and CLI tools from the mise config
+mise run extras      # nvim python/perl providers, LaTeX packages
+mise run tmux        # Install the tmux plugin manager
+mise run docker      # Docker CLI: Homebrew plugins (buildx), Keychain logins
+mise run update      # Upgrade Homebrew packages and mise tools
 ```
 
-Or run individual steps:
-
-```bash
-./install.sh link       # Symlink configs into $HOME (via stow)
-./install.sh homebrew   # Install Homebrew packages from Brewfile
-./install.sh shell      # Set zsh as default shell
-./install.sh macos      # Apply macOS system defaults
-./install.sh tmux       # Install tmux plugin manager + terminfo
-./install.sh extras     # Install extra gems and language plugins
-./install.sh docker     # Docker CLI: Homebrew plugins (buildx), Keychain logins
-```
+To add a CLI tool, add it to `config/.config/mise/config.toml` (not the Brewfile) and run `mise install`.
 
 ## What's Inside
 
@@ -36,7 +67,7 @@ Or run individual steps:
 
 **macOS** — [Hammerspoon](https://www.hammerspoon.org) hotkeys, Finder tweaks, keyboard repeat speed, Dock settings, and 30+ system defaults
 
-**Dev Tools** — Docker via [Colima](https://github.com/abiosoft/colima), [mise](https://mise.jdx.dev) for language runtimes, AWS CLI, GCloud CLI, [k9s](https://k9scli.io)
+**Dev Tools** — Docker via [Colima](https://github.com/abiosoft/colima), [mise](https://mise.jdx.dev) for language runtimes and CLI tools, AWS CLI, GCloud CLI, [k9s](https://k9scli.io)
 
 ## Custom Scripts
 
@@ -71,4 +102,4 @@ ghostty/config        -> ~/Library/Application Support/com.mitchellh.ghostty/con
 ## Requirements
 
 - macOS
-- [Homebrew](https://brew.sh) (installed automatically by `install.sh` if missing)
+- [Homebrew](https://brew.sh) and [mise](https://mise.jdx.dev) (see [Bootstrapping a new laptop](#bootstrapping-a-new-laptop))

@@ -4,24 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Personal dotfiles for macOS. Configs are managed with GNU Stow and symlinked into `$HOME` via `install.sh`.
+Personal dotfiles for macOS. Configs are managed with GNU Stow and symlinked into `$HOME`; setup steps are mise file tasks in `mise-tasks/`.
 
 ## Setup Commands
 
 ```bash
-./install.sh link       # Symlink configs into $HOME (uses stow)
-./install.sh homebrew   # Install Homebrew packages from Brewfile
-./install.sh shell      # Set zsh as default shell
-./install.sh macos      # Apply macOS defaults
-./install.sh tmux       # Install tmux plugin manager (tpm)
-./install.sh all        # Run all of the above
+mise run bootstrap   # Run every task below, in order
+mise run link        # Symlink configs into $HOME (uses stow)
+mise run homebrew    # Install Homebrew packages from Brewfile
+mise run tools       # mise install (runtimes + CLI tools)
+mise run update      # brew upgrade + mise upgrade
+mise tasks           # List all tasks
 ```
+
+Lint task scripts with `shellcheck mise-tasks/*`.
+
+### mise vs Homebrew
+
+CLI tools go in `config/.config/mise/config.toml`. The Brewfile holds only what mise can't manage: zsh/bash/tmux, stow, services, libraries/compilers, casks, fonts, and a few tools whose aqua packages fail on this machine (see Brewfile comments; Sigstore is blocked on the work network, which breaks aqua's attestation check).
 
 ## Architecture
 
 ### Symlink Strategy (GNU Stow)
 
-Three stow packages are used in `install.sh`:
+Three stow packages are used in `mise-tasks/link`:
 - `config/` - stowed to `$HOME` (contains `.config/` subtree: nvim, zsh, tmux, git, bat, btop, htop, lf, starship)
 - `gitconfig/` - stowed to `$HOME` with `--dotfiles` flag (files prefixed `dot-` become `.` files)
 - `claude/` - stowed to `$HOME` with `--dotfiles` flag (Claude Code config at `dot-claude/`)

@@ -3,5 +3,12 @@
 #MISE depends=["link"]
 set -euo pipefail
 
+# Anonymous GitHub API calls are capped at 60/h, fewer than the tools below
+# need on a fresh machine. On later runs the shell has already exported it.
+if [ -z "${MISE_GITHUB_TOKEN:-}" ] && command -v gh >/dev/null; then
+  MISE_GITHUB_TOKEN="$(gh auth token 2>/dev/null || true)"
+  export MISE_GITHUB_TOKEN
+fi
+
 # Reads ~/.config/mise/config.toml, which `link` puts in place.
 mise install --yes
