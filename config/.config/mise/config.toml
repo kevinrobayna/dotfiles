@@ -73,6 +73,9 @@ bat = "latest"
 neovim = "latest" # tree-sitter stays in brew (see Brewfile)
 ripgrep = "latest"
 fd = "latest"
+"gem:erb-formatter" = "latest"
+"gem:neovim" = "latest" # ruby provider
+"npm:neovim" = "latest" # node provider
 
 [settings]
 # mise ignores .nvmrc/.ruby-version/.python-version by default; repos that ship

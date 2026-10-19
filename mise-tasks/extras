@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
-#MISE description="Install neovim providers, formatters and LaTeX packages"
+#MISE description="Install the nvim python/perl providers and LaTeX packages"
 #MISE depends=["tools"]
 set -euo pipefail
 
-gem install erb-formatter
-gem install neovim
-
-# nvim node, python and perl providers
-npm install -g neovim
+# The ruby and node providers come from mise (gem:neovim, npm:neovim). These
+# two don't: pypi: tools get an isolated venv, where nvim can't import pynvim.
 python3 -m pip install pynvim
 cpanm --notest Neovim::Ext
 

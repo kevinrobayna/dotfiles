@@ -27,6 +27,14 @@ opt.cursorline = true -- highlight the current cursor line
 
 vim.g.autoformat = false
 
+-- The node provider only searches `npm root -g`, but mise installs the neovim
+-- package (npm:neovim) in its own prefix. Point at the JS entry point, not the
+-- .bin shim: nvim runs it with `node`.
+local node_host = vim.fn.expand("~/.local/share/mise/installs/npm-neovim/latest/node_modules/neovim/bin/cli.js")
+if vim.uv.fs_stat(node_host) then
+  vim.g.node_host_prog = node_host
+end
+
 -- appearance
 opt.guicursor = ""
 
