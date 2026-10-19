@@ -1,9 +1,9 @@
 [tools]
 java = "corretto-23.0.2.7.1"
-python = "3.11.16"
-node = "24.18.0"
-ruby = "4.0.1"
-go = "1.27.1"
+python = "latest"
+node = "latest"
+ruby = "latest"
+go = "latest"
 rust = "stable"
 uv = "latest" # backend for the pypi: tools below
 
