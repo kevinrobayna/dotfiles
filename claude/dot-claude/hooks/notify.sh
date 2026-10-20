@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Notification hook: focuses the tmux pane running Claude Code and
-# sends a macOS notification so the user knows Claude needs attention.
+# Notification hook: focuses the tmux pane running Claude Code so the
+# user lands right back in it. Alerts come from Bartender's Top Shelf.
 
 LOG="/tmp/claude-notify-hook.log"
 
@@ -25,11 +25,3 @@ if [[ -n "${TMUX:-}" ]]; then
 else
   log "Not in tmux, skipping focus"
 fi
-
-# --- macOS notification ---
-project=$(basename "$PWD")
-log "Sending notification for project: $project"
-
-osascript -e "display notification \"Claude needs your attention\" with title \"Claude Code - $project\""
-
-log "Notification sent"
