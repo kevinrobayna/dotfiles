@@ -19,6 +19,30 @@ return {
         hidden = true,
         sources = {
           files = { hidden = true },
+          -- The sidebar's hidden layout windows make vim-tmux-navigator's
+          -- `wincmd` succeed, so it never hands off to tmux. Go to tmux directly.
+          explorer = {
+            actions = (function()
+              local actions = {}
+              for dir, flag in pairs({ left = "L", down = "D", up = "U" }) do
+                actions["tmux_" .. dir] = function()
+                  if vim.env.TMUX then
+                    vim.fn.system({ "tmux", "select-pane", "-t", vim.env.TMUX_PANE, "-" .. flag })
+                  end
+                end
+              end
+              return actions
+            end)(),
+            win = {
+              list = {
+                keys = {
+                  ["<c-h>"] = "tmux_left",
+                  ["<c-j>"] = "tmux_down",
+                  ["<c-k>"] = "tmux_up",
+                },
+              },
+            },
+          },
         },
       },
       image = {},
