@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Minimal fzf-tmux shim for plugins that hardcode it (mise's fzf ships without it)
+# Translates fzf-tmux's -p/-d sizing into `fzf --tmux`
+position=center
+case "$1" in
+  -p) position="center,$2"; shift 2 ;;
+  -d) position="bottom,$2"; shift 2 ;;
+esac
+exec fzf --tmux "$position" "$@"
