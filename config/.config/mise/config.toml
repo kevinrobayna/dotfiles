@@ -89,6 +89,12 @@ tree-sitter = "latest" # nvim-treesitter builds parsers with it
 # only those (and no .tool-versions) still need to resolve correctly.
 idiomatic_version_file_enable_tools = ["node", "ruby", "python", "java"]
 
+[settings.github]
+# Authenticates GitHub API calls (anonymous limit is 60/h per shared IP). gh
+# keeps its token in the keychain, which mise can't read, and mise only runs
+# this when it needs a token, so it costs nothing per shell or prompt.
+credential_command = "gh auth token"
+
 [settings.ruby]
 # mise's precompiled ruby is verified via GitHub artifact attestations, which
 # need tuf-repo-cdn.sigstore.dev — blocked on the work network (TLS handshake

@@ -47,10 +47,10 @@ export RUBY_CONFIGURE_OPTS="--enable-yjit"
 export RUBY_YJIT_ENABLE=1
 
 # Postgress
-export PATH="$(eval "brew --prefix")/opt/postgresql@17/bin:$PATH"
-export LDFLAGS="-L$(eval "brew --prefix")/opt/postgresql@17/lib"
-export CPPFLAGS="-I$(eval "brew --prefix")/opt/postgresql@17/include"
-export PKG_CONFIG_PATH="$(eval "brew --prefix")/opt/postgresql@17/lib/pkgconfig"
+export PATH="$HOMEBREW_PREFIX/opt/postgresql@17/bin:$PATH"
+export LDFLAGS="-L$HOMEBREW_PREFIX/opt/postgresql@17/lib"
+export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/postgresql@17/include"
+export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/postgresql@17/lib/pkgconfig"
 
 export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
 export FZF_PREVIEW_ADVANCED=true
@@ -76,11 +76,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # To fix my hack of github.com-work
 export GH_HOST=github.com
 
-# Authenticate mise's GitHub API calls (anonymous limit is 60/h per shared IP)
-if command -v gh >/dev/null 2>&1; then
-  export MISE_GITHUB_TOKEN="$(gh auth token 2>/dev/null)"
-fi
-
 # AWS Stuff
 export AWS_VAULT_KEYCHAIN_NAME="login"
 export AWS_SESSION_TTL="12h"
@@ -96,7 +91,19 @@ export ANTHROPIC_MODEL="claude-opus-5-5"
 # Testcontainers should use the Colima VM instance local address as host
 export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
-export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address // ""')
+# `colima ls` takes ~0.5s, so resolve the address before the first JVM build
+# instead of on every shell start; retry until the VM is up. The VM only has an
+# address when colima.yaml sets `network.address: true`.
+_testcontainers_host_override() {
+  [[ $1 == *(gradle|mvn)* ]] || return 0
+  local vm address
+  vm=$(colima ls -j 2>/dev/null)
+  address=$(jq -r '.address // ""' <<<"$vm")
+  [[ -n $address ]] && export TESTCONTAINERS_HOST_OVERRIDE=$address
+  [[ $(jq -r '.status' <<<"$vm") == Running ]] && add-zsh-hook -d preexec _testcontainers_host_override
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec _testcontainers_host_override
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
@@ -117,5 +124,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+source "$HOMEBREW_PREFIX/share/google-cloud-sdk/path.zsh.inc"
+source "$HOMEBREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc"

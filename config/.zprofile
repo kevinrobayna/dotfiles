@@ -20,8 +20,8 @@ fi
 # is-at-least, colors, bashcompinit, etc. fail to load. The
 # $(brew --prefix)/share/zsh/functions symlink always tracks the current zsh
 # version, so re-add it and drop any fpath entries that no longer exist.
-if (( $+commands[brew] )); then
-    fpath=("$(brew --prefix)/share/zsh/functions" $fpath)
+if [[ -n $HOMEBREW_PREFIX ]]; then
+    fpath=("$HOMEBREW_PREFIX/share/zsh/functions" $fpath)
 fi
 # mise itself (installed from mise.run into ~/.local/bin; .zshrc activates it),
 # and its shims for tools that read a login shell's env but never run .zshrc

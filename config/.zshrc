@@ -36,11 +36,9 @@ bindkey -e
 export PATH="/Library/TeX/texbin:$HOME/.local/bin":$PATH
 export PATH="/usr/local/texlive/2026basic/bin/universal-darwin:$PATH"
 # Help homebrew
-export PATH="$(eval "brew --prefix")/sbin:$PATH"
+export PATH="$HOMEBREW_PREFIX/sbin:$PATH"
 
 export PATH="$HOME/.rd/bin:$PATH"
-
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 
 # Work-only config (aliases, functions, env) that never goes in this repo.
 # Like ~/.secrets, created by hand on the work laptop. Last so it overrides everything.

@@ -4,7 +4,8 @@
 set -euo pipefail
 
 # Anonymous GitHub API calls are capped at 60/h, fewer than the tools below
-# need on a fresh machine. On later runs the shell has already exported it.
+# need on a fresh machine, where gh isn't installed yet for the config's
+# github.credential_command to run.
 if [ -z "${MISE_GITHUB_TOKEN:-}" ]; then
   MISE_GITHUB_TOKEN="$(mise exec gh -- gh auth token 2>/dev/null || true)"
   export MISE_GITHUB_TOKEN
