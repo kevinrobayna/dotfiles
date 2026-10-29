@@ -5,9 +5,15 @@
 Prefer using any CLI over MCP.
 Follow commit message standards when committing.
 
-## Skills
+## Shell
 
-Always use the personio-common:acli skill for Jira operations.
+The Bash tool runs commands in **zsh** (my login shell), not bash. Write zsh-correct commands:
+- Unquoted `$var` does NOT word-split: `M="a b"; cmd $M` passes one argument. Use an array (`m=(a b); cmd $m`), force splitting with `${=M}`, or write the arguments out.
+- Build per-item args from an array with `${^m}`: `m=(api core); ./gradlew ${^m}:test` → `api:test core:test`.
+- `for x in $list` doesn't split a string either; loop over an array or `${=list}`.
+- Arrays are 1-indexed.
+- An unmatched glob is an error (`no matches found`): quote patterns meant for the tool, e.g. `--tests '*FooTest*'`, `find . -name '*.kt'`.
+- If a snippet really needs bash semantics, run it with `bash -c '...'`.
 
 ## Git Branching
 
