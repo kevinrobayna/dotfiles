@@ -141,6 +141,8 @@ brew "libyaml"
 brew "pkgconf"
 # MIME type database (needed by Rails' marcel)
 brew "shared-mime-info"
+# Image processing library (Active Storage variants via ruby-vips)
+brew "vips"
 # PostgreSQL 17 server and client
 brew "postgresql@17"
 # PostgreSQL SQL formatter
