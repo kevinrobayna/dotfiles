@@ -163,8 +163,8 @@ cask "bartender"
 cask "clipy"
 # Keep the Mac awake
 cask "caffeine"
-# Arc web browser
-cask "arc"
+# Zen web browser (Firefox-based)
+cask "zen"
 # Markdown knowledge base / notes
 cask "obsidian"
 # CLI for working with CODEOWNERS files
