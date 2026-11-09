@@ -45,5 +45,9 @@ else
     || git worktree add "$worktree_path" "origin/$base_branch"
 fi
 
-# Connect via sesh (creates tmux session and switches to it)
-sesh connect "$worktree_path"
+# Open a session for the worktree and switch to it
+if [[ -n $REX_SESSION ]]; then
+  "${0:A:h}/rex-open-session" "$worktree_path"
+else
+  sesh connect "$worktree_path"   # creates a tmux session and switches to it
+fi

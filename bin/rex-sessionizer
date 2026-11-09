@@ -1,0 +1,58 @@
+#!/usr/bin/env zsh
+# Rex counterpart of tmux-sessionizer: pick an open Rex session or a project
+# directory; a directory gets a session named after it (reused if it exists).
+#
+#   rex-sessionizer          pick interactively and switch to the result
+#   rex-sessionizer --list   print the picker entries and exit
+
+mkdir -p ~/dev ~/personal
+
+# Put the real tool binaries on PATH: every call through a mise shim costs
+# ~250ms, which adds up for the tools below.
+eval "$(mise env -s zsh)"
+
+# Make sure everything under dev and personal is added to zoxide
+zoxide add ~/dev ~/personal ~/dev/*(N/) ~/personal/*(N/)
+
+session_mark='● '
+
+# Prints "<session_id>\t<label>" for every open Rex session.
+sessions() {
+  rex ls --json | jq -r '.sessions[] | "\(.session_id)\t\(.label)"'
+}
+
+# Picker entries: open sessions first, then zoxide directories with ~ for $HOME.
+entries() {
+  sessions | cut -f2 | sed "s/^/$session_mark/"
+  zoxide query -l | sed "s|^$HOME|~|"
+}
+
+# Prints the ID of the session labelled $1, if any.
+session_id_for() {
+  sessions | awk -F'\t' -v label="$1" '$2 == label { print $1; exit }'
+}
+
+fail() {
+  print -u2 -- "rex-sessionizer: $1"
+  read -sk1 '?Press any key to close.'
+  exit 1
+}
+
+if [[ $1 == --list ]]; then
+  entries
+  exit
+fi
+
+choice=$(entries | gum filter --limit 1 --placeholder 'Pick a session' --height 60 --prompt='⚡') || exit 0
+[[ -n $choice ]] || exit 0
+
+if [[ $choice == $session_mark* ]]; then
+  label=${choice#$session_mark}
+  id=$(session_id_for "$label")
+  [[ -n $id ]] || fail "no session named $label"
+  # REX_CLIENT (set by the sessionizer action) picks the app that asked.
+  rex do session.select session_id="$id" >/dev/null ||
+    fail "could not switch to $label. Turn on Remote Control in Rex settings, or switch with cmd+k."
+else
+  "${0:A:h}/rex-open-session" "${choice/#\~/$HOME}" || fail "see the error above"
+fi

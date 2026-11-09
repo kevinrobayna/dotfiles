@@ -93,7 +93,7 @@ Scripts in `bin/` are added to `$PATH`:
 | Script | Description |
 |--------|-------------|
 | `gwt` | Create a git worktree with interactive branch selection, opens in tmux |
-| `gwt-rm` | Remove git worktrees and their associated tmux sessions |
+| `gwt-rm` | Remove git worktrees and their associated tmux or Rex sessions |
 | `gh-review` | List GitHub PRs requesting your review (direct + team) |
 | `gh-reviewers` | Interactively add reviewers to a GitHub PR |
 | `tmux-sessionizer` | Fuzzy-pick a project and open/attach a tmux session |

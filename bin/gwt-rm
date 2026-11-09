@@ -22,14 +22,22 @@ selected=$(echo "$worktrees" | gum filter --header "Select worktree to remove")
 # Confirm removal
 gum confirm "Remove $selected?" || { echo "Aborted"; exit 0; }
 
-# Kill the tmux session if one exists for this worktree
-sesh_name=$(basename "$selected")
-tmux kill-session -t "$sesh_name" 2>/dev/null || true
-
 git worktree remove --force "$selected" 2>/dev/null || true
 rm -rf "$selected"
 
+# Clean up stale worktree references. Run from the main worktree in case the
+# current directory was the one just removed.
+git -C "$main_worktree" worktree prune
+
 echo "Removed $selected"
 
-# Clean up stale worktree references
-git worktree prune
+# Kill the session named after the worktree (as gwt creates it) last, since
+# it may be the session this script runs in.
+sesh_name=${selected:t}
+if [[ -n $REX_SESSION ]]; then
+  rex ls --json |
+    jq -r --arg label "$sesh_name" '.sessions[] | select(.label == $label) | .session_id' |
+    xargs rex kill 2>/dev/null || true
+else
+  tmux kill-session -t "$sesh_name" 2>/dev/null || true
+fi

@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+# Switch Rex to the session named after DIR, creating it in DIR first if
+# there is none. The Rex counterpart of `sesh connect DIR`.
+#
+#   rex-open-session DIR
+#
+# Switching needs Remote Control turned on in Rex's settings.
+
+dir=${1:A}
+[[ -n $1 && -d $dir ]] || { print -u2 -- "rex-open-session: no such directory: $1"; exit 1; }
+label=${dir:t}
+
+id=$(rex ls --json | jq -r --arg label "$label" '[.sessions[] | select(.label == $label)][0].session_id // empty')
+if [[ -z $id ]]; then
+  id=$(rex new "$label" -c "$dir" --json | jq -er '.session_id') ||
+    { print -u2 -- "rex-open-session: could not create session $label"; exit 1; }
+fi
+
+rex do session.select session_id="$id" >/dev/null ||
+  { print -u2 -- "rex-open-session: could not switch to $label. Turn on Remote Control in Rex settings, or switch with cmd+k."; exit 1; }

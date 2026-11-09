@@ -30,7 +30,7 @@ Sigstore is blocked on the work network, so the work laptop's untracked `~/.zshr
 ### Symlink Strategy (GNU Stow)
 
 Three stow packages are used in `mise-tasks/link`:
-- `config/` - stowed to `$HOME` (contains `.config/` subtree: nvim, zsh, tmux, git, bat, btop, htop, lf, starship)
+- `config/` - stowed to `$HOME` (contains `.config/` subtree: nvim, zsh, tmux, rex, git, bat, btop, htop, lf, starship)
 - `gitconfig/` - stowed to `$HOME` with `--dotfiles` flag (files prefixed `dot-` become `.` files)
 - `claude/` - stowed to `$HOME` with `--dotfiles` flag (Claude Code config at `dot-claude/`)
 
@@ -45,8 +45,9 @@ Manual symlinks (not stow-managed):
 - `config/.config/zsh/` - Shell config: `exports.zsh` (env vars, tool inits) and `aliases.zsh`
 - `~/.zshrc.work` - Optional, untracked work-only zsh config (like `~/.secrets`), sourced last by `.zshrc` if present
 - `config/.config/tmux/tmux.conf` - Tmux configuration
+- `config/.config/rex/init.lua` - Rex terminal multiplexer config (key bindings migrated from tmux and Ghostty)
 - `config/.config/git/` - Git config (hooks, attributes, ignore patterns)
-- `bin/` - Custom scripts: `gwt` (git worktree helper), `gwt-rm`, `tmux-sessionizer`
+- `bin/` - Custom scripts: `gwt` (git worktree helper), `gwt-rm`, `tmux-sessionizer`, `rex-sessionizer` (Rex version, opened by ctrl+w from `init.lua`), `rex-open-session` (open or create the Rex session for a directory; used by `gwt` and `rex-sessionizer`)
 - `blink/` - Blink Shell (iOS) theme
 - `Brewfile` - All Homebrew dependencies
 
