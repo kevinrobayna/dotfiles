@@ -153,6 +153,15 @@
             "command": "\"$HOME/Library/Application Support/Bartender/NotchBar/AgentStatus/hooks/claude-event-hook.sh\" Idle # notchbar-agents-claude-hook"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude --feature-session-naming=false 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
@@ -217,11 +226,7 @@
     "lua-lsp@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "personio-common@personio-claude-code-marketplace": true,
-    "personio-eng-common@personio-claude-code-marketplace": true,
-    "personio-eng-kotlin@personio-claude-code-marketplace": true,
-    "pgc@personio-claude-code-marketplace": true,
-    "split-io@personio-claude-code-marketplace": true
+    "personio-eng-ops@personio-claude-code-marketplace": true
   },
   "extraKnownMarketplaces": {},
   "tui": "fullscreen",
