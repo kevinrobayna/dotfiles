@@ -13,6 +13,7 @@ fi
 # committed: it also holds work-only taps. Narrow (per-package) trust is used
 # rather than whole-tap trust so a compromised tap cannot ship anything else.
 brew trust --formula localstack/tap/localstack-cli
+brew trust --formula JetBrains/utils/kotlin-lsp
 brew trust --cask kevinrobayna/tap/codeowner
 brew trust --command domt4/autoupdate/autoupdate
 

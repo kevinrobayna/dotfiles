@@ -5,6 +5,7 @@
 # load them; the `homebrew` mise task does that before running `brew bundle`.
 tap "kevinrobayna/tap"
 tap "localstack/tap"
+tap "JetBrains/utils"
 # homebrew/autoupdate was deprecated and moved here
 tap "domt4/autoupdate"
 
@@ -129,6 +130,8 @@ brew "docker-credential-helper"
 brew "docker-credential-helper-ecr"
 # Decompile Java/Kotlin .class and .jar files back to Java source
 brew "cfr-decompiler"
+# JetBrains' Kotlin language server; on PATH for Claude Code's kotlin-lsp plugin
+brew "JetBrains/utils/kotlin-lsp"
 # Ruby / Postgres
 # ruby-build needs autoconf to compile ruby (mise config sets ruby.compile)
 # Generates configure scripts for building from source
