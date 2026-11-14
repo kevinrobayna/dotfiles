@@ -7,6 +7,11 @@ return {
   },
   config = function()
     vim.g.projectionist_heuristics = {
+      -- Matched against every parent directory, so the nearest Gradle module wins in a monorepo.
+      ["build.gradle.kts|build.gradle"] = {
+        ["src/main/kotlin/*.kt"] = { type = "src", alternate = "src/test/kotlin/{}Test.kt" },
+        ["src/test/kotlin/*Test.kt"] = { type = "test", alternate = "src/main/kotlin/{}.kt" },
+      },
       [".ruby-version"] = {
         ["app/*.rb"] = {
           type = "src",

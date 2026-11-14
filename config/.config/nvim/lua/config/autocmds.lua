@@ -29,6 +29,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+-- Autoformat is off globally (options.lua); Kotlin opts back in so ktlint runs on save.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "kotlin",
+  callback = function()
+    vim.b.autoformat = true
+  end,
+})
+
 -- Fix conceallevel for json & help files
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "json", "jsonc" },
