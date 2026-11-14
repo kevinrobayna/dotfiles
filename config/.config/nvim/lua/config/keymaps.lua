@@ -29,3 +29,7 @@ keymap("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
 -- Visual Block Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+-- Save with cmd+s. Rex sends it as super+s (kitty keyboard protocol); unmapped,
+-- nvim falls back to a plain `s` and substitutes the character under the cursor.
+vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
