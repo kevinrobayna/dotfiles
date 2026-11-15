@@ -14,7 +14,7 @@ uv = "latest" # backend for the pypi: tools below
 # Go / API
 golangci-lint = "latest"
 goreleaser = "latest"
-"aqua:gohugoio/hugo/hugo-extended" = "latest"
+hugo = "latest"
 buf = "latest"
 grpcurl = "latest"
 "aqua:google/go-jsonnet" = "latest"
