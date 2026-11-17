@@ -112,6 +112,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "$HOME/.claude/hooks/notify.sh"
+          },
+          {
+            "type": "command",
             "command": "\"$HOME/Library/Application Support/Bartender/NotchBar/AgentStatus/hooks/claude-event-hook.sh\" Idle # notchbar-agents-claude-hook"
           }
         ]
