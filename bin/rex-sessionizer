@@ -22,9 +22,15 @@ sessions() {
 }
 
 # Picker entries: open sessions first, then zoxide directories with ~ for $HOME.
+# A directory whose name matches an open session is left out: picking it would
+# switch to that session anyway, and it would compete with it in the filter.
 entries() {
-  sessions | cut -f2 | sed "s/^/$session_mark/"
-  zoxide query -l | sed "s|^$HOME|~|"
+  local labels
+  labels=$(sessions | cut -f2)
+  [[ -n $labels ]] && print -r -- "$labels" | sed "s/^/$session_mark/"
+  zoxide query -l |
+    awk -F/ 'NR == FNR { open[$0]; next } !($NF in open)' <(print -r -- "$labels") - |
+    sed "s|^$HOME|~|"
 }
 
 # Prints the ID of the session labelled $1, if any.
@@ -43,7 +49,7 @@ if [[ $1 == --list ]]; then
   exit
 fi
 
-choice=$(entries | gum filter --limit 1 --placeholder 'Pick a session' --height 60 --prompt='⚡') || exit 0
+choice=$(entries | gum filter --no-fuzzy-sort --limit 1 --placeholder 'Pick a session' --height 60 --prompt='⚡') || exit 0
 [[ -n $choice ]] || exit 0
 
 if [[ $choice == $session_mark* ]]; then
