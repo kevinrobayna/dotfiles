@@ -1,6 +1,7 @@
 [commit]
   gpgsign = true
   template = ~/.config/git/gitmessage
+  verbose = true
 [core]
   editor = nvim 
   pager = delta
@@ -10,11 +11,25 @@
   rebase = false
   ff = yes
 [init]
-  defaultBranch = master
+  defaultBranch = main
 [merge]
   ff = no
   commit = no
-  conflictstyle = diff3
+  conflictstyle = zdiff3
+[push]
+  autoSetupRemote = true
+[fetch]
+  prune = true
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
+[rebase]
+  updateRefs = true
+  autoSquash = true
+  autoStash = true
+[rerere]
+  enabled = true
 [alias]
   co = checkout
 [interactive]
@@ -34,7 +49,9 @@
   line-numbers-plus-style       = syntax "#627259"
   line-numbers-zero-style       = syntax "#3b4261"
 [diff]
+  algorithm = histogram
   colorMoved = default
+  colorMovedWS = allow-indentation-change
 [maintenance]
   repo = ~/Git/zsh-autocomplete
   repo = ~/Git/zsh-autosuggestions
@@ -52,9 +69,6 @@
   insteadOf = git@github.com:Personio-Internal/
 [gpg]
   format = ssh
-[remote "origin"]
-	prune = true
-
 # Work config always added manually
 [includeIf "gitdir:~/dev/"]
   path = ~/.gitconfig-work
